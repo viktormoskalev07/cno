@@ -1,20 +1,18 @@
-$main-button:green;
-$main-button-hover:rgb(9, 65, 9);
  
 .button{
-    width: 100%;
+   transition: 0.2s;
     display: inline-block;
-    padding:10px 25px;
-    background-color: $main-button;
-    border:solid $main-button;
+    padding:20px 25px;
+    background-color:  white;
+    border:solid $blue 2px;
+
     font-size: 24px;
-    color:white;
-    border-radius: 4px;
+    color:$blue; 
       cursor: pointer;
   }
   
   .button:hover{
-    color:$green;
+    color:$blue;
     background-color: white;
   }
   
