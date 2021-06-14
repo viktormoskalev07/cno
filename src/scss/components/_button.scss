@@ -2,20 +2,30 @@
 .button{
    transition: 0.2s;
     display: inline-block;
-    padding:20px 25px;
-    background-color:  white;
+    padding:16px 16px; 
     border:solid $blue 2px;
-
-    font-size: 24px;
-    color:$blue; 
+    border-radius: 2px;
+    font-size: 22px;
+    line-height: 27px; 
+    font-family: ubuntu;
       cursor: pointer;
+      color:white;
+      background-color: $blue;
   }
   
   .button:hover{
+    background-color:  white;
     color:$blue;
-    background-color: white;
   }
-  
+
+  .button--invert{
+    background-color:  white;
+    color:$blue;
+    &:hover{
+      color:white;
+      background-color: $blue;
+    }
+  }
   
  
 

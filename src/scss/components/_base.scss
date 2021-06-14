@@ -5,7 +5,15 @@ $logowidth:50px;
 body{
   background-color: rgb(199, 199, 199);
   // for popup noscroll 
+
+  font-family: Ubuntu;
+  font-size: 32px;
+  line-height: 1.8;
 }
+.text-blue{
+  color:$blue;
+}
+.flex-center{display: flex; justify-content: center;   align-items: center; }
 
 // footer to bottom
 .body , html{
