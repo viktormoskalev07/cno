@@ -22,8 +22,8 @@
     padding-bottom: 30px;
   }
 
-  .nav-link{
-    &:hover{
+  .nav-link {
+    &:hover {
       background-color: $light-blue;
     }
 
@@ -40,9 +40,10 @@
       fill: $light1;
     }
   }
-   button{
-     background-color: #0b5ed7;
-   }
+
+  button {
+    background-color: #0b5ed7;
+  }
 
   &__nav-link {
     padding: 10px 25px;
@@ -82,9 +83,11 @@
     background-color: $light1;
     color: black;
     box-shadow: 0 6px 12px 0 rgba(118, 117, 117, 0.31);
-    &:hover{
+
+    &:hover {
       background-color: $light-blue;
     }
+
     &:hover .cno-tabs__nav-title {
       color: $light1;
     }
