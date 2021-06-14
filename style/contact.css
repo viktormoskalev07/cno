@@ -1,0 +1,229 @@
+body{
+    font-family: 'Nunito', sans-serif;
+
+  }
+  * {
+      padding: 0;
+      margin: 0;
+  }
+
+  .c-right form {
+ 
+    width: 399px;
+    margin-left: -2em;
+    color: #494947;
+    box-shadow: 0px 3px 6px #00000029;
+    border-radius: 16px;
+    opacity: 1;
+    padding: 2em;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+  }
+  .c-right form .form-group {
+      margin-bottom: 1em;
+  }
+  .c-right {
+  
+    background: transparent url('../img/Composant60–13.svg') no-repeat right top;
+
+  }
+ .form-control  {
+  width: 328px;
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  border: 0.5px solid #061146;
+  border-radius: 8px;
+    color: #061146;
+    opacity: 1;
+
+ }
+  .c-right {
+    padding-top: 3em;
+
+  }
+  .body-contact .container .row {
+  }
+  .c-left {
+    width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      padding-right:2em;
+      padding-top: 4em;
+  }
+  .n-border{
+      border:none;
+  }
+  .second-contact {
+    position: relative;
+    background: #171C2E 0% 0% no-repeat padding-box;
+  
+  }
+
+  .c-left .f h2 {
+    font: normal normal 800 30px/28.25px Nunito;
+    letter-spacing: 0px;
+    color: #2E54D4;
+    text-align: justify;
+    opacity: 1;
+    width: 442px;
+  }
+
+  .c-left .f p {
+      text-align: justify;
+    font: normal normal normal 15px/26.25px Nunito;
+    letter-spacing: 0px;
+    color: #9F9F9F;
+    opacity: 1;
+    width: 322px;
+  }
+  
+  .img-v {
+    background-image: url('../img/Composant60–13.svg') no-repeat;
+width: 448px;
+height: 695px;
+display: flex;
+align-items: flex-end;
+justify-content: flex-end;
+margin-top: 32em;
+
+  }
+
+/* Iphone */
+  @media all and  (min-width:310px) and (max-width:768px) {
+    .f {
+      margin: auto;
+    }
+    .first-second {
+      height: 270px;
+    }
+    .c-right form {
+ 
+      width: 299px;
+margin: auto;
+      color: #494947;
+      box-shadow: 0px 3px 6px #00000029;
+      border-radius: 16px;
+      opacity: 1;
+      padding: 2em;
+      background: #FFFFFF 0% 0% no-repeat padding-box;
+    }
+    .c-right form .form-group {
+        margin-bottom: 1em;
+    }
+    .c-right {
+    
+      background: transparent url('../img/Composant60–13.svg') no-repeat right top;
+  
+    }
+   .form-control  {
+    width: 228px;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 0.5px solid #061146;
+    border-radius: 8px;
+      color: #061146;
+      opacity: 1;
+  
+   }
+    .c-right {
+      padding-top: 3em;
+  
+    }
+    .body-contact .container .row {
+    }
+    .c-left {
+      width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        padding-right:2em;
+        padding-top: 4em;
+    }
+    .n-border{
+        border:none;
+    }
+    .second-contact {
+      position: relative;
+      background: #171C2E 0% 0% no-repeat padding-box;
+    
+    }
+  
+    .c-left .f h2 {
+      font: normal normal 800 12px/35px Nunito;
+      letter-spacing: 0px;
+      color: #2E54D4;
+      text-align: justify;
+      opacity: 1;
+      width: 242px;
+    }
+  
+    .c-left .f p {
+        text-align: justify;
+        font: normal normal normal 11px/25px Nunito;
+      letter-spacing: 0px;
+      color: #9F9F9F;
+      opacity: 1;
+      width: 222px;
+    }
+    
+    .img-v {
+      background-image: url('../img/Composant60–13.svg') no-repeat;
+  width: 248px;
+  height: 695px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  /* margin-top: 32em; */
+  
+    }
+  }
+
+  /* Ipad */
+  @media all and (min-width: 768px) and (max-width:812px){
+    .c-left .f p {
+      text-align: justify;
+    font: normal normal normal 22px/36.25px Nunito;
+    letter-spacing: 0px;
+    color: #9F9F9F;
+    opacity: 1;
+    width: 322px;
+  }
+  .f {
+    padding:2em;
+    text-align: center;
+  }
+  .c-left .f h2 {
+    font: normal normal 800 27px/28.25px Nunito;
+    letter-spacing: 0px;
+    color: #2E54D4;
+    text-align: justify;
+    opacity: 1;
+    width: 442px;
+  }
+  .c-left {
+    width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      padding-right:2em;
+      padding-top: 0;
+  }
+  .c-left {
+    width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      padding-right:2em;
+      justify-content: center;
+      align-items: center;
+      /* padding-top: 4em; */
+  }
+  }
+
+  /* Ipad pro */
+  @media all and (min-width:1024px) and (max-width:1366px) {
+
+  }
+
+  /* Desktop */
+  @media  all and (min-width:1366px) {
+
+  }
