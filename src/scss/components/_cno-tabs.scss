@@ -1,0 +1,113 @@
+.cno-tabs {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  &__title-content {
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+  }
+
+  &__title {
+    color: $blue;
+    font-size: 40px;
+    font-weight: bold;
+  }
+
+  &__sub-title {
+    font-size: 30px;
+    color: $dark;
+    padding-bottom: 30px;
+  }
+
+  .nav-link{
+    &:hover{
+      background-color: $light-blue;
+    }
+
+
+    &:hover .cno-tabs__nav-title {
+      color: $light1;
+    }
+
+    &:hover .cno-tabs__nav-text {
+      color: $light1;
+    }
+
+    &:hover svg {
+      fill: $light1;
+    }
+  }
+   button{
+     background-color: #0b5ed7;
+   }
+
+  &__nav-link {
+    padding: 10px 25px;
+    margin-bottom: 30px;
+    display: flex;
+    background-color: white;
+
+
+    svg {
+      fill: $lightDark;
+    }
+  }
+
+  &__wrap-text {
+    padding-left: 40px;
+    color: $lightDark;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__nav-title {
+    padding-top: 13px;
+    text-align: left;
+    font-size: 25px;
+  }
+
+  &__nav-text {
+    font-size: 20px;
+    text-align: left;
+  }
+
+  .nav {
+    width: 35%;
+  }
+
+  .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    background-color: $light1;
+    color: black;
+    box-shadow: 0 6px 12px 0 rgba(118, 117, 117, 0.31);
+    &:hover{
+      background-color: $light-blue;
+    }
+    &:hover .cno-tabs__nav-title {
+      color: $light1;
+    }
+
+    &:hover .cno-tabs__nav-text {
+      color: $light1;
+    }
+
+    &:hover svg {
+      fill: $light1;
+    }
+
+
+    .cno-tabs__nav-title {
+      color: $light-blue;
+    }
+
+    svg {
+      fill: $light-blue;
+    }
+  }
+
+  .tab-content {
+    margin-left: 15px;
+  }
+}
