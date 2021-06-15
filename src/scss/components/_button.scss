@@ -2,11 +2,17 @@
 .button{
    transition: 0.2s;
     display: inline-block;
-    padding:16px 16px; 
+    padding:12px; 
     border:solid $blue 2px;
     border-radius: 2px;
-    font-size: 22px;
+    font-size: 16px;
+    line-height: 20px;
+    @include bsmob{
+       font-size: 22px;
     line-height: 27px; 
+    padding: 16px;
+    }
+   
     font-family: ubuntu; 
     text-decoration: none;
       cursor: pointer;

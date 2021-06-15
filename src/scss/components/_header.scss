@@ -12,8 +12,7 @@
         }
         max-width: 1920px; 
     }
-    transition: 0.3s;
-//   box-shadow: 1px 1px 50px 1px  rgb(238, 238, 238) inset ;
+    transition: 0.3s; 
     &-content{
         padding: 20px 0;
         display: flex;
@@ -24,7 +23,10 @@
     .logo{
         img{
             object-fit: contain;
-            width: 130px;
+            width: 100px;
+            @include bsmob{
+                width: 135px;
+            }
         height: auto;
         }
          a{

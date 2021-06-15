@@ -68,30 +68,36 @@ function togglescroll(){
 
 function pagescroll(){ 
   let pscroll = 0;
-  window.addEventListener('scroll', function() { 
+  
+  window.addEventListener('scroll', function() {  
       if (pscroll<pageYOffset&pageYOffset>header.offsetHeight){
-               header.style.transform="translateY(-100%)"; //прячем хедер при прокрутке вниз            
+               header.style="transform:translateY(-100%)"; //прячем хедер при прокрутке вниз            
        }else { 
-            header.style.transform="none"; //показываем хедер при прокрутке вверх        
+            header.style="transform:none ;"; //показываем хедер при прокрутке вверх           
        }  
    pscroll=pageYOffset;
  });
 }
 
  //Появление меню при прокрутке
+ //card
+  const cards=document.querySelectorAll('.card-dark');
+  if(cards.length>-1){
+    for(let i=0 ;i<cards.length ; i++){
+      cards[i].addEventListener('click',function(){
+        cards[i].classList.toggle('card-dark-active'); 
+      })
+    }
+  }
+
+ //card
 
 //swiper
   window.addEventListener('load', function(){
-     var swiper = new Swiper(".cards1", {
+     const swiper = new Swiper(".cards1", {
       pagination: {
         el: ".swiper-pagination",
-      },
-      breakpoints: { 
-        680: {
-          slidesPerView: 2,
-          spaceBetween: 20
-        }
-      }
+      }, 
     });  
   })  
    

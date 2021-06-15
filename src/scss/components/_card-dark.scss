@@ -1,0 +1,169 @@
+
+ .card-dark {
+  margin-top: 70px;
+    cursor: pointer;
+    color: #fff;
+    z-index:1;
+    
+    background-color: $light-blue;
+    @include bsmob {
+      background-color: $dark;
+   }
+   
+    position: relative;
+    text-align: center;
+
+    @include bsmob {
+        min-height: 300px;
+    } 
+    padding:80px 20px;
+    border: 2px solid #061146;
+    &__first-side{
+        transition: 0.5s;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0; 
+         transform: translateY(-50%);
+        display: flex;
+        flex-direction: column; 
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        @include bsmob {
+            height: 100%;
+            bottom: 0;
+            transform: none;
+        }
+        .card-dark {
+            &__title{
+                display: none;
+                @include bsmob {
+                    display: block; 
+                }
+            }
+            &__undertitle{
+                display: none;
+                @include bsmob {
+                    display: block; 
+                }
+            }
+            
+        }
+    }
+    &__second-side{  
+        @include bsmob { 
+            transform-origin: 100% 100%;
+            transform: scaleY(0);
+            opacity: 0;
+            transition:0.5s;
+       } 
+    }
+    &__img {
+       transition: 1s;
+       max-height: 150px;
+        img {
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
+        }
+    }
+
+    &__title,
+    &__subtitle {
+        font-size: 25px;
+        line-height: 2.2;
+    }
+
+    &__title {
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+
+    &__subtitle {
+        font-weight: 600;
+    }
+
+    &__description {
+        transition: 0.5s;
+        font-size: 20px;
+        line-height: 2.25;
+        letter-spacing: 0; 
+    }
+
+
+    &__background {
+        transition: 0.5s;
+        position: absolute;
+        z-index: -1;
+        top: 100%;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #273a77; 
+        @include bsmob {
+            top: 100%;
+        } 
+        pointer-events: none; 
+    }
+
+    &__container {
+        .swiper-pagination-bullet {
+            background-color: inherit;
+            border: solid white 1px;
+            width: 22px;
+            height: 22px;
+            padding: 3px;
+            opacity: 1;
+
+            &-active {
+                background-clip: content-box;
+                background-color: #fff;
+            }
+
+        }
+
+        .swiper-pagination-bullets {
+            bottom: 30px;
+        }
+    }
+ 
+
+    &:hover { 
+        .card-dark {
+            &__background {
+                @include bsmob {
+                    top: 0px; 
+                }
+            }
+        } 
+    }  
+    &-active{
+       background-color: $light-blue;
+       .card-dark{
+           &__background {
+            @include bsmob {
+              
+              display: none;
+            }
+           }
+           &__second-side{
+            @include bsmob {
+                    transform: scale(1); 
+                    opacity: 1;
+           }
+           }
+           &__first-side{
+            @include bsmob {
+                bottom:100%;
+               height: 0; 
+               opacity: 0;
+               overflow: hidden;
+       }
+           
+           }
+           
+       }
+    }
+}
+
