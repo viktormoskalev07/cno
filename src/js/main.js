@@ -80,7 +80,23 @@ function pagescroll(){
 
  //Появление меню при прокрутке
 
+//swiper
+  window.addEventListener('load', function(){
+     var swiper = new Swiper(".cards1", {
+      pagination: {
+        el: ".swiper-pagination",
+      },
+      breakpoints: { 
+        680: {
+          slidesPerView: 2,
+          spaceBetween: 20
+        }
+      }
+    });  
+  })  
+   
 
+//swiper
 
 
 
