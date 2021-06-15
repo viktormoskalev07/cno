@@ -1,6 +1,96 @@
-footer{
-  padding: 20px 10px 30px 10px;
-  background-color:#000;
-  color:white;
+.footer{
+	&__top{
+		padding: 20px 10px 30px 10px;
+		background-color: #061146;
+		color:white;
+		@media screen and(min-width: $lg) {
+			display: flex;
+			padding-bottom: 0;
+		}
+	}  
+	&__img{
+		max-width: 200px;
+		padding-bottom: 40px;
+	}
+	&__text{
+		font-size: 18px;
+	}
+	&__content{
+		width: 100%;
+		padding-bottom: 40px;
+		@media screen and(min-width: $lg) {
+			width: 60%;
+		}
+	}
+	&__buttons{
+		display: flex;
+		width: 100%;
+		background-color: #2E54D4;
+		padding: 40px 15px;
+		margin-bottom: 40px;
+		@media screen and(min-width: $lg) {
+			width: 30%;
+			margin: 0;
+		}
+	}
+	&__wrap-buttons{
+		display: flex;
+		@media screen and(min-width: $lg) {
+		    flex-direction: column;
+		    align-items: center;
+		    justify-content: center;
+		}
+	}
+	&__button{
+		display: block;
+		line-height: 1;
+		font-size: 23px;
+		&:hover{
+			color: #fff;
+			text-decoration: underline;
+		}		
+	}
+	&__line{
+		border-left: 3px solid #fff;
+		margin: 0 58px;
+		@media screen and(min-width: $lg){
+			border-left: 33px solid #fff;
+		    margin: 35px 0;
+		    border-bottom: 3px solid #fff;
+		}
+			
+	}
+	&__social{
+		width: 100%;
+		display: flex;
+		justify-content: space-around;
+		max-width: 500px;
+		margin: 0 auto;
+		@media screen and(min-width: $lg) {
+			flex-direction: column;
+			align-items: center;
+			width: 10%;
+		}
+	}
+	.icon{
+		fill: #fff;
+		max-width: 43px;
+		max-height: 43px;
+	}
+	&__bottom{
+		padding: 18px 15px;
+		display: flex;
+		justify-content: space-between;
+		font-size: 12px;
+		color: #707070;
+		a{
+			border-right: 1px solid #707070;
+			padding: 0 5px;
+			line-height: 1;
+			&:last-child{
+				border-right: none;
+			}
+		}
+	}
 }
  
