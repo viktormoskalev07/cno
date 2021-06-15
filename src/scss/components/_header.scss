@@ -1,9 +1,19 @@
 
 
 .header{
-background-color: rgb(253, 253, 253);    
+    z-index: 10;
+    &__container{
+        padding: 0 40px;
+        @include lg{
+            padding: 0 60px;
+        }
+        @include xl{
+            padding: 0 140px;
+        }
+        max-width: 1920px; 
+    }
     transition: 0.3s;
-  box-shadow: 1px 1px 50px 1px  rgb(238, 238, 238) inset ;
+//   box-shadow: 1px 1px 50px 1px  rgb(238, 238, 238) inset ;
     &-content{
         padding: 20px 0;
         display: flex;
@@ -14,10 +24,12 @@ background-color: rgb(253, 253, 253);
     .logo{
         img{
             object-fit: contain;
-            width: 50px;
+            width: 130px;
         height: auto;
         }
-        width: $logowidth;  
+         a{
+             display: inline-block;
+         }
     }
 }
 
