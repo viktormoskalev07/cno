@@ -1,1 +1,72 @@
  
+ .card-blue{  
+    margin-bottom: 40px; 
+     
+    &__container{   
+        width: 100%;
+        min-height: 300px;
+        z-index: 1;
+        position: relative;
+        background-color: #fff; 
+        box-shadow: 0px 3px 6px #00000029; 
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding: 10px;
+        border-radius: 10px;
+        @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+               height: 300px;
+               overflow-y:auto;
+               overflow-x:hidden;
+        }
+        &:hover{
+            .card-blue__background{
+                top:0;
+            }
+            .card-blue__description{
+                color: $gray; 
+            }
+            .card-blue__title{
+                color: $gray; 
+            }
+        }
+    }
+    &__body{
+   width: 100%;
+    }
+    &__icon{
+        img{
+            width: 29px;
+        }
+    } 
+    &__title{
+        width: 100%;
+        transition: 0.5s;
+        color:$light-blue;
+        font-weight: 600;
+        letter-spacing: 0;
+        font-size: 20px;
+        line-height: 1.2;
+        margin:15px 0;
+    }
+    &__description{
+        width: 100%;
+        transition: 0.2s;
+        font-size: 17px;
+        line-height: 1.35;
+        max-width: 250px;
+        margin: 0 auto;
+    }
+    &__background{
+        position: absolute;
+        top:100%;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color   :$blue;
+        z-index: -1;
+        transition:0.5s;
+    }
+    
+ }

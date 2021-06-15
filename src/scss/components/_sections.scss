@@ -1,1 +1,24 @@
- 
+ .section {
+     padding: 60px 0;
+     &__title{
+        font-size: 40px;
+        line-height: 1.112;
+        text-transform: none; 
+        max-width: 700px;
+        color:$blue;
+        margin:31px auto ;
+     }
+     &__description{
+        font-weight: 700;
+        font-size:20px ;
+        color:$dark;
+        max-width: 700px;
+        line-height: 1.75;
+        margin:31px auto ;
+        text-align: center;
+     }
+ }
+
+ .section-gray{
+     background-color:$gray;
+ }
