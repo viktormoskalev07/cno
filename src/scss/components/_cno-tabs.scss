@@ -4,6 +4,10 @@
   flex-direction: column;
   justify-content: center;
 
+  &__content {
+    overflow: hidden;
+  }
+
   &__title-content {
     flex-direction: column;
     display: flex;
@@ -23,6 +27,8 @@
   }
 
   .nav-link {
+    border: none;
+
     &:hover {
       background-color: $light-blue;
     }
@@ -40,7 +46,7 @@
       fill: $light1;
     }
   }
-  
+
   &__nav-link {
     padding: 10px 25px;
     margin-bottom: 30px;
@@ -67,8 +73,11 @@
   }
 
   &__nav-text {
-    font-size: 20px;
+    font-size: 18px;
     text-align: left;
+    @include bsMob {
+      font-size: 20px;
+    }
   }
 
   .nav {
@@ -108,5 +117,22 @@
 
   .tab-content {
     margin-left: 15px;
+  }
+
+  .swiper-tabs {
+    @extend .swiper-wrapper;
+  }
+
+  .swiper-pagination-bullet {
+    width: 18px;
+    height: 18px;
+  }
+  .swiper-pagination-bullets {
+    display: flex;
+    padding-bottom: 15px;
+    justify-content: center;
+    @include bsMob {
+      display: none;
+    }
   }
 }
