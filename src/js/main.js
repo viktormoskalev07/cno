@@ -95,8 +95,11 @@ window.addEventListener('load', function () {
     });
 })
 
+
+//swiper
 window.addEventListener('load', function () {
-    const swiperTabs = new Swiper(".swiper-tabs", {
+
+    let swiperTabs = new Swiper(".swiper-tabs", {
         pagination: {
             el: ".swiper-pagination-tabs",
         },
@@ -107,10 +110,46 @@ window.addEventListener('load', function () {
             }
         }
     });
+
+    let init = false;
+
+    function swiperMode() {
+        let mobile = window.matchMedia("(min-width: 0px) and (max-width:693px)");
+        let desktop = window.matchMedia("(min-width: 693px) and (max-width: 40000px)");
+
+        if (mobile.matches) {
+            if (!init) {
+                init = true;
+                swiperTabs = new Swiper(".swiper-tabs", {
+                    pagination: {
+                        el: ".swiper-pagination-tabs",
+                    },
+                    breakpoints: {
+                        320: {
+                            slidesPerView: 1,
+                            spaceBetween: 20
+                        }
+                    }
+                });
+            }
+        } else if (desktop.matches) {
+            init && swiperTabs.destroy();
+            init = false;
+        }
+    }
+
+    if (document.querySelector(".swiper-tabs")) {
+        window.addEventListener("load", function () {
+            swiperMode();
+        });
+
+        window.addEventListener("resize", function () {
+            swiperMode();
+        });
+    }
 })
 
-    //swiper
-
+//swiper
 
 
 //отправка формы
