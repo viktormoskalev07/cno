@@ -1,7 +1,10 @@
  .card-blue {
     
      margin-bottom: 40px;
-     max-width: 432px;
+     @media (max-width:768px){
+          max-width: 432px;
+     }
+    
      display: flex;
     position: relative;
     &__first-side{

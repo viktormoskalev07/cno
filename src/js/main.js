@@ -90,38 +90,47 @@ function pagescroll(){
 
  //Появление меню при прокрутке
  //card
-  const cards=document.querySelectorAll('.card-dark');
+ const cards=document.querySelectorAll('.card-dark');
+  function cardsToggler(){
+
   if(cards.length>-1){
-    for(let i=0 ;i<cards.length ; i++){
-      console.log(cards[i]);
-      cards[i].addEventListener('click',function(){
-        cards[i].classList.toggle('card-dark-active'); 
+    for(let i=0 ;i<cards.length ; i++){ 
+      cards[i].addEventListener('click',function(){ 
+        this.classList.toggle('card-dark-active'); 
       })
       cards[i].addEventListener('keypress',function(e){
         if(e.key=='Enter'){
-            cards[i].classList.toggle('card-dark-active'); 
+          this.classList.toggle('card-dark-active'); 
         }  
       })
     }
   }
+  }
+
+  window.addEventListener('load' , cardsToggler);
+ 
 
  //card
 
-//swiper
  
-   
-
-//swiper
  
  
 
 (function () {
     window.addEventListener('load', function () {
-      const swiper = new Swiper(".cards1", {
+      if(this.document.querySelector('.cards1')){
+        try{
+             const swiper = new Swiper(".cards1", {
         pagination: {
           el: ".swiper-pagination",
         }, 
-      });  
+      }); 
+        }catch (e){
+          console.log(e);
+        }
+            
+      }
+
 
 
         const swiperContainer=document.getElementById('swiper-tabs-wrap');
