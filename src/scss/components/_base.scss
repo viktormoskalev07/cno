@@ -13,6 +13,10 @@ body{
 .text-blue{
   color:$blue;
 }
+.hidden{
+  display: none;
+  overflow: hidden;
+}
 .flex-center{display: flex; justify-content: center;   align-items: center; }
 
 // footer to bottom
