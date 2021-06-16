@@ -4,6 +4,10 @@
   flex-direction: column;
   justify-content: center;
 
+  &__box {
+    display: none;
+  }
+
   &__content {
     overflow: hidden;
   }
@@ -16,14 +20,21 @@
 
   &__title {
     color: $blue;
-    font-size: 40px;
+    font-size: 25px;
     font-weight: bold;
+    @include bsMob {
+      font-size: 40px;
+    }
   }
 
   &__sub-title {
-    font-size: 30px;
+    text-align: center;
+    font-size: 18px;
     color: $dark;
     padding-bottom: 30px;
+    @include bsMob {
+      font-size: 30px;
+    }
   }
 
   .nav-link {
@@ -69,11 +80,14 @@
   &__nav-title {
     padding-top: 13px;
     text-align: left;
-    font-size: 25px;
+    font-size: 18px;
+    @include bsMob {
+      font-size: 25px;
+    }
   }
 
   &__nav-text {
-    font-size: 18px;
+    font-size: 16px;
     text-align: left;
     @include bsMob {
       font-size: 20px;
@@ -127,6 +141,7 @@
     width: 18px;
     height: 18px;
   }
+
   .swiper-pagination-bullets {
     display: flex;
     padding-bottom: 15px;

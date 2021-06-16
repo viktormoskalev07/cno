@@ -98,6 +98,8 @@ window.addEventListener('load', function () {
 
 //swiper
 window.addEventListener('load', function () {
+    const swiperContainer=document.getElementById('swiper-tabs-wrap');
+    const tabs=document.getElementById('tabs-box');
 
     let swiperTabs = new Swiper(".swiper-tabs", {
         pagination: {
@@ -114,10 +116,15 @@ window.addEventListener('load', function () {
     let init = false;
 
     function swiperMode() {
-        let mobile = window.matchMedia("(min-width: 0px) and (max-width:693px)");
+
+        let mobile = window.matchMedia("(min-width: 0px) and (max-width:692px)");
         let desktop = window.matchMedia("(min-width: 693px) and (max-width: 40000px)");
 
         if (mobile.matches) {
+
+            tabs.style.display="none";
+            swiperContainer.style.display="block";
+            console.log(mobile.matches, "mob");
             if (!init) {
                 init = true;
                 swiperTabs = new Swiper(".swiper-tabs", {
@@ -133,8 +140,12 @@ window.addEventListener('load', function () {
                 });
             }
         } else if (desktop.matches) {
-            init && swiperTabs.destroy();
-            init = false;
+
+            swiperContainer.style.display="none";
+            tabs.style.display="block";
+            console.log(swiperContainer)
+            console.log(desktop.matches)
+
         }
     }
 
