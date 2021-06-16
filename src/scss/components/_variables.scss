@@ -1,4 +1,4 @@
- 
+$s:425px;
 $sm: 576px;
 $md: 768px;
 $lg: 992px;
@@ -37,9 +37,14 @@ $bsMob:693px;
   }
 };
 
+@mixin bsmob{
+  @media (min-width:$bsMob) {
+    @content
+  }
+};
 
 $light1: #fcf8fa;
-$light2:#F8F8F8;
+$light2:#F8F8F8; 
 $gray:#F8F9FC; 
 $dark:#061146;
 $blue:#2E54D4;

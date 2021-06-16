@@ -63,6 +63,7 @@
   }
 
   &__wrap-text {
+    width: 100%;
     padding-left: 10px;
     color: $lightDark;
     display: flex;
@@ -85,13 +86,19 @@
     font-size: 16px;
     text-align: left;
     @include bsMob {
+      opacity: 1;
       position: absolute;
+      left: 1px;
+      top: 0;
+      transform: none;
+      transition: all 0.5ms linear;
       font-size: 20px;
     }
   }
 
   &__text-container {
     @include bsMob {
+      min-height: 50px;
       position: relative;
     }
   }
@@ -100,7 +107,10 @@
     font-size: 16px;
     text-align: left;
     @include bsMob {
-      transform: scale(0);
+      opacity: 0;
+      position: absolute;
+      left: 1px;
+      top: 160px;
       transition: all 0.5ms linear;
       font-size: 20px;
     }
@@ -124,7 +134,9 @@
     }
   }
 
+
   .nav-link {
+    overflow: hidden;
     border: none;
 
     &:hover {
@@ -134,14 +146,18 @@
 
     &:hover .cno-tabs__nav-text {
       @include bsMob {
-        display: none;
+        opacity: 0;
+        transition: all 0.5s ease;
+        transform: translatey(-160px);
       }
-
     }
+
     &:hover .cno-tabs__nav-text-opacity {
       @include bsMob {
-        transform: scale(1);
-        transition: all 0.5ms linear;
+        opacity: 1;
+        visibility: visible;
+        transform: translatey(-160px);
+        transition: all 0.5s ease;
       }
     }
 
@@ -161,6 +177,7 @@
     .cno-tabs__nav-text {
       color: $light1;
     }
+
     .cno-tabs__nav-text-opacity {
       color: $light1;
     }
@@ -199,7 +216,8 @@
   .swiper-slide {
     width: 100%;
   }
-  p{
+
+  p {
     width: 100%;
   }
 }

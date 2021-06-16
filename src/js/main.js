@@ -67,37 +67,73 @@ window.onload = function () {
     pagescroll();
 }
 
-function pagescroll() {
-    let pscroll = 0;
-    window.addEventListener('scroll', function () {
-        if (pscroll < pageYOffset & pageYOffset > header.offsetHeight) {
-            header.style.transform = "translateY(-100%)"; //прячем хедер при прокрутке вниз
-        } else {
-            header.style.transform = "none"; //показываем хедер при прокрутке вверх
-        }
-        pscroll = pageYOffset;
-    });
+function pagescroll(){ 
+  let pscroll = 0;
+  
+  window.addEventListener('scroll', function() { 
+  
+    if(pscroll>2){ 
+      header.classList.add('header-bg-js'); 
+    } else{
+      try{
+        header.classList.remove('header-bg-js'); 
+      }
+      catch(e){ console.log(e);}
+    }
+      if (pscroll<pageYOffset&pageYOffset>header.offsetHeight){
+               header.style="transform:translateY(-100%)"; //прячем хедер при прокрутке вниз            
+       }else { 
+            header.style="transform:none ;"; //показываем хедер при прокрутке вверх           
+       }  
+   pscroll=pageYOffset;
+ });
 }
 
-//Появление меню при прокрутке
+ //Появление меню при прокрутке
+ //card
+ const cards=document.querySelectorAll('.card-dark');
+  function cardsToggler(){
 
-//swiper
-window.addEventListener('load', function () {
-    var swiper = new Swiper(".cards1", {
-        pagination: {
-            el: ".swiper-pagination",
-        },
-        breakpoints: {
-            680: {
-                slidesPerView: 2,
-                spaceBetween: 20
-            }
-        }
-    });
-})
+  if(cards.length>-1){
+    for(let i=0 ;i<cards.length ; i++){ 
+      cards[i].addEventListener('click',function(){ 
+        this.classList.toggle('card-dark-active'); 
+      })
+      cards[i].addEventListener('keypress',function(e){
+        if(e.key=='Enter'){
+          this.classList.toggle('card-dark-active'); 
+        }  
+      })
+    }
+  }
+  }
+
+  window.addEventListener('load' , cardsToggler);
+ 
+
+ //card
+
+ 
+ 
+ 
 
 (function () {
     window.addEventListener('load', function () {
+      if(this.document.querySelector('.cards1')){
+        try{
+             const swiper = new Swiper(".cards1", {
+        pagination: {
+          el: ".swiper-pagination",
+        }, 
+      }); 
+        }catch (e){
+          console.log(e);
+        }
+            
+      }
+
+
+
         const swiperContainer=document.getElementById('swiper-tabs-wrap');
         const tabs=document.getElementById('tabs-box');
 

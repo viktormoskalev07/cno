@@ -1,0 +1,113 @@
+ .card-blue {
+    
+     margin-bottom: 40px;
+     @media (max-width:768px){
+          max-width: 432px;
+     }
+    
+     display: flex;
+    position: relative;
+    &__first-side{
+        transition: 0.5s;
+        opacity: 1;
+        overflow: hidden;
+       position: absolute;
+       top: 0;
+       left: 0;
+       right: 0;
+       bottom: 0;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       flex-direction: column;
+    }
+    &__second-side{
+           transform: scaleY(0);
+           opacity: 0;
+           transition: 0.4s;
+    } 
+     &__container {
+         overflow: hidden;
+         width: 100%;
+         min-height: 300px;
+         z-index: 1;
+         position: relative;
+         background-color: #fff;
+         box-shadow: 0px 3px 6px #00000029;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         flex-direction: column;
+         padding: 30px 10px;
+         border-radius: 10px;
+
+         @media screen and (-ms-high-contrast: active),
+         (-ms-high-contrast: none) {
+             height: 300px;
+             overflow-y: auto;
+             overflow-x: hidden;
+         } 
+           &:hover {
+             .card-blue {
+                 &__background {
+                     top: 0;
+                 } 
+                 &__description {
+                     color: $gray;
+                 }
+
+                 &__title {
+                     color: $gray;
+                     transform: translateY(-2px);
+                 }  
+                 &__first-side{
+                     bottom: 100%;
+                     opacity: 0;
+
+                 }
+                 &__second-side{
+                    opacity: 1;
+                    transform: none;
+                 }
+             }
+         }
+     }
+     &__icon{
+         img{
+width: 25px;
+         }
+     }
+  
+     &__title {
+         width: 100%;
+         transition: 0.5s;
+         color: $light-blue;
+         font-weight: 600;
+         letter-spacing: 0;
+         font-size: 20px;
+         line-height: 1.2;
+         margin: 15px 0;
+         font-weight: 700;
+     }
+
+     &__description {
+         width: 100%;
+         font-size: 17px;
+         line-height: 1.35;
+         max-width: 250px;
+         margin: 0 auto;
+     }
+
+     &__background {
+         position: absolute;
+         top: 100%;
+         bottom: 0;
+         left: 0;
+         right: 0;
+         background-color: $blue;
+         z-index: -1;
+         transition: 0.5s;
+     } 
+ }
+
+ 
