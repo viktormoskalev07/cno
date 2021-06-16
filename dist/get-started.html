@@ -29,7 +29,7 @@
 
     <nav class="nav">
     <div class="nav-menu">
-        <a href="get-started.html" class="nav-item button button--invert">Demonstration</a>
+        <a href="demonstration.html" class="nav-item button button--invert">Demonstration</a>
         <a href="get-started.html" class="nav-item button"> Get started</a>
  
     </div>
@@ -57,7 +57,7 @@
         <button data-activator='contribution' class="get-started__tabs-activator button"> 
           Contribution
         </button>
-        <button data-activator='demonstration' class="get-started__tabs-activator  button"> 
+        <button data-activator='demonstration1' class="get-started__tabs-activator  button"> 
           Demonstration
         </button>
       </div>
@@ -210,7 +210,7 @@
     console.log(tubbuttons);
     elem.addEventListener('click', function(){
       formsParent.classList.remove('contribution');
-      formsParent.classList.remove('demonstration');
+      formsParent.classList.remove('demonstration1');
       formsParent.classList.add(elem.dataset.activator); 
     }) 
   }
