@@ -53,8 +53,8 @@
       <div class="hero__background"></div>
       <div class="container ">
             <div class="row">
-            <div class=" hero__left flex-column col-md-5">
-              <h1 class="hero__title text-blue">
+            <div class=" hero__left flex-column col-lg-5">
+              <h1 class="hero__title   text-blue">
                 Innovate at least once a week
               </h1>
               <p class="hero__description">
@@ -62,14 +62,17 @@
                   Onboarding 
                 </strong> framework.
               </p>
-              <a href="#" class="button">Ask for a demo - it’s free</a>
+              <a href="#" class="button d-none d-lg-block">Ask for a demo - it’s free</a>
             </div>
-            <div class="hero__right flex-center  flex-column col-md-7">
+            <div class="hero__right flex-center  flex-column col-lg-7">
 
-                <figure>
-                  <img src="main.gif" alt="How is it work ">
+                <figure class='hero__gif-container'>
+                  <img class='hero__gif' src="main.gif" alt="How is it work ">
                 </figure>
             </div>
+          </div>
+          <div class="button-mobile text-center mt-5 d-lg-none">
+            <a href="#" class="button">Ask for a demo - it’s free</a>
           </div>
       </div>
 
@@ -194,7 +197,7 @@
 		<div class="innovation__block">
 			<div class="innovation__flex">
 				<figure style="text-align: left;" class="innovation__logo">
-					<svg class="icon"  style="width:140px">
+					<svg class="icon"   >
 						<use xlink:href="#Aws"></use>
 					</svg>
 				</figure>				

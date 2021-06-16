@@ -69,7 +69,16 @@ function togglescroll(){
 function pagescroll(){ 
   let pscroll = 0;
   
-  window.addEventListener('scroll', function() {  
+  window.addEventListener('scroll', function() { 
+  
+    if(pscroll>2){ 
+      header.classList.add('header-bg-js'); 
+    } else{
+      try{
+        header.classList.remove('header-bg-js'); 
+      }
+      catch(e){ console.log(e);}
+    }
       if (pscroll<pageYOffset&pageYOffset>header.offsetHeight){
                header.style="transform:translateY(-100%)"; //прячем хедер при прокрутке вниз            
        }else { 

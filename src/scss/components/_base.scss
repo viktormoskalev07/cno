@@ -3,12 +3,20 @@ $logowidth:50px;
 
   
 body{
-  background-color: rgb(199, 199, 199);
-  // for popup noscroll 
+    // for  noscroll mobile nav 
+  @include bsmob{
+  padding: 0 !important;
+  overflow: auto !important;
+  }
+
+  // for  noscroll mobile nav 
 
   font-family: Ubuntu;
   font-size: 32px;
   line-height: 1.8;
+}
+  h1, h2, h3, h4, h5, h6{
+font-weight: 700;
 }
 .text-blue{
   color:$blue;
