@@ -2,9 +2,11 @@
   width: 100%;
   background: transparent linear-gradient(278deg, #2E54D4 0%, #1D3DA8 0%, #061146 100%) 0% 0% no-repeat padding-box;
   opacity: 0.86;
-  padding-top: 210px;
+  padding-top: 140px;
   padding-bottom: 50px;
-
+  @include bsmob {
+    padding-top: 210px;
+  }
 
   &__wrap {
     padding: 50px 0;
@@ -69,7 +71,10 @@
   label {
     font-size: 15px;
     color: $lightGray;
-    padding: 30px 0 10px 15px;
+    padding: 15px 0 10px 15px;
+    @include bsmob {
+      padding: 30px 0 10px 15px;
+    }
   }
 
   input, textarea {
