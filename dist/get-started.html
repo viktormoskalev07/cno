@@ -51,45 +51,49 @@
   <main class="main">
     <section class="get-started">
       <div class="container get-started__wrap">
-        <form class="get-started__form shadow active">
-          <h3 class="get-started__form-title">Contribute and <span class="d-block">Start for free now.</span></h3>
-          <p class="get-started__form-text">
-            Find out how to leverage the full potential of your teams in your cloud transformation and improve your return on investment.
-          </p>
-          <div class="form-group">
-            <input type="text" class="form-control" id="InputName" placeholder="First and last name*">
-          </div>
-          <div class="form-group">
-            <input type="text" class="form-control" id="InputCompany" placeholder="Company*">
-          </div>
-          <div class="form-group">
-            <input type="text" class="form-control" id="InputCountry" placeholder="Country*">
-          </div>
-          <div class="form-group">
-            <input type="email" class="form-control" id="InputEmail" aria-describedby="emailHelp" placeholder="Mail*">
-          </div>
-          <button type="submit" class="btn btn-primary w-100">Start</button>
-        </form>
-
-        <form class="get-started__form  shadow">
-          <h3 class="get-started__form-title">Personalized demo <span class="d-block">For free.</span></h3>
-          <p class="get-started__form-text">
-            Find out how to leverage the full potential of your teams in your cloud transformation and improve your return on investment.
-          </p>
-          <div class="form-group">
-            <input type="text" class="form-control" id="InputName2" placeholder="First and last name*">
-          </div>
-          <div class="form-group">
-            <input type="text" class="form-control" id="InputCompany2" placeholder="Company*">
-          </div>
-          <div class="form-group">
-            <input type="text" class="form-control" id="InputCountry2" placeholder="Country*">
-          </div>
-          <div class="form-group">
-            <input type="email" class="form-control" id="InputEmail2" aria-describedby="emailHelp" placeholder="Mail*">
-          </div>
-          <button type="submit" class="btn btn-primary w-100">Submit</button>
-        </form>
+        <div class="get-started__wrap-form active">
+          <form class="get-started__form ">
+            <h3 class="get-started__form-title">Contribute and <span class="d-block">Start for free now.</span></h3>
+            <p class="get-started__form-text">
+              Find out how to leverage the full potential of your teams in your cloud transformation and improve your return on investment.
+            </p>
+            <div class="form-group">
+              <input type="text" class="form-control" id="InputName" placeholder="First and last name*" required>
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" id="InputCompany" placeholder="Company*" required>
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" id="InputCountry" placeholder="Country*" required>
+            </div>
+            <div class="form-group">
+              <input type="email" class="form-control" id="InputEmail" aria-describedby="emailHelp" placeholder="Mail*" required>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Start</button>
+          </form>
+        </div>
+        
+        <div class="get-started__wrap-form">
+          <form class="get-started__form">
+            <h3 class="get-started__form-title">Personalized demo <span class="d-block">For free.</span></h3>
+            <p class="get-started__form-text">
+              Find out how to leverage the full potential of your teams in your cloud transformation and improve your return on investment.
+            </p>
+            <div class="form-group">
+              <input type="text" class="form-control" id="InputName2" placeholder="First and last name*" required>
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" id="InputCompany2" placeholder="Company*" required>
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" id="InputCountry2" placeholder="Country*" required>
+            </div>
+            <div class="form-group">
+              <input type="email" class="form-control" id="InputEmail2" aria-describedby="emailHelp" placeholder="Mail*" required>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Submit</button>
+          </form>
+        </div>
       </div>
         
     </section>
@@ -154,6 +158,8 @@
   </symbol>
 </svg>
 </footer>
+
+
 
 </div>
  

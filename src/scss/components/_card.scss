@@ -1,1 +1,133 @@
  
+ .card-blue{  
+    margin-bottom: 40px; 
+     max-width: 432px;
+     display: flex; 
+
+    &__container{    
+        overflow: hidden;
+        width: 100%;
+        min-height: 300px;
+        z-index: 1;
+        position: relative;
+        background-color: #fff; 
+        box-shadow: 0px 3px 6px #00000029; 
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding:30px 10px;
+        border-radius: 10px;
+        @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+               height: 300px;
+               overflow-y:auto;
+               overflow-x:hidden;
+        }
+        &:hover{
+            .card-blue{
+                    &__background{
+                        top:0;
+                    }
+                    &__description{
+                        color: $gray; 
+                    }
+                    &__title{
+                        color: $gray; 
+                        transform: translateY(-2px);
+                    }
+                    &__icon{
+                        svg{
+                      
+                            .b{
+                              fill:#84acfd;
+                              } 
+                                .a{
+                                    fill:#fff; 
+                                }
+                               
+                             }
+                    } 
+                    &__hover-text{
+                        max-height: 500px;
+                        opacity: 1;
+                        transition: 1s;
+                    }
+                    &__first-text{
+                        max-height: 0;
+                        opacity: 0;
+                    }
+            } 
+        }
+    }
+    &__body{
+   width: 100%;
+    }
+    &__icon{
+         svg{  
+        .b{ 
+          fill:#fff; 
+          transition: 0.4s;
+          } 
+            .a{
+                transition: 0.4s;
+                fill:#84acfd;
+            } 
+         }
+        
+    } 
+ 
+    &__hover-text{
+      
+        max-height: 0;
+        opacity: 0;
+         overflow: hidden;
+      
+    }
+    &__first-text{ 
+        max-height: 500px; 
+    }
+    &__title{
+        width: 100%;
+        transition: 0.5s;
+        color:$light-blue;
+        font-weight: 600;
+        letter-spacing: 0;
+        font-size: 20px;
+        line-height: 1.2;
+        margin:15px 0;
+    }
+    &__description{ 
+        width: 100%; 
+        font-size: 17px;
+        line-height: 1.35;
+        max-width: 250px;
+        margin: 0 auto;
+    }
+    &__background{
+        position: absolute;
+        top:100%;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color   :$blue;
+        z-index: -1;
+        transition:0.5s;
+    }
+    
+ }
+
+ .card-dark{
+     background-color:$light-blue;
+     text-align: center;
+     min-height: 300px; 
+     padding: 20px;
+    border: 2px solid #061146;
+     &__img{
+         img{
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
+         }
+     }
+
+ }
