@@ -4,6 +4,7 @@ header = document.querySelector("header");
 btnMenu = document.querySelector(".btn-menu");
 
 
+
 // мобильное меню
 nav = document.querySelector(".nav");
 document.querySelector(".btn-menu").addEventListener("click", togglenav);
@@ -99,6 +100,7 @@ window.addEventListener('load', function () {
     window.addEventListener('load', function () {
         const swiperContainer=document.getElementById('swiper-tabs-wrap');
         const tabs=document.getElementById('tabs-box');
+
         swiperMode();
 
         let swiperTabs = new Swiper(".swiper-tabs", {
@@ -120,12 +122,17 @@ window.addEventListener('load', function () {
             let desktop = window.matchMedia("(min-width: 693px)");
 
             if (mobile.matches) {
-                tabs.style.display="none";
-                swiperContainer.style.display="block";
+                if (swiperContainer&&tabs) {
+                    tabs.style.display="none";
+                    swiperContainer.style.display="block";
+                }
 
             } else if (desktop.matches) {
-                swiperContainer.style.display="none";
-                tabs.style.display="block";
+                if (swiperContainer&&tabs) {
+                    swiperContainer.style.display="none";
+                    tabs.style.display="block";
+                }
+
             }
         }
 
