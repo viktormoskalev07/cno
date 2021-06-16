@@ -117,7 +117,7 @@ window.addEventListener('load', function () {
         function swiperMode() {
 
             let mobile = window.matchMedia("(min-width: 0px) and (max-width:692px)");
-            let desktop = window.matchMedia("(min-width: 693px) and (max-width: 40000px)");
+            let desktop = window.matchMedia("(min-width: 693px)");
 
             if (mobile.matches) {
                 tabs.style.display="none";

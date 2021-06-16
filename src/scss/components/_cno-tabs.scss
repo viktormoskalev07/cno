@@ -1,12 +1,3 @@
-@keyframes pulse {
-  from {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(0.5);
-  }
-}
-
 .cno-tabs {
   width: 100%;
   display: flex;
@@ -49,6 +40,7 @@
 
 
   &__nav-link {
+    position: relative;
     border-radius: 4px;
     margin-bottom: 30px;
     display: flex;
@@ -58,10 +50,13 @@
     @include bsMob {
       padding: 10px 25px;
     }
+  }
 
-    svg {
-      fill: $lightDark;
-    }
+  &__nav-icon {
+    transform: scale(1) translate(0, 0);
+    position: absolute;
+    fill: $lightDark;
+    transition: all 0.3s linear;
   }
 
   &__wrap-text {
@@ -70,7 +65,7 @@
     display: flex;
     flex-direction: column;
     @include bsMob {
-      padding-left: 40px;
+      padding-left: 55px;
     }
   }
 
@@ -84,11 +79,25 @@
   }
 
   &__nav-text {
+    position: absolute;
     font-size: 16px;
     text-align: left;
     @include bsMob {
       font-size: 20px;
     }
+  }
+
+  &__text-container {
+    position: relative;
+  }
+
+  &__nav-text-opacity {
+    font-size: 16px;
+    text-align: left;
+    @include bsMob {
+      font-size: 20px;
+    }
+    transform: scale(0);
   }
 
   &__box {
@@ -113,47 +122,32 @@
     border: none;
 
     &:hover {
-      background-color: $light-blue;
-    }
-
-
-    &:hover .cno-tabs__nav-title {
-      color: $light1;
-    }
-
-    &:hover .cno-tabs__nav-text {
-      color: $light1;
-    }
-
-    &:hover svg {
-      fill: $light1;
-      animation: pulse 2s ease-in-out;
-    }
-  }
-
-  .nav-pills > .nav-link {
-    &:hover {
       background-color: rgba(167, 164, 164, 0.16);
     }
 
-    &:hover .cno-tabs__nav-title {
-      color: $lightDark;
-    }
 
     &:hover .cno-tabs__nav-text {
-      color: $lightDark;
+      display: none;
+    }
+    &:hover .cno-tabs__nav-text-opacity {
+      transform: scale(1);
     }
 
-    &:hover svg {
-      fill: $lightDark;
+    &:hover .cno-tabs__nav-icon {
+      transform: scale(0.6) translate(10px, 0);
+      transition: all 0.5ms linear;
     }
   }
+
 
   .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
     background-color: $light-blue;
     color: black;
 
     .cno-tabs__nav-text {
+      color: $light1;
+    }
+    .cno-tabs__nav-text-opacity {
       color: $light1;
     }
 
