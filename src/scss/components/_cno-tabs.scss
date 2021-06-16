@@ -10,6 +10,7 @@
 
   &__content {
     overflow: hidden;
+    padding: 0 5px 40px;
   }
 
   &__title-content {
@@ -37,6 +38,68 @@
     }
   }
 
+
+  &__nav-link {
+    border-radius: 4px;
+    margin-bottom: 30px;
+    display: flex;
+    background-color: white;
+    margin-top: 30px;
+    box-shadow: -1px 4px 8px 0px rgba(44, 46, 47, 0.2);
+    @include bsMob {
+      padding: 10px 25px;
+    }
+
+    svg {
+      fill: $lightDark;
+    }
+  }
+
+  &__wrap-text {
+    padding-left: 10px;
+    color: $lightDark;
+    display: flex;
+    flex-direction: column;
+    @include bsMob {
+      padding-left: 40px;
+    }
+  }
+
+  &__nav-title {
+    padding-top: 13px;
+    text-align: left;
+    font-size: 18px;
+    @include bsMob {
+      font-size: 25px;
+    }
+  }
+
+  &__nav-text {
+    font-size: 16px;
+    text-align: left;
+    @include bsMob {
+      font-size: 20px;
+    }
+  }
+
+  &__box {
+    @include bsMob {
+      flex-direction: column;
+    }
+    @include xl {
+      flex-direction: row;
+    }
+  }
+
+  .nav {
+    @include bsMob {
+      width: 100%;
+    }
+    @include xl {
+      width: 50%;
+    }
+  }
+
   .nav-link {
     border: none;
 
@@ -58,50 +121,9 @@
     }
   }
 
-  &__nav-link {
-    padding: 10px 25px;
-    margin-bottom: 30px;
-    display: flex;
-    background-color: white;
-
-
-    svg {
-      fill: $lightDark;
-    }
-  }
-
-  &__wrap-text {
-    padding-left: 40px;
-    color: $lightDark;
-    display: flex;
-    flex-direction: column;
-  }
-
-  &__nav-title {
-    padding-top: 13px;
-    text-align: left;
-    font-size: 18px;
-    @include bsMob {
-      font-size: 25px;
-    }
-  }
-
-  &__nav-text {
-    font-size: 16px;
-    text-align: left;
-    @include bsMob {
-      font-size: 20px;
-    }
-  }
-
-  .nav {
-    width: 35%;
-  }
-
   .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
     background-color: $light1;
     color: black;
-    box-shadow: 0 6px 12px 0 rgba(118, 117, 117, 0.31);
 
     &:hover {
       background-color: $light-blue;
@@ -149,5 +171,9 @@
     @include bsMob {
       display: none;
     }
+  }
+
+  .swiper-slide {
+    width: 100%;
   }
 }
