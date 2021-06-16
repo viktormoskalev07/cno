@@ -93,8 +93,14 @@ function pagescroll(){
   const cards=document.querySelectorAll('.card-dark');
   if(cards.length>-1){
     for(let i=0 ;i<cards.length ; i++){
+      console.log(cards[i]);
       cards[i].addEventListener('click',function(){
         cards[i].classList.toggle('card-dark-active'); 
+      })
+      cards[i].addEventListener('keypress',function(e){
+        if(e.key=='Enter'){
+            cards[i].classList.toggle('card-dark-active'); 
+        }  
       })
     }
   }

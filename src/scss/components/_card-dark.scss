@@ -1,23 +1,61 @@
 
+ 
  .card-dark {
   margin-top: 70px;
-    cursor: pointer;
-    color: #fff;
-    z-index:1;
-    
-    background-color: $light-blue;
-    @include bsmob {
-      background-color: $dark;
-   }
-   
-    position: relative;
-    text-align: center;
-
-    @include bsmob {
+  cursor: grab;
+  padding:80px 20px;
+  border: 2px solid #061146;
+  color: #fff; 
+  background-color: $light-blue;
+  position: relative;
+  text-align: center;
+  z-index:1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+    @include bsmob{
+        margin: 0;
+        padding: 35px 27px;
+        cursor: pointer;
+        background-color: $dark;
         min-height: 300px;
-    } 
-    padding:80px 20px;
-    border: 2px solid #061146;
+    
+    &__container{
+        position: relative;
+        .swiper-pagination{
+            display: none;
+        }
+    .swiper-slide{ 
+        width: 50% !important; 
+        padding: 0 !important;
+        margin: 0 !important;
+     }
+     .swiper-wrapper{
+         margin: 0 !important;
+     }
+    }
+    @include lg{
+        &__container{
+        .swiper-slide{ 
+            width:25% !important;  
+         }
+        }
+    }
+} 
+    &__top-icon{
+        display: none;
+         @include bsmob{
+             display: block;
+        width: 113px; 
+        margin-left: auto;
+        margin-right: auto;
+        transform: translateY(50%);
+        position: relative;
+        z-index: 2;
+         }
+
+    
+    }
     &__first-side{
         transition: 0.5s;
         position: absolute;
@@ -70,9 +108,13 @@
     }
 
     &__title,
-    &__subtitle {
+    &__undertitle {
         font-size: 25px;
         line-height: 2.2;
+        @include bsmob{
+            font-size: 20px;
+            line-height: (30/20);
+        }
     }
 
     &__title {
@@ -80,15 +122,20 @@
         text-transform: uppercase;
     }
 
-    &__subtitle {
+    &__undertitle {
         font-weight: 600;
     }
 
     &__description {
+        font-weight: 600;
         transition: 0.5s;
         font-size: 20px;
         line-height: 2.25;
         letter-spacing: 0; 
+        @include bsmob{
+                font-size: 17px;
+                line-height: (30/17);
+        }
     }
 
 
@@ -129,7 +176,7 @@
     }
  
 
-    &:hover { 
+    &:hover , &:focus { 
         .card-dark {
             &__background {
                 @include bsmob {

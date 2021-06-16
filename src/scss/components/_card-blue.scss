@@ -1,8 +1,28 @@
  .card-blue {
+    
      margin-bottom: 40px;
      max-width: 432px;
      display: flex;
-
+    position: relative;
+    &__first-side{
+        transition: 0.5s;
+        opacity: 1;
+        overflow: hidden;
+       position: absolute;
+       top: 0;
+       left: 0;
+       right: 0;
+       bottom: 0;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       flex-direction: column;
+    }
+    &__second-side{
+           transform: scaleY(0);
+           opacity: 0;
+           transition: 0.4s;
+    } 
      &__container {
          overflow: hidden;
          width: 100%;
@@ -23,14 +43,12 @@
              height: 300px;
              overflow-y: auto;
              overflow-x: hidden;
-         }
-
-         &:hover {
+         } 
+           &:hover {
              .card-blue {
                  &__background {
                      top: 0;
-                 }
-
+                 } 
                  &__description {
                      color: $gray;
                  }
@@ -38,66 +56,25 @@
                  &__title {
                      color: $gray;
                      transform: translateY(-2px);
-                 }
-
-                 &__icon {
-                     svg {
-
-                         .b {
-                             fill: #84acfd;
-                         }
-
-                         .a {
-                             fill: #fff;
-                         }
-
-                     }
-                 }
-
-                 &__hover-text {
-                     max-height: 500px;
-                     opacity: 1;
-                     transition: 1s;
-                 }
-
-                 &__first-text {
-                     max-height: 0;
+                 }  
+                 &__first-side{
+                     bottom: 100%;
                      opacity: 0;
+
+                 }
+                 &__second-side{
+                    opacity: 1;
+                    transform: none;
                  }
              }
          }
      }
-
-     &__body {
-         width: 100%;
-     }
-
-     &__icon {
-         svg {
-             .b {
-                 fill: #fff;
-                 transition: 0.4s;
-             }
-
-             .a {
-                 transition: 0.4s;
-                 fill: #84acfd;
-             }
+     &__icon{
+         img{
+width: 25px;
          }
-
      }
-
-     &__hover-text { 
-         max-height: 0;
-         opacity: 0;
-         overflow: hidden;
-
-     }
-
-     &__first-text {
-         max-height: 500px;
-     }
-
+  
      &__title {
          width: 100%;
          transition: 0.5s;
@@ -107,6 +84,7 @@
          font-size: 20px;
          line-height: 1.2;
          margin: 15px 0;
+         font-weight: 700;
      }
 
      &__description {
@@ -126,6 +104,7 @@
          background-color: $blue;
          z-index: -1;
          transition: 0.5s;
-     }
-
+     } 
  }
+
+ 
