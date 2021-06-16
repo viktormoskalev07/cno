@@ -1,8 +1,26 @@
+@keyframes pulse {
+  from {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.5);
+  }
+}
+
 .cno-tabs {
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  .swiper-tabs {
+    display: none;
+  }
+
+  &__content {
+    overflow: hidden;
+    padding: 0 5px 40px;
+  }
 
   &__title-content {
     flex-direction: column;
@@ -12,41 +30,34 @@
 
   &__title {
     color: $blue;
-    font-size: 40px;
+    font-size: 25px;
     font-weight: bold;
+    @include bsMob {
+      font-size: 40px;
+    }
   }
 
   &__sub-title {
-    font-size: 30px;
+    text-align: center;
+    font-size: 18px;
     color: $dark;
     padding-bottom: 30px;
-  }
-
-  .nav-link {
-    &:hover {
-      background-color: $light-blue;
-    }
-
-
-    &:hover .cno-tabs__nav-title {
-      color: $light1;
-    }
-
-    &:hover .cno-tabs__nav-text {
-      color: $light1;
-    }
-
-    &:hover svg {
-      fill: $light1;
+    @include bsMob {
+      font-size: 30px;
     }
   }
-  
+
+
   &__nav-link {
-    padding: 10px 25px;
+    border-radius: 4px;
     margin-bottom: 30px;
     display: flex;
     background-color: white;
-
+    margin-top: 30px;
+    box-shadow: -1px 4px 8px 0px rgba(44, 46, 47, 0.2);
+    @include bsMob {
+      padding: 10px 25px;
+    }
 
     svg {
       fill: $lightDark;
@@ -54,35 +65,57 @@
   }
 
   &__wrap-text {
-    padding-left: 40px;
+    padding-left: 10px;
     color: $lightDark;
     display: flex;
     flex-direction: column;
+    @include bsMob {
+      padding-left: 40px;
+    }
   }
 
   &__nav-title {
     padding-top: 13px;
     text-align: left;
-    font-size: 25px;
+    font-size: 18px;
+    @include bsMob {
+      font-size: 25px;
+    }
   }
 
   &__nav-text {
-    font-size: 20px;
+    font-size: 16px;
     text-align: left;
+    @include bsMob {
+      font-size: 20px;
+    }
+  }
+
+  &__box {
+    @include bsMob {
+      flex-direction: column;
+    }
+    @include xl {
+      flex-direction: row;
+    }
   }
 
   .nav {
-    width: 35%;
+    @include bsMob {
+      width: 100%;
+    }
+    @include xl {
+      width: 50%;
+    }
   }
 
-  .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-    background-color: $light1;
-    color: black;
-    box-shadow: 0 6px 12px 0 rgba(118, 117, 117, 0.31);
+  .nav-link {
+    border: none;
 
     &:hover {
       background-color: $light-blue;
     }
+
 
     &:hover .cno-tabs__nav-title {
       color: $light1;
@@ -94,19 +127,68 @@
 
     &:hover svg {
       fill: $light1;
+      animation: pulse 2s ease-in-out;
+    }
+  }
+
+  .nav-pills > .nav-link {
+    &:hover {
+      background-color: rgba(167, 164, 164, 0.16);
     }
 
+    &:hover .cno-tabs__nav-title {
+      color: $lightDark;
+    }
+
+    &:hover .cno-tabs__nav-text {
+      color: $lightDark;
+    }
+
+    &:hover svg {
+      fill: $lightDark;
+    }
+  }
+
+  .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    background-color: $light-blue;
+    color: black;
+
+    .cno-tabs__nav-text {
+      color: $light1;
+    }
 
     .cno-tabs__nav-title {
-      color: $light-blue;
+      color: $light1;
     }
 
     svg {
-      fill: $light-blue;
+      fill: $light1;
     }
   }
 
   .tab-content {
     margin-left: 15px;
+  }
+
+  .swiper-tabs {
+    @extend .swiper-wrapper;
+  }
+
+  .swiper-pagination-bullet {
+    width: 18px;
+    height: 18px;
+  }
+
+  .swiper-pagination-bullets {
+    display: flex;
+    padding-bottom: 15px;
+    justify-content: center;
+    @include bsMob {
+      display: none;
+    }
+  }
+
+  .swiper-slide {
+    width: 100%;
   }
 }
