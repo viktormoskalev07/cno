@@ -16,14 +16,29 @@
 </head>
 
 <body class="body">
+
+
+ 
 <div class="main-wrapper">
   @@include('./html-templates/header.html',{
     customclass:'white-header',
   }) 
-  <main class="main">
-    <section class="get-started">
+  <main class="main dark-bgc">
+  
+    <section class="get-started contribution move-circle">
+      <div class="get-started__tabs">
+        <button data-activator='contribution' class="get-started__tabs-activator button"> 
+          Contribution
+        </button>
+        <button data-activator='demonstration' class="get-started__tabs-activator  button"> 
+          Demonstration
+        </button>
+      </div>
       <div class="container get-started__wrap">
-        <form class="get-started__form shadow active">
+        <figure class="get-started__moving-circle">
+            <img src="images/getstarted-circle.svg" alt="icon">
+        </figure>
+        <form class="get-started__form get-started__form__first  shadow active">
           <h3 class="get-started__form-title">Contribute and <span class="d-block">Start for free now.</span></h3>
           <p class="get-started__form-text">
             Find out how to leverage the full potential of your teams in your cloud transformation and improve your return on investment.
@@ -38,12 +53,12 @@
             <input type="text" class="form-control" id="InputCountry" placeholder="Country*">
           </div>
           <div class="form-group">
-            <input type="email" class="form-control" id="InputEmail" aria-describedby="emailHelp" placeholder="Mail*">
+            <input type="email" required class="form-control" id="InputEmail" aria-describedby="emailHelp" placeholder="Mail*">
           </div>
           <button type="submit" class="btn btn-primary w-100">Start</button>
         </form>
 
-        <form class="get-started__form  shadow">
+        <form class="get-started__form get-started__form__second shadow">
           <h3 class="get-started__form-title">Personalized demo <span class="d-block">For free.</span></h3>
           <p class="get-started__form-text">
             Find out how to leverage the full potential of your teams in your cloud transformation and improve your return on investment.
@@ -58,23 +73,58 @@
             <input type="text" class="form-control" id="InputCountry2" placeholder="Country*">
           </div>
           <div class="form-group">
-            <input type="email" class="form-control" id="InputEmail2" aria-describedby="emailHelp" placeholder="Mail*">
+            <input type="email" required class="form-control" id="InputEmail2" aria-describedby="emailHelp" placeholder="Mail*">
           </div>
           <button type="submit" class="btn btn-primary w-100">Submit</button>
         </form>
-      </div>
-        
+      </div> 
     </section>
+ 
 </main>
 
 @@include('./html-templates/footer.html',{
 })
 
 </div>
+<script>
+  forms= document.querySelectorAll('.get-started__form');
+  formsParent= document.querySelector('.get-started ');
+  tubbuttons= document.querySelectorAll('.get-started__tabs-activator');
+
+  for (let i =0 ; i<forms.length ; i++){
+    forms[i].addEventListener('click', function(){
+      
+        for (let u =0 ; u<forms.length ; u++){
+            forms[u].classList.remove('active');
+        }
+        this.classList.add('active'); 
+        if(forms[0].className.includes('active') ){
+          formsParent.classList.add('move-circle');
+        }
+        else{
+          formsParent.classList.remove('move-circle');
+        }
+        
+      })
+  }
+  function tabActive(elem){
+    console.log(elem);
+    console.log(tubbuttons);
+    elem.addEventListener('click', function(){
+      formsParent.classList.remove('contribution');
+      formsParent.classList.remove('demonstration');
+      formsParent.classList.add(elem.dataset.activator); 
+    }) 
+  }
+  tabActive(tubbuttons[0]);
+  tabActive(tubbuttons[1]);
+  
+ </script> 
  
 
 <script src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js'></script>
 <script src="js/main.js"> </script>
+
 </body>
 
 </html>

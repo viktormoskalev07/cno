@@ -20,7 +20,7 @@
   @@include('./html-templates/header.html',{
     customclass:'',
   }) 
-<main class="main">
+<main class="main ">
     <section class="hero">
       <div class="hero__background"></div>
       <div class="container ">
@@ -48,26 +48,50 @@
           </div>
       </div>
 
-    </section>
+ </section>
     @@include('./html-templates/innovation.html',{
     })
     <section class=" section section-gray "> 
       <div class="section__background"></div>
       <div class="container"> 
               <h2 class="section__title">
-                  How CNO fills the gap 
+                CNO Onboard
           </h2>
           <p class="section__description">
-            to avoid common mistakes when adopting Kubernetes.
-          </p> 
-                  
-                      @@include('./html-templates/card-blue-container.html',{  })
-          
+            Onboard your entire organization, teams and projects from not an but a unified console for successful project adoption.
+          </p>    
+        @@include('./html-templates/card-blue-container.html',{  }) 
+        @@include('./html-templates/card-dark-container.html',{  }) 
 
-        @@include('./html-templates/card-dark-container.html',{  })
- 
-       
+      </div>
+</section>
 
+
+    <section class=" section   "> 
+      <div class="section__background"></div>
+      <div class="container"> 
+              <h2 class="section__title">
+                CNO Deploy
+          </h2>
+          <p class="section__description">
+            Choose the deployment strategy that best suits your business needs and reduce your Time-To-Market by more than 60% for each application.
+          </p>    
+        @@include('./html-templates/card-blue-container2.html',{  }) 
+        @@include('./html-templates/card-dark-container2.html',{  }) 
+
+      </div>
+</section>
+
+    <section class=" section section-gray "> 
+      <div class="section__background"></div>
+      <div class="container"> 
+              <h2 class="section__title">
+                CNO Deploy
+          </h2>
+          <p class="section__description">
+            Choose the deployment strategy that best suits your business needs and reduce your Time-To-Market by more than 60% for each application.
+          </p>    
+        @@include('./html-templates/card-blue-container3.html',{  })  
       </div>
 </section>
 

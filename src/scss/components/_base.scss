@@ -9,11 +9,16 @@ body{
   overflow: auto !important;
   }
 
+
   // for  noscroll mobile nav 
 
   font-family: Ubuntu;
   font-size: 32px;
   line-height: 1.8;
+}
+.dark-bgc{
+  height: 100%;
+  background-color: #061146;
 }
   h1, h2, h3, h4, h5, h6{
 font-weight: 700;
