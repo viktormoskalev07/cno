@@ -122,13 +122,10 @@ window.addEventListener('load', function () {
             if (mobile.matches) {
                 tabs.style.display="none";
                 swiperContainer.style.display="block";
-                console.log(mobile.matches, "mob");
 
             } else if (desktop.matches) {
                 swiperContainer.style.display="none";
                 tabs.style.display="block";
-                console.log(swiperContainer)
-                console.log(desktop.matches)
             }
         }
 
@@ -143,9 +140,6 @@ window.addEventListener('load', function () {
         }
     })
 }());
-//swiper
-
-
 //swiper
 
 

@@ -121,33 +121,38 @@
     }
   }
 
-  .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-    background-color: $light1;
-    color: black;
-
+  .nav-pills > .nav-link {
     &:hover {
-      background-color: $light-blue;
+      background-color: rgba(167, 164, 164, 0.16);
     }
 
     &:hover .cno-tabs__nav-title {
-      color: $light1;
+      color: $lightDark;
     }
 
     &:hover .cno-tabs__nav-text {
-      color: $light1;
+      color: $lightDark;
     }
 
     &:hover svg {
-      fill: $light1;
+      fill: $lightDark;
+    }
+  }
+
+  .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    background-color: $light-blue;
+    color: black;
+
+    .cno-tabs__nav-text {
+      color: $light1;
     }
 
-
     .cno-tabs__nav-title {
-      color: $light-blue;
+      color: $light1;
     }
 
     svg {
-      fill: $light-blue;
+      fill: $light1;
     }
   }
 
