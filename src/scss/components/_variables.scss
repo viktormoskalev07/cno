@@ -1,10 +1,11 @@
 $s:425px;
 $sm: 576px;
+$bsMob:693px;
 $md: 768px;
 $lg: 992px;
 $xl: 1200px;
 $xxl: 1400px;
-$bsMob:693px;
+
 
 @mixin s {
   @media (min-width:$s) {

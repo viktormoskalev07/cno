@@ -65,14 +65,17 @@ function togglescroll() {
 // Появление меню при прокрутке
 window.onload = function () {
     pagescroll();
+ 
 }
 
 function pagescroll(){ 
   let pscroll = 0;
-  
+  if(pageYOffset>2){ 
+    header.classList.add('header-bg-js'); 
+  }
   window.addEventListener('scroll', function() { 
-  
-    if(pscroll>2){ 
+ 
+    if(pageYOffset>2){ 
       header.classList.add('header-bg-js'); 
     } else{
       try{
@@ -139,17 +142,21 @@ function pagescroll(){
 
         swiperMode();
 
-        let swiperTabs = new Swiper(".swiper-tabs", {
-            pagination: {
-                el: ".swiper-pagination-tabs",
-            },
-            breakpoints: {
-                320: {
-                    slidesPerView: 1,
-                    spaceBetween: 20
+        if (document.querySelector(".swiper-tabs")) {
+
+            let swiperTabs = new Swiper(".swiper-tabs", {
+                pagination: {
+                    el: ".swiper-pagination-tabs",
+                },
+                breakpoints: {
+                    320: {
+                        slidesPerView: 1,
+                        spaceBetween: 20
+                    }
                 }
-            }
-        });
+            });
+        }
+
 
 
         function swiperMode() {
@@ -184,103 +191,4 @@ function pagescroll(){
     })
 }());
 //swiper
-
-
-//отправка формы
-// let form = document.querySelectorAll('.order-form');
-
-// const modal = document.getElementById("modal");
-
-// function ajaxform(evt) {
-//   gtag('event', 'submit', {
-//     'event_category': 'Form'
-//   });
-//   evt.preventDefault();
-//   let formstatus = this.querySelector('.formstatus');
-//   formstatus.innerHTML = '<class="load-form">Соедиенеие ...';
-
-//   let formData = {
-//     desc: this.querySelector('input[name="description"]').value,
-//     name: this.querySelector('input[name="name"]').value,
-
-//     phone: this.querySelector('input[name="phone"]').value
-
-//   };
-//   console.log(formData);
-//   let request = new XMLHttpRequest();
-
-//   request.addEventListener('load', function () {
-
-//     formstatus.innerHTML = 'Ваша заявка успешно отправлена, ожидайте звонка';
-
-//   });
-
-//   request.open('POST', '/mail.php', true);
-//   request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
-//   request.send('name=' + encodeURIComponent(formData.name) + '&phone=' + encodeURIComponent(formData.phone) + '&desc=' + encodeURIComponent(formData.desc));
-
-
-// };
-
-
-// for (i = 0; i < form.length; i++) {
-//   form[i].addEventListener('submit', ajaxform);
-// } 
-//отправка формы
-
-// accordion
-
-// function accordionInit () {
-// 	window.addEventListener("load", function () {
-// 		const accordion = document.querySelector(".accordion");
-// 		const items = accordion.querySelectorAll(".accordion__item");
-
-// 		items.forEach((item) => {
-// 			const title = item.querySelector(".accordion__title");
-
-// 			title.addEventListener("click", (e) => {
-// 				const opened_item = accordion.querySelector(".is-open");
-
-// 				toggle_item(item);
-
-// 				if (opened_item && opened_item !== item) {
-// 					toggle_item(opened_item);
-// 				}
-// 			});
-// 		});
-
-// 		const toggle_item = (item) => {
-// 			const body = item.querySelector(".accordion__body");
-// 			const content = item.querySelector(".accordion__content");
-
-// 			if (item.classList.contains("is-open")) {
-// 				body.removeAttribute("style");
-// 				item.classList.remove("is-open");
-// 			} else {
-// 				body.style.height = body.scrollHeight + "px";
-// 				item.classList.add("is-open");
-// 			}
-// 		};
-// 	});
-// }
-
-// if (document.querySelector('.accordion')) {
-// 	accordionInit()
-// }
-// // accordion
-
-//  //dropdown
-
-// function dropdown() {
-//   const drop = document.querySelector(".dropdown__activator");
-//   drop.addEventListener("click", function () {
-//     drop.classList.toggle("dropdown_open");
-//   });
-// }
-
-// try {
-//   dropdown();
-// } catch (e) {
-//   console.log(e);
-// }
-//dropdown
+ 

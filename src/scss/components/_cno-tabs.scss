@@ -48,7 +48,7 @@
     box-shadow: -1px 4px 8px 0px rgba(44, 46, 47, 0.2);
     @include bsMob {
       position: relative;
-      padding: 10px 25px;
+      padding: 10px 25px 20px 35px;
     }
   }
 
@@ -69,7 +69,7 @@
     display: flex;
     flex-direction: column;
     @include bsMob {
-      padding: 0 10px 35px 55px;
+      padding: 0 10px  0px 55px;
     }
   }
 
@@ -86,19 +86,21 @@
     font-size: 16px;
     text-align: left;
     @include bsMob {
-      opacity: 1;
-      position: absolute;
+      opacity: 1; 
       left: 1px;
       top: 0;
       transform: none;
       transition: all 0.5ms linear;
+      font-size: 16px;
+    }
+    @include xxl {
       font-size: 20px;
     }
   }
 
   &__text-container {
     @include bsMob {
-      min-height: 50px;
+      min-height: 70px;
       position: relative;
     }
   }
@@ -112,7 +114,10 @@
       left: 1px;
       top: 160px;
       transition: all 0.5ms linear;
-      font-size: 20px;
+     
+    }
+    @include xxl{
+       font-size: 20px;
     }
   }
 
@@ -129,8 +134,11 @@
     @include bsMob {
       width: 100%;
     }
-    @include xl {
+    @include sm {
       width: 50%;
+    }
+    @include xl {
+      width: 30%;
     }
   }
 
@@ -176,6 +184,7 @@
 
     .cno-tabs__nav-text {
       color: $light1;
+
     }
 
     .cno-tabs__nav-text-opacity {
@@ -193,6 +202,14 @@
 
   .tab-content {
     margin-left: 15px;
+    @include md {
+      width: 65%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    @include xl{
+      margin-right: 0;
+    }
   }
 
   .swiper-tabs {
