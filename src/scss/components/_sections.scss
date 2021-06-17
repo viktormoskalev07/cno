@@ -1,4 +1,8 @@
  .section {
+     .container{
+          position: relative;
+     }
+    
      padding: 60px 0;
      &__title{
         font-size: 40px;
@@ -16,6 +20,51 @@
         line-height: 1.75;
         margin:31px auto ;
         text-align: center;
+     }
+     &__background{
+         position: absolute;
+         left: 0;
+         text-align: center;
+         @include xxl{
+            text-align: left;
+         }
+         right: 0;
+         bottom: 0;
+         top: 50%; 
+         @include bsmob{
+            left: 0;
+            top:0;
+        } 
+            img{
+                transform: translateY(-100%);
+                width: 100%;
+                height: auto;
+                @include bsmob{
+                    height: 400px;
+                    object-fit: contain;
+                    width: 400px; 
+                    transform: none; 
+                }
+                @include xxl{
+                         transform: translateX(-40%);
+                        
+                       
+                }  
+          
+            }
+        &.right{ 
+            @include xxl{
+            text-align: right;
+            }
+            img{
+                @include xxl{
+                    text-align: right;
+                    transform: translateX(40%); 
+                    }
+               
+            }
+        }
+
      }
  }
 

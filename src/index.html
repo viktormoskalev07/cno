@@ -29,7 +29,7 @@
               <h1 class="hero__title   text-blue">
                 Innovate at least once a week
               </h1>
-              <p class="hero__description">
+              <p class="hero__description"> 
                 By adopting the best Kubernetes <strong class="text-blue">
                   Onboarding 
                 </strong> framework.
@@ -51,9 +51,12 @@
  </section>
     @@include('./html-templates/innovation.html',{
     })
-    <section class=" section section-gray ">
-      <div class="section__background"></div>
+    <section class=" section section-gray "> 
+
       <div class="container"> 
+        <figure class="section__background">
+          <img src="images/cards/cluster.svg" alt="background image">
+        </figure>
               <h2 class="section__title">
                 CNO Onboard
           </h2>
@@ -61,15 +64,17 @@
             Onboard your entire organization, teams and projects from not an but a unified console for successful project adoption.
           </p>    
         @@include('./html-templates/card-blue-container.html',{  }) 
-        @@include('./html-templates/card-dark-container.html',{  }) 
-
+        @@include('./html-templates/card-dark-container.html',{  })  
       </div>
 </section>
 
 
     <section class=" section   "> 
-      <div class="section__background"></div>
+
       <div class="container"> 
+        <figure class="section__background  right">
+          <img src="images/cards/cloud.svg" alt="background image"> 
+        </figure>
               <h2 class="section__title">
                 CNO Deploy
           </h2>
@@ -82,14 +87,16 @@
       </div>
 </section>
 
-    <section class=" section section-gray "> 
-      <div class="section__background"></div>
+    <section class=" section section-gray ">  
       <div class="container"> 
+        <figure class="section__background"> 
+          <img src="images/cards/defence.svg"  style='opacity: 0.14' alt="background image">
+        </figure>
               <h2 class="section__title">
-                CNO Deploy
+                CNO Secure
           </h2>
           <p class="section__description">
-            Choose the deployment strategy that best suits your business needs and reduce your Time-To-Market by more than 60% for each application.
+            Put security into the entire life cycle of projects and applications development without slowing down your innovation speed.
           </p>    
         @@include('./html-templates/card-blue-container3.html',{  })  
       </div>

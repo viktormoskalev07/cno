@@ -6,6 +6,11 @@ $xl: 1200px;
 $xxl: 1400px;
 $bsMob:693px;
 
+@mixin s {
+  @media (min-width:$s) {
+    @content
+  }
+}; 
 @mixin sm {
   @media (min-width:$sm) {
     @content
