@@ -3,6 +3,8 @@
  .card-dark {
   margin-top: 70px;
   cursor: grab;
+  height: 100%;
+  min-height: 300px;
   padding:80px 20px;
   border: 2px solid #061146;
   color: #fff; 
@@ -15,13 +17,14 @@
   align-items: center;
     @include bsmob{
         margin: 0;
-        padding: 35px 27px;
+        padding: 35px  27px 5px 27px;
         cursor: pointer;
         background-color: $dark;
-        min-height: 300px;
+        // min-height: 370px;
     
     &__container{
         position: relative;
+        
         .swiper-pagination{
             display: none;
         }
@@ -29,9 +32,12 @@
         width: 50% !important; 
         padding: 0 !important;
         margin: 0 !important;
+        flex-grow: 1;
+        height: auto;
      }
      .swiper-wrapper{
          margin: 0 !important;
+         align-items: stretch !important;
      }
     }
     @include lg{
@@ -211,6 +217,10 @@
            }
            
        }
+    }
+    &__back-img{
+        
+
     }
 }
 

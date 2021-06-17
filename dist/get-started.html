@@ -16,8 +16,11 @@
 </head>
 
 <body class="body">
+
+
+ 
 <div class="main-wrapper">
-   <header class="fixed-header header">
+   <header class="fixed-header white-header header">
     
     <div class="header__container ">
 
@@ -26,7 +29,7 @@
 
     <nav class="nav">
     <div class="nav-menu">
-        <a href="get-started.html" class="nav-item button button--invert">Demonstration</a>
+        <a href="demonstration.html" class="nav-item button button--invert">Demonstration</a>
         <a href="get-started.html" class="nav-item button"> Get started</a>
  
     </div>
@@ -39,8 +42,7 @@
 </button>
 
 </nav>
-
-    
+ 
 
 </div>
 
@@ -48,10 +50,22 @@
 </div>
 </header>
  
-  <main class="main">
-    <section class="get-started">
+  <main class="main dark-bgc">
+  
+    <section class="get-started contribution move-circle">
+      <div class="get-started__tabs">
+        <button data-activator='contribution' class="get-started__tabs-activator button"> 
+          Contribution
+        </button>
+        <button data-activator='demonstration1' class="get-started__tabs-activator  button"> 
+          Demonstration
+        </button>
+      </div>
       <div class="container get-started__wrap">
-        <form class="get-started__form shadow active">
+        <figure class="get-started__moving-circle">
+            <img src="images/getstarted-circle.svg" alt="icon">
+        </figure>
+        <form class="get-started__form get-started__form__first  shadow active">
           <h3 class="get-started__form-title">Contribute and <span class="d-block">Start for free now.</span></h3>
           <p class="get-started__form-text">
             Find out how to leverage the full potential of your teams in your cloud transformation and improve your return on investment.
@@ -66,12 +80,12 @@
             <input type="text" class="form-control" id="InputCountry" placeholder="Country*">
           </div>
           <div class="form-group">
-            <input type="email" class="form-control" id="InputEmail" aria-describedby="emailHelp" placeholder="Mail*">
+            <input type="email" required class="form-control" id="InputEmail" aria-describedby="emailHelp" placeholder="Mail*">
           </div>
           <button type="submit" class="btn btn-primary w-100">Start</button>
         </form>
 
-        <form class="get-started__form  shadow">
+        <form class="get-started__form get-started__form__second shadow">
           <h3 class="get-started__form-title">Personalized demo <span class="d-block">For free.</span></h3>
           <p class="get-started__form-text">
             Find out how to leverage the full potential of your teams in your cloud transformation and improve your return on investment.
@@ -86,18 +100,27 @@
             <input type="text" class="form-control" id="InputCountry2" placeholder="Country*">
           </div>
           <div class="form-group">
-            <input type="email" class="form-control" id="InputEmail2" aria-describedby="emailHelp" placeholder="Mail*">
+            <input type="email" required class="form-control" id="InputEmail2" aria-describedby="emailHelp" placeholder="Mail*">
           </div>
           <button type="submit" class="btn btn-primary w-100">Submit</button>
         </form>
-      </div>
-        
+      </div> 
     </section>
+ 
 </main>
 
 <footer id="contact" class="footer">
+	<div class="dark-bgc">
+
+	
+<div   class="container">
+
+
+
+	
 	<div class="footer__top">
-		<div class="container footer__content">
+		
+		<div class="  footer__content">
 			<div class="footer__img">
 				<img src="../images/footer/beopen-it-loto.png" alt="beopen-it-loto">
 			</div>			
@@ -130,6 +153,8 @@
 			</figure>			
 		</div>
 	</div>		
+</div>
+</div>
 	<div class="container footer__bottom">
 		<p>
 			Copyright © 2010-2021 BeOpen IT. Tous droits réservés.
@@ -153,14 +178,51 @@
     <path d="M21.75 0A21.75 21.75 0 1043.5 21.75 21.752 21.752 0 0021.75 0zm-6.32 32.88h-5.3V16.943h5.3zm-2.649-18.113h-.035a2.761 2.761 0 11.07-5.507 2.762 2.762 0 11-.035 5.507zM34.53 32.88h-5.3v-8.526c0-2.143-.767-3.6-2.684-3.6a2.9 2.9 0 00-2.718 1.937 3.627 3.627 0 00-.174 1.293v8.9h-5.3s.069-14.441 0-15.936h5.3V19.2a5.259 5.259 0 014.774-2.63c3.485 0 6.1 2.278 6.1 7.173zm0 0" fill="#fff"></path>
   </symbol>
 </svg>
+	
+
 </footer>
 
 
 </div>
+<script>
+  forms= document.querySelectorAll('.get-started__form');
+  formsParent= document.querySelector('.get-started ');
+  tubbuttons= document.querySelectorAll('.get-started__tabs-activator');
+
+  for (let i =0 ; i<forms.length ; i++){
+    forms[i].addEventListener('click', function(){
+      
+        for (let u =0 ; u<forms.length ; u++){
+            forms[u].classList.remove('active');
+        }
+        this.classList.add('active'); 
+        if(forms[0].className.includes('active') ){
+          formsParent.classList.add('move-circle');
+        }
+        else{
+          formsParent.classList.remove('move-circle');
+        }
+        
+      })
+  }
+  function tabActive(elem){
+    console.log(elem);
+    console.log(tubbuttons);
+    elem.addEventListener('click', function(){
+      formsParent.classList.remove('contribution');
+      formsParent.classList.remove('demonstration1');
+      formsParent.classList.add(elem.dataset.activator); 
+    }) 
+  }
+  tabActive(tubbuttons[0]);
+  tabActive(tubbuttons[1]);
+  
+ </script> 
  
 
 <script src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js'></script>
 <script src="js/main.js"> </script>
+
 </body>
 
 </html>

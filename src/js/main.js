@@ -185,6 +185,14 @@ function pagescroll(){
 }());
 //swiper
 
+// (function (){
+//     window.addEventListener('load', function (){
+//         const calendar=document.getElementById("calendar");
+//         if(calendar){
+//             calendar.placeholder='';
+//         }
+//     })
+// })();
 
 //отправка формы
 // let form = document.querySelectorAll('.order-form');
