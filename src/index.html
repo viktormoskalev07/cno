@@ -1,114 +1,142 @@
 <!DOCTYPE html>
-<html lang="en"> 
+<html lang="en">
 
-<head> 
-  <meta charset="UTF-8">
-  <title>CNO-Landing page --Home</title>
-  <meta name="description" content="">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+<head>
+    <meta charset="UTF-8">
+    <title>CNO-Landing page --Home</title>
+    <meta name="description" content="">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
 
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Ubuntu:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Ubuntu:wght@400;700&display=swap"
+          rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="shortcut icon" type="image/png" href="images/favicon.png"/>
-  <link rel="stylesheet" href="css/main.css">
-</head> 
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/png" href="images/favicon.png"/>
+    <link rel="stylesheet" href="css/main.css">
+</head>
 <body class="body">
 <div class="main-wrapper">
-  @@include('./html-templates/header.html',{
+    @@include('./html-templates/header.html',{
     customclass:'',
-  }) 
-<main class="main ">
-    <section class="hero">
-      <div class="hero__background"></div>
-      <div class="container ">
-            <div class="row">
-            <div class=" hero__left flex-column col-lg-5">
-              <h1 class="hero__title   text-blue">
-                Innovate at least once a week
-              </h1>
-              <p class="hero__description">
-                By adopting the best Kubernetes <strong class="text-blue">
-                  Onboarding 
-                </strong> framework.
-              </p>
-              <a href="#" class="button d-none d-lg-block">Ask for a demo - it’s free</a>
-            </div>
-            <div class="hero__right flex-center  flex-column col-lg-7">
-
-                <figure class='hero__gif-container'>
-                  <img class='hero__gif' src="main.gif" alt="How is it work ">
-                </figure>
-            </div>
-          </div>
-          <div class="button-mobile text-center mt-5 d-lg-none">
-            <a href="#" class="button">Ask for a demo - it’s free</a>
-          </div>
-      </div>
-
- </section>
-    @@include('./html-templates/innovation.html',{
     })
-    <section class=" section section-gray ">
-      <div class="section__background"></div>
-      <div class="container"> 
-              <h2 class="section__title">
-                CNO Onboard
-          </h2>
-          <p class="section__description">
-            Onboard your entire organization, teams and projects from not an but a unified console for successful project adoption.
-          </p>    
-        @@include('./html-templates/card-blue-container.html',{  }) 
-        @@include('./html-templates/card-dark-container.html',{  }) 
+    <main class="main ">
+        <section class="hero">
+            <div class="hero__background"></div>
+            <div class="container ">
+                <div class="row">
+                    <div class=" hero__left flex-column col-lg-5">
+                        <h1 class="hero__title   text-blue">
+                            Innovate at least once a week
+                        </h1>
+                        <p class="hero__description">
+                            By adopting the best Kubernetes <strong class="text-blue">
+                            Onboarding
+                        </strong> framework.
+                        </p>
+                        <a href="#" class="button d-none d-lg-block">Ask for a demo - it’s free</a>
+                    </div>
+                    <div class="hero__right flex-center  flex-column col-lg-7">
 
-      </div>
-</section>
+                        <figure class='hero__gif-container'>
+                            <img class='hero__gif' src="main.gif" alt="How is it work ">
+                        </figure>
+                    </div>
+                </div>
+                <div class="button-mobile text-center mt-5 d-lg-none">
+                    <a href="#" class="button">Ask for a demo - it’s free</a>
+                </div>
+            </div>
+
+        </section>
+        @@include('./html-templates/innovation.html',{
+        })
+        <section class=" section section-gray ">
+            <div class="section__background"></div>
+            <div class="container">
+                <h2 class="section__title"
+                    data-aos="fade-up"
+                    data-aos-duration="1000"
+                    data-aos-easing="ease-in-out"
+                >
+                    CNO Onboard
+                </h2>
+                <p class="section__description"
+                   data-aos="fade-up"
+                   data-aos-duration="1500"
+                   data-aos-easing="ease-in-out"
+                >
+                    Onboard your entire organization, teams and projects from not an but a unified console for
+                    successful project adoption.
+                </p>
+                @@include('./html-templates/card-blue-container.html',{ })
+                @@include('./html-templates/card-dark-container.html',{ })
+
+            </div>
+        </section>
 
 
-    <section class=" section   "> 
-      <div class="section__background"></div>
-      <div class="container"> 
-              <h2 class="section__title">
-                CNO Deploy
-          </h2>
-          <p class="section__description">
-            Choose the deployment strategy that best suits your business needs and reduce your Time-To-Market by more than 60% for each application.
-          </p>    
-        @@include('./html-templates/card-blue-container2.html',{  }) 
-        @@include('./html-templates/card-dark-container2.html',{  }) 
+        <section class=" section   ">
+            <div class="section__background"></div>
+            <div class="container">
+                <h2 class="section__title"
+                    data-aos="fade-up"
+                    data-aos-duration="1000"
+                    data-aos-easing="ease-in-out"
+                >
+                    CNO Deploy
+                </h2>
+                <p class="section__description"
+                   data-aos="fade-up"
+                   data-aos-duration="1500"
+                   data-aos-easing="ease-in-out"
+                >
+                    Choose the deployment strategy that best suits your business needs and reduce your Time-To-Market by
+                    more than 60% for each application.
+                </p>
+                @@include('./html-templates/card-blue-container2.html',{ })
+                @@include('./html-templates/card-dark-container2.html',{ })
 
-      </div>
-</section>
+            </div>
+        </section>
 
-    <section class=" section section-gray "> 
-      <div class="section__background"></div>
-      <div class="container"> 
-              <h2 class="section__title">
-                CNO Deploy
-          </h2>
-          <p class="section__description">
-            Choose the deployment strategy that best suits your business needs and reduce your Time-To-Market by more than 60% for each application.
-          </p>    
-        @@include('./html-templates/card-blue-container3.html',{  })  
-      </div>
-</section>
+        <section class=" section section-gray ">
+            <div class="section__background"></div>
+            <div class="container">
+                <h2 class="section__title"
+                    data-aos="fade-up"
+                    data-aos-duration="1000"
+                    data-aos-easing="ease-in-out"
+                >
+                    CNO Deploy
+                </h2>
+                <p class="section__description"
+                   data-aos="fade-up"
+                   data-aos-duration="1500"
+                   data-aos-easing="ease-in-out"
+                >
+                    Choose the deployment strategy that best suits your business needs and reduce your Time-To-Market by
+                    more than 60% for each application.
+                </p>
+                @@include('./html-templates/card-blue-container3.html',{ })
+            </div>
+        </section>
 
 
-      @@include('./html-templates/CNO-tabs.html',{ })
-      @@include('./html-templates/choose-cno.html',{   })
+        @@include('./html-templates/CNO-tabs.html',{ })
+        @@include('./html-templates/choose-cno.html',{ })
 
- 
 
-</main>
+    </main>
 
-@@include('./html-templates/footer.html',{ })
+    @@include('./html-templates/footer.html',{ })
 
 </div>
 <script src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js'></script>
-<script src="js/swiper.min.js"> </script>
-<script src="js/main.js"> </script>
+<script src="js/swiper.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="js/main.js"></script>
 
 </body>
 
