@@ -139,17 +139,21 @@ function pagescroll(){
 
         swiperMode();
 
-        let swiperTabs = new Swiper(".swiper-tabs", {
-            pagination: {
-                el: ".swiper-pagination-tabs",
-            },
-            breakpoints: {
-                320: {
-                    slidesPerView: 1,
-                    spaceBetween: 20
+        if (document.querySelector(".swiper-tabs")) {
+
+            let swiperTabs = new Swiper(".swiper-tabs", {
+                pagination: {
+                    el: ".swiper-pagination-tabs",
+                },
+                breakpoints: {
+                    320: {
+                        slidesPerView: 1,
+                        spaceBetween: 20
+                    }
                 }
-            }
-        });
+            });
+        }
+
 
 
         function swiperMode() {
@@ -183,8 +187,34 @@ function pagescroll(){
         }
     })
 }());
+
+(function (){
+    AOS.init({
+        // Global settings:
+        disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
+        startEvent: 'DOMContentLoaded', // name of the event dispatched on the document, that AOS should initialize on
+        initClassName: 'aos-init', // class applied after initialization
+        animatedClassName: 'aos-animate', // class applied on animation
+        useClassNames: false, // if true, will add content of `data-aos` as classes on scroll
+        disableMutationObserver: false, // disables automatic mutations' detections (advanced)
+        debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
+        throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
+        mirror: true, // whether elements should animate out while scrolling past them
+        once: false, // whether animation should happen only once - while scrolling down
+    });
+})();
+
+
 //swiper
 
+// (function (){
+//     window.addEventListener('load', function (){
+//         const calendar=document.getElementById("calendar");
+//         if(calendar){
+//             calendar.placeholder='';
+//         }
+//     })
+// })();
 
 //отправка формы
 // let form = document.querySelectorAll('.order-form');

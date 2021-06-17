@@ -2,14 +2,15 @@
   width: 100%;
   background: transparent linear-gradient(278deg, #2E54D4 0%, #1D3DA8 0%, #061146 100%) 0% 0% no-repeat padding-box;
   opacity: 0.86;
-  padding-top: 210px;
+  padding-top: 140px;
   padding-bottom: 50px;
-
+  @include bsmob {
+    padding-top: 210px;
+  }
 
   &__wrap {
     padding: 50px 0;
     margin: 0 auto;
-    max-width: 980px;
     width: 100%;
     background-color: $light1;
     border-radius: 7px;
@@ -18,7 +19,11 @@
     flex-direction: column;
     align-items: center;
     @include bsmob {
-      padding: 50px;
+      width: 80%;
+      padding: 50px 25px;
+    }
+    @include lg {
+      padding: 50px 100px;
     }
   }
 
@@ -31,18 +36,26 @@
 
 
   &__title {
+    padding: 0 15px;
     font-size: 25px;
     color: $blue;
     @include bsmob {
+      font-size: 30px;
+    }
+    @include xxl {
       font-size: 40px;
     }
   }
 
   &__sub-title {
+    padding: 0 15px;
     text-align: center;
-    font-size: 18px;
+    font-size: 16px;
     color: $dark;
     @include bsmob {
+      font-size: 18px;
+    }
+    @include xxl {
       font-size: 20px;
     }
   }
@@ -56,20 +69,30 @@
   &__item {
     display: flex;
     flex-direction: column;
-    @include bsmob {
+    @include md {
       justify-content: space-between;
       flex-direction: row;
     }
   }
 
   ::placeholder {
-    font-size: 18px;
+    font-size: 16px;
+    padding: 0;
+    @include bsmob {
+      font-size: 18px;
+    }
+    @include xxl {
+      font-size: 20px;
+    }
   }
 
   label {
     font-size: 15px;
     color: $lightGray;
-    padding: 30px 0 10px 15px;
+    padding: 15px 0 10px 15px;
+    @include bsmob {
+      padding: 30px 0 10px 15px;
+    }
   }
 
   input, textarea {
@@ -83,12 +106,6 @@
     font-size: 18px;
   }
 
-  input {
-    width: 100%;
-    @include bsmob {
-      width: 340px;
-    }
-  }
 
   &__textarea {
     height: 250px;
@@ -96,8 +113,12 @@
   }
 
   &__item-box {
+    width: 100%;
     display: flex;
     flex-direction: column;
+    @include md {
+      width: 48%;
+    }
   }
 
   &__submit {
@@ -120,6 +141,29 @@
     padding: 0;
   }
 
+  &__bottom-text {
+    padding-top: 45px;
+    font-size: 18px;
+    color: $light1;
+    margin: 0 auto;
+    text-align: center;
+    width: 80%;
+    @include bsmob {
+      width: 60%;
+    }
+    @include lg {
+      width: 40%;
+    }
+
+    a {
+      font-weight: 500;
+      text-decoration: underline;
+
+      &:hover {
+        color: $light1;
+      }
+    }
+  }
 }
 
 

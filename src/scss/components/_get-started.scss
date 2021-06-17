@@ -1,224 +1,228 @@
-.get-started{
-	// background: transparent linear-gradient(0deg, #061146 0%, #061146 40%, #08144D 74%, #021D77 100%) 0% 0% no-repeat padding-box;
+.get-started {
+  // background: transparent linear-gradient(0deg, #061146 0%, #061146 40%, #08144D 74%, #021D77 100%) 0% 0% no-repeat padding-box;
+  background: transparent linear-gradient(0deg, #061146 0%, #061146 40%, #08144D 74%, #021D77 100%) 0% 0% no-repeat padding-box;
+  padding: 180px 0 200px 0;
+  @include md {
+    padding: 250px 0 200px 0;
+  }
 
-	 
-background: transparent linear-gradient(0deg, #061146 0%, #061146 40%, #08144D 74%, #021D77 100%) 0% 0% no-repeat padding-box;
-	padding:180px 0 200px 0;
-	@include md{
-		padding:250px 0 200px 0;
-	}
-	&__wrap{
-		position: relative;
-		display: flex;
-		justify-content: center;
-		@include xl{ 
-				justify-content: space-between;
-		}
-	
-		align-items: center;
-	}
-	&__moving-circle{
-		position: absolute;
-		top: 0;
-		bottom: 0;
-		left: 0;
-		right: 0;
-		text-align: center; 
-		img{
-			transition: 0.5s;
-		
-		
-			width: auto;
-			max-width: 100%;
-			height:90%;
-			@include xl{
-				position: absolute;
-				top: 40px;  
-				left: 100%;
-				transform: translateX(-100%);
-			 
-			}
+  &__wrap {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @include xl {
+      justify-content: space-between;
+    }
+  }
 
-			
-		}
-	}
-	&__form{
-		transition: 0.3s;
-		position: relative;
-		background-color: #fff;
-		padding: 15px 20px;
-		width: 100%;
-		border-radius: 14px;
-		height: 100%;
-		margin: 0 5px;
-		@include sm{
-			margin: 0 50px;
-			padding: 45px 40px;
-			max-width: 480px;
-			
-			border-radius: 14px;
-			height: 100%;
-			margin: 0 50px;
-		}
-		
-		&.shadow:after{
-			@include xl{
-							background: rgba(#00000029, .3);
-			position: absolute;
-			content: "";
-			width: 100%;
-			height: 100%;
-			top: 0;
-			left: 0;
-			border-radius: 14px;
-			}
+  &__moving-circle {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -2px;
+    right: 0;
+    text-align: center;
 
-		}
+    img {
+      transition: all 0.5s ease;
+      width: auto;
+      max-width: 100%;
+      height: 100%;
+      @include xl {
+        position: absolute;
+        top: 40px;
+        left: 101%;
+        transform: translateX(-100%);
+      }
+    }
+  }
 
-		&.active{ 
-			@include xl{
-			 position: relative;
-			max-width: 515px;
-			padding: 80px 60px;
-			border-radius: 33px;
-			&.shadow:after{
-				pointer-events: none;
-				background: transparent;
-			}
-			.get-started{
-				&__form-title{
-					font-size: 40px;
-					line-height: (54/40);
-				}
-				&__form-text{
-					font-size: 20px;
-				} 
-			}
-			}
-		
-			
-		}
-	}
-	&__form-title{
+  &__form {
+    transition: 0.3s;
+    position: relative;
+    background-color: #fff;
+    padding: 15px 20px;
+    width: 100%;
+    border-radius: 14px;
+    height: 100%;
+    margin: 0 5px;
+    @include sm {
+      margin: 0 50px;
+      padding: 45px 40px;
+      max-width: 480px;
+      border-radius: 14px;
+      height: 100%;
+      margin: 0 50px;
+    }
 
-		color: #2E54D4;
-		font-size: 22px;
- 
-		@include md{
-			font-size: 30px;
-		}
-		font-weight: bolder;
-		margin-bottom: 20px;
-	}
-	&__form-text{
-		text-align: center;
-		font-size: 16px;
-		padding-bottom: 22px;
-		@include md{
-			font-size: 18px;padding-bottom: 30px;
-		}
-		
-		line-height: (35/18);
-		letter-spacing: 0;
-		
-	}
-	.form-control{
-		border-radius: 10px;
-		font-size: 14px;
-		padding: 5px 15px;
-		@include md{
-			font-size: 18px;
-			padding: 10px 28px;
-		}
-	
-		color: #362828;
-		margin-bottom: 22px;
-	}
-	.btn{
-		padding: 8px;
-		font-size: 16px;
-		@include md{
-			padding: 14px;
-			font-size: 22px;
-		}
-		
-		background-color:#82AAFD;
-		&:hover{
-			background-color: $blue;
-		}
-		font-weight: 700;
+    &.shadow:after {
+      @include xl {
+        background: rgba(#00000029, .3);
+        position: absolute;
+        content: "";
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        border-radius: 14px;
+      }
+    }
 
-	}
-	&.move-circle{
-		.get-started{ 
-			&__moving-circle{ 
-				img{ 
-					left: 0%;
-					transform: translateX(0); 
-				}
-			}
-		}
-	}
+    &.active {
+      @include xl {
+        transform: scale(1.2);
+        transition: 0.3s;
+        position: relative;
+        border-radius: 33px;
+        &.shadow:after {
+          pointer-events: none;
+          background: transparent;
+        }
+        .get-started {
+          &__form-title {
+            font-size: 40px;
+            line-height: (54/40);
+          }
 
-	&__form{
-		&__second{
-			display: none;
-			@include xl{
-				display: block;
-			}
-		}
-	}
-	&__tabs{
-		font-size: 0;
-		text-align: center;
-		margin-bottom: 40px;
-		&-activator{
-			background: transparent;
-			 border: white 1px solid;
-			&:last-child{
-				border-left: none;
-			}
-			@include md{
-				min-width: 210px;
-				text-align: center;
-			}
-			@include xl{
-					display: none;
-			}
+          &__form-text {
+            font-size: 20px;
+          }
+        }
+      }
+    }
+  }
 
-		
-		}
+  &__form-title {
+    color: #2E54D4;
+    font-size: 22px;
 
-	}
-}
-.contribution{
-	.get-started__tabs-activator:first-child{
-		background-color:$light-blue ;
-	}
-	.get-started__form__first{
-		display: block;
-	}
-	.get-started__form__second{
-		display: none;
-		@include xl{
-			display: block;
-		}
-	}
+    @include md {
+      font-size: 30px;
+    }
+    font-weight: bolder;
+    margin-bottom: 20px;
+  }
 
+  &__form-text {
+    text-align: center;
+    font-size: 16px;
+    padding-bottom: 22px;
+    @include md {
+      font-size: 18px;
+      padding-bottom: 30px;
+    }
+
+    line-height: (35/18);
+    letter-spacing: 0;
+
+  }
+
+  .form-control {
+    border-radius: 10px;
+    font-size: 14px;
+    padding: 5px 15px;
+    @include md {
+      font-size: 18px;
+      padding: 10px 28px;
+    }
+
+    color: #362828;
+    margin-bottom: 22px;
+  }
+
+  .btn {
+    transition: 0.5s ease;
+    border: none;
+    padding: 8px;
+    font-size: 16px;
+    background-color: #82AAFD;
+    font-weight: 700;
+    @include md {
+      padding: 14px;
+      font-size: 22px;
+    }
+
+    &:hover {
+      transition: 0.5s ease;
+      background-color: $blue;
+    }
+  }
+
+  &.move-circle {
+    .get-started {
+      &__moving-circle {
+        img {
+          left: -20px;
+          transform: translateX(0);
+        }
+      }
+    }
+  }
+
+  &__form {
+    &__second {
+      display: none;
+      @include xl {
+        display: block;
+      }
+    }
+  }
+
+  &__tabs {
+    font-size: 0;
+    text-align: center;
+    margin-bottom: 40px;
+
+    &-activator {
+      background: transparent;
+      border: white 1px solid;
+
+      &:last-child {
+        border-left: none;
+      }
+
+      @include md {
+        min-width: 210px;
+        text-align: center;
+      }
+      @include xl {
+        display: none;
+      }
+    }
+  }
 }
 
-.demonstration1{
-	.get-started__tabs-activator:last-child{
-		background-color:$light-blue ;
-	}
-	.get-started__form__second{
-		display: block;
-	}
-	.get-started__form__first{
-		display: none;
-		@include xl{
-			display: block;
-		}
-	}
+.contribution {
+  .get-started__tabs-activator:first-child {
+    background-color: $light-blue;
+  }
 
+  .get-started__form__first {
+    display: block;
+  }
+
+  .get-started__form__second {
+    display: none;
+    @include xl {
+      display: block;
+    }
+  }
+}
+
+.demonstration1 {
+  .get-started__tabs-activator:last-child {
+    background-color: $light-blue;
+  }
+
+  .get-started__form__second {
+    display: block;
+  }
+
+  .get-started__form__first {
+    display: none;
+    @include xl {
+      display: block;
+    }
+  }
 }
