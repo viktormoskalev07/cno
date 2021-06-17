@@ -139,17 +139,21 @@ function pagescroll(){
 
         swiperMode();
 
-        let swiperTabs = new Swiper(".swiper-tabs", {
-            pagination: {
-                el: ".swiper-pagination-tabs",
-            },
-            breakpoints: {
-                320: {
-                    slidesPerView: 1,
-                    spaceBetween: 20
+        if (document.querySelector(".swiper-tabs")) {
+
+            let swiperTabs = new Swiper(".swiper-tabs", {
+                pagination: {
+                    el: ".swiper-pagination-tabs",
+                },
+                breakpoints: {
+                    320: {
+                        slidesPerView: 1,
+                        spaceBetween: 20
+                    }
                 }
-            }
-        });
+            });
+        }
+
 
 
         function swiperMode() {
