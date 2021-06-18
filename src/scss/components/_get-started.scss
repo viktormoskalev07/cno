@@ -1,5 +1,4 @@
-.get-started {
-  // background: transparent linear-gradient(0deg, #061146 0%, #061146 40%, #08144D 74%, #021D77 100%) 0% 0% no-repeat padding-box;
+.get-started { 
   background: transparent linear-gradient(0deg, #061146 0%, #061146 40%, #08144D 74%, #021D77 100%) 0% 0% no-repeat padding-box;
   padding: 180px 0 200px 0;
   @include md {
@@ -22,6 +21,7 @@
     bottom: 0;
     left: -2px;
     right: 0;
+    z-index: 0;
     text-align: center;
 
     img {
@@ -39,6 +39,8 @@
   }
 
   &__form {
+    position: relative;
+    z-index: 1;
     transition: 0.3s;
     position: relative;
     background-color: #fff;
@@ -57,7 +59,10 @@
     }
 
     &.shadow:after {
+      pointer-events: none;
       @include xl {
+        pointer-events: all;
+        cursor: pointer;
         background: rgba(#00000029, .3);
         position: absolute;
         content: "";
@@ -125,8 +130,7 @@
     @include md {
       font-size: 18px;
       padding: 10px 28px;
-    }
-
+    } 
     color: #362828;
     margin-bottom: 22px;
   }
@@ -141,31 +145,26 @@
     @include md {
       padding: 14px;
       font-size: 22px;
-    }
-
+    } 
     &:hover {
       transition: 0.5s ease;
       background-color: $blue;
     }
   }
+ 
 
-  &.move-circle {
-    .get-started {
-      &__moving-circle {
-        img {
-          left: -20px;
-          transform: translateX(0);
-        }
-      }
-    }
-  }
-
-  &__form {
+  &__form { 
     &__second {
       display: none;
       @include xl {
         display: block;
       }
+    } 
+    &__first.active~.get-started__moving-circle{
+      img {
+            left: -20px;
+            transform: translateX(0);
+       }
     }
   }
 
@@ -193,7 +192,7 @@
   }
 }
 
-.contribution {
+.contribution-tab {
   .get-started__tabs-activator:first-child {
     background-color: $light-blue;
   }
@@ -210,7 +209,7 @@
   }
 }
 
-.demonstration1 {
+.demonstration-tab {
   .get-started__tabs-activator:last-child {
     background-color: $light-blue;
   }
