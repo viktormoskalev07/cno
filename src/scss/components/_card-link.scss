@@ -7,7 +7,7 @@
         justify-content: space-around;  
         margin-left: -20px;
         margin-right: -20px;
-        @include bsmob{ 
+        @include xxl{ 
             margin-left: -50px;
             margin-right: -50px;
         } 
@@ -21,7 +21,7 @@
             @include s{
                 width: 360px;
              }
-          @include bsmob{
+          @include xxl{
               min-height: 220px;
                 width: 460px;
                 padding: 50px; 
@@ -62,11 +62,17 @@
                 @include md{
                     font-size: 21px;
                 }
-                @include bsmob{
+                @include xxl{
                     font-size: 25px;
                 } 
         }
         &__circle{
+            display: none;
+            @include xl{
+            display: block;
+                        
+            }
+           
            position: absolute;
           
            top: 0;
@@ -75,10 +81,8 @@
            right: 70px;
            z-index: 0;
            text-align: left;
-           img{
-                      
-                  position: relative;
-               
+           img{ 
+                  position: relative; 
                  transition:  all 1s  5s  ; 
                  
                  left: 0;
@@ -90,7 +94,7 @@
 
         }
     &__item{
-        &:hover{
+        &:hover , &:focus{
             .card-link{
                 &__title{
                     color:$blue; 
@@ -105,19 +109,25 @@
     }
     &__wrapper{
 
-        &:hover{
+        &:hover , &:focus{
             &~.card-link__circle{
                 img{ 
                      max-width: 500px; opacity: 1;
-                    transition: left 1s, transform 1s ,opacity 1s, max-width 1s; 
+                    transition:  1s; 
                 }}
                
         }
-        &:nth-child(2):hover{
+        &:nth-child(1):hover  {
             &~.card-link__circle{
-                img{
-                    
-                    
+                img{ 
+                      left: 0%; 
+                       transform:scale(1) translate(0%);
+                }   
+      }
+      }
+        &:nth-child(2):hover  {
+            &~.card-link__circle{
+                img{ 
                       left: 50%; 
                        transform:scale(1) translate(-50%);
                 }   
