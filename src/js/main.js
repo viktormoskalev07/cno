@@ -4,7 +4,6 @@ header = document.querySelector("header");
 btnMenu = document.querySelector(".btn-menu");
 
 
-
 // мобильное меню
 nav = document.querySelector(".nav");
 document.querySelector(".btn-menu").addEventListener("click", togglenav);
@@ -65,80 +64,78 @@ function togglescroll() {
 // Появление меню при прокрутке
 window.onload = function () {
     pagescroll();
- 
+
 }
 
-function pagescroll(){ 
-  let pscroll = 0;
-  if(pageYOffset>2){ 
-    header.classList.add('header-bg-js'); 
-  }
-  window.addEventListener('scroll', function() { 
- 
-    if(pageYOffset>2){ 
-      header.classList.add('header-bg-js'); 
-    } else{
-      try{
-        header.classList.remove('header-bg-js'); 
-      }
-      catch(e){ console.log(e);}
+function pagescroll() {
+    let pscroll = 0;
+    if (pageYOffset > 2) {
+        header.classList.add('header-bg-js');
     }
-      if (pscroll<pageYOffset&pageYOffset>header.offsetHeight){
-               header.style="transform:translateY(-100%)"; //прячем хедер при прокрутке вниз            
-       }else { 
-            header.style="transform:none ;"; //показываем хедер при прокрутке вверх           
-       }  
-   pscroll=pageYOffset;
- });
+    window.addEventListener('scroll', function () {
+
+        if (pageYOffset > 2) {
+            header.classList.add('header-bg-js');
+        } else {
+            try {
+                header.classList.remove('header-bg-js');
+            } catch (e) {
+                console.log(e);
+            }
+        }
+        if (pscroll < pageYOffset & pageYOffset > header.offsetHeight) {
+            header.style = "transform:translateY(-100%)"; //прячем хедер при прокрутке вниз
+        } else {
+            header.style = "transform:none ;"; //показываем хедер при прокрутке вверх
+        }
+        pscroll = pageYOffset;
+    });
 }
 
- //Появление меню при прокрутке
- //card
- const cards=document.querySelectorAll('.card-dark');
-  function cardsToggler(){
+//Появление меню при прокрутке
+//card
+const cards = document.querySelectorAll('.card-dark');
 
-  if(cards.length>-1){
-    for(let i=0 ;i<cards.length ; i++){ 
-      cards[i].addEventListener('click',function(){ 
-        this.classList.toggle('card-dark-active'); 
-      })
-      cards[i].addEventListener('keypress',function(e){
-        if(e.key=='Enter'){
-          this.classList.toggle('card-dark-active'); 
-        }  
-      })
+function cardsToggler() {
+
+    if (cards.length > -1) {
+        for (let i = 0; i < cards.length; i++) {
+            cards[i].addEventListener('click', function () {
+                this.classList.toggle('card-dark-active');
+            })
+            cards[i].addEventListener('keypress', function (e) {
+                if (e.key == 'Enter') {
+                    this.classList.toggle('card-dark-active');
+                }
+            })
+        }
     }
-  }
-  }
+}
 
-  window.addEventListener('load' , cardsToggler);
- 
+window.addEventListener('load', cardsToggler);
 
- //card
 
- 
- 
- 
+//card
+
 
 (function () {
     window.addEventListener('load', function () {
-      if(this.document.querySelector('.cards1')){
-        try{
-             const swiper = new Swiper(".cards1", {
-        pagination: {
-          el: ".swiper-pagination",
-        }, 
-      }); 
-        }catch (e){
-          console.log(e);
+        if (this.document.querySelector('.cards1')) {
+            try {
+                const swiper = new Swiper(".cards1", {
+                    pagination: {
+                        el: ".swiper-pagination",
+                    },
+                });
+            } catch (e) {
+                console.log(e);
+            }
+
         }
-            
-      }
 
 
-
-        const swiperContainer=document.getElementById('swiper-tabs-wrap');
-        const tabs=document.getElementById('tabs-box');
+        const swiperContainer = document.getElementById('swiper-tabs-wrap');
+        const tabs = document.getElementById('tabs-box');
 
         swiperMode();
 
@@ -158,22 +155,21 @@ function pagescroll(){
         }
 
 
-
         function swiperMode() {
 
             let mobile = window.matchMedia("(min-width: 0px) and (max-width:692px)");
             let desktop = window.matchMedia("(min-width: 693px)");
 
             if (mobile.matches) {
-                if (swiperContainer&&tabs) {
-                    tabs.style.display="none";
-                    swiperContainer.style.display="block";
+                if (swiperContainer && tabs) {
+                    tabs.style.display = "none";
+                    swiperContainer.style.display = "block";
                 }
 
             } else if (desktop.matches) {
-                if (swiperContainer&&tabs) {
-                    swiperContainer.style.display="none";
-                    tabs.style.display="block";
+                if (swiperContainer && tabs) {
+                    swiperContainer.style.display = "none";
+                    tabs.style.display = "block";
                 }
 
             }
@@ -191,24 +187,7 @@ function pagescroll(){
     })
 }());
 
-(function (){
-    window.addEventListener('load', function (){
-        AOS.init({
-            // Global settings:
-            disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
-            startEvent: 'DOMContentLoaded', // name of the event dispatched on the document, that AOS should initialize on
-            initClassName: 'aos-init', // class applied after initialization
-            animatedClassName: 'aos-animate', // class applied on animation
-            useClassNames: false, // if true, will add content of `data-aos` as classes on scroll
-            disableMutationObserver: false, // disables automatic mutations' detections (advanced)
-            debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
-            throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
-            mirror: true, // whether elements should animate out while scrolling past them
-            once: true, // whether animation should happen only once - while scrolling down
-        });
-    })
-})();
 
 
 //swiper
- 
+
