@@ -1,5 +1,6 @@
 .card-link{
         &__container{
+            position: relative;
         display: flex;
         align-items: stretch;
         flex-wrap: wrap;
@@ -12,25 +13,28 @@
         } 
            
         }
-        &__item{
-            padding:36px 30px;
-            margin: 20px;
-            @include bsmob{ 
-                margin: 50px; 
-            } 
+        &__wrapper{
+            position: relative;
+            z-index: 1;
+            width: 300px;
+            padding:20px;  
+            @include s{
+                width: 360px;
+             }
+          @include bsmob{
+              min-height: 220px;
+                width: 460px;
+                padding: 50px; 
+          }
+        }
+        &__item{ 
+            display: block;
+            padding:36px 30px; 
             background-color: #fff;
             box-shadow: 0px 3px 6px #00000029;
-            border-radius: 6px;
-            width: 280px;
+            border-radius: 6px; 
             text-align: center;
-            min-height: 200px;
-            @include s{
-                  width: 320px;
-            }
-            @include bsmob{
-                min-height: 220px;
-                  width: 360px;
-            } 
+            min-height: 200px; 
         }
         &__img{
 
@@ -62,7 +66,31 @@
                     font-size: 25px;
                 } 
         }
-        &__item:hover{
+        &__circle{
+           position: absolute;
+          
+           top: 0;
+           bottom: 0;
+           left: 70px;
+           right: 70px;
+           z-index: 0;
+           text-align: left;
+           img{
+                      
+                  position: relative;
+               
+                 transition:  all 1s  5s  ; 
+                 
+                 left: 0;
+                 height: 100%;
+                 width: auto;
+                 opacity: 0;
+                 max-width: 0;
+           }
+
+        }
+    &__item{
+        &:hover{
             .card-link{
                 &__title{
                     color:$blue; 
@@ -71,8 +99,38 @@
                         svg{
                             fill:$blue
                         }
-                }
-            }
-        }
+                } 
+            } 
+        }    
+    }
+    &__wrapper{
 
+        &:hover{
+            &~.card-link__circle{
+                img{ 
+                     max-width: 500px; opacity: 1;
+                    transition: left 1s, transform 1s ,opacity 1s, max-width 1s; 
+                }}
+               
+        }
+        &:nth-child(2):hover{
+            &~.card-link__circle{
+                img{
+                    
+                    
+                      left: 50%; 
+                       transform:scale(1) translate(-50%);
+                }   
+      }
+      }
+       &:nth-child(3):hover{
+            &~.card-link__circle{
+                img{
+                  
+                      transform: translate(-100%);
+                      left: 100%;
+                } 
+            }
+      }
+    }
 }
