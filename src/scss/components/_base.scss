@@ -16,6 +16,12 @@ body{
   font-size: 32px;
   line-height: 1.8;
 }
+.color-blue{
+  color:$blue !important;
+}
+.color-dark{
+  color:$dark !important;
+}
 .dark-bgc{
   height: 100%;
   background-color: #061146;

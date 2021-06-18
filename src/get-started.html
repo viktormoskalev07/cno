@@ -25,20 +25,17 @@
   }) 
   <main class="main dark-bgc">
   
-    <section class="get-started contribution move-circle">
+    <section class="get-started contribution-tab move-circle">
       <div class="get-started__tabs">
-        <button data-activator='contribution' class="get-started__tabs-activator button"> 
+        <button data-activator='contribution-tab' class="get-started__tabs-activator button"> 
           Contribution
         </button>
-        <button data-activator='demonstration1' class="get-started__tabs-activator  button"> 
+        <button data-activator='demonstration-tab' class="get-started__tabs-activator  button"> 
           Demonstration
         </button>
       </div>
-      <div class="container get-started__wrap">
-        <figure class="get-started__moving-circle">
-            <img src="images/getstarted-circle.svg" alt="icon">
-        </figure>
-        <form class="get-started__form get-started__form__first  shadow active">
+      <div class="container get-started__wrap"> 
+        <form action="thankyou-go-home.html" method="GET" class="get-started__form get-started__form__first  shadow active">
           <h3 class="get-started__form-title">Contribute and <span class="d-block">Start for free now.</span></h3>
           <p class="get-started__form-text">
             Find out how to leverage the full potential of your teams in your cloud transformation and improve your return on investment.
@@ -58,7 +55,7 @@
           <button type="submit" class="btn btn-primary w-100">Start</button>
         </form>
 
-        <form class="get-started__form get-started__form__second shadow">
+        <form action="thankyou-go-home.html" method="GET" class="get-started__form get-started__form__second shadow">
           <h3 class="get-started__form-title">Personalized demo <span class="d-block">For free.</span></h3>
           <p class="get-started__form-text">
             Find out how to leverage the full potential of your teams in your cloud transformation and improve your return on investment.
@@ -77,6 +74,9 @@
           </div>
           <button type="submit" class="btn btn-primary w-100">Submit</button>
         </form>
+        <figure class="get-started__moving-circle">
+          <img src="images/getstarted-circle.svg" alt="icon">
+      </figure>
       </div> 
     </section>
  
@@ -92,25 +92,17 @@
   tubbuttons= document.querySelectorAll('.get-started__tabs-activator');
 
   for (let i =0 ; i<forms.length ; i++){
-    forms[i].addEventListener('click', function(){
-      
+    forms[i].addEventListener('click', function(){ 
         for (let u =0 ; u<forms.length ; u++){
             forms[u].classList.remove('active');
         }
-        this.classList.add('active'); 
-        if(forms[0].className.includes('active') ){
-          formsParent.classList.add('move-circle');
-        }
-        else{
-          formsParent.classList.remove('move-circle');
-        }
-        
+        this.classList.add('active');   
       })
   }
   function tabActive(elem){ 
     elem.addEventListener('click', function(){
-      formsParent.classList.remove('contribution');
-      formsParent.classList.remove('demonstration1');
+      formsParent.classList.remove('contribution-tab');
+      formsParent.classList.remove('demonstration-tab');
       formsParent.classList.add(elem.dataset.activator); 
     }) 
   }
