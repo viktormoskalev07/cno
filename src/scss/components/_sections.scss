@@ -71,3 +71,30 @@
  .section-gray{
      background-color:$gray;
  }
+
+ .section-thank{
+     text-align: center;
+     padding-top: 300px;
+     padding-bottom: 150px;
+     &__title{
+         color: white;
+         font-size: 25px;
+         line-height: (31/25);
+         letter-spacing: 0;
+         font-weight: 800;
+         @include bsmob{
+             font-size: 40px;
+         }
+
+     }
+     &__subtitle{
+        letter-spacing: 0;
+        color: white;
+        font-size: 20px;
+        line-height: (35/20);
+        @include bsmob{
+            font-size: 25px;
+        }
+
+     }
+ }
