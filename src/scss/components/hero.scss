@@ -12,12 +12,18 @@
 
 	&__background {
 		background: transparent url('../images/hero/o.svg') no-repeat;
-		background-position: 105% 104%;
+		background-position: 100%  0px;
 		background-size: contain;
 		position: absolute;
 		top: 0;
-		left: 0;
 		right: 0;
+		@include md{
+			top: -250px;
+			right: -250px;
+		}
+		
+		left: 0;
+		
 		bottom: 0;
 		z-index: -1;
 		pointer-events: none;
