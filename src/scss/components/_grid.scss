@@ -1,8 +1,17 @@
-.container, .container-lg, .container-md, .container-sm, .container-xl{
-    max-width: 1380px;
-    @include xl{
-            padding: 0 40px;
-    }
+.container,
+.container-lg,
+.container-md,
+.container-sm,
+.container-xl {
+
+	@include xl {
+		padding: 0 40px;
+		max-width: 1220px;
+	}
+
+	@include wide-screen-lg {
+		max-width: 1380px;
+	}
 
 }
 

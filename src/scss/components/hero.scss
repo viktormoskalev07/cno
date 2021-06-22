@@ -1,69 +1,80 @@
-.hero{
-    
-    position: relative;
-    padding: 155px 0 45px 0; 
-    @include bsmob{
-        padding: 175px 0 45px 0; 
-    }
-    display: flex;
-    flex-direction: column;
- 
-        &__background{
-            background: transparent url('../images/hero/o.svg')  no-repeat ;
-            background-position: 105%  104%;
-            background-size: contain;
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            z-index: -1;
-           pointer-events:none;
-        }
-        &__right, &__left{
-            padding-top: 0;
-            padding-bottom: 0;
-             flex-direction: column;
-             display: flex;
-             justify-content: center;
-             text-align: center;
-             @include lg{
-               text-align: left;
-               align-items: flex-start;
-             } 
-           }
-    &__title{
-        text-transform: none;
-        font-size: 40px;
-        line-height: 1;
-        margin-bottom: 33px;
-        width: 100%;
+.hero {
 
-        @include lg{ 
-            text-align: left;
-            font-size: 50px;
-            line-height: 1.2;
-        } 
+	position: relative;
+	padding: 155px 0 45px 0;
 
-    } 
-    &__description{
-        width: 100%;
-        margin-bottom: 33px; 
-        font-size: 35px;
-        line-height: (55 / 35);
-    }
-    &__gif-container{
-        position: relative;
-        height: 0;
-        padding-bottom: 100%;
-        width: 100%;
-    }
-    &__gif{
-        position: absolute;
-        left: 0;
-        right: 0;
-        top: 0;
-        bottom: 0;
-    }
+	@include bsmob {
+		padding: 175px 0 45px 0;
+	}
+
+	display: flex;
+	flex-direction: column;
+
+	&__background {
+		background: transparent url('../images/hero/o.svg') no-repeat;
+		background-position: 105% 104%;
+		background-size: contain;
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		z-index: -1;
+		pointer-events: none;
+	}
+
+	&__right,
+	&__left {
+		padding-top: 0;
+		padding-bottom: 0;
+		flex-direction: column;
+		display: flex;
+		justify-content: center;
+		text-align: center;
+
+		@include lg {
+			text-align: left;
+			align-items: flex-start;
+		}
+	}
+
+	&__title {
+		text-transform: none;
+		font-size: 40px;
+		line-height: 1;
+		margin-bottom: 33px;
+		width: 100%;
+		font-family: $nunito;
+
+		@include lg {
+			text-align: left;
+			font-size: 45px;
+			line-height: 1.2;
+		}
+
+	}
+
+	&__description {
+		width: 100%;
+		margin-bottom: 33px;
+		font-size: 35px;
+		line-height: (55 / 35);
+		font-family: $ubuntu;
+	}
+
+	&__gif-container {
+		position: relative;
+		height: 0;
+		padding-bottom: 100%;
+		width: 100%;
+	}
+
+	&__gif {
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+	}
 
 }

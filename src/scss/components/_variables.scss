@@ -5,7 +5,7 @@ $md: 768px;
 $lg: 992px;
 $xl: 1200px;
 $xxl: 1400px;
-
+$wide-screen-lg: 1599px;
 
 @mixin s {
   @media (min-width:$s) {
@@ -48,6 +48,11 @@ $xxl: 1400px;
     @content
   }
 };
+@mixin wide-screen-lg {
+  @media (min-width: $wide-screen-lg) {
+    @content
+  }
+};
 
 $light1: #fcf8fa;
 $light2:#F8F8F8; 
@@ -57,3 +62,6 @@ $blue:#2E54D4;
 $light-blue:#84ACFD;
 $lightDark:#767575;
 $lightGray:#B9B9B9;
+
+$ubuntu: 'ubuntu', sans-serif;
+$nunito: 'Nunito', sans-serif;

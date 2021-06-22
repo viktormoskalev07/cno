@@ -10,20 +10,29 @@
   }
 
   &__title {
-    font-size: 40px;
-    text-transform: none;
-    margin: 0;
-  }
-
-  &__sub-title {
     font-size: 30px;
     text-transform: none;
     margin: 0;
-    padding-bottom: 30px;
+
+    @include wide-screen-lg {
+      font-size: 40px;
+    }
+  }
+
+  &__sub-title {
+    font-size: 25px;
+    font-family: $nunito;
+    text-transform: none;
+    margin: 0;
+    padding-bottom: 40px;
+
+    @include wide-screen-lg {
+      font-size: 30px;
+    }
   }
 
   &__blocks {
-    padding: 80px 0 0;
+    padding: 40px 0 0;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -37,6 +46,7 @@
   &__bl {
     max-width: 100%;
     padding-bottom: 66px;
+    font-family: $ubuntu;
     @media screen and(min-width: $lg) {
       max-width: 340px;
       padding: 0 21px;
@@ -50,6 +60,7 @@
     padding: 7px 16px;
     border-radius: 4px;
     margin-bottom: 25px;
+    line-height: 1;
   }
 
   &__bl-title {
@@ -68,12 +79,10 @@
   }
 
   &__bl-text {
-    font-weight: lighter;
+    font-weight: 300;
     margin: 0;
-    line-height: 2.5;
     font-size: 18px;
     @media screen and(min-width: $lg) {
-      line-height: 1.8;
     }
   }
 
@@ -108,9 +117,12 @@
     font-size: 30px;
     max-width: 500px;
     margin: 0 auto;
-    @media screen and(min-width: $lg) {
-      font-size: 45px;
+    @include bsMob {
+      font-size: 40px;
       max-width: 650px;
+    }
+    @include wide-screen-lg {
+      font-size: 45px;
       padding: 80px 15px;
     }
 

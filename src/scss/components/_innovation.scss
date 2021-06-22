@@ -1,56 +1,76 @@
-.innovation{
+.innovation {
 	padding: 50px 0 75px;
 	background: #2e54d4;
 	text-align: center;
 	color: #fff;
 	position: relative;
-	&__title{
+
+	&__title {
 		font-size: 25px;
 		font-weight: 700;
 		line-height: 1.4;
-		@include md{
+
+		@include xl {
+			font-size: 30px;
+		}
+		@include wide-screen-lg {
 			font-size: 40px;
 		}
-		
+
 		text-transform: none;
 		margin: 0;
 	}
-	&__sub-title{
+
+	&__sub-title {
 		font-size: 20px;
 		line-height: (27/20);
-		@include md {
+		font-family: $nunito;
+
+		@include xl {
+			font-size: 25px;
+		}
+		@include wide-screen-lg {
 			font-size: 30px;
 		}
-		
+
 		text-transform: none;
 		margin: 0;
 		padding-bottom: 30px;
 	}
-	&__text{
+
+	&__text {
 		font-weight: 700;
 		font-size: 25px;
 		line-height: (35/25);
-		@include md{
-				font-size: 35px;
+
+		@include xl {
+			font-size: 30px;
 		}
-	
+		@include wide-screen-lg {
+			font-size: 35px;
+		}
+
 		text-transform: none;
 		margin: 0;
 	}
-	&__block{
+
+	&__block {
 		border-top: 1px solid #fff;
 		border-bottom: 1px solid #fff;
 		padding: 60px 0 0;
-		margin-bottom: 20px;	
+		margin-bottom: 20px;
 	}
-	svg{
+
+	svg {
 		width: auto;
 	}
-	.icon{
+
+	.icon {
 		fill: #83acfd;
 		max-height: 55px;
 		width: 100%;
-		&_big{
+
+		&_big {
 			max-height: 180px;
 			max-width: 500px;
 			width: 100%;
@@ -59,63 +79,74 @@
 			display: block;
 		}
 	}
-	&__flex{
+
+	&__flex {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
 	}
-	&__wrap{
 
-		&_mini{
+	&__wrap {
+
+		&_mini {
 			display: flex;
 			justify-content: space-around;
 			align-items: center;
-			.icon{
+
+			.icon {
 				max-width: 120px;
 			}
 		}
 	}
-	&__bl-center{
+
+	&__bl-center {
 		margin: 0 auto;
 	}
-	&__logo{
+
+	&__logo {
 		padding: 5px;
-		@include md{
-				padding: 0 15px 35px;
+
+		@include md {
+			padding: 0 15px 35px;
 		}
-	
+
 	}
-	&__background{ 
+
+	&__background {
 		display: none;
-		@include lg{
+
+		@include lg {
 			display: block;
 		}
+
 		pointer-events: none;
 		position: absolute;
 		top: 60px;
 		left: 0;
 		bottom: 60px;
-		right: 0; 
-		img{
+		right: 0;
+
+		img {
 			transition: 0.5s linear;
 
 			position: absolute;
 			top: 0;
 			bottom: 0;
 			left: 0;
-			height: 100%; 
-			width: auto; 
-			 display: block;
-			 margin-right: 0;
+			height: 100%;
+			width: auto;
+			display: block;
+			margin-right: 0;
 		}
 	}
-	&:hover{
-		.innovation__background{
-		  img{
-			 left:100%;
-			 transform: translateX(-100%) rotate(180deg);
-		  }
- 
+
+	&:hover {
+		.innovation__background {
+			img {
+				left: 100%;
+				transform: translateX(-100%) rotate(180deg);
+			}
+
 		}
 	}
 }
