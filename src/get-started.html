@@ -17,8 +17,6 @@
 
 <body class="body">
 
-
- 
 <div class="main-wrapper">
   @@include('./html-templates/header.html',{
     customclass:'white-header',
@@ -26,132 +24,56 @@
   <main class="main dark-bgc">
   
     <section class="get-started contribution-tab move-circle">
-      <div class="get-started__tabs">
-        <button data-activator='contribution-tab' class="get-started__tabs-activator button"> 
-          Contribution
-        </button>
-        <button data-activator='demonstration-tab' class="get-started__tabs-activator  button"> 
-          Demonstration
-        </button>
-      </div>
       <div class="container get-started__wrap"> 
+
         <form action="thankyou-go-home.html" method="GET" class="get-started__form get-started__form__first  shadow active">
           <h3 class="get-started__form-title">Contribute and <span class="d-block">Start for free now.</span></h3>
           <p class="get-started__form-text">
             Find out how to leverage the full potential of your teams in your cloud transformation and improve your return on investment.
           </p>
-         <div class="calendly-inline-widget" data-url="https://calendly.com/d/pg6p-94zt/cno-demo" style="position: relative;min-width:320px;height:950px;" data-processed="true">
- 
+          <div class="calendly-inline-widget" data-url="https://calendly.com/d/pg6p-94zt/cno-demo" style="position: relative;min-width:320px;min-height:660px;" data-processed="true">
 
-<script charset="utf-8" async  type="text/javascript" src="//js.hsforms.net/forms/shell.js"></script>
-<script>
+            <script charset="utf-8" async  type="text/javascript" src="//js.hsforms.net/forms/shell.js"></script>
 
+            <script>
+              window.addEventListener('load',function(){
+               hbspt.forms.create({
+                region: "na1",
+                portalId: "8613364",
+                formId: "23318cee-c186-4bb0-b4f1-2a85f6f6fac5"
+              });
+              changeFrame();
+              });
+            i=0;
 
+            function changeFrame () {
+                i++;
+                let iframeName = document.querySelector('.hs-form-iframe');
+                if (iframeName) {
+                  iframeName.style = 'width: 100%; box-sizing: border-box; overflow: hidden'
+                  return false;
+                }
+                if(i > 10){
+                  return false
+                } 
+                setTimeout(() => {
+                  changeFrame();
+                }, 1000);
+              }
+            </script>
 
-window.addEventListener('load',function(){
-
-    hbspt.forms.create({
-region: "na1",
-portalId: "8613364",
-formId: "23318cee-c186-4bb0-b4f1-2a85f6f6fac5"
-});
-changeFrame();
-}
-  );
-i=0;
- function changeFrame () {
-   
-    i++
-    let iframeName = document.querySelector('.hs-form-iframe');
-    if(iframeName){
-      iframeName.style='width:100% ; box-sizing:border-box ;overflow:hidden'
-      return false;
-    }
-    if(i>10){
-      return false
-    } 
-  setTimeout(() => {
-    changeFrame();
-  }, 1000);
- 
-}
-</script>
-         </div>
-          <!-- <div class="form-group">
-            <input type="text" class="form-control" id="InputName" placeholder="First and last name*">
           </div>
-          <div class="form-group">
-            <input type="text" class="form-control" id="InputCompany" placeholder="Company*">
-          </div>
-          <div class="form-group">
-            <input type="text" class="form-control" id="InputCountry" placeholder="Country*">
-          </div>
-          <div class="form-group">
-            <input type="email" required class="form-control" id="InputEmail"  placeholder="Mail*">
-          </div>
-          <button type="submit" class="btn btn-primary w-100">Start</button> -->
         </form>
-
-        <form action="thankyou-go-home.html" method="GET" class="get-started__form get-started__form__second shadow">
-          <h3 class="get-started__form-title">Personalized demo <span class="d-block">For free.</span></h3>
-          <p class="get-started__form-text">
-            Find out how to leverage the full potential of your teams in your cloud transformation and improve your return on investment.
-          </p>
-          <div class="form-group">
-            <input type="text" class="form-control" id="InputName2" placeholder="First and last name*">
-          </div>
-          <div class="form-group">
-            <input type="text" class="form-control" id="InputCompany2" placeholder="Company*">
-          </div>
-          <div class="form-group">
-            <input type="text" class="form-control" id="InputCountry2" placeholder="Country*">
-          </div>
-          <div class="form-group">
-            <input type="email" required class="form-control" id="InputEmail2"  placeholder="Mail*">
-          </div>
-          <button type="submit" class="btn btn-primary w-100">Submit</button>
-        </form>
-        <figure class="get-started__moving-circle">
-          <img src="images/getstarted-circle.svg" alt="icon">
-      </figure>
       </div> 
     </section>
- 
-</main>
 
-@@include('./html-templates/footer.html',{
-})
+  </main>
+
+@@include('./html-templates/footer.html',{})
 
 </div>
-<script>
-  forms= document.querySelectorAll('.get-started__form');
-  formsParent= document.querySelector('.get-started ');
-  tubbuttons= document.querySelectorAll('.get-started__tabs-activator');
 
-  for (let i =0 ; i<forms.length ; i++){
-    forms[i].addEventListener('click', function(){ 
-        for (let u =0 ; u<forms.length ; u++){
-            forms[u].classList.remove('active');
-        }
-        this.classList.add('active');   
-      })
-  }
-  function tabActive(elem){ 
-    elem.addEventListener('click', function(){
-      formsParent.classList.remove('contribution-tab');
-      formsParent.classList.remove('demonstration-tab');
-      formsParent.classList.add(elem.dataset.activator); 
-    }) 
-  }
-  tabActive(tubbuttons[0]);
-  tabActive(tubbuttons[1]);
-  
- </script> 
- 
-
- 
-<script src="js/main.js"> </script>
+  <script src="js/main.js"> </script>
 
 </body>
-
 </html>

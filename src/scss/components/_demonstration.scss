@@ -13,7 +13,7 @@
     margin: 0 auto;
     width: 100%;
     background-color: $light1;
-    border-radius: 7px;
+    border-radius: 14px;
     box-shadow: 0 3px 25px #00000029;
     display: flex;
     flex-direction: column;
@@ -24,6 +24,9 @@
     }
     @include lg {
       padding: 50px 100px;
+    }
+    @include xl {
+      border-radius: 33px;
     }
   }
 
