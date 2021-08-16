@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>CNO-Landing page -- Documentation</title>
+  <meta name="description" content="">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Ubuntu:wght@400;700&display=swap"
+    rel="stylesheet">
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- <link rel="shortcut icon" type="image/png" href="images/favicon.png"/> -->
+</head>
+
+<body class="body">
+
+  @@include('./html-templates/header.html',{
+    customclass:'white-header',
+    })
+
+    <main class="main">
+      <section class="documentation container">
+        @@include('./html-templates/documentation/_sidebar-nav.html')
+
+        <div class="article-container">
+          <article class="article">
+
+            <nav class="breadscrumbs">
+              <ul>
+                <li>
+                  <a href="">Documents</a>
+                  @@include('./images/icons/chevron-r.svg')
+                </li>
+                <li>
+                  <a href="./gs-cno-concept.html">Concept</a>
+                  @@include('./images/icons/chevron-r.svg')
+                </li>
+                <li>
+                  <a href="">CNO - Onboarding</a>
+                  @@include('./images/icons/chevron-r.svg')
+                </li>
+              </ul>
+            </nav>
+            
+            <h1 class="anchor" id="gs-cno-onboarding">CNO - Onboarding</h1>
+            <p>The introduction of new technology is not easy in large companies. Usually it is met with a lot of resistance from employees. Or technology is adopted but the whole organization is not onboarded well enough to really take advantage of it.  CNO helps you to build the best adoption program that minimizes resistance and aligns cloud-native technology with Business. </p>
+
+            <h2 class="anchor" id="gs-project-and-teams-onboarding">Project and Teams Onboarding</h2>
+            <p>With this onboarding feature, it will be much easier for the IT Teams to onboard organizational teams and projects. From CNO UI, each product owner in the company can now create a logical project by specifying exactly what the project needs in term of: </p>
+            <ul>
+              <li>Resources Requests, like CPU, Memory or Storage</li>
+              <li>Environments across multi-cloud Kubernetes Clusters.</li>
+              <li>The developers working on the project</li>
+              <li>The administrators who are maintaining those applications day-to-day</li>
+            </ul>
+
+            <h3 class="anchor" id="gs-cno-environments-or-kubernetes">CNO environments or Kubernetes Multi-cluster namespaces</h3>
+            <p>In one project, it will be possible to specify many environnements, e.g. Dev, Staging, Production or any environment you want. For example, in each project, it is possible to create a Dev environment on AWS EKS, Staging environment on OpenShift and a Production environment on Kubernetes Vanilla located in your own datacenter.</p>
+
+            <h3 class="anchor" id="gs-teams">Teams</h3>
+
+            <h3 class="anchor" id="gs-organizations">Organizations</h3>
+
+            <h2 class="anchor" id="gs-tagging-strategy">Tagging Strategy</h2>
+            
+            <h2 class="anchor" id="gs-quota-management">Quota Management</h2>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laboriosam unde omnis cupiditate laborum et error assumenda sunt officiis vero a?</p>
+
+          </article>
+        </div>
+
+        <div class="toc-container">
+          <nav class="toc">
+            <ul class="toc__list">
+              <li class="toc__item"><a class="active" href="#gs-cno-onboarding">CNO - Onboarding</a></li>
+              <li class="toc__item">
+                <a href="#gs-project-and-teams-onboarding">Project and Teams Onboarding</a>
+                <ul class="toc__list toc__list--inner">
+                  <li class="toc__item"><a href="#gs-cno-environments-or-kubernetes">CNO environments or Kubernetes Multi-cluster namespaces</a></li>
+                  <li class="toc__item"><a href="#gs-teams">Team</a></li>
+                  <li class="toc__item"><a href="#gs-organizations">Organizations</a></li>
+                </ul>
+              </li>
+              <li class="toc__item"><a href="#gs-tagging-strategy">Tagging Strategy</a></li>
+              <li class="toc__item"><a href="#gs-quota-management">Quota Management</a></li>
+            </ul>
+          </nav>
+        </div>
+      </section>
+
+    </main>
+
+    @@include('./html-templates/footer.html',{})
+
+  <script src="js/main.js"> </script>
+
+</body>
+
+</html>

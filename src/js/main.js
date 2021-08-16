@@ -22,6 +22,9 @@ function togglenav() {
   if (nav.classList.contains("nav-open")) {
     btnMenu.style.marginRight = window.innerWidth - html.offsetWidth + "px";
     hidescroll();
+    if (document.querySelector(".sidebar")) {
+      document.querySelector(".sidebar").classList.remove("active");
+    }
   } else {
     showscroll();
     btnMenu.style.marginRight = "0";
@@ -189,3 +192,5 @@ function blueCardToggler () {
 if (cardBlueItems) {
   blueCardToggler()
 }
+
+@@include('./documentation.js');

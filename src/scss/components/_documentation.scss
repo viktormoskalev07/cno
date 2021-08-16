@@ -1,0 +1,46 @@
+.documentation {
+  margin-bottom: 200px;
+  font-size: 16px;
+  display: flex;
+  flex-direction: column;
+
+  @include xl {
+    flex-direction: row;
+  }
+
+  .sidebar-container {
+    order: 1;
+
+    @import './documentation/sidebar';
+  }
+
+  .article-container {
+    padding: 0;
+    flex-grow: 1;
+    order: 3;
+
+    @include xl {
+      order: 2
+    }
+
+    @import './documentation/article';
+  }
+
+  .toc-container {
+    padding: 0;
+    order: 2;
+    min-width: 175px;
+
+    @include xl {
+      order: 3
+    }
+
+    @include xl {
+      padding: 20px 10px;
+    }
+
+    @import './documentation/toc';
+  }
+}
+
+@import './documentation/breadscrumbs';

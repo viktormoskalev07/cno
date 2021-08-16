@@ -1,0 +1,93 @@
+
+// sidebar container
+    .sidebar {
+      padding: 0;
+      background-color: #f8f9fa;
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      z-index: 11;
+
+      @include md {
+        width: 230px;
+      }
+
+      @include xl {
+        position: static;
+        padding: 20px;
+        display: block;
+      }
+
+      &__toggler {
+        margin-bottom: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+        background-color: transparent;
+        border: none;
+
+        @include xl {
+          display: none;
+        }
+        
+        svg {
+          width: 25px;
+          margin-right: 10px;
+        }
+      }
+
+      &__close {
+        padding: 0;
+        display: none;
+        position: absolute;
+        top: 0;
+        right: 0;
+        background-color: transparent;
+        border: none;
+        padding: 10px;
+
+        svg {
+          width: 27px;
+        }
+      }
+
+      &__wrap {
+        padding: 50px 20px 20px;
+        position: relative;
+
+        @include xl {
+          padding: 0;
+        }
+      }
+
+      &.active {
+        display: block;
+
+        .sidebar__close {
+          display: block;
+        }
+      }
+
+      &__list {
+        list-style: none;
+        padding-left: 5px;
+
+        &--inner {
+          padding-left: 10px;
+        }
+      }
+
+      &__list-item {
+        a {
+          padding: 6px 0;
+
+          &.accented {
+            font-weight: 700;
+          }
+        }
+      }
+    }

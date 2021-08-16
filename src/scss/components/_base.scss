@@ -4,7 +4,7 @@ $logowidth:50px;
   
 body{
     // for  noscroll mobile nav 
-  @include bsmob{
+  @include lg{
   padding: 0 !important;
   overflow: auto !important;
   }

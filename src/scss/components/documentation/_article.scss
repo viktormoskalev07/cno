@@ -1,0 +1,43 @@
+h1,
+h2,
+h3,
+h4 {
+  text-align: left;
+  position: relative;
+}
+
+@include xl {
+  padding: 20px;
+}
+
+
+.anchor {
+
+  // anchor scrolling to 150px from the top screen
+  @include xl {
+    padding-top: 150px;
+    margin-top: -150px;
+    z-index: -1;
+  }
+}
+
+.article {
+  &__nav-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  &__nav-item {
+    width: 100%;
+    margin-bottom: 20px;
+
+    @include sm {
+      width: calc(50% - 10px);
+    }
+
+    @include lg {
+      width: calc(33.333% - 10px);
+    }
+  }
+}

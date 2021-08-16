@@ -1,0 +1,31 @@
+.breadscrumbs {
+  ul {
+    list-style: none;
+    padding-left: 0;
+
+    li {
+      display: inline;
+      vertical-align: middle;
+      font-size: 14px;
+
+      a {
+        vertical-align: middle;
+        color: $lightDark;
+      }
+
+      svg {
+        margin: 0 4px;
+      }
+
+      &:last-of-type {
+        a {
+          font-weight: 700;
+          pointer-events: none;
+        }
+        svg {
+          display: none;
+        }
+      }
+    }
+  }
+}
