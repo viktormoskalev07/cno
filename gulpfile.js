@@ -18,7 +18,6 @@ var gulp = require('gulp'),
     var path = {
         build: { //Тут мы укажем куда складывать готовые после сборки файлы
           html: 'dist/',
-          htmlGetStart: 'dist/get-start-pages/',
           js: 'dist/js/',
           css: 'dist/css/',
           img: 'dist/images/',
@@ -26,7 +25,6 @@ var gulp = require('gulp'),
         },
         src: { //Пути откуда брать исходники
           html: 'src/*.html', //Синтаксис src/*.html говорит gulp что мы хотим взять все файлы с расширением .html
-          htmlGetStart: 'src/get-start-pages/*.html',
           js: [
             'node_modules/swiper/js/swiper.min.js',
           'src/js/*.js'
@@ -37,7 +35,6 @@ var gulp = require('gulp'),
         },
         watch: { //Тут мы укажем, за изменением каких файлов мы хотим наблюдать
           html: 'src/**/*.html',
-          htmlGetStart: 'src/get-start-pages/*.html',
           js: 'src/js/**/*.js',
           style: 'src/scss/**/*.scss',
           img: 'src/images/**/*.*',
@@ -61,14 +58,6 @@ gulp.task('html:build', async function () {
       // .pipe(rigger()) //Прогоним через rigger
       .pipe(fileinclude()) //Прогоним через fileinclude
       .pipe(gulp.dest(path.build.html)) //Выплюнем их в папку build
-      .pipe(reload({stream: true})); //И перезагрузим наш сервер для обновлений
-});
-
-gulp.task('htmlGetStart:build', async function () {
-  gulp.src(path.src.htmlGetStart) //Выберем файлы по нужному пути
-      // .pipe(rigger()) //Прогоним через rigger
-      .pipe(fileinclude()) //Прогоним через fileinclude
-      .pipe(gulp.dest(path.build.htmlGetStart)) //Выплюнем их в папку build
       .pipe(reload({stream: true})); //И перезагрузим наш сервер для обновлений
 });
 
@@ -152,7 +141,6 @@ gulp.task('image:build', async function() {
 
 gulp.task('build', gulp.series( 
   'html:build',
-  'htmlGetStart:build',
   'js:build',
   'style:build',
   'fonts:build',
@@ -167,7 +155,6 @@ gulp.task('watch', function(){
 
 gulp.task('watch', function(done){
   gulp.watch([path.watch.html], gulp.series('html:build')),
-  gulp.watch([path.watch.htmlGetStart], gulp.series('htmlGetStart:build')),
   gulp.watch([path.watch.style], gulp.series('style:build')),
   gulp.watch([path.watch.js], gulp.series('js:build')),
   gulp.watch([path.watch.img], gulp.series('image:build')),
