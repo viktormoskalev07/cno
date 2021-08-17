@@ -25,19 +25,29 @@ h4 {
   &__nav-grid {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: flex-start;
+    margin-top: 30px;
+    margin-bottom: 30px;
+
+    @include sm {
+      margin-left: -25px;
+      margin-right: -25px;
+    }
   }
 
   &__nav-item {
     width: 100%;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 
     @include sm {
-      width: calc(50% - 10px);
+      width: 50%;
+      margin-bottom: 20px;
+      padding-left: 25px;
+      padding-right: 25px;
     }
 
     @include lg {
-      width: calc(33.333% - 10px);
+      width: 33.333%;
     }
   }
 }

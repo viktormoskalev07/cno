@@ -50,9 +50,9 @@
 </header>
 
 
-  <main class="main">
-    <section class="documentation container">
-      <div class="sidebar-container">
+    <main class="main">
+      <section class="documentation container">
+        <div class="sidebar-container">
   <button class="sidebar__toggler">
     
             <svg viewBox="0 0 21.005 14.879">
@@ -132,67 +132,152 @@
   </nav>
 </div>
 
-      <div class="article-container">
-        <article class="article">
-          
-          <nav class="breadscrumbs">
+        <div class="article-container">
+          <article class="article">
+
+            <nav class="breadscrumbs">
+              <ul>
+                <li>
+                  <a href="gs-documentation.html">Documentation</a>
+                  <svg width="10px" height="10px" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	viewBox="0 0 256 256" style="enable-background:new 0 0 256 256;" xml:space="preserve">
+
+	<g>
+		<polygon points="79.093,0 48.907,30.187 146.72,128 48.907,225.813 79.093,256 207.093,128 		" />
+	</g>
+</svg>
+                </li>
+                <li>
+                  <a href="gs-arch-system.html">Architecture and System Requirements</a>
+                  <svg width="10px" height="10px" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	viewBox="0 0 256 256" style="enable-background:new 0 0 256 256;" xml:space="preserve">
+
+	<g>
+		<polygon points="79.093,0 48.907,30.187 146.72,128 48.907,225.813 79.093,256 207.093,128 		" />
+	</g>
+</svg>
+                </li>
+                <li>
+                  <a href="">CNO components</a>
+                  <svg width="10px" height="10px" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	viewBox="0 0 256 256" style="enable-background:new 0 0 256 256;" xml:space="preserve">
+
+	<g>
+		<polygon points="79.093,0 48.907,30.187 146.72,128 48.907,225.813 79.093,256 207.093,128 		" />
+	</g>
+</svg>
+                </li>
+              </ul>
+            </nav>
+            
+            <h1 class="anchor" id="gs-cno-components">CNO components</h1>
+
+            <figure>
+              <img src="images/documents/architecture.png" alt="cno architecture picture">
+            </figure>
+
+            <p>CNO is an open source project mainly made up of several components and divided into:</p>
             <ul>
-              <li>
-                <a href="gs-documentation.html">Documentation</a>
-                <svg width="10px" height="10px" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	viewBox="0 0 256 256" style="enable-background:new 0 0 256 256;" xml:space="preserve">
+              <li>A Control Plane</li>
+              <li>A Data Plane or CNO HUB</li>
+              <li>A Command line interface</li>
+            </ul>
 
-	<g>
-		<polygon points="79.093,0 48.907,30.187 146.72,128 48.907,225.813 79.093,256 207.093,128 		" />
-	</g>
-</svg>
+            <h2 class="anchor" id="gs-control-plane">Control Plane</h2>
+            <p>The control plane includes:</p>
+            <ul>
+              <li>The CNO UI</li>
+              <li>The CNO API</li>
+              <li>The CNO Database</li>
+              <li>The CNO IAM</li>
+              <li>The CNO Broker</li>
+              <li>The CNO Notification</li>
+            </ul>
+
+            <h3 class="anchor" id="gs-cno-api">CNO API</h3>
+            <p>The API module is the central component of the platform. It powers the CNO console, as well as the CNO client. The APIs provided are RESTful, HTTP JSON-based, and secured using TLS.</p>
+
+            <h3 class="anchor" id="gs-cno-ui">CNO UI</h3>
+            <p>CNO provides a user interface to perform onboarding actions for users and manage clusters.</p>
+
+            <h3 class="anchor" id="gs-cno-database">CNO Database</h3>
+            <p>CNO uses an SQL database to store the different objects it manages.</p>
+
+            <h3 class="anchor" id="gs-cno-iam">CNO IAM</h3>
+            <p>There is an IAM module to handle users authentication and management for the CNO platform.</p>
+
+            <h3 class="anchor" id="gs-cno-broker">CNO Broker</h3>
+            <p>The API and the CNO cluster Agents communicate using a message broker, so that actions can be performed asynchronously.</p>
+
+            <h3 class="anchor" id="gs-cno-notification">CNO Notification</h3>
+            <p>This module helps handle every notification actions needed on the CNO platform.
+              It provides RESTful, HTTP JSON-based and TLS secured APIs.
+              </p>
+
+            <h2 class="anchor" id="gs-dataplane">Dataplane</h2>
+            <p>The data plane has :</p>
+            <ul>
+              <li>The CNO Agent installed in each kubernetes Cluster</li>
+              <li>The CNO Onboarding Operator</li>
+              <li>The CNO CD Operator</li>
+            </ul>
+
+            <h3 class="anchor" id="gs-cno-onboarding-operator">CNO Onboarding Operator</h3>
+            <p>The Onboarding Operator is the controller that handles the lifecycle of the CNO Custom Resources on the managed Cluster.</p>
+
+            <h3 class="anchor" id="gs-cno-cd-operator">CNO CD Operator</h3>
+            <p>CNO offers Continuous Deployment operations for users through the CD Operator. This operator handles the Custom Resources related to the CD actions provided by CNO.</p>
+
+            <h3 class="anchor" id="gs-cno-agent">CNO Agent</h3>
+            <p>The Agent is the component responsible for taking instructions from the API, through the broker, and performing the necessary actions, like CNO Custom Resources creation on the managed cluster.
+              The agent must be present on the cluster managed by CNO.
+              </p>
+
+            <h2 class="anchor" id="gs-comand-line-interface">Command Line Interface</h2>
+
+            <h3 class="anchor" id="gs-cli-cnoctl">CNO CLI(cnoctl)</h3>
+            <p>The CNO command-line tool, cnoctl, allows users to perform actions on the CNO platform. </p>
+
+          </article>
+        </div>
+
+        <div class="toc-container">
+          <nav class="toc">
+            <ul class="toc__list">
+              <li class="toc__item"><a class="active" href="#gs-cno-components">CNO components</a></li>
+              <li class="toc__item">
+                <a href="#gs-control-plane">Control Plane</a>
+                <ul class="toc__list toc__list--inner">
+                  <li class="toc__item"><a href="#gs-cno-api">CNO API</a></li>
+                  <li class="toc__item"><a href="#gs-cno-ui">CNO UI</a></li>
+                  <li class="toc__item"><a href="#gs-cno-database">CNO Database</a></li>
+                  <li class="toc__item"><a href="#gs-cno-iam">CNO IAM</a></li>
+                  <li class="toc__item"><a href="#gs-cno-broker">CNO Broker</a></li>
+                  <li class="toc__item"><a href="#gs-cno-notification">CNO Notification</a></li>
+                </ul>
               </li>
-              <li>
-                <a href="">Concept</a>
-                <svg width="10px" height="10px" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	viewBox="0 0 256 256" style="enable-background:new 0 0 256 256;" xml:space="preserve">
-
-	<g>
-		<polygon points="79.093,0 48.907,30.187 146.72,128 48.907,225.813 79.093,256 207.093,128 		" />
-	</g>
-</svg>
+              <li class="toc__item">
+                <a href="#gs-dataplane">Dataplane</a>
+                <ul class="toc__list toc__list--inner">
+                  <li class="toc__item"><a href="#gs-cno-onboarding-operator">CNO Onboarding Operator</a></li>
+                  <li class="toc__item"><a href="#gs-cno-cd-operator">CNO CD Operator</a></li>
+                  <li class="toc__item"><a href="#gs-cno-agent">CNO Agent</a></li>
+                </ul>
+              </li>
+              <li class="toc__item">
+                <a href="#gs-comand-line-interface">Command Line Interface</a>
+                <ul class="toc__list toc__list--inner">
+                  <li class="toc__item"><a href="#gs-cli-cnoctl">CNO CLI(cnoctl)</a></li>
+                </ul>
               </li>
             </ul>
           </nav>
+        </div>
+      </section>
 
-          <h1>Concept</h1>
-          <p> <a href="mailto:maimouna.diagne@beopenit.com">Maimouna DIAGNE</a> </p>
+    </main>
 
-          <div class="article__nav-grid">
-            <div class="article__nav-item">
-              <h5><a href="gs-cno-onboarding(concept).html">CNO - Onboarding</a></h5>
-              <p>Lorem ipsum dolor sit amet.</p>
-            </div>
-
-            <div class="article__nav-item">
-              <h5><a href="gs-cno-cd(concept).html">CNO - CD</a></h5>
-              <p>Lorem ipsum dolor sit amet.</p>
-            </div>
-
-            <div class="article__nav-item">
-              <h5><a href="gs-cno-hub(concept).html">CNO - HUB</a></h5>
-              <p>Lorem ipsum dolor sit amet.</p>
-            </div>
-
-            <div class="article__nav-item">
-              <h5><a href="gs-cno-secure(concept).html">CNO - Secure</a></h5>
-              <p>Lorem ipsum dolor sit amet.</p>
-            </div>
-
-          </div>
-        </article>
-      </div>
-
-    </section>
-
-  </main>
-
-  <footer id="contact" class="footer">
+    <footer id="contact" class="footer">
 	<div class="dark-bgc">
 		<div class="container">
 			<div class="footer__top">

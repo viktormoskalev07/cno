@@ -20,7 +20,8 @@
     order: 3;
 
     @include xl {
-      order: 2
+      order: 2;
+      width: calc(100% - 405px);
     }
 
     @import './documentation/article';
@@ -44,3 +45,5 @@
 }
 
 @import './documentation/breadscrumbs';
+@import './documentation/pull-path';
+@import './documentation/token';

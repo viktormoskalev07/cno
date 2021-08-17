@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>CNO-Landing page -- Documentation</title>
+  <meta name="description" content="">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Ubuntu:wght@400;700&display=swap"
+    rel="stylesheet">
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- <link rel="shortcut icon" type="image/png" href="images/favicon.png"/> -->
+</head>
+
+<body class="body">
+
+  @@include('./html-templates/header.html',{
+    customclass:'white-header',
+    })
+
+    <main class="main">
+      <section class="documentation container">
+        @@include('./html-templates/documentation/_sidebar-nav.html')
+
+        <div class="article-container">
+          <article class="article">
+
+            <nav class="breadscrumbs">
+              <ul>
+                <li>
+                  <a href="gs-documentation.html">Documentation</a>
+                  @@include('./images/icons/chevron-r.svg')
+                </li>
+                <li>
+                  <a href="gs-arch-system.html">Architecture and System Requirements</a>
+                  @@include('./images/icons/chevron-r.svg')
+                </li>
+                <li>
+                  <a href="">System requirements</a>
+                  @@include('./images/icons/chevron-r.svg')
+                </li>
+              </ul>
+            </nav>
+            
+            <h1 class="anchor" id="gs-sys-requirements">System requirements</h1>
+
+            <h2 class="anchor" id="gs-supported-vision">Supported Kubernetes Version</h2>
+            <p><b>CNO is an open source project mainly made up of several components and divided into:</b></p>
+
+            <h2 class="anchor" id="gs-minimal-sizing">Minimal Sizing</h2>
+            <ul>
+              <li>CNO
+                <ul>
+                  <li>4 GB or more of RAM.</li>
+                  <li>2 CPUs or more.</li>
+                </ul>
+              </li>
+              <li>Data Plane:
+                <ul>
+                  <li>100MB</li>
+                  <li>100m CPU</li>
+                </ul>
+              </li>
+            </ul>
+
+            <h2 class="anchor" id="gs-network-considarations">Network Considerations</h2>
+            <p>Depending on the installation type, CNO uses service types NodePort or LoadBalancer or Ingress to expose the User Interface.</p>
+
+            <h2 class="anchor" id="gs-disc-installation">Disconnected Installation</h2>
+            <p>Depending on the installation type, CNO uses service types NodePort or LoadBalancer or Ingress to expose the User Interface.</p>
+            <ul>
+              <li>Pulling CNO images</li>
+              <li>Getting CNO Manifests</li>
+            </ul>
+
+            <h2 class="anchor" id="gs-pulling-cno-images">Pulling CNO images:</h2>
+            <p>The images to pull for cno install:</p>
+            <div class="pull-path">
+              <p class="pull-path__title">#Setting registry images</p>
+              <p>
+                <span class="pull-path__name">KEYCLOAK_OPERATOR_IMAGE=</span>
+                <span class="pull-path__path">"quay.io/keycloak/keycloak-operator:12.0.1"</span>
+              </p>
+              <p>
+                <span class="pull-path__name">KEYCLOAK_IMAGE=</span>
+                <span class="pull-path__path">"quay.io/keycloak/keycloak:12.0.1"</span>
+              </p>
+              <p>
+                <span class="pull-path__name">KEYCLOAK_POSTGRESQL_IMAGE=</span>
+                <span class="pull-path__path">"registry.access.redhat.com/rhscl/postgresql-10-rhel7:1"</span>
+              </p>
+              <p>
+                <span class="pull-path__name">KAFKA_OPERATOR_IMAGE=</span>
+                <span class="pull-path__path">"strimzi/operator:0.20.0"</span>
+              </p>
+              <p>
+                <span class="pull-path__name">KAFKA_TOPIC_OPERATOR_IMAGE=</span>
+                <span class="pull-path__path">"strimzi/operator:0.20.0"</span>
+              </p>
+              <p>
+                <span class="pull-path__name">KAFKA_USER_OPERATOR_IMAGE=</span>
+                <span class="pull-path__path">"strimzi/operator:0.20.0"</span>
+              </p>
+              <p>
+                <span class="pull-path__name">KAFKA_TLS_SIDECAR_ENTITY_OPERATOR_IMAGE=</span>
+                <span class="pull-path__path">"strimzi/kafka:0.20.0-kafka-2.5.0"</span>
+              </p>
+              <p>
+                <span class="pull-path__name">KAFKA_BROKER_IMAGE=</span>
+                <span class="pull-path__path">"strimzi/kafka:0.20.0-kafka-2.5.0"</span>
+              </p>
+              <p>
+                <span class="pull-path__name">KAFKA_ZOOKEEPER_IMAGE=</span>
+                <span class="pull-path__path">"strimzi/kafka:0.20.0-kafka-2.5.0"</span>
+              </p>
+              <p>
+                <span class="pull-path__name">MYSQL_OPERATOR_ORCHESTRATOR_IMAGE=</span>
+                <span class="pull-path__path">"quay.io/presslabs/mysql-operator-orchestrator:0.4.0"</span>
+              </p>
+              <p>
+                <span class="pull-path__name">MYSQL_IMAGE=</span>
+                <span class="pull-path__path">"percona@sha256:713c1817615b333b17d0fbd252b0ccc53c48a665d4cfcb42178167435a957322"</span>
+              </p>
+              <p>
+                <span class="pull-path__name">MYSQL_SIDECAR_IMAGE=</span>
+                <span class="pull-path__path">"quay.io/presslabs/mysql-operator-sidecar:0.4.0"</span>
+              </p>
+              <p>
+                <span class="pull-path__name">MYSQL_EXPORTER_IMAGE=</span>
+                <span class="pull-path__path">"prom/mysqld-exporter:v0.11.0"</span>
+              </p>
+              <p>
+                <span class="pull-path__name">CNO_API_IMAGE=</span>
+                <span class="pull-path__path">"beopenit/cno-api:latest"</span>
+              </p>
+              <p>
+                <span class="pull-path__name">CNO_NOTIFICATION_IMAGE=</span>
+                <span class="pull-path__path">"beopenit/cno-notification:v0.0.1-alpha"</span>
+              </p>
+              <p>
+                <span class="pull-path__name">CNO_UI_IMAGE=</span>
+                <span class="pull-path__path">"beopenit/cno-ui:latest"</span>
+              </p>
+            </div>
+            <p>These images must be pushed in a private registry for cno to be able to used them.</p>
+
+            <h2 class="anchor" id="gs-getting-cno-manifests">Getting CNO Manifests:</h2>
+            <p>Clone the cno repository:</p>
+
+            @@include('./html-templates/documentation/_token.html',{
+              comand:'$ git clone https://github.com/beopencloud/cno.git'
+            })
+
+            <p>The repository must be put in a private git server.</p>
+
+            <h2 class="anchor" id="gs-editing-scripts">Editing scripts</h2>
+            <p>To perform the installation, edit the following scripts, depending on the exposition type: <br>
+              cno -> scripts -> control-plane -> install*.sh <br>
+              cno -> scripts -> data-plane -> install*.sh</p>
+            <p>The set the new private RAW git repo for the files to be downloaded, as shown in the following example:</p>
+            <div class="pull-path">
+              <p>
+                <span class="pull-path__name">CNO_RAW_REPOSITORY=</span>
+                <span class="pull-path__path">"https://raw.githubusercontent.com/beopencloud/cno"</span>
+              </p>
+            </div>
+            <p>Then set the new image urls, as shown in the previous paragraph.</p>
+            
+          </article>
+        </div>
+
+        <div class="toc-container">
+          <nav class="toc">
+            <ul class="toc__list">
+              <li class="toc__item"><a class="active" href="#gs-sys-requirements">System requirements</a></li>
+              <li class="toc__item"><a href="#gs-supported-vision">Supported Kubernetes Version</a></li>
+              <li class="toc__item"><a href="#gs-minimal-sizing">Minimal Sizing</a></li>
+              <li class="toc__item"><a href="#gs-network-considarations">Network Considerations</a></li>
+              <li class="toc__item"><a href="#gs-disc-installation">Disconnected Installation</a></li>
+              <li class="toc__item"><a href="#gs-pulling-cno-images">Pulling CNO images:</a></li>
+              <li class="toc__item"><a href="#gs-getting-cno-manifests">Getting CNO Manifests:</a></li>
+              <li class="toc__item"><a href="#gs-editing-scripts">Editing scripts</a></li>
+            </ul>
+          </nav>
+        </div>
+      </section>
+
+    </main>
+
+    @@include('./html-templates/footer.html',{})
+
+  <script src="js/main.js"> </script>
+
+</body>
+
+</html>

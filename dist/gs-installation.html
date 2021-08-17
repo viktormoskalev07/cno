@@ -23,12 +23,12 @@
     <div class="header__container ">
 
 <div class="header-content">
-    <div class="logo"><a href="./index.html"><img src="/images/logo.svg" alt="Logo"></a></div>
+    <div class="logo"><a href="./index.html"><img src="images/logo.svg" alt="Logo"></a></div>
 
     <nav class="nav">
     <div class="nav-menu">
         <a href="demonstration.html" class="nav-item button button--invert">Demonstration</a>
-        <a href="gs-cno-onboarding.html" class="nav-item button button--invert">Manual GS</a>
+        <a href="gs-documentation.html" class="nav-item button button--invert">GS Documentation</a>
         <a href="get-started.html" class="nav-item button"> Get started</a>
  
     </div>
@@ -112,14 +112,20 @@
         <li class="sidebar__list-item">
           <a class="accented" href="gs-cno-concept.html">Concept</a>
           <ul class="sidebar__list sidebar__list--inner">
-            <li class="sidebar__list-item"><a href="gs-cno-onboarding.html">CNO - Onboarding</a></li>
-            <li class="sidebar__list-item"><a href="#">CNO - CD</a></li>
-            <li class="sidebar__list-item"><a href="#">CNO - HUB</a></li>
-            <li class="sidebar__list-item"><a href="#">CNO - Secure</a></li>
+            <li class="sidebar__list-item"><a href="gs-cno-onboarding(concept).html">CNO - Onboarding</a></li>
+            <li class="sidebar__list-item"><a href="gs-cno-cd(concept).html">CNO - CD</a></li>
+            <li class="sidebar__list-item"><a href="gs-cno-hub(concept).html">CNO - HUB</a></li>
+            <li class="sidebar__list-item"><a href="gs-cno-secure(concept).html">CNO - Secure</a></li>
           </ul>
         </li>
-        <li class="sidebar__list-item"><a class="accented" href="#">link 2</a></li>
-        <li class="sidebar__list-item"><a class="accented" href="#">link 3</a></li>
+        <li class="sidebar__list-item">
+          <a class="accented" href="gs-arch-system.html">Architecture and System Requirements</a>
+          <ul class="sidebar__list sidebar__list--inner">
+            <li class="sidebar__list-item"><a href="gs-cno-components(arch-system).html">CNO components</a></li>
+            <li class="sidebar__list-item"><a href="gs-cno-requirement(arch-system).html">System requirements</a></li>
+          </ul>
+        </li>
+        <li class="sidebar__list-item"><a class="accented" href="gs-installation.html">Installation</a></li>
         <li class="sidebar__list-item"><a class="accented" href="#">link 4</a></li>
       </ul>
     </div>
@@ -132,7 +138,7 @@
             <nav class="breadscrumbs">
               <ul>
                 <li>
-                  <a href="">Documents</a>
+                  <a href="gs-documentation.html">Documentation</a>
                   <svg width="10px" height="10px" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	viewBox="0 0 256 256" style="enable-background:new 0 0 256 256;" xml:space="preserve">
 
@@ -142,17 +148,7 @@
 </svg>
                 </li>
                 <li>
-                  <a href="./gs-cno-concept.html">Concept</a>
-                  <svg width="10px" height="10px" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	viewBox="0 0 256 256" style="enable-background:new 0 0 256 256;" xml:space="preserve">
-
-	<g>
-		<polygon points="79.093,0 48.907,30.187 146.72,128 48.907,225.813 79.093,256 207.093,128 		" />
-	</g>
-</svg>
-                </li>
-                <li>
-                  <a href="">CNO - Onboarding</a>
+                  <a href="">Installation</a>
                   <svg width="10px" height="10px" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	viewBox="0 0 256 256" style="enable-background:new 0 0 256 256;" xml:space="preserve">
 
@@ -164,29 +160,119 @@
               </ul>
             </nav>
             
-            <h1 class="anchor" id="gs-cno-onboarding">CNO - Onboarding</h1>
-            <p>The introduction of new technology is not easy in large companies. Usually it is met with a lot of resistance from employees. Or technology is adopted but the whole organization is not onboarded well enough to really take advantage of it.  CNO helps you to build the best adoption program that minimizes resistance and aligns cloud-native technology with Business. </p>
+            <h1 class="anchor" id="gs-cno-components">Installation</h1>
 
-            <h2 class="anchor" id="gs-project-and-teams-onboarding">Project and Teams Onboarding</h2>
-            <p>With this onboarding feature, it will be much easier for the IT Teams to onboard organizational teams and projects. From CNO UI, each product owner in the company can now create a logical project by specifying exactly what the project needs in term of: </p>
+            <h2 class="anchor" id="gs-control-plane">Install CNOCTL</h2>
+            <p>The CLI can be installed with a curl script, brew or by downloading the binary from the releases page. Once installed you'll get the cnoctl command.</p>
+
+            <h3 class="anchor" id="gs-cno-api">Install with curl:</h3>
+            <div class="token">
+  <pre class="token__wrap">
+    <code class="token__comand">$ curl -sSL https://raw.githubusercontent.com/beopencloud/cno/main/scripts/cnoctl.sh | sh</code>
+  </pre>
+
+  <button class="token__copy">
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 460 460" style="enable-background:new 0 0 460 460;" xml:space="preserve">
+<g>
+			<path d="M425.934,0H171.662c-18.122,0-32.864,14.743-32.864,32.864v77.134h30V32.864c0-1.579,1.285-2.864,2.864-2.864h254.272
+				c1.579,0,2.864,1.285,2.864,2.864v254.272c0,1.58-1.285,2.865-2.864,2.865h-74.729v30h74.729
+				c18.121,0,32.864-14.743,32.864-32.865V32.864C458.797,14.743,444.055,0,425.934,0z"/>
+			<path d="M288.339,139.998H34.068c-18.122,0-32.865,14.743-32.865,32.865v254.272C1.204,445.257,15.946,460,34.068,460h254.272
+				c18.122,0,32.865-14.743,32.865-32.864V172.863C321.206,154.741,306.461,139.998,288.339,139.998z M288.341,430H34.068
+				c-1.58,0-2.865-1.285-2.865-2.864V172.863c0-1.58,1.285-2.865,2.865-2.865h254.272c1.58,0,2.865,1.285,2.865,2.865v254.273h0.001
+				C291.206,428.715,289.92,430,288.341,430z"/>
+		</g>
+</svg>
+
+    <span class="token__tooltip">Copy to clipboard</span>
+  </button>
+</div>
+
+            <h3 class="anchor" id="gs-cno-ui">Install with brew on MacOs:</h3>
+            <div class="token">
+  <pre class="token__wrap">
+    <code class="token__comand">$ brew tap beopencloud/cno</code>
+  </pre>
+
+  <button class="token__copy">
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 460 460" style="enable-background:new 0 0 460 460;" xml:space="preserve">
+<g>
+			<path d="M425.934,0H171.662c-18.122,0-32.864,14.743-32.864,32.864v77.134h30V32.864c0-1.579,1.285-2.864,2.864-2.864h254.272
+				c1.579,0,2.864,1.285,2.864,2.864v254.272c0,1.58-1.285,2.865-2.864,2.865h-74.729v30h74.729
+				c18.121,0,32.864-14.743,32.864-32.865V32.864C458.797,14.743,444.055,0,425.934,0z"/>
+			<path d="M288.339,139.998H34.068c-18.122,0-32.865,14.743-32.865,32.865v254.272C1.204,445.257,15.946,460,34.068,460h254.272
+				c18.122,0,32.865-14.743,32.865-32.864V172.863C321.206,154.741,306.461,139.998,288.339,139.998z M288.341,430H34.068
+				c-1.58,0-2.865-1.285-2.865-2.864V172.863c0-1.58,1.285-2.865,2.865-2.865h254.272c1.58,0,2.865,1.285,2.865,2.865v254.273h0.001
+				C291.206,428.715,289.92,430,288.341,430z"/>
+		</g>
+</svg>
+
+    <span class="token__tooltip">Copy to clipboard</span>
+  </button>
+</div>
+            <div class="token">
+  <pre class="token__wrap">
+    <code class="token__comand">$ brew install cnoctl</code>
+  </pre>
+
+  <button class="token__copy">
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 460 460" style="enable-background:new 0 0 460 460;" xml:space="preserve">
+<g>
+			<path d="M425.934,0H171.662c-18.122,0-32.864,14.743-32.864,32.864v77.134h30V32.864c0-1.579,1.285-2.864,2.864-2.864h254.272
+				c1.579,0,2.864,1.285,2.864,2.864v254.272c0,1.58-1.285,2.865-2.864,2.865h-74.729v30h74.729
+				c18.121,0,32.864-14.743,32.864-32.865V32.864C458.797,14.743,444.055,0,425.934,0z"/>
+			<path d="M288.339,139.998H34.068c-18.122,0-32.865,14.743-32.865,32.865v254.272C1.204,445.257,15.946,460,34.068,460h254.272
+				c18.122,0,32.865-14.743,32.865-32.864V172.863C321.206,154.741,306.461,139.998,288.339,139.998z M288.341,430H34.068
+				c-1.58,0-2.865-1.285-2.865-2.864V172.863c0-1.58,1.285-2.865,2.865-2.865h254.272c1.58,0,2.865,1.285,2.865,2.865v254.273h0.001
+				C291.206,428.715,289.92,430,288.341,430z"/>
+		</g>
+</svg>
+
+    <span class="token__tooltip">Copy to clipboard</span>
+  </button>
+</div>
+
+            <h3 class="anchor" id="gs-cno-api">Install from release:</h3>
+            <p>In the cnoctl release page (<a target="_blank" class="linked" href="https://github.com/beopencloud/cno/releases">https://github.com/beopencloud/cno/releases</a>) download, unarchive the version needed and move the binary to your system PATH.</p>
+            <p>Example for version v0.0.1 on MacOs:</p>
+            <div class="token">
+  <pre class="token__wrap">
+    <code class="token__comand">$ wget https://github.com/beopencloud/cno/releases/download/v0.0.1/cnoctl_0.0.1_Darwin_x86_64.tar.gz</code>
+  </pre>
+
+  <button class="token__copy">
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 460 460" style="enable-background:new 0 0 460 460;" xml:space="preserve">
+<g>
+			<path d="M425.934,0H171.662c-18.122,0-32.864,14.743-32.864,32.864v77.134h30V32.864c0-1.579,1.285-2.864,2.864-2.864h254.272
+				c1.579,0,2.864,1.285,2.864,2.864v254.272c0,1.58-1.285,2.865-2.864,2.865h-74.729v30h74.729
+				c18.121,0,32.864-14.743,32.864-32.865V32.864C458.797,14.743,444.055,0,425.934,0z"/>
+			<path d="M288.339,139.998H34.068c-18.122,0-32.865,14.743-32.865,32.865v254.272C1.204,445.257,15.946,460,34.068,460h254.272
+				c18.122,0,32.865-14.743,32.865-32.864V172.863C321.206,154.741,306.461,139.998,288.339,139.998z M288.341,430H34.068
+				c-1.58,0-2.865-1.285-2.865-2.864V172.863c0-1.58,1.285-2.865,2.865-2.865h254.272c1.58,0,2.865,1.285,2.865,2.865v254.273h0.001
+				C291.206,428.715,289.92,430,288.341,430z"/>
+		</g>
+</svg>
+
+    <span class="token__tooltip">Copy to clipboard</span>
+  </button>
+</div>
+
+            <h2 class="anchor" id="gs-dataplane">Dataplane</h2>
+            <p>The data plane has :</p>
             <ul>
-              <li>Resources Requests, like CPU, Memory or Storage</li>
-              <li>Environments across multi-cloud Kubernetes Clusters.</li>
-              <li>The developers working on the project</li>
-              <li>The administrators who are maintaining those applications day-to-day</li>
+              <li>The CNO Agent installed in each kubernetes Cluster</li>
+              <li>The CNO Onboarding Operator</li>
+              <li>The CNO CD Operator</li>
             </ul>
 
-            <h3 class="anchor" id="gs-cno-environments-or-kubernetes">CNO environments or Kubernetes Multi-cluster namespaces</h3>
-            <p>In one project, it will be possible to specify many environnements, e.g. Dev, Staging, Production or any environment you want. For example, in each project, it is possible to create a Dev environment on AWS EKS, Staging environment on OpenShift and a Production environment on Kubernetes Vanilla located in your own datacenter.</p>
+            <h2 class="anchor" id="gs-comand-line-interface">Command Line Interface</h2>
 
-            <h3 class="anchor" id="gs-teams">Teams</h3>
-
-            <h3 class="anchor" id="gs-organizations">Organizations</h3>
-
-            <h2 class="anchor" id="gs-tagging-strategy">Tagging Strategy</h2>
-            
-            <h2 class="anchor" id="gs-quota-management">Quota Management</h2>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laboriosam unde omnis cupiditate laborum et error assumenda sunt officiis vero a?</p>
+            <h3 class="anchor" id="gs-cli-cnoctl">CNO CLI(cnoctl)</h3>
+            <p>The CNO command-line tool, cnoctl, allows users to perform actions on the CNO platform. </p>
 
           </article>
         </div>
@@ -194,17 +280,32 @@
         <div class="toc-container">
           <nav class="toc">
             <ul class="toc__list">
-              <li class="toc__item"><a class="active" href="#gs-cno-onboarding">CNO - Onboarding</a></li>
+              <li class="toc__item"><a class="active" href="#gs-cno-components">CNO components</a></li>
               <li class="toc__item">
-                <a href="#gs-project-and-teams-onboarding">Project and Teams Onboarding</a>
+                <a href="#gs-control-plane">Control Plane</a>
                 <ul class="toc__list toc__list--inner">
-                  <li class="toc__item"><a href="#gs-cno-environments-or-kubernetes">CNO environments or Kubernetes Multi-cluster namespaces</a></li>
-                  <li class="toc__item"><a href="#gs-teams">Team</a></li>
-                  <li class="toc__item"><a href="#gs-organizations">Organizations</a></li>
+                  <li class="toc__item"><a href="#gs-cno-api">CNO API</a></li>
+                  <li class="toc__item"><a href="#gs-cno-ui">CNO UI</a></li>
+                  <li class="toc__item"><a href="#gs-cno-database">CNO Database</a></li>
+                  <li class="toc__item"><a href="#gs-cno-iam">CNO IAM</a></li>
+                  <li class="toc__item"><a href="#gs-cno-broker">CNO Broker</a></li>
+                  <li class="toc__item"><a href="#gs-cno-notification">CNO Notification</a></li>
                 </ul>
               </li>
-              <li class="toc__item"><a href="#gs-tagging-strategy">Tagging Strategy</a></li>
-              <li class="toc__item"><a href="#gs-quota-management">Quota Management</a></li>
+              <li class="toc__item">
+                <a href="#gs-dataplane">Dataplane</a>
+                <ul class="toc__list toc__list--inner">
+                  <li class="toc__item"><a href="#gs-cno-onboarding-operator">CNO Onboarding Operator</a></li>
+                  <li class="toc__item"><a href="#gs-cno-cd-operator">CNO CD Operator</a></li>
+                  <li class="toc__item"><a href="#gs-cno-agent">CNO Agent</a></li>
+                </ul>
+              </li>
+              <li class="toc__item">
+                <a href="#gs-comand-line-interface">Command Line Interface</a>
+                <ul class="toc__list toc__list--inner">
+                  <li class="toc__item"><a href="#gs-cli-cnoctl">CNO CLI(cnoctl)</a></li>
+                </ul>
+              </li>
             </ul>
           </nav>
         </div>

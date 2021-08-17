@@ -50,9 +50,9 @@
 </header>
 
 
-  <main class="main">
-    <section class="documentation container">
-      <div class="sidebar-container">
+    <main class="main">
+      <section class="documentation container">
+        <div class="sidebar-container">
   <button class="sidebar__toggler">
     
             <svg viewBox="0 0 21.005 14.879">
@@ -132,67 +132,209 @@
   </nav>
 </div>
 
-      <div class="article-container">
-        <article class="article">
-          
-          <nav class="breadscrumbs">
+        <div class="article-container">
+          <article class="article">
+
+            <nav class="breadscrumbs">
+              <ul>
+                <li>
+                  <a href="gs-documentation.html">Documentation</a>
+                  <svg width="10px" height="10px" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	viewBox="0 0 256 256" style="enable-background:new 0 0 256 256;" xml:space="preserve">
+
+	<g>
+		<polygon points="79.093,0 48.907,30.187 146.72,128 48.907,225.813 79.093,256 207.093,128 		" />
+	</g>
+</svg>
+                </li>
+                <li>
+                  <a href="gs-arch-system.html">Architecture and System Requirements</a>
+                  <svg width="10px" height="10px" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	viewBox="0 0 256 256" style="enable-background:new 0 0 256 256;" xml:space="preserve">
+
+	<g>
+		<polygon points="79.093,0 48.907,30.187 146.72,128 48.907,225.813 79.093,256 207.093,128 		" />
+	</g>
+</svg>
+                </li>
+                <li>
+                  <a href="">System requirements</a>
+                  <svg width="10px" height="10px" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	viewBox="0 0 256 256" style="enable-background:new 0 0 256 256;" xml:space="preserve">
+
+	<g>
+		<polygon points="79.093,0 48.907,30.187 146.72,128 48.907,225.813 79.093,256 207.093,128 		" />
+	</g>
+</svg>
+                </li>
+              </ul>
+            </nav>
+            
+            <h1 class="anchor" id="gs-sys-requirements">System requirements</h1>
+
+            <h2 class="anchor" id="gs-supported-vision">Supported Kubernetes Version</h2>
+            <p><b>CNO is an open source project mainly made up of several components and divided into:</b></p>
+
+            <h2 class="anchor" id="gs-minimal-sizing">Minimal Sizing</h2>
             <ul>
-              <li>
-                <a href="gs-documentation.html">Documentation</a>
-                <svg width="10px" height="10px" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	viewBox="0 0 256 256" style="enable-background:new 0 0 256 256;" xml:space="preserve">
-
-	<g>
-		<polygon points="79.093,0 48.907,30.187 146.72,128 48.907,225.813 79.093,256 207.093,128 		" />
-	</g>
-</svg>
+              <li>CNO
+                <ul>
+                  <li>4 GB or more of RAM.</li>
+                  <li>2 CPUs or more.</li>
+                </ul>
               </li>
-              <li>
-                <a href="">Concept</a>
-                <svg width="10px" height="10px" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	viewBox="0 0 256 256" style="enable-background:new 0 0 256 256;" xml:space="preserve">
-
-	<g>
-		<polygon points="79.093,0 48.907,30.187 146.72,128 48.907,225.813 79.093,256 207.093,128 		" />
-	</g>
-</svg>
+              <li>Data Plane:
+                <ul>
+                  <li>100MB</li>
+                  <li>100m CPU</li>
+                </ul>
               </li>
             </ul>
+
+            <h2 class="anchor" id="gs-network-considarations">Network Considerations</h2>
+            <p>Depending on the installation type, CNO uses service types NodePort or LoadBalancer or Ingress to expose the User Interface.</p>
+
+            <h2 class="anchor" id="gs-disc-installation">Disconnected Installation</h2>
+            <p>Depending on the installation type, CNO uses service types NodePort or LoadBalancer or Ingress to expose the User Interface.</p>
+            <ul>
+              <li>Pulling CNO images</li>
+              <li>Getting CNO Manifests</li>
+            </ul>
+
+            <h2 class="anchor" id="gs-pulling-cno-images">Pulling CNO images:</h2>
+            <p>The images to pull for cno install:</p>
+            <div class="pull-path">
+              <p class="pull-path__title">#Setting registry images</p>
+              <p>
+                <span class="pull-path__name">KEYCLOAK_OPERATOR_IMAGE=</span>
+                <span class="pull-path__path">"quay.io/keycloak/keycloak-operator:12.0.1"</span>
+              </p>
+              <p>
+                <span class="pull-path__name">KEYCLOAK_IMAGE=</span>
+                <span class="pull-path__path">"quay.io/keycloak/keycloak:12.0.1"</span>
+              </p>
+              <p>
+                <span class="pull-path__name">KEYCLOAK_POSTGRESQL_IMAGE=</span>
+                <span class="pull-path__path">"registry.access.redhat.com/rhscl/postgresql-10-rhel7:1"</span>
+              </p>
+              <p>
+                <span class="pull-path__name">KAFKA_OPERATOR_IMAGE=</span>
+                <span class="pull-path__path">"strimzi/operator:0.20.0"</span>
+              </p>
+              <p>
+                <span class="pull-path__name">KAFKA_TOPIC_OPERATOR_IMAGE=</span>
+                <span class="pull-path__path">"strimzi/operator:0.20.0"</span>
+              </p>
+              <p>
+                <span class="pull-path__name">KAFKA_USER_OPERATOR_IMAGE=</span>
+                <span class="pull-path__path">"strimzi/operator:0.20.0"</span>
+              </p>
+              <p>
+                <span class="pull-path__name">KAFKA_TLS_SIDECAR_ENTITY_OPERATOR_IMAGE=</span>
+                <span class="pull-path__path">"strimzi/kafka:0.20.0-kafka-2.5.0"</span>
+              </p>
+              <p>
+                <span class="pull-path__name">KAFKA_BROKER_IMAGE=</span>
+                <span class="pull-path__path">"strimzi/kafka:0.20.0-kafka-2.5.0"</span>
+              </p>
+              <p>
+                <span class="pull-path__name">KAFKA_ZOOKEEPER_IMAGE=</span>
+                <span class="pull-path__path">"strimzi/kafka:0.20.0-kafka-2.5.0"</span>
+              </p>
+              <p>
+                <span class="pull-path__name">MYSQL_OPERATOR_ORCHESTRATOR_IMAGE=</span>
+                <span class="pull-path__path">"quay.io/presslabs/mysql-operator-orchestrator:0.4.0"</span>
+              </p>
+              <p>
+                <span class="pull-path__name">MYSQL_IMAGE=</span>
+                <span class="pull-path__path">"percona@sha256:713c1817615b333b17d0fbd252b0ccc53c48a665d4cfcb42178167435a957322"</span>
+              </p>
+              <p>
+                <span class="pull-path__name">MYSQL_SIDECAR_IMAGE=</span>
+                <span class="pull-path__path">"quay.io/presslabs/mysql-operator-sidecar:0.4.0"</span>
+              </p>
+              <p>
+                <span class="pull-path__name">MYSQL_EXPORTER_IMAGE=</span>
+                <span class="pull-path__path">"prom/mysqld-exporter:v0.11.0"</span>
+              </p>
+              <p>
+                <span class="pull-path__name">CNO_API_IMAGE=</span>
+                <span class="pull-path__path">"beopenit/cno-api:latest"</span>
+              </p>
+              <p>
+                <span class="pull-path__name">CNO_NOTIFICATION_IMAGE=</span>
+                <span class="pull-path__path">"beopenit/cno-notification:v0.0.1-alpha"</span>
+              </p>
+              <p>
+                <span class="pull-path__name">CNO_UI_IMAGE=</span>
+                <span class="pull-path__path">"beopenit/cno-ui:latest"</span>
+              </p>
+            </div>
+            <p>These images must be pushed in a private registry for cno to be able to used them.</p>
+
+            <h2 class="anchor" id="gs-getting-cno-manifests">Getting CNO Manifests:</h2>
+            <p>Clone the cno repository:</p>
+
+            <div class="token">
+  <pre class="token__wrap">
+    <code class="token__comand">$ git clone https://github.com/beopencloud/cno.git</code>
+  </pre>
+
+  <button class="token__copy">
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 460 460" style="enable-background:new 0 0 460 460;" xml:space="preserve">
+<g>
+			<path d="M425.934,0H171.662c-18.122,0-32.864,14.743-32.864,32.864v77.134h30V32.864c0-1.579,1.285-2.864,2.864-2.864h254.272
+				c1.579,0,2.864,1.285,2.864,2.864v254.272c0,1.58-1.285,2.865-2.864,2.865h-74.729v30h74.729
+				c18.121,0,32.864-14.743,32.864-32.865V32.864C458.797,14.743,444.055,0,425.934,0z"/>
+			<path d="M288.339,139.998H34.068c-18.122,0-32.865,14.743-32.865,32.865v254.272C1.204,445.257,15.946,460,34.068,460h254.272
+				c18.122,0,32.865-14.743,32.865-32.864V172.863C321.206,154.741,306.461,139.998,288.339,139.998z M288.341,430H34.068
+				c-1.58,0-2.865-1.285-2.865-2.864V172.863c0-1.58,1.285-2.865,2.865-2.865h254.272c1.58,0,2.865,1.285,2.865,2.865v254.273h0.001
+				C291.206,428.715,289.92,430,288.341,430z"/>
+		</g>
+</svg>
+
+    <span class="token__tooltip">Copy to clipboard</span>
+  </button>
+</div>
+
+            <p>The repository must be put in a private git server.</p>
+
+            <h2 class="anchor" id="gs-editing-scripts">Editing scripts</h2>
+            <p>To perform the installation, edit the following scripts, depending on the exposition type: <br>
+              cno -> scripts -> control-plane -> install*.sh <br>
+              cno -> scripts -> data-plane -> install*.sh</p>
+            <p>The set the new private RAW git repo for the files to be downloaded, as shown in the following example:</p>
+            <div class="pull-path">
+              <p>
+                <span class="pull-path__name">CNO_RAW_REPOSITORY=</span>
+                <span class="pull-path__path">"https://raw.githubusercontent.com/beopencloud/cno"</span>
+              </p>
+            </div>
+            <p>Then set the new image urls, as shown in the previous paragraph.</p>
+            
+          </article>
+        </div>
+
+        <div class="toc-container">
+          <nav class="toc">
+            <ul class="toc__list">
+              <li class="toc__item"><a class="active" href="#gs-sys-requirements">System requirements</a></li>
+              <li class="toc__item"><a href="#gs-supported-vision">Supported Kubernetes Version</a></li>
+              <li class="toc__item"><a href="#gs-minimal-sizing">Minimal Sizing</a></li>
+              <li class="toc__item"><a href="#gs-network-considarations">Network Considerations</a></li>
+              <li class="toc__item"><a href="#gs-disc-installation">Disconnected Installation</a></li>
+              <li class="toc__item"><a href="#gs-pulling-cno-images">Pulling CNO images:</a></li>
+              <li class="toc__item"><a href="#gs-getting-cno-manifests">Getting CNO Manifests:</a></li>
+              <li class="toc__item"><a href="#gs-editing-scripts">Editing scripts</a></li>
+            </ul>
           </nav>
+        </div>
+      </section>
 
-          <h1>Concept</h1>
-          <p> <a href="mailto:maimouna.diagne@beopenit.com">Maimouna DIAGNE</a> </p>
+    </main>
 
-          <div class="article__nav-grid">
-            <div class="article__nav-item">
-              <h5><a href="gs-cno-onboarding(concept).html">CNO - Onboarding</a></h5>
-              <p>Lorem ipsum dolor sit amet.</p>
-            </div>
-
-            <div class="article__nav-item">
-              <h5><a href="gs-cno-cd(concept).html">CNO - CD</a></h5>
-              <p>Lorem ipsum dolor sit amet.</p>
-            </div>
-
-            <div class="article__nav-item">
-              <h5><a href="gs-cno-hub(concept).html">CNO - HUB</a></h5>
-              <p>Lorem ipsum dolor sit amet.</p>
-            </div>
-
-            <div class="article__nav-item">
-              <h5><a href="gs-cno-secure(concept).html">CNO - Secure</a></h5>
-              <p>Lorem ipsum dolor sit amet.</p>
-            </div>
-
-          </div>
-        </article>
-      </div>
-
-    </section>
-
-  </main>
-
-  <footer id="contact" class="footer">
+    <footer id="contact" class="footer">
 	<div class="dark-bgc">
 		<div class="container">
 			<div class="footer__top">

@@ -25,36 +25,61 @@
 
     // toc list anchors onscroll
     const tocListContainer = document.querySelector(".toc");
-    const tocListItem = tocListContainer.querySelectorAll("ul li a");
 
-    // fix toc container in stiky pos
-    tocListContainer.style.top = `${header.clientHeight + 70}px`;
+    if (tocListContainer) {
+      // fix toc container in stiky pos
+      const tocListItem = tocListContainer.querySelectorAll("ul li a");
+      tocListContainer.style.top = `${header.clientHeight + 70}px`;
 
-    function removeActiveClass(elements) {
-      for (let i = 0; i < elements.length; i++) {
-        elements[i].classList.remove("active");
+      function removeActiveClass(elements) {
+        for (let i = 0; i < elements.length; i++) {
+          elements[i].classList.remove("active");
+        }
       }
-    }
 
-    function switchActiveOnListItem() {
-      let previousRefElement = null;
-      for (let i = 0; i < tocListItem.length; i++) {
-        const currentRefElement = document.getElementById(
-          tocListItem[i].getAttribute("href").substring(1)
-        );
+      function switchActiveOnListItem() {
+        let previousRefElement = null;
+        for (let i = 0; i < tocListItem.length; i++) {
+          const currentRefElement = document.getElementById(
+            tocListItem[i].getAttribute("href").substring(1)
+          );
 
-        const currentRefElementTop =
-          currentRefElement.getBoundingClientRect().top;
-        if (currentRefElementTop <= 50) {
-          previousRefElement = tocListItem[i];
-          removeActiveClass(tocListItem);
-          tocListItem[i].classList.add("active");
+          const currentRefElementTop =
+            currentRefElement.getBoundingClientRect().top;
+          if (currentRefElementTop <= 50) {
+            previousRefElement = tocListItem[i];
+            removeActiveClass(tocListItem);
+            tocListItem[i].classList.add("active");
+          }
         }
       }
     }
 
-    window.addEventListener("scroll", switchActiveOnListItem);
+    function copyToClipboard() {
+      const copyBtns = document.querySelectorAll(".token");
+      let range = document.createRange();
+
+      copyBtns.forEach((token) => {
+        token.querySelector('.token__copy').addEventListener("click", function() {
+          // copy to clipboard
+          range.selectNode(token.querySelector(".token__comand"));
+          window.getSelection().removeAllRanges();
+          window.getSelection().addRange(range);
+          document.execCommand("copy");
+          window.getSelection().removeAllRanges();
+
+          // change tooltip text
+          token.querySelector('.token__tooltip').innerText = 'Copied';
+          setTimeout(() => {
+            token.querySelector('.token__tooltip').innerText = 'Copy To Clipboard';
+          }, 1250);
+        });
+      });
+    }
+
+    copyToClipboard();
     toggleSidebar();
+    window.addEventListener("scroll", switchActiveOnListItem);
     window.addEventListener("resize", toggleSidebar);
   }
 }

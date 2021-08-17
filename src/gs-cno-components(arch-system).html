@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>CNO-Landing page -- Documentation</title>
+  <meta name="description" content="">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Ubuntu:wght@400;700&display=swap"
+    rel="stylesheet">
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- <link rel="shortcut icon" type="image/png" href="images/favicon.png"/> -->
+</head>
+
+<body class="body">
+
+  @@include('./html-templates/header.html',{
+    customclass:'white-header',
+    })
+
+    <main class="main">
+      <section class="documentation container">
+        @@include('./html-templates/documentation/_sidebar-nav.html')
+
+        <div class="article-container">
+          <article class="article">
+
+            <nav class="breadscrumbs">
+              <ul>
+                <li>
+                  <a href="gs-documentation.html">Documentation</a>
+                  @@include('./images/icons/chevron-r.svg')
+                </li>
+                <li>
+                  <a href="gs-arch-system.html">Architecture and System Requirements</a>
+                  @@include('./images/icons/chevron-r.svg')
+                </li>
+                <li>
+                  <a href="">CNO components</a>
+                  @@include('./images/icons/chevron-r.svg')
+                </li>
+              </ul>
+            </nav>
+            
+            <h1 class="anchor" id="gs-cno-components">CNO components</h1>
+
+            <figure>
+              <img src="images/documents/architecture.png" alt="cno architecture picture">
+            </figure>
+
+            <p>CNO is an open source project mainly made up of several components and divided into:</p>
+            <ul>
+              <li>A Control Plane</li>
+              <li>A Data Plane or CNO HUB</li>
+              <li>A Command line interface</li>
+            </ul>
+
+            <h2 class="anchor" id="gs-control-plane">Control Plane</h2>
+            <p>The control plane includes:</p>
+            <ul>
+              <li>The CNO UI</li>
+              <li>The CNO API</li>
+              <li>The CNO Database</li>
+              <li>The CNO IAM</li>
+              <li>The CNO Broker</li>
+              <li>The CNO Notification</li>
+            </ul>
+
+            <h3 class="anchor" id="gs-cno-api">CNO API</h3>
+            <p>The API module is the central component of the platform. It powers the CNO console, as well as the CNO client. The APIs provided are RESTful, HTTP JSON-based, and secured using TLS.</p>
+
+            <h3 class="anchor" id="gs-cno-ui">CNO UI</h3>
+            <p>CNO provides a user interface to perform onboarding actions for users and manage clusters.</p>
+
+            <h3 class="anchor" id="gs-cno-database">CNO Database</h3>
+            <p>CNO uses an SQL database to store the different objects it manages.</p>
+
+            <h3 class="anchor" id="gs-cno-iam">CNO IAM</h3>
+            <p>There is an IAM module to handle users authentication and management for the CNO platform.</p>
+
+            <h3 class="anchor" id="gs-cno-broker">CNO Broker</h3>
+            <p>The API and the CNO cluster Agents communicate using a message broker, so that actions can be performed asynchronously.</p>
+
+            <h3 class="anchor" id="gs-cno-notification">CNO Notification</h3>
+            <p>This module helps handle every notification actions needed on the CNO platform.
+              It provides RESTful, HTTP JSON-based and TLS secured APIs.
+              </p>
+
+            <h2 class="anchor" id="gs-dataplane">Dataplane</h2>
+            <p>The data plane has :</p>
+            <ul>
+              <li>The CNO Agent installed in each kubernetes Cluster</li>
+              <li>The CNO Onboarding Operator</li>
+              <li>The CNO CD Operator</li>
+            </ul>
+
+            <h3 class="anchor" id="gs-cno-onboarding-operator">CNO Onboarding Operator</h3>
+            <p>The Onboarding Operator is the controller that handles the lifecycle of the CNO Custom Resources on the managed Cluster.</p>
+
+            <h3 class="anchor" id="gs-cno-cd-operator">CNO CD Operator</h3>
+            <p>CNO offers Continuous Deployment operations for users through the CD Operator. This operator handles the Custom Resources related to the CD actions provided by CNO.</p>
+
+            <h3 class="anchor" id="gs-cno-agent">CNO Agent</h3>
+            <p>The Agent is the component responsible for taking instructions from the API, through the broker, and performing the necessary actions, like CNO Custom Resources creation on the managed cluster.
+              The agent must be present on the cluster managed by CNO.
+              </p>
+
+            <h2 class="anchor" id="gs-comand-line-interface">Command Line Interface</h2>
+
+            <h3 class="anchor" id="gs-cli-cnoctl">CNO CLI(cnoctl)</h3>
+            <p>The CNO command-line tool, cnoctl, allows users to perform actions on the CNO platform. </p>
+
+          </article>
+        </div>
+
+        <div class="toc-container">
+          <nav class="toc">
+            <ul class="toc__list">
+              <li class="toc__item"><a class="active" href="#gs-cno-components">CNO components</a></li>
+              <li class="toc__item">
+                <a href="#gs-control-plane">Control Plane</a>
+                <ul class="toc__list toc__list--inner">
+                  <li class="toc__item"><a href="#gs-cno-api">CNO API</a></li>
+                  <li class="toc__item"><a href="#gs-cno-ui">CNO UI</a></li>
+                  <li class="toc__item"><a href="#gs-cno-database">CNO Database</a></li>
+                  <li class="toc__item"><a href="#gs-cno-iam">CNO IAM</a></li>
+                  <li class="toc__item"><a href="#gs-cno-broker">CNO Broker</a></li>
+                  <li class="toc__item"><a href="#gs-cno-notification">CNO Notification</a></li>
+                </ul>
+              </li>
+              <li class="toc__item">
+                <a href="#gs-dataplane">Dataplane</a>
+                <ul class="toc__list toc__list--inner">
+                  <li class="toc__item"><a href="#gs-cno-onboarding-operator">CNO Onboarding Operator</a></li>
+                  <li class="toc__item"><a href="#gs-cno-cd-operator">CNO CD Operator</a></li>
+                  <li class="toc__item"><a href="#gs-cno-agent">CNO Agent</a></li>
+                </ul>
+              </li>
+              <li class="toc__item">
+                <a href="#gs-comand-line-interface">Command Line Interface</a>
+                <ul class="toc__list toc__list--inner">
+                  <li class="toc__item"><a href="#gs-cli-cnoctl">CNO CLI(cnoctl)</a></li>
+                </ul>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </section>
+
+    </main>
+
+    @@include('./html-templates/footer.html',{})
+
+  <script src="js/main.js"> </script>
+
+</body>
+
+</html>

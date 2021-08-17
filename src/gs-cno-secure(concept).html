@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>CNO-Landing page -- Documentation</title>
+  <meta name="description" content="">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Ubuntu:wght@400;700&display=swap"
+    rel="stylesheet">
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- <link rel="shortcut icon" type="image/png" href="images/favicon.png"/> -->
+</head>
+
+<body class="body">
+
+  @@include('./html-templates/header.html',{
+    customclass:'white-header',
+    })
+
+    <main class="main">
+      <section class="documentation container">
+        @@include('./html-templates/documentation/_sidebar-nav.html')
+
+        <div class="article-container">
+          <article class="article">
+
+            <nav class="breadscrumbs">
+              <ul>
+                <li>
+                  <a href="gs-documentation.html">Documentation</a>
+                  @@include('./images/icons/chevron-r.svg')
+                </li>
+                <li>
+                  <a href="gs-cno-concept.html">Concept</a>
+                  @@include('./images/icons/chevron-r.svg')
+                </li>
+                <li>
+                  <a href="">CNO - Secure</a>
+                  @@include('./images/icons/chevron-r.svg')
+                </li>
+              </ul>
+            </nav>
+            
+            <h1 class="anchor" id="gs-cno-secure">CNO - Secure</h1>
+            <p>To put security into the entire life cycle of project onboarding and applications development, <strong>CNO Secure</strong> gives security teams the tools and processes <strong>to integrate security without breaking innovation speed.</strong></p>
+
+            <h2 class="anchor" id="gs-iam">IAM</h2>
+            <p><strong>CNO Secure</strong> centralizes the management of authentication and authorization of all your users across your cloud providers and Kubernetes clusters.</p>
+            
+            <h2 class="anchor" id="gs-policy">Policy</h2>
+            <p><strong>CNO Secure</strong> also ensures security policies and compliance by defining and enforcing them on all your Kubernetes clusters on any cloud.</p>
+
+            <h2 class="anchor" id="gs-scan">Scan</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius dolores tenetur incidunt inventore. Itaque animi, accusantium fuga veritatis ipsam culpa.</p>
+
+          </article>
+        </div>
+
+        <div class="toc-container">
+          <nav class="toc">
+            <ul class="toc__list">
+              <li class="toc__item"><a class="active" href="#gs-cno-secure">CNO - Secure</a></li>
+              <li class="toc__item"><a href="#gs-iam">IAM</a></li>
+              <li class="toc__item"><a href="#gs-policy">Policy</a></li>
+              <li class="toc__item"><a href="#gs-scan">Scan</a></li>
+            </ul>
+          </nav>
+        </div>
+      </section>
+
+    </main>
+
+    @@include('./html-templates/footer.html',{})
+
+  <script src="js/main.js"> </script>
+
+</body>
+
+</html>

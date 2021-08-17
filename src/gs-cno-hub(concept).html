@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>CNO-Landing page -- Documentation</title>
+  <meta name="description" content="">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Ubuntu:wght@400;700&display=swap"
+    rel="stylesheet">
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- <link rel="shortcut icon" type="image/png" href="images/favicon.png"/> -->
+</head>
+
+<body class="body">
+
+  @@include('./html-templates/header.html',{
+    customclass:'white-header',
+    })
+
+    <main class="main">
+      <section class="documentation container">
+        @@include('./html-templates/documentation/_sidebar-nav.html')
+
+        <div class="article-container">
+          <article class="article">
+
+            <nav class="breadscrumbs">
+              <ul>
+                <li>
+                  <a href="gs-documentation.html">Documentation</a>
+                  @@include('./images/icons/chevron-r.svg')
+                </li>
+                <li>
+                  <a href="gs-cno-concept.html">Concept</a>
+                  @@include('./images/icons/chevron-r.svg')
+                </li>
+                <li>
+                  <a href="">CNO - HUB</a>
+                  @@include('./images/icons/chevron-r.svg')
+                </li>
+              </ul>
+            </nav>
+            
+            <h1 class="anchor" id="gs-cno-hub">CNO - HUB</h1>
+            <p>To <strong>hide the Kubernetes complexity, CNO Hub</strong> centralizes management, governance and monitoring of all your Kubernetes clusters on any cloud from a single Console.</p>
+            <p><b>CNO Hub gives IT teams the tools to simplify kubernetes technology. In doing so, they can centralise the management of all their Kubernetes clusters from anywhere, from the Cloud or from their own datacenter. </b></p>
+
+            <h2 class="anchor" id="gs-non-manager-clusters">Non-managed Clusters</h2>
+            
+            <h2 class="anchor" id="gs-cloud-provider-managed-clusters">Cloud Provider managed  Clusters</h2>
+
+            <h3 class="anchor" id="gs-cloud-provider">Cloud Providers</h3>
+
+            <h3 class="anchor" id="gs-managed-clusters">Managed Clusters</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius dolores tenetur incidunt inventore. Itaque animi, accusantium fuga veritatis ipsam culpa.</p>
+
+          </article>
+        </div>
+
+        <div class="toc-container">
+          <nav class="toc">
+            <ul class="toc__list">
+              <li class="toc__item"><a class="active" href="#gs-cno-hub">CNO - HUB</a></li>
+              <li class="toc__item"><a href="#gs-non-manager-clusters">Non-managed Clusters</a></li>
+              <li class="toc__item">
+                <a href="#gs-cloud-provider-managed-clusters">Cloud Provider managed  Clusters</a>
+                <ul class="toc__list toc__list--inner">
+                  <li class="toc__item"><a href="#gs-cloud-provider">Cloud Providers</a></li>
+                  <li class="toc__item"><a href="#gs-managed-clusters">Managed Clusters</a></li>
+                </ul>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </section>
+
+    </main>
+
+    @@include('./html-templates/footer.html',{})
+
+  <script src="js/main.js"> </script>
+
+</body>
+
+</html>

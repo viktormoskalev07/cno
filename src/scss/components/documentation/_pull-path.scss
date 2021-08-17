@@ -1,0 +1,29 @@
+.pull-path {
+  padding: 10px 20px;
+  margin-bottom: 1rem;
+  background-color: #1e1e1e;
+  color: $light1;
+
+  p {
+    margin-bottom: 10px;
+    line-height: 1.5;
+    font-family: monospace, $nunito;
+    word-wrap: break-word;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+
+  &__title {
+    color: #5e8f49;
+  }
+
+  &__name {
+    color: #bebebe;
+  }
+
+  &__path {
+    color: #a37562;
+  }
+}
