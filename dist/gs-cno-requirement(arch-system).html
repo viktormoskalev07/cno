@@ -27,8 +27,8 @@
 
     <nav class="nav">
     <div class="nav-menu">
+        <a href="gs-documentation.html" class="nav-item button button--invert">Documentation</a>
         <a href="demonstration.html" class="nav-item button button--invert">Demonstration</a>
-        <a href="gs-documentation.html" class="nav-item button button--invert">GS Documentation</a>
         <a href="get-started.html" class="nav-item button"> Get started</a>
  
     </div>
@@ -109,7 +109,7 @@
       </button>
 
       <ul class="sidebar__list">
-        <li class="sidebar__list-item">
+        <li class="sidebar__list-item sidebar__list-item--group">
           <a class="accented" href="gs-cno-concept.html">Concept</a>
           <ul class="sidebar__list sidebar__list--inner">
             <li class="sidebar__list-item"><a href="gs-cno-onboarding(concept).html">CNO - Onboarding</a></li>
@@ -118,15 +118,25 @@
             <li class="sidebar__list-item"><a href="gs-cno-secure(concept).html">CNO - Secure</a></li>
           </ul>
         </li>
-        <li class="sidebar__list-item">
+        <li class="sidebar__list-item sidebar__list-item--group">
           <a class="accented" href="gs-arch-system.html">Architecture and System Requirements</a>
           <ul class="sidebar__list sidebar__list--inner">
             <li class="sidebar__list-item"><a href="gs-cno-components(arch-system).html">CNO components</a></li>
             <li class="sidebar__list-item"><a href="gs-cno-requirement(arch-system).html">System requirements</a></li>
           </ul>
         </li>
-        <li class="sidebar__list-item"><a class="accented" href="gs-installation.html">Installation</a></li>
-        <li class="sidebar__list-item"><a class="accented" href="#">link 4</a></li>
+        <li class="sidebar__list-item sidebar__list-item--group"><a class="accented" href="gs-installation.html">Installation</a></li>
+        <li class="sidebar__list-item sidebar__list-item--group">
+          <a class="accented" href="gs-configuration.html">Configuration</a>
+          <ul class="sidebar__list sidebar__list--inner">
+            <li class="sidebar__list-item"><a href="gs-dts(configuration).html">Defining Tagging Strategy</a></li>
+            <li class="sidebar__list-item"><a href="gs-quota(configuration).html">QUOTA Management for your Organization</a></li>
+            <li class="sidebar__list-item"><a href="gs-adding-cloud(configuration).html">Adding Cloud Providers</a></li>
+            <li class="sidebar__list-item"><a href="gs-ldap(configuration).html">LDAP Configuration</a></li>
+            <li class="sidebar__list-item"><a href="gs-messaging(configuration).html">Configure Messaging </a></li>
+          </ul>
+        </li>
+        <li class="sidebar__list-item sidebar__list-item--group"><a class="accented" href="#">Tutorials</a></li>
       </ul>
     </div>
   </nav>
@@ -281,19 +291,7 @@
   </pre>
 
   <button class="token__copy">
-    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 460 460" style="enable-background:new 0 0 460 460;" xml:space="preserve">
-<g>
-			<path d="M425.934,0H171.662c-18.122,0-32.864,14.743-32.864,32.864v77.134h30V32.864c0-1.579,1.285-2.864,2.864-2.864h254.272
-				c1.579,0,2.864,1.285,2.864,2.864v254.272c0,1.58-1.285,2.865-2.864,2.865h-74.729v30h74.729
-				c18.121,0,32.864-14.743,32.864-32.865V32.864C458.797,14.743,444.055,0,425.934,0z"/>
-			<path d="M288.339,139.998H34.068c-18.122,0-32.865,14.743-32.865,32.865v254.272C1.204,445.257,15.946,460,34.068,460h254.272
-				c18.122,0,32.865-14.743,32.865-32.864V172.863C321.206,154.741,306.461,139.998,288.339,139.998z M288.341,430H34.068
-				c-1.58,0-2.865-1.285-2.865-2.864V172.863c0-1.58,1.285-2.865,2.865-2.865h254.272c1.58,0,2.865,1.285,2.865,2.865v254.273h0.001
-				C291.206,428.715,289.92,430,288.341,430z"/>
-		</g>
-</svg>
-
+    <img src="images/icons/copy.svg">
     <span class="token__tooltip">Copy to clipboard</span>
   </button>
 </div>

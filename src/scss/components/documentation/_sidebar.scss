@@ -78,7 +78,6 @@
 
         &--inner {
           padding-left: 10px;
-          margin-bottom: 15px;
         }
       }
 
@@ -91,6 +90,10 @@
             font-size: 18px;
             line-height: 1.2;
           }
+        }
+
+        &--group {
+          margin-bottom: 15px;
         }
       }
     }

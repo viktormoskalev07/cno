@@ -158,7 +158,7 @@
 </svg>
                 </li>
                 <li>
-                  <a href="gs-cno-concept.html">Concept</a>
+                  <a href="gs-configuration.html">Configuration</a>
                   <svg width="10px" height="10px" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	viewBox="0 0 256 256" style="enable-background:new 0 0 256 256;" xml:space="preserve">
 
@@ -168,7 +168,7 @@
 </svg>
                 </li>
                 <li>
-                  <a href="">CNO - Onboarding</a>
+                  <a href="">Defining Tagging Strategy</a>
                   <svg width="10px" height="10px" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	viewBox="0 0 256 256" style="enable-background:new 0 0 256 256;" xml:space="preserve">
 
@@ -180,30 +180,53 @@
               </ul>
             </nav>
             
-            <h1 class="anchor" id="gs-cno-onboarding">CNO - Onboarding</h1>
-            <p>The introduction of new technology is not easy in large companies. Usually it is met with a lot of resistance from employees. Or technology is adopted but the whole organization is not onboarded well enough to really take advantage of it.  CNO helps you to build the best adoption program that minimizes resistance and aligns cloud-native technology with Business. </p>
+            <h1 class="anchor" id="gs-defining-strategy">Defining Tagging Strategy</h1>
+            <p>Tags are elements made up of pairs (key and values) whose main purpose is to allow the identification of resources or clusters. They are defined by the user and must be relevant and specific in order to facilitate the identification of the resources to which they will be assigned.</p>
 
-            <h2 class="anchor" id="gs-project-and-teams-onboarding">Project and Teams Onboarding</h2>
-            <p>With this onboarding feature, it will be much easier for the IT Teams to onboard organizational teams and projects. From CNO UI, each product owner in the company can now create a logical project by specifying exactly what the project needs in term of: </p>
+            <h4 class="anchor" id="gs-def-creation-syntax">CREATION SYNTAX</h4>
+            <p>Create a tag by giving elements of configuration</p>
+            <div class="token">
+  <pre class="token__wrap">
+    <code class="token__comand">cnoctl adm create tag [name] [--flags]</code>
+  </pre>
+
+  <button class="token__copy">
+    <img src="images/icons/copy.svg">
+    <span class="token__tooltip">Copy to clipboard</span>
+  </button>
+</div>
+            <span>The supported arguments are:</span>
             <ul>
-              <li>Resources Requests, like CPU, Memory or Storage</li>
-              <li>Environments across multi-cloud Kubernetes Clusters.</li>
-              <li>The developers working on the project</li>
-              <li>The administrators who are maintaining those applications day-to-day</li>
+              <li><code>name</code>: The name of the tag you want to create | <b>[REQUIRED]</b></li>
+            </ul>
+            <span>The supported flags are:</span>
+            <ul>
+              <li><code>type</code>: The type of flag text or selection | <b>[REQUIRED]</b>
+                <ul>
+                  <li><code>text type</code>: a simple text field to assign a value to the tag</li>
+                  <li><code>selection type</code>: a selection field to assign a value to the tag </li>
+                </ul>
+              </li>
+              <li><code>value</code>: the value of type selection value1,value2 | <b>[OPTIONAL]</b></li>
+              <li><code>required</code> : use it if our tag is required | <b>[OPTIONAL]</b></li>
             </ul>
 
-            <h3 class="anchor" id="gs-cno-environments-or-kubernetes">CNO environments or Kubernetes Multi-cluster namespaces</h3>
-            <p>In one project, it will be possible to specify many environnements, e.g. Dev, Staging, Production or any environment you want. For example, in each project, it is possible to create a Dev environment on AWS EKS, Staging environment on OpenShift and a Production environment on Kubernetes Vanilla located in your own datacenter.</p>
+            <h4 class="anchor" id="gs-def-get-syntax">GET SYNTAX</h4>
+            <p>List informations about all tag</p>
+            <div class="token">
+  <pre class="token__wrap">
+    <code class="token__comand">cnoctl adm get tag [tag_id]</code>
+  </pre>
 
-            <h3 class="anchor" id="gs-teams">Teams</h3>
-            <p>After the onboarding phase, all team members in the project will have everything needed to start working. Administrators can centralize the management of Kubernetes clusters and developers can set up their environment and deploy their applications without knowing any cloud providers or any Kubernetes platform.</p>
-
-            <h3 class="anchor" id="gs-organizations">Organizations</h3>
-
-            <h2 class="anchor" id="gs-tagging-strategy">Tagging Strategy</h2>
-            
-            <h2 class="anchor" id="gs-quota-management">Quota Management</h2>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laboriosam unde omnis cupiditate laborum et error assumenda sunt officiis vero a?</p>
+  <button class="token__copy">
+    <img src="images/icons/copy.svg">
+    <span class="token__tooltip">Copy to clipboard</span>
+  </button>
+</div>
+            <span>The supported arguments are:</span>
+            <ul>
+              <li><code>tag_id</code>: The id of the tag from which we want to retrieve information. To specify if you want to get information about a specific tag | <b>[OPTIONAL]</b></li>
+            </ul>
 
           </article>
         </div>
@@ -211,17 +234,13 @@
         <div class="toc-container">
           <nav class="toc">
             <ul class="toc__list">
-              <li class="toc__item"><a class="active" href="#gs-cno-onboarding">CNO - Onboarding</a></li>
               <li class="toc__item">
-                <a href="#gs-project-and-teams-onboarding">Project and Teams Onboarding</a>
+                <a class="active" href="#gs-defining-strategy">Defining Tagging Strategy</a>
                 <ul class="toc__list toc__list--inner">
-                  <li class="toc__item"><a href="#gs-cno-environments-or-kubernetes">CNO environments or Kubernetes Multi-cluster namespaces</a></li>
-                  <li class="toc__item"><a href="#gs-teams">Team</a></li>
-                  <li class="toc__item"><a href="#gs-organizations">Organizations</a></li>
+                  <li class="toc__item"><a href="#gs-def-creation-syntax">Creation syntax</a></li>
+                  <li class="toc__item"><a href="#gs-def-get-syntax">Get syntax</a></li>
                 </ul>
               </li>
-              <li class="toc__item"><a href="#gs-tagging-strategy">Tagging Strategy</a></li>
-              <li class="toc__item"><a href="#gs-quota-management">Quota Management</a></li>
             </ul>
           </nav>
         </div>

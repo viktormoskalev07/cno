@@ -18,6 +18,13 @@
         }
       }
     }
+    &--inner-depth2 {
+      @include xl {
+        .toc__item a.active::before {
+          left: -48px;
+        }
+      }
+    }
   }
 
   &__item {

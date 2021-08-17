@@ -1,12 +1,13 @@
 $green:#00BC87;
 $logowidth:50px;
 
-  
-body{
-    // for  noscroll mobile nav 
-  @include lg{
-  padding: 0 !important;
-  overflow: auto !important;
+
+body {
+
+  // for  noscroll mobile nav 
+  @include lg {
+    padding: 0 !important;
+    overflow: auto !important;
   }
 
 
@@ -16,41 +17,61 @@ body{
   font-size: 32px;
   line-height: 1.8;
 }
-.color-blue{
-  color:$blue !important;
+
+.color-blue {
+  color: $blue !important;
 }
-.color-dark{
-  color:$dark !important;
+
+.color-dark {
+  color: $dark !important;
 }
-.dark-bgc{
+
+.dark-bgc {
   height: 100%;
   background-color: #061146;
 }
-  h1, h2, h3, h4, h5, h6{
-font-weight: 700;
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
 }
-.text-blue{
-  color:$blue;
+
+.text-blue {
+  color: $blue;
 }
-.hidden{
+
+.hidden {
   display: none;
   overflow: hidden;
 }
-.flex-center{display: flex; justify-content: center;   align-items: center; }
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 // footer to bottom
-.body , html{
-height: 100%; 
-min-height: 100vh;
+.body,
+html {
+  height: 100%;
+  min-height: 100vh;
 }
-.header , footer {
+
+.header,
+footer {
   flex-grow: 0;
 }
-.main{
+
+.main {
   flex-grow: 1;
 }
 
-.main-wrapper{
+.main-wrapper {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -58,10 +79,11 @@ min-height: 100vh;
   position: relative;
   background-color: #fff;
   overflow: hidden;
- 
+
 }
 
-html , body{
+html,
+body {
   margin: 0;
   padding: 0;
   font-family: $nunito;
@@ -72,7 +94,7 @@ html , body{
 }
 
 
-a{
+a {
   text-decoration: none;
   color: inherit;
 
@@ -85,30 +107,32 @@ a{
   }
 }
 
-p{
+p {
   width: 100%;
 }
- 
 
-  h1,h2,h3,h4{
-    text-align: center;
-    line-height: 1.5;
-    font-family: $ubuntu;
-  }
 
-figure{
+h1,
+h2,
+h3,
+h4 {
+  text-align: center;
+  line-height: 1.5;
+  font-family: $ubuntu;
+}
+
+figure {
   margin: 0;
   padding: 0;
   font-size: 0;
 }
 
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
-
-  
- 
- 
+code {
+  color: #d14;
+}

@@ -158,7 +158,7 @@
 </svg>
                 </li>
                 <li>
-                  <a href="gs-cno-concept.html">Concept</a>
+                  <a href="gs-configuration.html">Configuration</a>
                   <svg width="10px" height="10px" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	viewBox="0 0 256 256" style="enable-background:new 0 0 256 256;" xml:space="preserve">
 
@@ -168,7 +168,7 @@
 </svg>
                 </li>
                 <li>
-                  <a href="">CNO - Onboarding</a>
+                  <a href="">QUOTA Management for your Organization</a>
                   <svg width="10px" height="10px" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	viewBox="0 0 256 256" style="enable-background:new 0 0 256 256;" xml:space="preserve">
 
@@ -179,31 +179,55 @@
                 </li>
               </ul>
             </nav>
-            
-            <h1 class="anchor" id="gs-cno-onboarding">CNO - Onboarding</h1>
-            <p>The introduction of new technology is not easy in large companies. Usually it is met with a lot of resistance from employees. Or technology is adopted but the whole organization is not onboarded well enough to really take advantage of it.  CNO helps you to build the best adoption program that minimizes resistance and aligns cloud-native technology with Business. </p>
 
-            <h2 class="anchor" id="gs-project-and-teams-onboarding">Project and Teams Onboarding</h2>
-            <p>With this onboarding feature, it will be much easier for the IT Teams to onboard organizational teams and projects. From CNO UI, each product owner in the company can now create a logical project by specifying exactly what the project needs in term of: </p>
+            <h1 class="anchor" id="gs-quota-management">QUOTA Management for your Organization:</h1>
+            <p>It is the different capacities allocated to a cluster that allow it to function properly. The different capacities are the cpu, the limit and the storage.</p>
             <ul>
-              <li>Resources Requests, like CPU, Memory or Storage</li>
-              <li>Environments across multi-cloud Kubernetes Clusters.</li>
-              <li>The developers working on the project</li>
-              <li>The administrators who are maintaining those applications day-to-day</li>
+              <li>The cpu is the value of the processor allocated to a cluster, it takes into account 2 parameters, the limit value (maximum value that can be allocated to a cluster) and the request value (the minimum value that a cluster needs to function). It is measured in Core or Mcore</li>
+              <li>The limit is the value of the memory allocated to a cluster. Like the cpu, it takes into account a limit value and a request value. However it is measured in M,Mi,G,Gi</li>
+              <li>The storage, that is the capacity that a cluster can have, is also measured in M,Mi,G,Gi</li>
             </ul>
 
-            <h3 class="anchor" id="gs-cno-environments-or-kubernetes">CNO environments or Kubernetes Multi-cluster namespaces</h3>
-            <p>In one project, it will be possible to specify many environnements, e.g. Dev, Staging, Production or any environment you want. For example, in each project, it is possible to create a Dev environment on AWS EKS, Staging environment on OpenShift and a Production environment on Kubernetes Vanilla located in your own datacenter.</p>
+            <h4 class="anchor" id="gs-quota-creation-syntax">CREATION SYNTAX</h4>
+            <p>Create a quota by giving elements of configuration</p>
+            <div class="token">
+  <pre class="token__wrap">
+    <code class="token__comand">cnoctl adm create quota [name] --cpu LimitValue,RequestValue --memory LimitValue,RequestValue --storage valueStorage</code>
+  </pre>
 
-            <h3 class="anchor" id="gs-teams">Teams</h3>
-            <p>After the onboarding phase, all team members in the project will have everything needed to start working. Administrators can centralize the management of Kubernetes clusters and developers can set up their environment and deploy their applications without knowing any cloud providers or any Kubernetes platform.</p>
+  <button class="token__copy">
+    <img src="images/icons/copy.svg">
+    <span class="token__tooltip">Copy to clipboard</span>
+  </button>
+</div>
+            <span>The supported arguments are:</span>
+            <ul>
+              <li><code>name</code>: The name of the quota you want to create | <b>[REQUIRED]</b></li>
+            </ul>
+            <span>The supported flag are:</span>
+            <ul>
+              <li><code>cpu</code>: cpu parameter limit value and request, which are separated by comma. | <b>[REQUIRED]</b></li>
+              <li><code>memory</code>: memory parameter limit value and request, which are separated by comma. | <b>[REQUIRED]</b></li>
+              <li><code>storage</code>: storage value | <b>[REQUIRED]</b></li>
+              <span>* it is not possible  to put a request value, it will be deducted from the limit value</span>
+            </ul>
 
-            <h3 class="anchor" id="gs-organizations">Organizations</h3>
+            <h4 class="anchor" id="gs-guota-get">GET</h4>
+            <p>List informations about all quota</p>
+            <div class="token">
+  <pre class="token__wrap">
+    <code class="token__comand">cnoctl adm get quota [name]</code>
+  </pre>
 
-            <h2 class="anchor" id="gs-tagging-strategy">Tagging Strategy</h2>
-            
-            <h2 class="anchor" id="gs-quota-management">Quota Management</h2>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laboriosam unde omnis cupiditate laborum et error assumenda sunt officiis vero a?</p>
+  <button class="token__copy">
+    <img src="images/icons/copy.svg">
+    <span class="token__tooltip">Copy to clipboard</span>
+  </button>
+</div>
+            <span>The supported arguments are:</span>
+            <ul>
+              <li><code>name</code>: The name of the quota from which we want to retrieve information. To specify if you want to get information about a specific quota | <b>[OPTIONAL]</b></li>
+            </ul>
 
           </article>
         </div>
@@ -211,17 +235,13 @@
         <div class="toc-container">
           <nav class="toc">
             <ul class="toc__list">
-              <li class="toc__item"><a class="active" href="#gs-cno-onboarding">CNO - Onboarding</a></li>
               <li class="toc__item">
-                <a href="#gs-project-and-teams-onboarding">Project and Teams Onboarding</a>
+                <a class="active" href="#gs-quota-management">QUOTA Management for your Organization</a>
                 <ul class="toc__list toc__list--inner">
-                  <li class="toc__item"><a href="#gs-cno-environments-or-kubernetes">CNO environments or Kubernetes Multi-cluster namespaces</a></li>
-                  <li class="toc__item"><a href="#gs-teams">Team</a></li>
-                  <li class="toc__item"><a href="#gs-organizations">Organizations</a></li>
+                  <li class="toc__item"><a href="#gs-quota-creation-syntax">Creation syntax</a></li>
+                  <li class="toc__item"><a href="#gs-guota-get">Get</a></li>
                 </ul>
               </li>
-              <li class="toc__item"><a href="#gs-tagging-strategy">Tagging Strategy</a></li>
-              <li class="toc__item"><a href="#gs-quota-management">Quota Management</a></li>
             </ul>
           </nav>
         </div>

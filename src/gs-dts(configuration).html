@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>CNO-Landing page -- Documentation</title>
+  <meta name="description" content="">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Ubuntu:wght@400;700&display=swap"
+    rel="stylesheet">
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- <link rel="shortcut icon" type="image/png" href="images/favicon.png"/> -->
+</head>
+
+<body class="body">
+
+  @@include('./html-templates/header.html',{
+    customclass:'white-header',
+    })
+
+    <main class="main">
+      <section class="documentation container">
+        @@include('./html-templates/documentation/_sidebar-nav.html')
+
+        <div class="article-container">
+          <article class="article">
+
+            <nav class="breadscrumbs">
+              <ul>
+                <li>
+                  <a href="gs-documentation.html">Documentation</a>
+                  @@include('./images/icons/chevron-r.svg')
+                </li>
+                <li>
+                  <a href="gs-configuration.html">Configuration</a>
+                  @@include('./images/icons/chevron-r.svg')
+                </li>
+                <li>
+                  <a href="">Defining Tagging Strategy</a>
+                  @@include('./images/icons/chevron-r.svg')
+                </li>
+              </ul>
+            </nav>
+            
+            <h1 class="anchor" id="gs-defining-strategy">Defining Tagging Strategy</h1>
+            <p>Tags are elements made up of pairs (key and values) whose main purpose is to allow the identification of resources or clusters. They are defined by the user and must be relevant and specific in order to facilitate the identification of the resources to which they will be assigned.</p>
+
+            <h4 class="anchor" id="gs-def-creation-syntax">CREATION SYNTAX</h4>
+            <p>Create a tag by giving elements of configuration</p>
+            @@include('./html-templates/documentation/_token.html',{
+              comand:'cnoctl adm create tag [name] [--flags]'
+            })
+            <span>The supported arguments are:</span>
+            <ul>
+              <li><code>name</code>: The name of the tag you want to create | <b>[REQUIRED]</b></li>
+            </ul>
+            <span>The supported flags are:</span>
+            <ul>
+              <li><code>type</code>: The type of flag text or selection | <b>[REQUIRED]</b>
+                <ul>
+                  <li><code>text type</code>: a simple text field to assign a value to the tag</li>
+                  <li><code>selection type</code>: a selection field to assign a value to the tag </li>
+                </ul>
+              </li>
+              <li><code>value</code>: the value of type selection value1,value2 | <b>[OPTIONAL]</b></li>
+              <li><code>required</code> : use it if our tag is required | <b>[OPTIONAL]</b></li>
+            </ul>
+
+            <h4 class="anchor" id="gs-def-get-syntax">GET SYNTAX</h4>
+            <p>List informations about all tag</p>
+            @@include('./html-templates/documentation/_token.html',{
+              comand:'cnoctl adm get tag [tag_id]'
+            })
+            <span>The supported arguments are:</span>
+            <ul>
+              <li><code>tag_id</code>: The id of the tag from which we want to retrieve information. To specify if you want to get information about a specific tag | <b>[OPTIONAL]</b></li>
+            </ul>
+
+          </article>
+        </div>
+
+        <div class="toc-container">
+          <nav class="toc">
+            <ul class="toc__list">
+              <li class="toc__item">
+                <a class="active" href="#gs-defining-strategy">Defining Tagging Strategy</a>
+                <ul class="toc__list toc__list--inner">
+                  <li class="toc__item"><a href="#gs-def-creation-syntax">Creation syntax</a></li>
+                  <li class="toc__item"><a href="#gs-def-get-syntax">Get syntax</a></li>
+                </ul>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </section>
+
+    </main>
+
+    @@include('./html-templates/footer.html',{})
+
+  <script src="js/main.js"> </script>
+
+</body>
+
+</html>

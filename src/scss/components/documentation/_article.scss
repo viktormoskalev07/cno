@@ -6,10 +6,13 @@ h4 {
   position: relative;
 }
 
-@include xl {
-  padding: 20px;
+h2, h3, h4, h5 {
+  &.anchor {
+    @include xl {
+      margin-top: -120px;
+    }
+  }
 }
-
 
 .anchor {
 

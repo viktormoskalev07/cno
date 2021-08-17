@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>CNO-Landing page -- Documentation</title>
+  <meta name="description" content="">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Ubuntu:wght@400;700&display=swap"
+    rel="stylesheet">
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- <link rel="shortcut icon" type="image/png" href="images/favicon.png"/> -->
+</head>
+
+<body class="body">
+
+  @@include('./html-templates/header.html',{
+    customclass:'white-header',
+    })
+
+    <main class="main">
+      <section class="documentation container">
+        @@include('./html-templates/documentation/_sidebar-nav.html')
+
+        <div class="article-container">
+          <article class="article">
+
+            <nav class="breadscrumbs">
+              <ul>
+                <li>
+                  <a href="gs-documentation.html">Documentation</a>
+                  @@include('./images/icons/chevron-r.svg')
+                </li>
+                <li>
+                  <a href="gs-configuration.html">Configuration</a>
+                  @@include('./images/icons/chevron-r.svg')
+                </li>
+                <li>
+                  <a href="#">Configure Messaging</a>
+                  @@include('./images/icons/chevron-r.svg')
+                </li>
+              </ul>
+            </nav>
+            
+            <h1 class="anchor" id="gs-config-mess">Configure Messaging</h1>
+            <p>Messaging Account consists of creating an SMTP server to send emails or notifications to CNO users.</p>
+            <p>Create a messaging account by giving elements of configuration</p>
+            @@include('./html-templates/documentation/_token.html',{
+              comand:'cnoctl adm create smtp [--flags]'
+            })
+            <span>The supported flags are:</span>
+            <ul>
+              <li><code>email</code>: The sender email of your organization | <b>[REQUIRED]</b></li>
+              <li><code>smtp-password</code>: The sender email account password | <b>[REQUIRED]</b></li>
+              <li><code>smtp-server</code>: The name of the most common email providers' servers | <b>[REQUIRED]</b></li>
+              <li><code>smtp-port</code>: The port of the email provider's servers | <b>[REQUIRED]</b></li>
+            </ul>
+
+            <h4 class="anchor" id="gs-get-syntax">GET SYNTAX</h4>
+            <p>List informations about Your Messaging Account</p>
+            @@include('./html-templates/documentation/_token.html',{
+              comand:'cnoctl adm get smtp'
+            })
+
+            <h4 class="anchor" id="gs-test-syntax">TEST SYNTAX</h4>
+            <p>Do a test to make sure that the smtp server configuration is correct</p>
+            @@include('./html-templates/documentation/_token.html',{
+              comand:'cnoctl adm test smtp receivermail@mail.com -m "Your message"'
+            })
+            <p>or</p>
+            @@include('./html-templates/documentation/_token.html',{
+              comand:'cnoctl adm test smtp receivermail@mail.com --message "Your message"'
+            })
+            <span>The supported flags are:</span>
+            <ul>
+              <li><code>email</code> or <code>e</code>: the receiver mail test | <b>[REQUIRED]</b></li>
+              <li><code>message</code> or <code>m</code>: the message to sent| <b>[OPTIONAL]</b></li>
+            </ul>
+
+          </article>
+        </div>
+
+        <div class="toc-container">
+          <nav class="toc">
+            <ul class="toc__list">
+              <li class="toc__item">
+                <a class="active" href="#gs-config-mess">Configure Messaging</a>
+                <ul class="toc__list toc__list--inner">
+                  <li class="toc__item"><a href="#gs-get-syntax">Get syntax</a></li>
+                  <li class="toc__item"><a href="#gs-test-syntax">Test syntax</a></li>
+                </ul>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </section>
+
+    </main>
+
+    @@include('./html-templates/footer.html',{})
+
+  <script src="js/main.js"> </script>
+
+</body>
+
+</html>

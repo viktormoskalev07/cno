@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>CNO-Landing page -- Documentation</title>
+  <meta name="description" content="">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Ubuntu:wght@400;700&display=swap"
+    rel="stylesheet">
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- <link rel="shortcut icon" type="image/png" href="images/favicon.png"/> -->
+</head>
+
+<body class="body">
+
+  @@include('./html-templates/header.html',{
+    customclass:'white-header',
+    })
+
+    <main class="main">
+      <section class="documentation container">
+        @@include('./html-templates/documentation/_sidebar-nav.html')
+
+        <div class="article-container">
+          <article class="article">
+
+            <nav class="breadscrumbs">
+              <ul>
+                <li>
+                  <a href="gs-documentation.html">Documentation</a>
+                  @@include('./images/icons/chevron-r.svg')
+                </li>
+                <li>
+                  <a href="gs-configuration.html">Configuration</a>
+                  @@include('./images/icons/chevron-r.svg')
+                </li>
+                <li>
+                  <a href="#">Adding Cloud Providers</a>
+                  @@include('./images/icons/chevron-r.svg')
+                </li>
+              </ul>
+            </nav>
+            
+            <h1 class="anchor" id="gs-adding-cloud">Adding Cloud Providers:</h1>
+            <p>Several cloud providers are supported by CNO. We use cloud providers in CNO to get Kubernetes clusters that we want to manage through CNO. Available cloud providers in CNO are AWS, Azure and Google Cloud. <br>
+              Since they are different, each of them will have its own configuration.</p>
+
+            <h4 class="anchor" id="gs-creation-syntax">CREATION SYNTAX</h4>
+            <p>Create a tag by giving elements of configuration</p>
+            
+            <h5 class="anchor" id="gs-aws"><i> - AWS</i></h5>
+            @@include('./html-templates/documentation/_token.html',{
+              comand:'cnoctl adm create provider-eks [name] [--flags]'
+            })
+            <span>The supported arguments are:</span>
+            <ul>
+              <li><code>name</code>: The name of the cloud provider you want to create | <b>[REQUIRED]</b></li>
+            </ul>
+            <span>The supported flags are:</span>
+            <ul>
+              <li><code>default-region</code>: The region of the provider | <b>[REQUIRED]</b></li>
+              <li><code>access-key</code>: Access key for Aws cloud provider | <b>[REQUIRED]</b></li>
+              <li><code>secret-key</code>: Secret key for Aws cloud provider | <b>[REQUIRED]</b></li>
+              <li><code>session-token</code>: Session Token for Aws cloud provider | <b>[REQUIRED]</b></li>
+            </ul>
+
+            <h5 class="anchor" id="gs-azure"><i> - AZURE</i></h5>
+            @@include('./html-templates/documentation/_token.html',{
+              comand:'cnoctl adm create provider-aks [name] [--flags]'
+            })
+            <span>The supported arguments are:</span>
+            <ul>
+              <li><code>name</code>: The name of the cloud provider you want to create | <b>[REQUIRED]</b></li>
+            </ul>
+            <span>The supported flags are:</span>
+            <ul>
+              <li><code>client-id</code>: The client-id for aks provider | <b>[REQUIRED]</b></li>
+              <li><code>client-secret</code>: The client secret for aks provider | <b>[REQUIRED]</b></li>
+              <li><code>subscription-id</code>: The subscription id for aks provider | <b>[REQUIRED]</b></li>
+              <li><code>tenant-id</code>: The tenant id of the aks provider | <b>[REQUIRED]</b></li>
+            </ul>
+
+            <h5 class="anchor" id="gs-gcp"><i> - GCP</i></h5>
+            @@include('./html-templates/documentation/_token.html',{
+              comand:'cnoctl adm create provider-gke [name] [--flags]'
+            })
+            <span>The supported arguments are:</span>
+            <ul>
+              <li><code>name</code>: The name of the cloud provider you want to create | <b>[REQUIRED]</b></li>
+            </ul>
+            <span>The supported flags are:</span>
+            <ul>
+              <li><code>Json-file</code>: The json file that contains the configuration of the gke provider | <b>[REQUIRED]</b></li>
+            </ul>
+
+            <h4 class="anchor" id="gs-get-syntax">GET SYNTAX</h4>
+            <p>List informations about all cloud provider</p>
+            @@include('./html-templates/documentation/_token.html',{
+              comand:'cnoctl adm get provider  [name]'
+            })
+            <span>The supported arguments are:</span>
+            <ul>
+              <li><code>name</code>: The name of the cloud provider from which we want to retrieve information. To specify if you want to get information about a specific provider | <b>[OPTIONAL]</b></li>
+            </ul>
+
+          </article>
+        </div>
+
+        <div class="toc-container">
+          <nav class="toc">
+            <ul class="toc__list">
+              <li class="toc__item">
+                <a class="active" href="#gs-adding-cloud">Adding Cloud Providers</a>
+                <ul class="toc__list toc__list--inner">
+                  <li class="toc__item">
+                    <a href="#gs-creation-syntax">Creation syntax</a>
+                    <ul class="toc__list toc__list--inner  toc__list--inner-depth2">
+                      <li class="toc__item"><a href="#gs-aws">AWS</a></li>
+                      <li class="toc__item"><a href="#gs-azure">AZURE</a></li>
+                      <li class="toc__item"><a href="#gs-gcp">GCP</a></li>
+                    </ul>
+                  </li>
+                  <li class="toc__item"><a href="#gs-get-syntax">Get syntax</a></li>
+                </ul>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </section>
+
+    </main>
+
+    @@include('./html-templates/footer.html',{})
+
+  <script src="js/main.js"> </script>
+
+</body>
+
+</html>

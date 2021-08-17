@@ -22,6 +22,7 @@
     @include xl {
       order: 2;
       width: calc(100% - 405px);
+      padding: 20px;
     }
 
     @import './documentation/article';
@@ -30,7 +31,7 @@
   .toc-container {
     padding: 0;
     order: 2;
-    min-width: 175px;
+    width: 175px;
 
     @include xl {
       order: 3

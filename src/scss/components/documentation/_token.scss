@@ -68,8 +68,10 @@
     svg {
       width: 13px;
       height: 13px;
-      z-index: 2;
-      fill: $light1;
+    }
+    img {
+      width: 13px;
+      height: 13px;
     }
 
     &:hover {
@@ -80,9 +82,13 @@
     }
   }
 
-  &:hover {
+  &:hover, &:focus {
     .token__copy {
       opacity: 1;
+
+      svg {
+        visibility: visible;
+      }
     }
   }
 }

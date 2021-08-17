@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>CNO-Landing page -- Documentation</title>
+  <meta name="description" content="">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Ubuntu:wght@400;700&display=swap"
+    rel="stylesheet">
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- <link rel="shortcut icon" type="image/png" href="images/favicon.png"/> -->
+</head>
+
+<body class="body">
+
+  @@include('./html-templates/header.html',{
+    customclass:'white-header',
+    })
+
+    <main class="main">
+      <section class="documentation container">
+        @@include('./html-templates/documentation/_sidebar-nav.html')
+
+        <div class="article-container">
+          <article class="article">
+
+            <nav class="breadscrumbs">
+              <ul>
+                <li>
+                  <a href="gs-documentation.html">Documentation</a>
+                  @@include('./images/icons/chevron-r.svg')
+                </li>
+                <li>
+                  <a href="gs-configuration.html">Configuration</a>
+                  @@include('./images/icons/chevron-r.svg')
+                </li>
+                <li>
+                  <a href="#">LDAP Configuration</a>
+                  @@include('./images/icons/chevron-r.svg')
+                </li>
+              </ul>
+            </nav>
+            
+            <h1 class="anchor" id="gs-ldap">LDAP Configuration:</h1>
+            <a href="mailto:smodou.diouf@beopenit.com">Serigne Modou Diouf</a> <br>
+            <a href="mailto:merlene.kuakuvi@beopenit.com">Merlene KUAKUVI</a>
+
+            <h2 class="anchor" id="gs-configure-ldap-acc">Configure Ldap Account</h2>
+            <p>Ldap Account consists of creating an Ldap Server to store and use users, group. <br> 
+              Creating ldap account by giving the following command</p>
+            @@include('./html-templates/documentation/_token.html',{
+              comand:'cnoctl adm create ldap [--flags ]'
+            })
+            <span>The supported flags are:</span>
+            <ul>
+              <li><code>url</code>: The url of your ldap account | <b>[REQUIRED]</b></li>
+              <li><code>port</code>: The port of the ldap account (389 for ldap, 634 for ldaps) | <b>[REQUIRED]</b></li>
+              <li><code>cn</code>: The common name of the ldap server | <b>[REQUIRED]</b></li>
+              <li><code>basedn</code>: The base domain name | <b>[REQUIRED]</b></li>
+              <li><code>admin-password</code>: define the ldap admin password | <b>[REQUIRED]</b></li>
+            </ul>
+            
+            <h4 class="anchor" id="gs-get-account">Get LDAP Account</h4>
+            <p>List informations about your Ldap Account</p>
+            @@include('./html-templates/documentation/_token.html',{
+              comand:'conctl adm get ldap'
+            })
+
+          </article>
+        </div>
+
+        <div class="toc-container">
+          <nav class="toc">
+            <ul class="toc__list">
+              <li class="toc__item">
+                <a class="active" href="#gs-ldap">LDAP Configuration</a>
+                <ul class="toc__list toc__list--inner">
+                  <li class="toc__item"><a href="#gs-configure-ldap-acc">Configure Ldap Account</a></li>
+                  <li class="toc__item"><a href="#gs-get-account">Get LDAP Account</a></li>
+                </ul>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </section>
+
+    </main>
+
+    @@include('./html-templates/footer.html',{})
+
+  <script src="js/main.js"> </script>
+
+</body>
+
+</html>
