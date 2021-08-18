@@ -77,8 +77,8 @@
       });
     }
 
-    window.addEventListener('DOMContentLoaded', copyToClipboard)
     toggleSidebar();
+    window.addEventListener('DOMContentLoaded', copyToClipboard)
     window.addEventListener("scroll", switchActiveOnListItem);
     window.addEventListener("resize", toggleSidebar);
   }

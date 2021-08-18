@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>CNO-Landing page -- Documentation</title>
+  <meta name="description" content="">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Ubuntu:wght@400;700&display=swap"
+    rel="stylesheet">
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- <link rel="shortcut icon" type="image/png" href="images/favicon.png"/> -->
+</head>
+
+<body class="body">
+
+  @@include('./html-templates/header.html',{
+    customclass:'white-header',
+    })
+
+    <main class="main">
+      <section class="documentation container">
+        @@include('./html-templates/documentation/_sidebar-nav.html')
+
+        <div class="article-container">
+          <article class="article">
+
+            <nav class="breadscrumbs">
+              <ul>
+                <li>
+                  <a href="gs-documentation.html">Documentation</a>
+                  @@include('./images/icons/chevron-r.svg')
+                </li>
+                <li>
+                  <a href="gs-tutorials.html">Tutorials</a>
+                  @@include('./images/icons/chevron-r.svg')
+                </li>
+                <li>
+                  <a href="#">IAM Set Up</a>
+                  @@include('./images/icons/chevron-r.svg')
+                </li>
+              </ul>
+            </nav>
+            
+            <h1 class="anchor" id="gs-iam-setup">IAM Set Up</h1>
+            <p>In this tutorial, you will want to create and manage users in the default organization.</p>
+
+            <h5 class="anchor" id="gs-objectifs"><b>Objectifs:</b></h5>
+            <ul>
+              <li>Create user on CNO Organization</li>
+              <li>Assign role to a new or existing user</li>
+            </ul>
+
+            <h5 class="anchor" id="gs-prerequisite"><b>Prerequisite:</b></h5>
+            <ul>
+              <li>Connect to cno command line to use command in this tutorial</li>
+              <li>Make sure to connect before create user</li>
+            </ul>
+            
+            <h5 class="anchor" id="gs-use-case">Use case:</h5>
+            <p>We are going to create and manage user named <b>"james"</b> in the default <b>"organization"</b></p>
+            <ul class="article-list">
+              <li class="anchor" id="gs-create-user">
+                <p><b>Create user named james</b></p>
+                @@include('./html-templates/documentation/_token.html',{
+                  comand:'cnoctl adm create user [--flag]'
+                })
+                <span>The supported flags are:</span>
+                <ul class="inner-list">
+                  <li><code>firstname</code>: specify the firstname of the user | <b>[OPTIONAL]</b></li>
+                  <li><code>lastname</code>: specify the lastname of the user | <b>[OPTIONAL]</b></li>
+                  <li><code>username</code>: define the username of the user | <b>[REQUIRED]</b></li>
+                  <li><code>email</code>: define the email address of the user | <b>[REQUIRED]</b></li>
+                  <li><code>department</code>: specify the department of the user | <b>[OPTIONAL]</b></li>
+                </ul>
+                @@include('./html-templates/documentation/_token.html',{
+                  comand:'cnoctl adm create user --firstname james --lastname james --email james@gmail.com --username james --department devops'
+                })
+              </li>
+              
+              <li class="anchor" id="gs-assing-user">
+                <p><b>Assing admin-role  to user  james</b></p>
+                @@include('./html-templates/documentation/_token.html',{
+                  comand:'cnoctl adm set-role --usermane [username] --role [role]'
+                })
+                <span>The supported flags are:</span>
+                <ul class="inner-list">
+                  <li><code>username</code>: specify the username of the user | <b>[REQUIRED]</b></li>
+                  <li><code>role</code>: specify the role to assign the user | <b>[REQUIRED]</b></li>
+                </ul>
+                @@include('./html-templates/documentation/_token.html',{
+                  comand:'cnoctl adm set-role --username james --role super-admin'
+                })
+              </li>
+
+              <li class="anchor" id="gs-delete-user">
+                <p><b>Delete admin-role to user james</b></p>
+                @@include('./html-templates/documentation/_token.html',{
+                  comand:'cnoctl adm delete-role --username [username] --role [role]'
+                })
+                <span>The supported flags are:</span>
+                <ul class="inner-list">
+                  <li><code>username</code>: specify the username of the user | <b>[REQUIRED]</b></li>
+                  <li><code>role</code>: specify the role to delete from user | <b>[REQUIRED]</b></li>
+                </ul>
+                @@include('./html-templates/documentation/_token.html',{
+                  comand:'conctl adm delete-role --username james --role super-admin'
+                })
+              </li>
+
+              <li class="anchor" id="gs-get-user">
+                <p><b>Get user james</b></p>
+                <p>To get all users make:</p>
+                @@include('./html-templates/documentation/_token.html',{
+                  comand:'cnoctl adm get users [username]'
+                })
+                @@include('./html-templates/documentation/_token.html',{
+                  comand:'cnoctl adm get users james'
+                })
+                <p>To get all users make:</p>
+                @@include('./html-templates/documentation/_token.html',{
+                  comand:'cnoctl adm get users'
+                })
+              </li>
+
+              <li class="anchor" id="gs-update-user">
+                <p><b>Update user</b></p>
+                <p>Now update only the firstname of user <b>“james”</b> to <b>“mody”</b></p>
+                @@include('./html-templates/documentation/_token.html',{
+                  comand:'cnoctl adm update user [--flag]'
+                })
+                <span>The supported flags are:</span>
+                <ul class="inner-list">
+                  <li><code>firstname</code>: specify the firstname of the user  | <b>[OPTIONAL]</b></li>
+                  <li><code>lastname</code>: specify the lastname of the user | <b>[OPTIONAL]</b></li>
+                  <li><code>username</code>: define the username of the user | <b>[REQUIRED]</b></li>
+                  <li><code>email</code>: define the email address of the user | <b>[OPTIONAL]</b></li>
+                  <li><code>department</code>: specify the department of the user | <b>[OPTIONAL]</b></li>
+                </ul>
+                <p>Update only the firstaneme of “james” to “mody”</p>
+                @@include('./html-templates/documentation/_token.html',{
+                  comand:'cnoctl adm update user --firstname mody --username james'
+                })
+              </li>
+
+              <li class="anchor" id="gs-delete-in-org">
+                <p><b>Delete user james in the organization</b></p>
+                @@include('./html-templates/documentation/_token.html',{
+                  comand:'cnoctl adm delete user [username]'
+                })
+                <ul class="inner-list">
+                  <li><code>username</code>: specify the username of user deleted  | <b>[REQUIRED]</b></li>
+                </ul>
+                @@include('./html-templates/documentation/_token.html',{
+                  comand:'cnoctl adm delete user james'
+                })
+              </li>
+            </ul>
+
+          </article>
+        </div>
+
+        <div class="toc-container">
+          <nav class="toc">
+            <ul class="toc__list">
+              <li class="toc__item"><a class="active" href="#gs-iam-setup">IAM Set Up</a></li>
+              <li class="toc__item"><a class="active" href="#gs-objectifs">Objectifs</a></li>
+              <li class="toc__item"><a class="active" href="#gs-prerequisite">Prerequisite</a></li>
+              <li class="toc__item">
+                <a href="#gs-use-case">Use case</a>
+                <ul class="toc__list toc__list--inner">
+                  <li class="toc__item"><a href="#gs-create-user">Create user</a></li>
+                  <li class="toc__item"><a href="#gs-assing-user">Assing admin-role  to user</a></li>
+                  <li class="toc__item"><a href="#gs-delete-user">Delete admin-role to user</a></li>
+                  <li class="toc__item"><a href="#gs-get-user">Get user</a></li>
+                  <li class="toc__item"><a href="#gs-update-user">Update user</a></li>
+                  <li class="toc__item"><a href="#gs-delete-in-org">Delete user in the organization</a></li>
+                </ul>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </section>
+
+    </main>
+
+    @@include('./html-templates/footer.html',{})
+
+  <script src="js/main.js"> </script>
+
+</body>
+
+</html>

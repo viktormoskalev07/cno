@@ -166,7 +166,17 @@
 </svg>
                 </li>
                 <li>
-                  <a href="">Installation</a>
+                  <a href="gs-tutorials.html">Tutorials</a>
+                  <svg width="10px" height="10px" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	viewBox="0 0 256 256" style="enable-background:new 0 0 256 256;" xml:space="preserve">
+
+	<g>
+		<polygon points="79.093,0 48.907,30.187 146.72,128 48.907,225.813 79.093,256 207.093,128 		" />
+	</g>
+</svg>
+                </li>
+                <li>
+                  <a href="#">Onboard projects and teams</a>
                   <svg width="10px" height="10px" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	viewBox="0 0 256 256" style="enable-background:new 0 0 256 256;" xml:space="preserve">
 
@@ -178,15 +188,22 @@
               </ul>
             </nav>
             
-            <h1 class="anchor" id="gs-installation">Installation</h1>
-
-            <h2 class="anchor" id="gs-install-cnoctl">Install CNOCTL</h2>
-            <p>The CLI can be installed with a curl script, brew or by downloading the binary from the releases page. Once installed you'll get the cnoctl command.</p>
-
-            <h3 class="anchor" id="gs-install-curl">Install with curl:</h3>
-            <div class="token">
+            <h1 class="anchor" id="gs-onboard-proj-team">Onboard projects and teams</h1>
+            <p>In this tutorial, you will learn how to onboard a new or existing project on CNO UI or CLI. We will walk through how to manage quota and members in a project. <br>
+              We will show you how to create a new environment on a project.</p>
+            
+            <h2 class="anchor" id="gs-before-begin">Before to begin</h2>
+            <p>Sometimes you need the project owner to fill in a number of tags to identify the project. For this, the super admin must define the mandatory tags that the owners must fill in. The super admin can also provide quota templates that owners can choose when creating a project.</p>
+            <ul class="article-list">
+              <li>
+                <p>Tags settings</p>
+                <span>For this tutorial, We add four tags for the rest:</span>
+                <ul class="inner-list">
+                  <li>
+                    <p><b>Department</b> (required): to specify the the department of the owner</p>
+                    <div class="token">
   <pre class="token__wrap">
-    <code class="token__comand">$ curl -sSL https://raw.githubusercontent.com/beopencloud/cno/main/scripts/cnoctl.sh | sh</code>
+    <code class="token__comand">cnoctl adm create tag Department --type text --required</code>
   </pre>
 
   <button class="token__copy">
@@ -194,11 +211,12 @@
     <span class="token__tooltip">Copy to clipboard</span>
   </button>
 </div>
-
-            <h3 class="anchor" id="gs-install-brew-mac">Install with brew on MacOs:</h3>
-            <div class="token">
+                  </li>
+                  <li>
+                    <p><b>Monitoring</b> (required): to specify if the project needs to be monitored</p>
+                    <div class="token">
   <pre class="token__wrap">
-    <code class="token__comand">$ brew tap beopencloud/cno</code>
+    <code class="token__comand">cnoctl adm create tag Monitoring --type selection --value true,false --required</code>
   </pre>
 
   <button class="token__copy">
@@ -206,9 +224,12 @@
     <span class="token__tooltip">Copy to clipboard</span>
   </button>
 </div>
-            <div class="token">
+                  </li>
+                  <li>
+                    <p><b>PodNumber</b> (required): to specify the number of pods</p>
+                    <div class="token">
   <pre class="token__wrap">
-    <code class="token__comand">$ brew install cnoctl</code>
+    <code class="token__comand">cnoctl adm create tag PodNumber --type text --required</code>
   </pre>
 
   <button class="token__copy">
@@ -216,13 +237,12 @@
     <span class="token__tooltip">Copy to clipboard</span>
   </button>
 </div>
-
-            <h3 class="anchor" id="gs-install-release">Install from release:</h3>
-            <p>In the cnoctl release page (<a target="_blank" class="linked" href="https://github.com/beopencloud/cno/releases">https://github.com/beopencloud/cno/releases</a>) download, unarchive the version needed and move the binary to your system PATH.</p>
-            <p>Example for version v0.0.1 on MacOs:</p>
-            <div class="token">
+                  </li>
+                  <li>
+                    <p><b>Language</b> (not required): to specify the programming language</p>
+                    <div class="token">
   <pre class="token__wrap">
-    <code class="token__comand">$ wget https://github.com/beopencloud/cno/releases/download/v0.0.1/cnoctl_0.0.1_Darwin_x86_64.tar.gz</code>
+    <code class="token__comand">cnoctl adm create tag Language --type selection --value Java,PHP,Go</code>
   </pre>
 
   <button class="token__copy">
@@ -230,9 +250,16 @@
     <span class="token__tooltip">Copy to clipboard</span>
   </button>
 </div>
-            <div class="token">
+                  </li>
+                </ul>
+              </li>
+
+              <li>
+                <p>Quota template setting</p>
+                <p>For this tutorial, We add four quotas for the rest:</p>
+                <div class="token">
   <pre class="token__wrap">
-    <code class="token__comand">$ tar -xzf cnoctl_0.0.1_Darwin_x86_64.tar.gz</code>
+    <code class="token__comand">cnoctl adm create quota Small --cpu 200m,500m --memory 1Gi,2Gi --storage 20Gi</code>
   </pre>
 
   <button class="token__copy">
@@ -240,9 +267,9 @@
     <span class="token__tooltip">Copy to clipboard</span>
   </button>
 </div>
-            <div class="token">
+                <div class="token">
   <pre class="token__wrap">
-    <code class="token__comand">$ mv cnoctl /usr/local/bin/</code>
+    <code class="token__comand">cnoctl adm create quota Medium --cpu 500m,1 --memory 2Gi,4Gi --storage 50Gi</code>
   </pre>
 
   <button class="token__copy">
@@ -250,13 +277,9 @@
     <span class="token__tooltip">Copy to clipboard</span>
   </button>
 </div>
-
-            <h3 class="anchor" id="gs-verify-cnoctl">Verify cnoctl installation</h3>
-            <p>Check that cnoctl is properly installed by getting the command help:</p>
-            <p>Example for version v0.0.1 on MacOs:</p>
-            <div class="token">
+                <div class="token">
   <pre class="token__wrap">
-    <code class="token__comand">$ cnoctl --help</code>
+    <code class="token__comand">cnoctl adm create quota Large --cpu 2,4 --memory 4Gi,8Gi --storage 500Gi</code>
   </pre>
 
   <button class="token__copy">
@@ -264,14 +287,192 @@
     <span class="token__tooltip">Copy to clipboard</span>
   </button>
 </div>
+                <div class="token">
+  <pre class="token__wrap">
+    <code class="token__comand">cnoctl adm create quota Xlarge --cpu 8,16 --memory 16GI,32Gi --storage 1000Gi</code>
+  </pre>
 
-            <h2 class="anchor" id="gs-quick-install">Quick Installation CNO with CNOCTL</h2>
-            <p>To install CNO  you need Kubernetes v1.16 or higher. <br>
-              Once cnoctl is installed, to install CNO run the following command: 
+  <button class="token__copy">
+    <img src="images/icons/copy.svg">
+    <span class="token__tooltip">Copy to clipboard</span>
+  </button>
+</div>
+              </li>
+
+              <li>
+                <p>Add user on organization</p>
+                <p>Use the following command to create the users alice and bob. You must be a super administrator.</p>
+                <div class="token">
+  <pre class="token__wrap">
+    <code class="token__comand">cnoctl adm create user --firstname alice --lastname alice --email alice@gmail.com --username alice --department devops</code>
+  </pre>
+
+  <button class="token__copy">
+    <img src="images/icons/copy.svg">
+    <span class="token__tooltip">Copy to clipboard</span>
+  </button>
+</div>
+                <div class="token">
+  <pre class="token__wrap">
+    <code class="token__comand">cnoctl adm create user --firstname bob --lastname bob --email bob@gmail.com --username bob --department devops</code>
+  </pre>
+
+  <button class="token__copy">
+    <img src="images/icons/copy.svg">
+    <span class="token__tooltip">Copy to clipboard</span>
+  </button>
+</div>
+              </li>
+            </ul>
+            
+            <h2 class="anchor" id="gs-new-proj">Onboard a new project</h2>
+            <p>For this tutorial, we will work with a project named my-first-project. You create project with command:</p>
+            <div class="token">
+  <pre class="token__wrap">
+    <code class="token__comand">cnoctl create project my-first-project --quota Large --tags Department=IT,PodNumber=5,Monitoring=false,Language=Go</code>
+  </pre>
+
+  <button class="token__copy">
+    <img src="images/icons/copy.svg">
+    <span class="token__tooltip">Copy to clipboard</span>
+  </button>
+</div>
+            
+            <h2 class="anchor" id="gs-add-envireonment">Add a environment on project</h2>
+            <p>If you have resources in a project my-first-project, you can create an environment. You have two ways to onboard an environment on CNO. </p>
+            <ul>
+              <li>
+                <p>By importing an existing namespace  on a cluster with this command:</p>
+                <div class="token">
+  <pre class="token__wrap">
+    <code class="token__comand">cnoctl onboard &#60;namespace&#62; --project &#60;projectName&#62; [--quota &#60;quotaName&#62;] | [--cpu CPULimitValue,CPURequestValue --memory MemoryLimitValue,MemoryRequestValue --storage StorageValue]</code>
+  </pre>
+
+  <button class="token__copy">
+    <img src="images/icons/copy.svg">
+    <span class="token__tooltip">Copy to clipboard</span>
+  </button>
+</div>
+              </li>
+              <li>
+                <p>Or creating new environment with the following command</p>
+                <div class="token">
+  <pre class="token__wrap">
+    <code class="token__comand">cnoctl create environment &#60;name&#62; --project &#60;projectName&#62; --prod true|false --cluster &#60;ClusterName&#62; [--quota &#60;quotaName&#62;] | [--cpu CPULimitValue,CPURequestValue --memory MemoryLimitValue,MemoryRequestValue --storage StorageValue]</code>
+  </pre>
+
+  <button class="token__copy">
+    <img src="images/icons/copy.svg">
+    <span class="token__tooltip">Copy to clipboard</span>
+  </button>
+</div>
+                <p><i>NB: We can specify resource by --quota flag or by --cpu, --memory and --storage flags</i></p>
+              </li>
+            </ul>
+            <p>For this tutorial we have to create to environments prod and dev on my-first-project project</p>
+            <ul>
+              <li>
+                <p>Let's create the dev environment</p>
+                <div class="token">
+  <pre class="token__wrap">
+    <code class="token__comand">cnoctl create environment dev --project my-first-project --prod false --cluster default --cpu 2,1 --memory 3Gi,1.5Gi --storage 10Gi</code>
+  </pre>
+
+  <button class="token__copy">
+    <img src="images/icons/copy.svg">
+    <span class="token__tooltip">Copy to clipboard</span>
+  </button>
+</div>
+              </li>
+              <li>
+                <p>let's create the prod environment</p>
+                <div class="token">
+  <pre class="token__wrap">
+    <code class="token__comand">cnoctl create environment prod --project my-first-project --prod true --quota xlarge --cluster default</code>
+  </pre>
+
+  <button class="token__copy">
+    <img src="images/icons/copy.svg">
+    <span class="token__tooltip">Copy to clipboard</span>
+  </button>
+</div>
+              </li>
+            </ul>
+            <p>Run the following command to view my-first-project's environments</p>
+            <div class="token">
+  <pre class="token__wrap">
+    <code class="token__comand">cnoctl get env --project my-first-project</code>
+  </pre>
+
+  <button class="token__copy">
+    <img src="images/icons/copy.svg">
+    <span class="token__tooltip">Copy to clipboard</span>
+  </button>
+</div>
+            <div class="table-responsive">
+              <table class="table article__table-nowrap  article__table-nowrap--sm">
+                <thead>
+                  <tr>
+                    <td>NAME</td>
+                    <td>CPU LIMIT</td>
+                    <td>CPU REQUEST</td>
+                    <td>CPU USED</td>
+                    <td>MEMORY LIMIT</td>
+                    <td>MEMORY REQUEST</td>
+                    <td>MEMORY USED</td>
+                    <td>STORAGE</td>
+                    <td>STORAGE USED</td>
+                    <td>STATUS</td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>prod</td>
+                    <td>2</td>
+                    <td>1</td>
+                    <td>0%</td>
+                    <td>3Gi</td>
+                    <td>1.5Gi</td>
+                    <td>0%</td>
+                    <td>10Gi</td>
+                    <td>0%</td>
+                    <td>Ready</td>
+                  </tr>
+                  <tr>
+                    <td>dev</td>
+                    <td>2</td>
+                    <td>4</td>
+                    <td>0%</td>
+                    <td>4Gi</td>
+                    <td>8Gi</td>
+                    <td>30%</td>
+                    <td>500Gi</td>
+                    <td>0%</td>
+                    <td>Ready</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h2 class="anchor" id="gs-extend-res">Extend project resources</h2>
+            <p>We can extend project resources by creating a new quotaRequest. You can view pending quotaRequest on a project with this command:</p>
+            <div class="token">
+  <pre class="token__wrap">
+    <code class="token__comand">cnoctl create quota-request my-first-project --cpu 3,1 --memory 3Gi,1Gi --storage 100Gi</code>
+  </pre>
+
+  <button class="token__copy">
+    <img src="images/icons/copy.svg">
+    <span class="token__tooltip">Copy to clipboard</span>
+  </button>
+</div>
+            <p>Quota request needs to be validated if you have not super admin or owner+ role. <br>
+              <i>Notice:  If you are super_admin or owner+ quotaRequest will be automatically accepted else you must wait for validation.</i>
+              Check the status of the new quota request
             </p>
             <div class="token">
   <pre class="token__wrap">
-    <code class="token__comand">$ cnoctl init --type aks --domain cno-dev.beopenit.com --ingress-type nginx</code>
+    <code class="token__comand">cnoctl get quota-request --project my-first-project</code>
   </pre>
 
   <button class="token__copy">
@@ -279,15 +480,54 @@
     <span class="token__tooltip">Copy to clipboard</span>
   </button>
 </div>
-            <span>The supported flags are:</span>
-            <ul>
-              <li><code>--domain</code>: The wirldcard domain configured in the cluster</li>
-              <li><code>--ingress-type</code>: The ingress type used in the cluster: nodeport, nginx, router, loadbalancer</li>
-              <li><code>--namespace</code>: cno install namespace (default "cno-system")</li>
-              <li><code>--type</code>: The kubernetes in which cno is been install  type: vanilla, aks, eks, gke (default "vanilla")</li>
-              <li><code>--version</code>: cno version to install (default "1.0.0-rc")</li>
-              <li><code>--with-dataplane</code>: install cno with a default dataplane (default true)</li>
-            </ul>
+
+            <h2 class="anchor" id="gs-validation-quota">Validation new quota request to extend resources on project</h2>
+            <p>RequestQuota must be validated by the organization's validators if you are not super_admin or owner+ on the organization. Super_admin or organization’s validator can accept or reject a quotaRequest with the following command.</p>
+            <div class="token">
+  <pre class="token__wrap">
+    <code class="token__comand">cnoctl accept|reject request-quota &#60;quota-request-id&#62; --project projectName</code>
+  </pre>
+
+  <button class="token__copy">
+    <img src="images/icons/copy.svg">
+    <span class="token__tooltip">Copy to clipboard</span>
+  </button>
+</div>
+
+            <h2 class="anchor" id="gs-add-members">Add project members</h2>
+            <p>You can onboard a team on a project. <br>
+              Use the following command to add a <b>alice</b> as a developer and bob as admin on the my-first-project </p>
+            <div class="token">
+  <pre class="token__wrap">
+    <code class="token__comand">cnoctl onboard add user alice --role developer --project my-first-project</code>
+  </pre>
+
+  <button class="token__copy">
+    <img src="images/icons/copy.svg">
+    <span class="token__tooltip">Copy to clipboard</span>
+  </button>
+</div>
+            <div class="token">
+  <pre class="token__wrap">
+    <code class="token__comand">cnoctl onboard add user bob --role admin --project my-first-project</code>
+  </pre>
+
+  <button class="token__copy">
+    <img src="images/icons/copy.svg">
+    <span class="token__tooltip">Copy to clipboard</span>
+  </button>
+</div>
+            <p>You can get team’s member and privileges for each member with this command</p>
+            <div class="token">
+  <pre class="token__wrap">
+    <code class="token__comand">cnoctl onboard get user --project my-first-project</code>
+  </pre>
+
+  <button class="token__copy">
+    <img src="images/icons/copy.svg">
+    <span class="token__tooltip">Copy to clipboard</span>
+  </button>
+</div>
 
           </article>
         </div>
@@ -295,17 +535,13 @@
         <div class="toc-container">
           <nav class="toc">
             <ul class="toc__list">
-              <li class="toc__item"><a class="active" href="#gs-installation">Installation</a></li>
-              <li class="toc__item">
-                <a href="#gs-install-cnoctl">Install CNOCTL</a>
-                <ul class="toc__list toc__list--inner">
-                  <li class="toc__item"><a href="#gs-install-curl">Install with curl</a></li>
-                  <li class="toc__item"><a href="#gs-install-brew-mac">Install with brew on MacOs</a></li>
-                  <li class="toc__item"><a href="#gs-install-release">Install from release</a></li>
-                  <li class="toc__item"><a href="#gs-verify-cnoctl">Verify cnoctl installation</a></li>
-                </ul>
-              </li>
-              <li class="toc__item"><a href="#gs-quick-install">Quick Installation CNO with CNOCTL</a></li>
+              <li class="toc__item"><a class="active" href="#gs-onboard-proj-team">Onboard projects and teams</a></li>
+              <li class="toc__item"><a href="#gs-before-begin">Before to begin</a></li>
+              <li class="toc__item"><a href="#gs-new-proj">Onboard a new project</a></li>
+              <li class="toc__item"><a href="#gs-add-envireonment">Add a environment on project</a></li>
+              <li class="toc__item"><a href="#gs-extend-res">Extend project resources</a></li>
+              <li class="toc__item"><a href="#gs-validation-quota">Validation new quota request</a></li>
+              <li class="toc__item"><a href="#gs-add-members">Add project members</a></li>
             </ul>
           </nav>
         </div>

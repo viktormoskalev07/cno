@@ -166,7 +166,17 @@
 </svg>
                 </li>
                 <li>
-                  <a href="">Installation</a>
+                  <a href="gs-tutorials.html">Tutorials</a>
+                  <svg width="10px" height="10px" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	viewBox="0 0 256 256" style="enable-background:new 0 0 256 256;" xml:space="preserve">
+
+	<g>
+		<polygon points="79.093,0 48.907,30.187 146.72,128 48.907,225.813 79.093,256 207.093,128 		" />
+	</g>
+</svg>
+                </li>
+                <li>
+                  <a href="#">Multi Cloud Management with CNO Hub</a>
                   <svg width="10px" height="10px" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	viewBox="0 0 256 256" style="enable-background:new 0 0 256 256;" xml:space="preserve">
 
@@ -178,115 +188,131 @@
               </ul>
             </nav>
             
-            <h1 class="anchor" id="gs-installation">Installation</h1>
+            <h1 class="anchor" id="gs-multi-cloud">Multi Cloud Management with CNO Hub</h1>
+            <p>Multi cloud management in CNO includes two types of processing. CNO Hub centralizes clusters in order to manage them. We can directly import an existing cluster from an existing cloud provider in CNO. We call it a managed cluster. <br>
+              We can also create a new cluster from any provider which is not already configured in CNO or import a cluster which is not managed by a provider. We call them custom clusters.
+              Since we have two types of management, we are going to show how to add clusters to CNO Hub. 
+              </p>
 
-            <h2 class="anchor" id="gs-install-cnoctl">Install CNOCTL</h2>
-            <p>The CLI can be installed with a curl script, brew or by downloading the binary from the releases page. Once installed you'll get the cnoctl command.</p>
-
-            <h3 class="anchor" id="gs-install-curl">Install with curl:</h3>
-            <div class="token">
-  <pre class="token__wrap">
-    <code class="token__comand">$ curl -sSL https://raw.githubusercontent.com/beopencloud/cno/main/scripts/cnoctl.sh | sh</code>
-  </pre>
-
-  <button class="token__copy">
-    <img src="images/icons/copy.svg">
-    <span class="token__tooltip">Copy to clipboard</span>
-  </button>
-</div>
-
-            <h3 class="anchor" id="gs-install-brew-mac">Install with brew on MacOs:</h3>
-            <div class="token">
-  <pre class="token__wrap">
-    <code class="token__comand">$ brew tap beopencloud/cno</code>
-  </pre>
-
-  <button class="token__copy">
-    <img src="images/icons/copy.svg">
-    <span class="token__tooltip">Copy to clipboard</span>
-  </button>
-</div>
-            <div class="token">
-  <pre class="token__wrap">
-    <code class="token__comand">$ brew install cnoctl</code>
-  </pre>
-
-  <button class="token__copy">
-    <img src="images/icons/copy.svg">
-    <span class="token__tooltip">Copy to clipboard</span>
-  </button>
-</div>
-
-            <h3 class="anchor" id="gs-install-release">Install from release:</h3>
-            <p>In the cnoctl release page (<a target="_blank" class="linked" href="https://github.com/beopencloud/cno/releases">https://github.com/beopencloud/cno/releases</a>) download, unarchive the version needed and move the binary to your system PATH.</p>
-            <p>Example for version v0.0.1 on MacOs:</p>
-            <div class="token">
-  <pre class="token__wrap">
-    <code class="token__comand">$ wget https://github.com/beopencloud/cno/releases/download/v0.0.1/cnoctl_0.0.1_Darwin_x86_64.tar.gz</code>
-  </pre>
-
-  <button class="token__copy">
-    <img src="images/icons/copy.svg">
-    <span class="token__tooltip">Copy to clipboard</span>
-  </button>
-</div>
-            <div class="token">
-  <pre class="token__wrap">
-    <code class="token__comand">$ tar -xzf cnoctl_0.0.1_Darwin_x86_64.tar.gz</code>
-  </pre>
-
-  <button class="token__copy">
-    <img src="images/icons/copy.svg">
-    <span class="token__tooltip">Copy to clipboard</span>
-  </button>
-</div>
-            <div class="token">
-  <pre class="token__wrap">
-    <code class="token__comand">$ mv cnoctl /usr/local/bin/</code>
-  </pre>
-
-  <button class="token__copy">
-    <img src="images/icons/copy.svg">
-    <span class="token__tooltip">Copy to clipboard</span>
-  </button>
-</div>
-
-            <h3 class="anchor" id="gs-verify-cnoctl">Verify cnoctl installation</h3>
-            <p>Check that cnoctl is properly installed by getting the command help:</p>
-            <p>Example for version v0.0.1 on MacOs:</p>
-            <div class="token">
-  <pre class="token__wrap">
-    <code class="token__comand">$ cnoctl --help</code>
-  </pre>
-
-  <button class="token__copy">
-    <img src="images/icons/copy.svg">
-    <span class="token__tooltip">Copy to clipboard</span>
-  </button>
-</div>
-
-            <h2 class="anchor" id="gs-quick-install">Quick Installation CNO with CNOCTL</h2>
-            <p>To install CNO  you need Kubernetes v1.16 or higher. <br>
-              Once cnoctl is installed, to install CNO run the following command: 
-            </p>
-            <div class="token">
-  <pre class="token__wrap">
-    <code class="token__comand">$ cnoctl init --type aks --domain cno-dev.beopenit.com --ingress-type nginx</code>
-  </pre>
-
-  <button class="token__copy">
-    <img src="images/icons/copy.svg">
-    <span class="token__tooltip">Copy to clipboard</span>
-  </button>
-</div>
-            <span>The supported flags are:</span>
+            <h2 class="anchor" id="gs-premises-cluster">On premises cluster (Kubernetes, Tanzu or Openshift)</h2>
+            <p>The goal of this scenario is to deploy a cluster (Kubernetes) in CNO in order to manage it. CNO provides a way to import clusters from providers which are not directly attached to it.</p>
+            <span><b>Objectives:</b></span>
             <ul>
-              <li><code>--domain</code>: The wirldcard domain configured in the cluster</li>
-              <li><code>--ingress-type</code>: The ingress type used in the cluster: nodeport, nginx, router, loadbalancer</li>
-              <li><code>--namespace</code>: cno install namespace (default "cno-system")</li>
-              <li><code>--type</code>: The kubernetes in which cno is been install  type: vanilla, aks, eks, gke (default "vanilla")</li>
-              <li><code>--version</code>: cno version to install (default "1.0.0-rc")</li>
-              <li><code>--with-dataplane</code>: install cno with a default dataplane (default true)</li>
+              <li>Import a cluster from a non-managed Kubernetes cluster</li>
+              <li>Install CNO agent on this cluster</li>
+            </ul>
+            <span><b>PRE-REQUISITES:</b></span>
+            <ul>
+              <li>Connect to cnoctl command line to use commands in the tutorial</li>
+              <li>Make sure to switch to the <b>good context</b> before the installation</li>
+            </ul>
+
+            <h4 class="anchor" id="gs-premises-use-cases">USE CASE</h4>
+            <p>Adding a custom cluster means creating a new cluster from a non managed provider. </p>
+            <span>We are going to create an <b>Openshift</b> cluster named <b>“myclustertest”</b>.</span>
+            <ul>
+              <li>First, make sure that you have an existing configured Openshift service from which we want to create the cluster</li>
+              <li>
+                <p>After that, we are going to create the cluster using the simple command:</p>
+                <div class="token">
+  <pre class="token__wrap">
+    <code class="token__comand">cnoctl adm add custom-cluster --name myclustertest --type openshift --api-url https://myclustertest:654 --version 1.0.0-rc -- kubeconfig ./kube/config</code>
+  </pre>
+
+  <button class="token__copy">
+    <img src="images/icons/copy.svg">
+    <span class="token__tooltip">Copy to clipboard</span>
+  </button>
+</div>
+                <span>The supported flags are:</span>
+                <ul>
+                  <li><code>name</code>: The name of the cluster | <b>[REQUIRED]</b></li>
+                  <li><code>type</code>: The type of cluster (gke, aks, eks, kubernetes, openshift…)  | <b>[REQUIRED]</b></li>
+                  <li><code>api-url</code>: An url from which we will have access to the cluster | <b>[REQUIRED]</b></li>
+                  <li><code>version</code>: The cno version to install | <b>[REQUIRED]</b></li>
+                  <li><code>kube-config</code>: The kube configuration used to install the cluster | <b>[OPTIONAL]</b></li>
+                  <li><code>install-ingress-controller</code>: Use to choose or not to install a nginx ingress controller | <b>[OPTIONAL]</b></li>
+                </ul>
+              </li>
+              <li>
+                <p>We can know check if our cluster has been added by using the following command</p>
+                <div class="token">
+  <pre class="token__wrap">
+    <code class="token__comand">cnoctl adm get custom-cluster myclustertest</code>
+  </pre>
+
+  <button class="token__copy">
+    <img src="images/icons/copy.svg">
+    <span class="token__tooltip">Copy to clipboard</span>
+  </button>
+</div>
+                <span>The supported arguments are:</span>
+                <ul>
+                  <li><code>name</code>: The name of the cluster from which we want to retrieve information | <b>[REQUIRED]</b></li>
+                </ul>
+              </li>
+            </ul>
+
+            <h2 class="anchor" id="gs-managed-clusters">Managed Clusters (AWS, Azure and GCP)</h2>
+            <p>In this tutorial, we are going to show how to add a new cluster to manage from an existing AWS provider. Adding a managed cluster means retrieving it from a cloud provider in order to manage it from CNO.</p>
+            <span>Objectives:</span>
+            <ul>
+              <li>Import a cluster from an existing provider in CNO</li>
+            </ul>
+
+            <h4 class="anchor" id="gs-managed-use-cases">USE CASE</h4>
+            <p>We have a cluster called <b>“myclustertest”</b> on the <b>“Ireland”</b> region on the existing provider <b>“myaws”</b> </p>
+            <span>We are going to import in CNO.</span>
+            <ul>
+              <li>
+                <p>First, we have to check if a cluster is available in the provider from which we want to import it. To make this verification we use the following command:</p>
+                <div class="token">
+  <pre class="token__wrap">
+    <code class="token__comand">(Command to add)</code>
+  </pre>
+
+  <button class="token__copy">
+    <img src="images/icons/copy.svg">
+    <span class="token__tooltip">Copy to clipboard</span>
+  </button>
+</div>
+              </li>
+              <li>
+                <p>After making sure that the cluster is available, we are going to import it using the simple command:</p>
+                <div class="token">
+  <pre class="token__wrap">
+    <code class="token__comand">cnoctl adm add managed-cluster --cloud-provider myaws --cluster-name myclustertest --region eu-west-1</code>
+  </pre>
+
+  <button class="token__copy">
+    <img src="images/icons/copy.svg">
+    <span class="token__tooltip">Copy to clipboard</span>
+  </button>
+</div>
+                <span>The supported flags are:</span>
+                <ul>
+                  <li><code>cloud-provider</code>: The cloud provider from which we retrieve the cluster | <b>[REQUIRED]</b></li>
+                  <li><code>cluster-name</code>: The name of the cluster to retrieve | <b>[REQUIRED]</b></li>
+                  <li><code>region</code>: Region where the cluster is located | <b>[OPTIONAL]</b></li>
+                </ul>
+              </li>
+              <li>
+                <p>Now, we can check if our cluster has been added for managing using the following command:</p>
+                <div class="token">
+  <pre class="token__wrap">
+    <code class="token__comand">cnoctl adm get managed-cluster myclustertest</code>
+  </pre>
+
+  <button class="token__copy">
+    <img src="images/icons/copy.svg">
+    <span class="token__tooltip">Copy to clipboard</span>
+  </button>
+</div>
+                <span>The supported arguments are:</span>
+                <ul>
+                  <li><code>name</code>: The name of the cluster from which we want to retrieve information | <b>[REQUIRED]</b></li>
+                </ul>
+              </li>
             </ul>
 
           </article>
@@ -295,17 +321,19 @@
         <div class="toc-container">
           <nav class="toc">
             <ul class="toc__list">
-              <li class="toc__item"><a class="active" href="#gs-installation">Installation</a></li>
+              <li class="toc__item"><a class="active" href="#gs-multi-cloud">Multi Cloud Management with CNO Hub</a></li>
               <li class="toc__item">
-                <a href="#gs-install-cnoctl">Install CNOCTL</a>
+                <a href="#gs-premises-cluster">On premises cluster (Kubernetes, Tanzu or Openshift)</a>
                 <ul class="toc__list toc__list--inner">
-                  <li class="toc__item"><a href="#gs-install-curl">Install with curl</a></li>
-                  <li class="toc__item"><a href="#gs-install-brew-mac">Install with brew on MacOs</a></li>
-                  <li class="toc__item"><a href="#gs-install-release">Install from release</a></li>
-                  <li class="toc__item"><a href="#gs-verify-cnoctl">Verify cnoctl installation</a></li>
+                  <li class="toc__item"><a href="#gs-premises-use-cases">Use cases</a></li>
                 </ul>
               </li>
-              <li class="toc__item"><a href="#gs-quick-install">Quick Installation CNO with CNOCTL</a></li>
+              <li class="toc__item">
+                <a href="#gs-managed-clusters">Managed Clusters (AWS, Azure and GCP)</a>
+                <ul class="toc__list toc__list--inner">
+                  <li class="toc__item"><a href="#gs-managed-use-cases">Use cases</a></li>
+                </ul>
+              </li>
             </ul>
           </nav>
         </div>

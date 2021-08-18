@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>CNO-Landing page -- Documentation</title>
+  <meta name="description" content="">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Ubuntu:wght@400;700&display=swap"
+    rel="stylesheet">
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- <link rel="shortcut icon" type="image/png" href="images/favicon.png"/> -->
+</head>
+
+<body class="body">
+
+  @@include('./html-templates/header.html',{
+    customclass:'white-header',
+    })
+
+    <main class="main">
+      <section class="documentation container">
+        @@include('./html-templates/documentation/_sidebar-nav.html')
+
+        <div class="article-container">
+          <article class="article">
+
+            <nav class="breadscrumbs">
+              <ul>
+                <li>
+                  <a href="gs-documentation.html">Documentation</a>
+                  @@include('./images/icons/chevron-r.svg')
+                </li>
+                <li>
+                  <a href="gs-tutorials.html">Tutorials</a>
+                  @@include('./images/icons/chevron-r.svg')
+                </li>
+                <li>
+                  <a href="#">Multi Cloud Management with CNO Hub</a>
+                  @@include('./images/icons/chevron-r.svg')
+                </li>
+              </ul>
+            </nav>
+            
+            <h1 class="anchor" id="gs-multi-cloud">Multi Cloud Management with CNO Hub</h1>
+            <p>Multi cloud management in CNO includes two types of processing. CNO Hub centralizes clusters in order to manage them. We can directly import an existing cluster from an existing cloud provider in CNO. We call it a managed cluster. <br>
+              We can also create a new cluster from any provider which is not already configured in CNO or import a cluster which is not managed by a provider. We call them custom clusters.
+              Since we have two types of management, we are going to show how to add clusters to CNO Hub. 
+              </p>
+
+            <h2 class="anchor" id="gs-premises-cluster">On premises cluster (Kubernetes, Tanzu or Openshift)</h2>
+            <p>The goal of this scenario is to deploy a cluster (Kubernetes) in CNO in order to manage it. CNO provides a way to import clusters from providers which are not directly attached to it.</p>
+            <span><b>Objectives:</b></span>
+            <ul>
+              <li>Import a cluster from a non-managed Kubernetes cluster</li>
+              <li>Install CNO agent on this cluster</li>
+            </ul>
+            <span><b>PRE-REQUISITES:</b></span>
+            <ul>
+              <li>Connect to cnoctl command line to use commands in the tutorial</li>
+              <li>Make sure to switch to the <b>good context</b> before the installation</li>
+            </ul>
+
+            <h4 class="anchor" id="gs-premises-use-cases">USE CASE</h4>
+            <p>Adding a custom cluster means creating a new cluster from a non managed provider. </p>
+            <span>We are going to create an <b>Openshift</b> cluster named <b>“myclustertest”</b>.</span>
+            <ul>
+              <li>First, make sure that you have an existing configured Openshift service from which we want to create the cluster</li>
+              <li>
+                <p>After that, we are going to create the cluster using the simple command:</p>
+                @@include('./html-templates/documentation/_token.html',{
+                  comand:'cnoctl adm add custom-cluster --name myclustertest --type openshift --api-url https://myclustertest:654 --version 1.0.0-rc -- kubeconfig ./kube/config'
+                })
+                <span>The supported flags are:</span>
+                <ul>
+                  <li><code>name</code>: The name of the cluster | <b>[REQUIRED]</b></li>
+                  <li><code>type</code>: The type of cluster (gke, aks, eks, kubernetes, openshift…)  | <b>[REQUIRED]</b></li>
+                  <li><code>api-url</code>: An url from which we will have access to the cluster | <b>[REQUIRED]</b></li>
+                  <li><code>version</code>: The cno version to install | <b>[REQUIRED]</b></li>
+                  <li><code>kube-config</code>: The kube configuration used to install the cluster | <b>[OPTIONAL]</b></li>
+                  <li><code>install-ingress-controller</code>: Use to choose or not to install a nginx ingress controller | <b>[OPTIONAL]</b></li>
+                </ul>
+              </li>
+              <li>
+                <p>We can know check if our cluster has been added by using the following command</p>
+                @@include('./html-templates/documentation/_token.html',{
+                  comand:'cnoctl adm get custom-cluster myclustertest'
+                })
+                <span>The supported arguments are:</span>
+                <ul>
+                  <li><code>name</code>: The name of the cluster from which we want to retrieve information | <b>[REQUIRED]</b></li>
+                </ul>
+              </li>
+            </ul>
+
+            <h2 class="anchor" id="gs-managed-clusters">Managed Clusters (AWS, Azure and GCP)</h2>
+            <p>In this tutorial, we are going to show how to add a new cluster to manage from an existing AWS provider. Adding a managed cluster means retrieving it from a cloud provider in order to manage it from CNO.</p>
+            <span>Objectives:</span>
+            <ul>
+              <li>Import a cluster from an existing provider in CNO</li>
+            </ul>
+
+            <h4 class="anchor" id="gs-managed-use-cases">USE CASE</h4>
+            <p>We have a cluster called <b>“myclustertest”</b> on the <b>“Ireland”</b> region on the existing provider <b>“myaws”</b> </p>
+            <span>We are going to import in CNO.</span>
+            <ul>
+              <li>
+                <p>First, we have to check if a cluster is available in the provider from which we want to import it. To make this verification we use the following command:</p>
+                @@include('./html-templates/documentation/_token.html',{
+                  comand:'(Command to add)'
+                })
+              </li>
+              <li>
+                <p>After making sure that the cluster is available, we are going to import it using the simple command:</p>
+                @@include('./html-templates/documentation/_token.html',{
+                  comand:'cnoctl adm add managed-cluster --cloud-provider myaws --cluster-name myclustertest --region eu-west-1'
+                })
+                <span>The supported flags are:</span>
+                <ul>
+                  <li><code>cloud-provider</code>: The cloud provider from which we retrieve the cluster | <b>[REQUIRED]</b></li>
+                  <li><code>cluster-name</code>: The name of the cluster to retrieve | <b>[REQUIRED]</b></li>
+                  <li><code>region</code>: Region where the cluster is located | <b>[OPTIONAL]</b></li>
+                </ul>
+              </li>
+              <li>
+                <p>Now, we can check if our cluster has been added for managing using the following command:</p>
+                @@include('./html-templates/documentation/_token.html',{
+                  comand:'cnoctl adm get managed-cluster myclustertest'
+                })
+                <span>The supported arguments are:</span>
+                <ul>
+                  <li><code>name</code>: The name of the cluster from which we want to retrieve information | <b>[REQUIRED]</b></li>
+                </ul>
+              </li>
+            </ul>
+
+          </article>
+        </div>
+
+        <div class="toc-container">
+          <nav class="toc">
+            <ul class="toc__list">
+              <li class="toc__item"><a class="active" href="#gs-multi-cloud">Multi Cloud Management with CNO Hub</a></li>
+              <li class="toc__item">
+                <a href="#gs-premises-cluster">On premises cluster (Kubernetes, Tanzu or Openshift)</a>
+                <ul class="toc__list toc__list--inner">
+                  <li class="toc__item"><a href="#gs-premises-use-cases">Use cases</a></li>
+                </ul>
+              </li>
+              <li class="toc__item">
+                <a href="#gs-managed-clusters">Managed Clusters (AWS, Azure and GCP)</a>
+                <ul class="toc__list toc__list--inner">
+                  <li class="toc__item"><a href="#gs-managed-use-cases">Use cases</a></li>
+                </ul>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </section>
+
+    </main>
+
+    @@include('./html-templates/footer.html',{})
+
+  <script src="js/main.js"> </script>
+
+</body>
+
+</html>

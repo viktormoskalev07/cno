@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>CNO-Landing page -- Documentation</title>
+  <meta name="description" content="">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Ubuntu:wght@400;700&display=swap"
+    rel="stylesheet">
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- <link rel="shortcut icon" type="image/png" href="images/favicon.png"/> -->
+</head>
+
+<body class="body">
+
+  @@include('./html-templates/header.html',{
+    customclass:'white-header',
+    })
+
+    <main class="main">
+      <section class="documentation container">
+        @@include('./html-templates/documentation/_sidebar-nav.html')
+
+        <div class="article-container">
+          <article class="article">
+
+            <nav class="breadscrumbs">
+              <ul>
+                <li>
+                  <a href="gs-documentation.html">Documentation</a>
+                  @@include('./images/icons/chevron-r.svg')
+                </li>
+                <li>
+                  <a href="gs-tutorials.html">Tutorials</a>
+                  @@include('./images/icons/chevron-r.svg')
+                </li>
+                <li>
+                  <a href="#">Onboard projects and teams</a>
+                  @@include('./images/icons/chevron-r.svg')
+                </li>
+              </ul>
+            </nav>
+            
+            <h1 class="anchor" id="gs-onboard-proj-team">Onboard projects and teams</h1>
+            <p>In this tutorial, you will learn how to onboard a new or existing project on CNO UI or CLI. We will walk through how to manage quota and members in a project. <br>
+              We will show you how to create a new environment on a project.</p>
+            
+            <h2 class="anchor" id="gs-before-begin">Before to begin</h2>
+            <p>Sometimes you need the project owner to fill in a number of tags to identify the project. For this, the super admin must define the mandatory tags that the owners must fill in. The super admin can also provide quota templates that owners can choose when creating a project.</p>
+            <ul class="article-list">
+              <li>
+                <p>Tags settings</p>
+                <span>For this tutorial, We add four tags for the rest:</span>
+                <ul class="inner-list">
+                  <li>
+                    <p><b>Department</b> (required): to specify the the department of the owner</p>
+                    @@include('./html-templates/documentation/_token.html',{
+                      comand:'cnoctl adm create tag Department --type text --required'
+                    })
+                  </li>
+                  <li>
+                    <p><b>Monitoring</b> (required): to specify if the project needs to be monitored</p>
+                    @@include('./html-templates/documentation/_token.html',{
+                      comand:'cnoctl adm create tag Monitoring --type selection --value true,false --required'
+                    })
+                  </li>
+                  <li>
+                    <p><b>PodNumber</b> (required): to specify the number of pods</p>
+                    @@include('./html-templates/documentation/_token.html',{
+                      comand:'cnoctl adm create tag PodNumber --type text --required'
+                    })
+                  </li>
+                  <li>
+                    <p><b>Language</b> (not required): to specify the programming language</p>
+                    @@include('./html-templates/documentation/_token.html',{
+                      comand:'cnoctl adm create tag Language --type selection --value Java,PHP,Go'
+                    })
+                  </li>
+                </ul>
+              </li>
+
+              <li>
+                <p>Quota template setting</p>
+                <p>For this tutorial, We add four quotas for the rest:</p>
+                @@include('./html-templates/documentation/_token.html',{
+                  comand:'cnoctl adm create quota Small --cpu 200m,500m --memory 1Gi,2Gi --storage 20Gi'
+                })
+                @@include('./html-templates/documentation/_token.html',{
+                  comand:'cnoctl adm create quota Medium --cpu 500m,1 --memory 2Gi,4Gi --storage 50Gi'
+                })
+                @@include('./html-templates/documentation/_token.html',{
+                  comand:'cnoctl adm create quota Large --cpu 2,4 --memory 4Gi,8Gi --storage 500Gi'
+                })
+                @@include('./html-templates/documentation/_token.html',{
+                  comand:'cnoctl adm create quota Xlarge --cpu 8,16 --memory 16GI,32Gi --storage 1000Gi'
+                })
+              </li>
+
+              <li>
+                <p>Add user on organization</p>
+                <p>Use the following command to create the users alice and bob. You must be a super administrator.</p>
+                @@include('./html-templates/documentation/_token.html',{
+                  comand:'cnoctl adm create user --firstname alice --lastname alice --email alice@gmail.com --username alice --department devops'
+                })
+                @@include('./html-templates/documentation/_token.html',{
+                  comand:'cnoctl adm create user --firstname bob --lastname bob --email bob@gmail.com --username bob --department devops'
+                })
+              </li>
+            </ul>
+            
+            <h2 class="anchor" id="gs-new-proj">Onboard a new project</h2>
+            <p>For this tutorial, we will work with a project named my-first-project. You create project with command:</p>
+            @@include('./html-templates/documentation/_token.html',{
+              comand:'cnoctl create project my-first-project --quota Large --tags Department=IT,PodNumber=5,Monitoring=false,Language=Go'
+            })
+            
+            <h2 class="anchor" id="gs-add-envireonment">Add a environment on project</h2>
+            <p>If you have resources in a project my-first-project, you can create an environment. You have two ways to onboard an environment on CNO. </p>
+            <ul>
+              <li>
+                <p>By importing an existing namespace  on a cluster with this command:</p>
+                @@include('./html-templates/documentation/_token.html',{
+                  comand:'cnoctl onboard &#60;namespace&#62; --project &#60;projectName&#62; [--quota &#60;quotaName&#62;] | [--cpu CPULimitValue,CPURequestValue --memory MemoryLimitValue,MemoryRequestValue --storage StorageValue]'
+                })
+              </li>
+              <li>
+                <p>Or creating new environment with the following command</p>
+                @@include('./html-templates/documentation/_token.html',{
+                  comand:'cnoctl create environment &#60;name&#62; --project &#60;projectName&#62; --prod true|false --cluster &#60;ClusterName&#62; [--quota &#60;quotaName&#62;] | [--cpu CPULimitValue,CPURequestValue --memory MemoryLimitValue,MemoryRequestValue --storage StorageValue]'
+                })
+                <p><i>NB: We can specify resource by --quota flag or by --cpu, --memory and --storage flags</i></p>
+              </li>
+            </ul>
+            <p>For this tutorial we have to create to environments prod and dev on my-first-project project</p>
+            <ul>
+              <li>
+                <p>Let's create the dev environment</p>
+                @@include('./html-templates/documentation/_token.html',{
+                  comand:'cnoctl create environment dev --project my-first-project --prod false --cluster default --cpu 2,1 --memory 3Gi,1.5Gi --storage 10Gi'
+                })
+              </li>
+              <li>
+                <p>let's create the prod environment</p>
+                @@include('./html-templates/documentation/_token.html',{
+                  comand:'cnoctl create environment prod --project my-first-project --prod true --quota xlarge --cluster default'
+                })
+              </li>
+            </ul>
+            <p>Run the following command to view my-first-project's environments</p>
+            @@include('./html-templates/documentation/_token.html',{
+              comand:'cnoctl get env --project my-first-project'
+            })
+            <div class="table-responsive">
+              <table class="table article__table-nowrap  article__table-nowrap--sm">
+                <thead>
+                  <tr>
+                    <td>NAME</td>
+                    <td>CPU LIMIT</td>
+                    <td>CPU REQUEST</td>
+                    <td>CPU USED</td>
+                    <td>MEMORY LIMIT</td>
+                    <td>MEMORY REQUEST</td>
+                    <td>MEMORY USED</td>
+                    <td>STORAGE</td>
+                    <td>STORAGE USED</td>
+                    <td>STATUS</td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>prod</td>
+                    <td>2</td>
+                    <td>1</td>
+                    <td>0%</td>
+                    <td>3Gi</td>
+                    <td>1.5Gi</td>
+                    <td>0%</td>
+                    <td>10Gi</td>
+                    <td>0%</td>
+                    <td>Ready</td>
+                  </tr>
+                  <tr>
+                    <td>dev</td>
+                    <td>2</td>
+                    <td>4</td>
+                    <td>0%</td>
+                    <td>4Gi</td>
+                    <td>8Gi</td>
+                    <td>30%</td>
+                    <td>500Gi</td>
+                    <td>0%</td>
+                    <td>Ready</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h2 class="anchor" id="gs-extend-res">Extend project resources</h2>
+            <p>We can extend project resources by creating a new quotaRequest. You can view pending quotaRequest on a project with this command:</p>
+            @@include('./html-templates/documentation/_token.html',{
+              comand:'cnoctl create quota-request my-first-project --cpu 3,1 --memory 3Gi,1Gi --storage 100Gi'
+            })
+            <p>Quota request needs to be validated if you have not super admin or owner+ role. <br>
+              <i>Notice:  If you are super_admin or owner+ quotaRequest will be automatically accepted else you must wait for validation.</i>
+              Check the status of the new quota request
+            </p>
+            @@include('./html-templates/documentation/_token.html',{
+              comand:'cnoctl get quota-request --project my-first-project'
+            })
+
+            <h2 class="anchor" id="gs-validation-quota">Validation new quota request to extend resources on project</h2>
+            <p>RequestQuota must be validated by the organization's validators if you are not super_admin or owner+ on the organization. Super_admin or organization’s validator can accept or reject a quotaRequest with the following command.</p>
+            @@include('./html-templates/documentation/_token.html',{
+              comand:'cnoctl accept|reject request-quota &#60;quota-request-id&#62; --project projectName'
+            })
+
+            <h2 class="anchor" id="gs-add-members">Add project members</h2>
+            <p>You can onboard a team on a project. <br>
+              Use the following command to add a <b>alice</b> as a developer and bob as admin on the my-first-project </p>
+            @@include('./html-templates/documentation/_token.html',{
+              comand:'cnoctl onboard add user alice --role developer --project my-first-project'
+            })
+            @@include('./html-templates/documentation/_token.html',{
+              comand:'cnoctl onboard add user bob --role admin --project my-first-project'
+            })
+            <p>You can get team’s member and privileges for each member with this command</p>
+            @@include('./html-templates/documentation/_token.html',{
+              comand:'cnoctl onboard get user --project my-first-project'
+            })
+
+          </article>
+        </div>
+
+        <div class="toc-container">
+          <nav class="toc">
+            <ul class="toc__list">
+              <li class="toc__item"><a class="active" href="#gs-onboard-proj-team">Onboard projects and teams</a></li>
+              <li class="toc__item"><a href="#gs-before-begin">Before to begin</a></li>
+              <li class="toc__item"><a href="#gs-new-proj">Onboard a new project</a></li>
+              <li class="toc__item"><a href="#gs-add-envireonment">Add a environment on project</a></li>
+              <li class="toc__item"><a href="#gs-extend-res">Extend project resources</a></li>
+              <li class="toc__item"><a href="#gs-validation-quota">Validation new quota request</a></li>
+              <li class="toc__item"><a href="#gs-add-members">Add project members</a></li>
+            </ul>
+          </nav>
+        </div>
+      </section>
+
+    </main>
+
+    @@include('./html-templates/footer.html',{})
+
+  <script src="js/main.js"> </script>
+
+</body>
+
+</html>

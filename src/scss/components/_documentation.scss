@@ -1,11 +1,12 @@
 .documentation {
-  margin-bottom: 200px;
+  margin-bottom: 50px;
   font-size: 16px;
   display: flex;
   flex-direction: column;
 
   @include xl {
     flex-direction: row;
+    margin-bottom: 170px;
   }
 
   .sidebar-container {

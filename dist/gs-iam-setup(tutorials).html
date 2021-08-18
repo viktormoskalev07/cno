@@ -166,7 +166,17 @@
 </svg>
                 </li>
                 <li>
-                  <a href="">Installation</a>
+                  <a href="gs-tutorials.html">Tutorials</a>
+                  <svg width="10px" height="10px" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	viewBox="0 0 256 256" style="enable-background:new 0 0 256 256;" xml:space="preserve">
+
+	<g>
+		<polygon points="79.093,0 48.907,30.187 146.72,128 48.907,225.813 79.093,256 207.093,128 		" />
+	</g>
+</svg>
+                </li>
+                <li>
+                  <a href="#">IAM Set Up</a>
                   <svg width="10px" height="10px" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	viewBox="0 0 256 256" style="enable-background:new 0 0 256 256;" xml:space="preserve">
 
@@ -178,115 +188,210 @@
               </ul>
             </nav>
             
-            <h1 class="anchor" id="gs-installation">Installation</h1>
+            <h1 class="anchor" id="gs-iam-setup">IAM Set Up</h1>
+            <p>In this tutorial, you will want to create and manage users in the default organization.</p>
 
-            <h2 class="anchor" id="gs-install-cnoctl">Install CNOCTL</h2>
-            <p>The CLI can be installed with a curl script, brew or by downloading the binary from the releases page. Once installed you'll get the cnoctl command.</p>
-
-            <h3 class="anchor" id="gs-install-curl">Install with curl:</h3>
-            <div class="token">
-  <pre class="token__wrap">
-    <code class="token__comand">$ curl -sSL https://raw.githubusercontent.com/beopencloud/cno/main/scripts/cnoctl.sh | sh</code>
-  </pre>
-
-  <button class="token__copy">
-    <img src="images/icons/copy.svg">
-    <span class="token__tooltip">Copy to clipboard</span>
-  </button>
-</div>
-
-            <h3 class="anchor" id="gs-install-brew-mac">Install with brew on MacOs:</h3>
-            <div class="token">
-  <pre class="token__wrap">
-    <code class="token__comand">$ brew tap beopencloud/cno</code>
-  </pre>
-
-  <button class="token__copy">
-    <img src="images/icons/copy.svg">
-    <span class="token__tooltip">Copy to clipboard</span>
-  </button>
-</div>
-            <div class="token">
-  <pre class="token__wrap">
-    <code class="token__comand">$ brew install cnoctl</code>
-  </pre>
-
-  <button class="token__copy">
-    <img src="images/icons/copy.svg">
-    <span class="token__tooltip">Copy to clipboard</span>
-  </button>
-</div>
-
-            <h3 class="anchor" id="gs-install-release">Install from release:</h3>
-            <p>In the cnoctl release page (<a target="_blank" class="linked" href="https://github.com/beopencloud/cno/releases">https://github.com/beopencloud/cno/releases</a>) download, unarchive the version needed and move the binary to your system PATH.</p>
-            <p>Example for version v0.0.1 on MacOs:</p>
-            <div class="token">
-  <pre class="token__wrap">
-    <code class="token__comand">$ wget https://github.com/beopencloud/cno/releases/download/v0.0.1/cnoctl_0.0.1_Darwin_x86_64.tar.gz</code>
-  </pre>
-
-  <button class="token__copy">
-    <img src="images/icons/copy.svg">
-    <span class="token__tooltip">Copy to clipboard</span>
-  </button>
-</div>
-            <div class="token">
-  <pre class="token__wrap">
-    <code class="token__comand">$ tar -xzf cnoctl_0.0.1_Darwin_x86_64.tar.gz</code>
-  </pre>
-
-  <button class="token__copy">
-    <img src="images/icons/copy.svg">
-    <span class="token__tooltip">Copy to clipboard</span>
-  </button>
-</div>
-            <div class="token">
-  <pre class="token__wrap">
-    <code class="token__comand">$ mv cnoctl /usr/local/bin/</code>
-  </pre>
-
-  <button class="token__copy">
-    <img src="images/icons/copy.svg">
-    <span class="token__tooltip">Copy to clipboard</span>
-  </button>
-</div>
-
-            <h3 class="anchor" id="gs-verify-cnoctl">Verify cnoctl installation</h3>
-            <p>Check that cnoctl is properly installed by getting the command help:</p>
-            <p>Example for version v0.0.1 on MacOs:</p>
-            <div class="token">
-  <pre class="token__wrap">
-    <code class="token__comand">$ cnoctl --help</code>
-  </pre>
-
-  <button class="token__copy">
-    <img src="images/icons/copy.svg">
-    <span class="token__tooltip">Copy to clipboard</span>
-  </button>
-</div>
-
-            <h2 class="anchor" id="gs-quick-install">Quick Installation CNO with CNOCTL</h2>
-            <p>To install CNO  you need Kubernetes v1.16 or higher. <br>
-              Once cnoctl is installed, to install CNO run the following command: 
-            </p>
-            <div class="token">
-  <pre class="token__wrap">
-    <code class="token__comand">$ cnoctl init --type aks --domain cno-dev.beopenit.com --ingress-type nginx</code>
-  </pre>
-
-  <button class="token__copy">
-    <img src="images/icons/copy.svg">
-    <span class="token__tooltip">Copy to clipboard</span>
-  </button>
-</div>
-            <span>The supported flags are:</span>
+            <h5 class="anchor" id="gs-objectifs"><b>Objectifs:</b></h5>
             <ul>
-              <li><code>--domain</code>: The wirldcard domain configured in the cluster</li>
-              <li><code>--ingress-type</code>: The ingress type used in the cluster: nodeport, nginx, router, loadbalancer</li>
-              <li><code>--namespace</code>: cno install namespace (default "cno-system")</li>
-              <li><code>--type</code>: The kubernetes in which cno is been install  type: vanilla, aks, eks, gke (default "vanilla")</li>
-              <li><code>--version</code>: cno version to install (default "1.0.0-rc")</li>
-              <li><code>--with-dataplane</code>: install cno with a default dataplane (default true)</li>
+              <li>Create user on CNO Organization</li>
+              <li>Assign role to a new or existing user</li>
+            </ul>
+
+            <h5 class="anchor" id="gs-prerequisite"><b>Prerequisite:</b></h5>
+            <ul>
+              <li>Connect to cno command line to use command in this tutorial</li>
+              <li>Make sure to connect before create user</li>
+            </ul>
+            
+            <h5 class="anchor" id="gs-use-case">Use case:</h5>
+            <p>We are going to create and manage user named <b>"james"</b> in the default <b>"organization"</b></p>
+            <ul class="article-list">
+              <li class="anchor" id="gs-create-user">
+                <p><b>Create user named james</b></p>
+                <div class="token">
+  <pre class="token__wrap">
+    <code class="token__comand">cnoctl adm create user [--flag]</code>
+  </pre>
+
+  <button class="token__copy">
+    <img src="images/icons/copy.svg">
+    <span class="token__tooltip">Copy to clipboard</span>
+  </button>
+</div>
+                <span>The supported flags are:</span>
+                <ul class="inner-list">
+                  <li><code>firstname</code>: specify the firstname of the user | <b>[OPTIONAL]</b></li>
+                  <li><code>lastname</code>: specify the lastname of the user | <b>[OPTIONAL]</b></li>
+                  <li><code>username</code>: define the username of the user | <b>[REQUIRED]</b></li>
+                  <li><code>email</code>: define the email address of the user | <b>[REQUIRED]</b></li>
+                  <li><code>department</code>: specify the department of the user | <b>[OPTIONAL]</b></li>
+                </ul>
+                <div class="token">
+  <pre class="token__wrap">
+    <code class="token__comand">cnoctl adm create user --firstname james --lastname james --email james@gmail.com --username james --department devops</code>
+  </pre>
+
+  <button class="token__copy">
+    <img src="images/icons/copy.svg">
+    <span class="token__tooltip">Copy to clipboard</span>
+  </button>
+</div>
+              </li>
+              
+              <li class="anchor" id="gs-assing-user">
+                <p><b>Assing admin-role  to user  james</b></p>
+                <div class="token">
+  <pre class="token__wrap">
+    <code class="token__comand">cnoctl adm set-role --usermane [username] --role [role]</code>
+  </pre>
+
+  <button class="token__copy">
+    <img src="images/icons/copy.svg">
+    <span class="token__tooltip">Copy to clipboard</span>
+  </button>
+</div>
+                <span>The supported flags are:</span>
+                <ul class="inner-list">
+                  <li><code>username</code>: specify the username of the user | <b>[REQUIRED]</b></li>
+                  <li><code>role</code>: specify the role to assign the user | <b>[REQUIRED]</b></li>
+                </ul>
+                <div class="token">
+  <pre class="token__wrap">
+    <code class="token__comand">cnoctl adm set-role --username james --role super-admin</code>
+  </pre>
+
+  <button class="token__copy">
+    <img src="images/icons/copy.svg">
+    <span class="token__tooltip">Copy to clipboard</span>
+  </button>
+</div>
+              </li>
+
+              <li class="anchor" id="gs-delete-user">
+                <p><b>Delete admin-role to user james</b></p>
+                <div class="token">
+  <pre class="token__wrap">
+    <code class="token__comand">cnoctl adm delete-role --username [username] --role [role]</code>
+  </pre>
+
+  <button class="token__copy">
+    <img src="images/icons/copy.svg">
+    <span class="token__tooltip">Copy to clipboard</span>
+  </button>
+</div>
+                <span>The supported flags are:</span>
+                <ul class="inner-list">
+                  <li><code>username</code>: specify the username of the user | <b>[REQUIRED]</b></li>
+                  <li><code>role</code>: specify the role to delete from user | <b>[REQUIRED]</b></li>
+                </ul>
+                <div class="token">
+  <pre class="token__wrap">
+    <code class="token__comand">conctl adm delete-role --username james --role super-admin</code>
+  </pre>
+
+  <button class="token__copy">
+    <img src="images/icons/copy.svg">
+    <span class="token__tooltip">Copy to clipboard</span>
+  </button>
+</div>
+              </li>
+
+              <li class="anchor" id="gs-get-user">
+                <p><b>Get user james</b></p>
+                <p>To get all users make:</p>
+                <div class="token">
+  <pre class="token__wrap">
+    <code class="token__comand">cnoctl adm get users [username]</code>
+  </pre>
+
+  <button class="token__copy">
+    <img src="images/icons/copy.svg">
+    <span class="token__tooltip">Copy to clipboard</span>
+  </button>
+</div>
+                <div class="token">
+  <pre class="token__wrap">
+    <code class="token__comand">cnoctl adm get users james</code>
+  </pre>
+
+  <button class="token__copy">
+    <img src="images/icons/copy.svg">
+    <span class="token__tooltip">Copy to clipboard</span>
+  </button>
+</div>
+                <p>To get all users make:</p>
+                <div class="token">
+  <pre class="token__wrap">
+    <code class="token__comand">cnoctl adm get users</code>
+  </pre>
+
+  <button class="token__copy">
+    <img src="images/icons/copy.svg">
+    <span class="token__tooltip">Copy to clipboard</span>
+  </button>
+</div>
+              </li>
+
+              <li class="anchor" id="gs-update-user">
+                <p><b>Update user</b></p>
+                <p>Now update only the firstname of user <b>“james”</b> to <b>“mody”</b></p>
+                <div class="token">
+  <pre class="token__wrap">
+    <code class="token__comand">cnoctl adm update user [--flag]</code>
+  </pre>
+
+  <button class="token__copy">
+    <img src="images/icons/copy.svg">
+    <span class="token__tooltip">Copy to clipboard</span>
+  </button>
+</div>
+                <span>The supported flags are:</span>
+                <ul class="inner-list">
+                  <li><code>firstname</code>: specify the firstname of the user  | <b>[OPTIONAL]</b></li>
+                  <li><code>lastname</code>: specify the lastname of the user | <b>[OPTIONAL]</b></li>
+                  <li><code>username</code>: define the username of the user | <b>[REQUIRED]</b></li>
+                  <li><code>email</code>: define the email address of the user | <b>[OPTIONAL]</b></li>
+                  <li><code>department</code>: specify the department of the user | <b>[OPTIONAL]</b></li>
+                </ul>
+                <p>Update only the firstaneme of “james” to “mody”</p>
+                <div class="token">
+  <pre class="token__wrap">
+    <code class="token__comand">cnoctl adm update user --firstname mody --username james</code>
+  </pre>
+
+  <button class="token__copy">
+    <img src="images/icons/copy.svg">
+    <span class="token__tooltip">Copy to clipboard</span>
+  </button>
+</div>
+              </li>
+
+              <li class="anchor" id="gs-delete-in-org">
+                <p><b>Delete user james in the organization</b></p>
+                <div class="token">
+  <pre class="token__wrap">
+    <code class="token__comand">cnoctl adm delete user [username]</code>
+  </pre>
+
+  <button class="token__copy">
+    <img src="images/icons/copy.svg">
+    <span class="token__tooltip">Copy to clipboard</span>
+  </button>
+</div>
+                <ul class="inner-list">
+                  <li><code>username</code>: specify the username of user deleted  | <b>[REQUIRED]</b></li>
+                </ul>
+                <div class="token">
+  <pre class="token__wrap">
+    <code class="token__comand">cnoctl adm delete user james</code>
+  </pre>
+
+  <button class="token__copy">
+    <img src="images/icons/copy.svg">
+    <span class="token__tooltip">Copy to clipboard</span>
+  </button>
+</div>
+              </li>
             </ul>
 
           </article>
@@ -295,17 +400,20 @@
         <div class="toc-container">
           <nav class="toc">
             <ul class="toc__list">
-              <li class="toc__item"><a class="active" href="#gs-installation">Installation</a></li>
+              <li class="toc__item"><a class="active" href="#gs-iam-setup">IAM Set Up</a></li>
+              <li class="toc__item"><a class="active" href="#gs-objectifs">Objectifs</a></li>
+              <li class="toc__item"><a class="active" href="#gs-prerequisite">Prerequisite</a></li>
               <li class="toc__item">
-                <a href="#gs-install-cnoctl">Install CNOCTL</a>
+                <a href="#gs-use-case">Use case</a>
                 <ul class="toc__list toc__list--inner">
-                  <li class="toc__item"><a href="#gs-install-curl">Install with curl</a></li>
-                  <li class="toc__item"><a href="#gs-install-brew-mac">Install with brew on MacOs</a></li>
-                  <li class="toc__item"><a href="#gs-install-release">Install from release</a></li>
-                  <li class="toc__item"><a href="#gs-verify-cnoctl">Verify cnoctl installation</a></li>
+                  <li class="toc__item"><a href="#gs-create-user">Create user</a></li>
+                  <li class="toc__item"><a href="#gs-assing-user">Assing admin-role  to user</a></li>
+                  <li class="toc__item"><a href="#gs-delete-user">Delete admin-role to user</a></li>
+                  <li class="toc__item"><a href="#gs-get-user">Get user</a></li>
+                  <li class="toc__item"><a href="#gs-update-user">Update user</a></li>
+                  <li class="toc__item"><a href="#gs-delete-in-org">Delete user in the organization</a></li>
                 </ul>
               </li>
-              <li class="toc__item"><a href="#gs-quick-install">Quick Installation CNO with CNOCTL</a></li>
             </ul>
           </nav>
         </div>

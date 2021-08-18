@@ -14,13 +14,26 @@ h2, h3, h4, h5 {
   }
 }
 
+.article-list {
+  li {
+    margin-bottom: 2.5rem;
+  }
+}
+
+.inner-list {
+  margin-bottom: 1rem;
+
+  li {
+    margin-bottom: 0;
+  }
+}
+
 .anchor {
 
   // anchor scrolling to 150px from the top screen
   @include xl {
     padding-top: 150px;
     margin-top: -150px;
-    z-index: -1;
   }
 }
 
@@ -51,6 +64,29 @@ h2, h3, h4, h5 {
 
     @include lg {
       width: 33.333%;
+    }
+  }
+
+  &__table-nowrap {
+    thead {
+      white-space: nowrap;
+    }
+    tbody {
+      td {
+        text-align: right;
+
+        &:first-of-type {
+          text-align: left;
+        }
+      }
+    }
+
+    &--sm {
+      font-size: 10px;
+
+      td {
+        padding: .25rem;
+      }
     }
   }
 }
