@@ -46,12 +46,14 @@
               </ul>
             </nav>
             
+            <!-- Multi Cloud Management with CNO Hub -->
             <h1 class="anchor" id="gs-multi-cloud">Multi Cloud Management with CNO Hub</h1>
             <p>Multi cloud management in CNO includes two types of processing. CNO Hub centralizes clusters in order to manage them. We can directly import an existing cluster from an existing cloud provider in CNO. We call it a managed cluster. <br>
               We can also create a new cluster from any provider which is not already configured in CNO or import a cluster which is not managed by a provider. We call them custom clusters.
               Since we have two types of management, we are going to show how to add clusters to CNO Hub. 
               </p>
 
+              <!-- On premises cluster -->
             <h2 class="anchor" id="gs-premises-cluster">On premises cluster (Kubernetes, Tanzu or Openshift)</h2>
             <p>The goal of this scenario is to deploy a cluster (Kubernetes) in CNO in order to manage it. CNO provides a way to import clusters from providers which are not directly attached to it.</p>
             <span><b>Objectives:</b></span>
@@ -65,6 +67,7 @@
               <li>Make sure to switch to the <b>good context</b> before the installation</li>
             </ul>
 
+            <!-- USE CASE -->
             <h4 class="anchor" id="gs-premises-use-cases">USE CASE</h4>
             <p>Adding a custom cluster means creating a new cluster from a non managed provider. </p>
             <span>We are going to create an <b>Openshift</b> cluster named <b>“myclustertest”</b>.</span>
@@ -97,6 +100,7 @@
               </li>
             </ul>
 
+            <!-- Managed Clusters (AWS, Azure and GCP) -->
             <h2 class="anchor" id="gs-managed-clusters">Managed Clusters (AWS, Azure and GCP)</h2>
             <p>In this tutorial, we are going to show how to add a new cluster to manage from an existing AWS provider. Adding a managed cluster means retrieving it from a cloud provider in order to manage it from CNO.</p>
             <span>Objectives:</span>
@@ -104,6 +108,7 @@
               <li>Import a cluster from an existing provider in CNO</li>
             </ul>
 
+            <!-- USE CASE -->
             <h4 class="anchor" id="gs-managed-use-cases">USE CASE</h4>
             <p>We have a cluster called <b>“myclustertest”</b> on the <b>“Ireland”</b> region on the existing provider <b>“myaws”</b> </p>
             <span>We are going to import in CNO.</span>
@@ -141,6 +146,7 @@
           </article>
         </div>
 
+        <!-- table of contents(anchors) -->
         <div class="toc-container">
           <nav class="toc">
             <ul class="toc__list">

@@ -11,25 +11,27 @@
       const sidebarToggler = document.querySelector(".sidebar__toggler");
       const sidebarClose = document.querySelector(".sidebar__close");
 
-      if (window.innerWidth < 1200) {
+       if (window.innerWidth < 1200) {
         sidebarToggler.addEventListener("click", function () {
           sidebarNav.classList.add("active");
         });
         sidebarClose.addEventListener("click", function () {
           sidebarNav.classList.remove("active");
         });
+        if (window.innerWidth < 768) {
+          
+          sidebarToggler.addEventListener("click", hidescroll);
+          sidebarClose.addEventListener("click", showscroll);
+        }
       } else if (window.innerWidth >= 1200) {
         sidebarNav.classList.remove("active");
       }
     }
 
     // toc list anchors onscroll
-    const tocListContainer = document.querySelector(".toc");
-
-    if (tocListContainer) {
+    if (document.querySelector(".toc")) {
       // fix toc container in stiky pos
-      const tocListItem = tocListContainer.querySelectorAll("ul li a");
-      tocListContainer.style.top = `${header.clientHeight + 70}px`;
+      document.querySelector(".toc").style.top = `${header.clientHeight + 70}px`;
 
       function removeActiveClass(elements) {
         for (let i = 0; i < elements.length; i++) {
@@ -39,6 +41,7 @@
 
       function switchActiveOnListItem() {
         let previousRefElement = null;
+        const tocListItem = document.querySelectorAll(".toc ul li a");
         for (let i = 0; i < tocListItem.length; i++) {
           const currentRefElement = document.getElementById(
             tocListItem[i].getAttribute("href").substring(1)

@@ -42,16 +42,20 @@
               </ul>
             </nav>
             
+            <!-- Installation -->
             <h1 class="anchor" id="gs-installation">Installation</h1>
 
+            <!-- Install CNOCTL -->
             <h2 class="anchor" id="gs-install-cnoctl">Install CNOCTL</h2>
             <p>The CLI can be installed with a curl script, brew or by downloading the binary from the releases page. Once installed you'll get the cnoctl command.</p>
 
+            <!-- Install with curl -->
             <h3 class="anchor" id="gs-install-curl">Install with curl:</h3>
             @@include('./html-templates/documentation/_token.html',{
               comand:'$ curl -sSL https://raw.githubusercontent.com/beopencloud/cno/main/scripts/cnoctl.sh | sh'
             })
 
+            <!-- Install with brew on MacOs -->
             <h3 class="anchor" id="gs-install-brew-mac">Install with brew on MacOs:</h3>
             @@include('./html-templates/documentation/_token.html',{
               comand:'$ brew tap beopencloud/cno'
@@ -60,6 +64,7 @@
               comand:'$ brew install cnoctl'
             })
 
+            <!-- Install from release -->
             <h3 class="anchor" id="gs-install-release">Install from release:</h3>
             <p>In the cnoctl release page (<a target="_blank" class="linked" href="https://github.com/beopencloud/cno/releases">https://github.com/beopencloud/cno/releases</a>) download, unarchive the version needed and move the binary to your system PATH.</p>
             <p>Example for version v0.0.1 on MacOs:</p>
@@ -73,6 +78,7 @@
               comand:'$ mv cnoctl /usr/local/bin/'
             })
 
+            <!-- Verify cnoctl installation -->
             <h3 class="anchor" id="gs-verify-cnoctl">Verify cnoctl installation</h3>
             <p>Check that cnoctl is properly installed by getting the command help:</p>
             <p>Example for version v0.0.1 on MacOs:</p>
@@ -80,6 +86,7 @@
               comand:'$ cnoctl --help'
             })
 
+            <!-- Quick Installation CNO with CNOCTL -->
             <h2 class="anchor" id="gs-quick-install">Quick Installation CNO with CNOCTL</h2>
             <p>To install CNO  you need Kubernetes v1.16 or higher. <br>
               Once cnoctl is installed, to install CNO run the following command: 
@@ -100,6 +107,7 @@
           </article>
         </div>
 
+        <!-- table of contents(anchors) -->
         <div class="toc-container">
           <nav class="toc">
             <ul class="toc__list">

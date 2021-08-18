@@ -46,6 +46,7 @@
               </ul>
             </nav>
             
+            <!-- Configure Messaging -->
             <h1 class="anchor" id="gs-config-mess">Configure Messaging</h1>
             <p>Messaging Account consists of creating an SMTP server to send emails or notifications to CNO users.</p>
             <p>Create a messaging account by giving elements of configuration</p>
@@ -60,12 +61,14 @@
               <li><code>smtp-port</code>: The port of the email provider's servers | <b>[REQUIRED]</b></li>
             </ul>
 
+            <!-- GET SYNTAX -->
             <h4 class="anchor" id="gs-get-syntax">GET SYNTAX</h4>
             <p>List informations about Your Messaging Account</p>
             @@include('./html-templates/documentation/_token.html',{
               comand:'cnoctl adm get smtp'
             })
 
+            <!-- TEST SYNTAX -->
             <h4 class="anchor" id="gs-test-syntax">TEST SYNTAX</h4>
             <p>Do a test to make sure that the smtp server configuration is correct</p>
             @@include('./html-templates/documentation/_token.html',{
@@ -84,6 +87,7 @@
           </article>
         </div>
 
+        <!-- table of contents(anchors) -->
         <div class="toc-container">
           <nav class="toc">
             <ul class="toc__list">

@@ -92,6 +92,7 @@
     Contents
   </button>
 
+  <!-- sidebar -->
   <nav class="sidebar">
     <div class="sidebar__wrap">
       <button class="sidebar__close">
@@ -142,7 +143,7 @@
             <li class="sidebar__list-item"><a href="gs-multi-cloud(tutorials).html">Multi Cloud Management with CNO Hub</a></li>
             <li class="sidebar__list-item"><a href="gs-iam-setup(tutorials).html">IAM Set Up</a></li>
             <li class="sidebar__list-item"><a href="gs-onboard-projects(tutorials).html">Onboard projects and teams</a></li>
-            <li class="sidebar__list-item"><a href="#">Continuous Deployment</a></li>
+            <li class="sidebar__list-item"><a href="gs-contin-deploy(tutorials).html">Continuous Deployment</a></li>
           </ul>
         </li>
       </ul>
@@ -158,42 +159,44 @@
                 <li>
                   <a href="gs-documentation.html">Documentation</a>
                   <svg width="10px" height="10px" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	viewBox="0 0 256 256" style="enable-background:new 0 0 256 256;" xml:space="preserve">
+						viewBox="0 0 256 256" style="enable-background:new 0 0 256 256;" xml:space="preserve">
 
-	<g>
-		<polygon points="79.093,0 48.907,30.187 146.72,128 48.907,225.813 79.093,256 207.093,128 		" />
-	</g>
-</svg>
+						<g>
+							<polygon points="79.093,0 48.907,30.187 146.72,128 48.907,225.813 79.093,256 207.093,128 		" />
+						</g>
+					</svg>
                 </li>
                 <li>
                   <a href="gs-tutorials.html">Tutorials</a>
                   <svg width="10px" height="10px" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	viewBox="0 0 256 256" style="enable-background:new 0 0 256 256;" xml:space="preserve">
+						viewBox="0 0 256 256" style="enable-background:new 0 0 256 256;" xml:space="preserve">
 
-	<g>
-		<polygon points="79.093,0 48.907,30.187 146.72,128 48.907,225.813 79.093,256 207.093,128 		" />
-	</g>
-</svg>
+						<g>
+							<polygon points="79.093,0 48.907,30.187 146.72,128 48.907,225.813 79.093,256 207.093,128 		" />
+						</g>
+					</svg>
                 </li>
                 <li>
                   <a href="#">Multi Cloud Management with CNO Hub</a>
                   <svg width="10px" height="10px" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	viewBox="0 0 256 256" style="enable-background:new 0 0 256 256;" xml:space="preserve">
+						viewBox="0 0 256 256" style="enable-background:new 0 0 256 256;" xml:space="preserve">
 
-	<g>
-		<polygon points="79.093,0 48.907,30.187 146.72,128 48.907,225.813 79.093,256 207.093,128 		" />
-	</g>
-</svg>
+						<g>
+							<polygon points="79.093,0 48.907,30.187 146.72,128 48.907,225.813 79.093,256 207.093,128 		" />
+						</g>
+					</svg>
                 </li>
               </ul>
             </nav>
             
+            <!-- Multi Cloud Management with CNO Hub -->
             <h1 class="anchor" id="gs-multi-cloud">Multi Cloud Management with CNO Hub</h1>
             <p>Multi cloud management in CNO includes two types of processing. CNO Hub centralizes clusters in order to manage them. We can directly import an existing cluster from an existing cloud provider in CNO. We call it a managed cluster. <br>
               We can also create a new cluster from any provider which is not already configured in CNO or import a cluster which is not managed by a provider. We call them custom clusters.
               Since we have two types of management, we are going to show how to add clusters to CNO Hub. 
               </p>
 
+              <!-- On premises cluster -->
             <h2 class="anchor" id="gs-premises-cluster">On premises cluster (Kubernetes, Tanzu or Openshift)</h2>
             <p>The goal of this scenario is to deploy a cluster (Kubernetes) in CNO in order to manage it. CNO provides a way to import clusters from providers which are not directly attached to it.</p>
             <span><b>Objectives:</b></span>
@@ -207,6 +210,7 @@
               <li>Make sure to switch to the <b>good context</b> before the installation</li>
             </ul>
 
+            <!-- USE CASE -->
             <h4 class="anchor" id="gs-premises-use-cases">USE CASE</h4>
             <p>Adding a custom cluster means creating a new cluster from a non managed provider. </p>
             <span>We are going to create an <b>Openshift</b> cluster named <b>“myclustertest”</b>.</span>
@@ -214,16 +218,16 @@
               <li>First, make sure that you have an existing configured Openshift service from which we want to create the cluster</li>
               <li>
                 <p>After that, we are going to create the cluster using the simple command:</p>
-                <div class="token">
-  <pre class="token__wrap">
-    <code class="token__comand">cnoctl adm add custom-cluster --name myclustertest --type openshift --api-url https://myclustertest:654 --version 1.0.0-rc -- kubeconfig ./kube/config</code>
-  </pre>
+                            <div class="token">
+              <pre class="token__wrap">
+                <code class="token__comand">cnoctl adm add custom-cluster --name myclustertest --type openshift --api-url https://myclustertest:654 --version 1.0.0-rc -- kubeconfig ./kube/config</code>
+              </pre>
 
-  <button class="token__copy">
-    <img src="images/icons/copy.svg">
-    <span class="token__tooltip">Copy to clipboard</span>
-  </button>
-</div>
+              <button class="token__copy">
+                <img src="images/icons/copy.svg">
+                <span class="token__tooltip">Copy to clipboard</span>
+              </button>
+            </div>
                 <span>The supported flags are:</span>
                 <ul>
                   <li><code>name</code>: The name of the cluster | <b>[REQUIRED]</b></li>
@@ -236,16 +240,16 @@
               </li>
               <li>
                 <p>We can know check if our cluster has been added by using the following command</p>
-                <div class="token">
-  <pre class="token__wrap">
-    <code class="token__comand">cnoctl adm get custom-cluster myclustertest</code>
-  </pre>
+                            <div class="token">
+              <pre class="token__wrap">
+                <code class="token__comand">cnoctl adm get custom-cluster myclustertest</code>
+              </pre>
 
-  <button class="token__copy">
-    <img src="images/icons/copy.svg">
-    <span class="token__tooltip">Copy to clipboard</span>
-  </button>
-</div>
+              <button class="token__copy">
+                <img src="images/icons/copy.svg">
+                <span class="token__tooltip">Copy to clipboard</span>
+              </button>
+            </div>
                 <span>The supported arguments are:</span>
                 <ul>
                   <li><code>name</code>: The name of the cluster from which we want to retrieve information | <b>[REQUIRED]</b></li>
@@ -253,6 +257,7 @@
               </li>
             </ul>
 
+            <!-- Managed Clusters (AWS, Azure and GCP) -->
             <h2 class="anchor" id="gs-managed-clusters">Managed Clusters (AWS, Azure and GCP)</h2>
             <p>In this tutorial, we are going to show how to add a new cluster to manage from an existing AWS provider. Adding a managed cluster means retrieving it from a cloud provider in order to manage it from CNO.</p>
             <span>Objectives:</span>
@@ -260,35 +265,36 @@
               <li>Import a cluster from an existing provider in CNO</li>
             </ul>
 
+            <!-- USE CASE -->
             <h4 class="anchor" id="gs-managed-use-cases">USE CASE</h4>
             <p>We have a cluster called <b>“myclustertest”</b> on the <b>“Ireland”</b> region on the existing provider <b>“myaws”</b> </p>
             <span>We are going to import in CNO.</span>
             <ul>
               <li>
                 <p>First, we have to check if a cluster is available in the provider from which we want to import it. To make this verification we use the following command:</p>
-                <div class="token">
-  <pre class="token__wrap">
-    <code class="token__comand">(Command to add)</code>
-  </pre>
+                            <div class="token">
+              <pre class="token__wrap">
+                <code class="token__comand">(Command to add)</code>
+              </pre>
 
-  <button class="token__copy">
-    <img src="images/icons/copy.svg">
-    <span class="token__tooltip">Copy to clipboard</span>
-  </button>
-</div>
+              <button class="token__copy">
+                <img src="images/icons/copy.svg">
+                <span class="token__tooltip">Copy to clipboard</span>
+              </button>
+            </div>
               </li>
               <li>
                 <p>After making sure that the cluster is available, we are going to import it using the simple command:</p>
-                <div class="token">
-  <pre class="token__wrap">
-    <code class="token__comand">cnoctl adm add managed-cluster --cloud-provider myaws --cluster-name myclustertest --region eu-west-1</code>
-  </pre>
+                            <div class="token">
+              <pre class="token__wrap">
+                <code class="token__comand">cnoctl adm add managed-cluster --cloud-provider myaws --cluster-name myclustertest --region eu-west-1</code>
+              </pre>
 
-  <button class="token__copy">
-    <img src="images/icons/copy.svg">
-    <span class="token__tooltip">Copy to clipboard</span>
-  </button>
-</div>
+              <button class="token__copy">
+                <img src="images/icons/copy.svg">
+                <span class="token__tooltip">Copy to clipboard</span>
+              </button>
+            </div>
                 <span>The supported flags are:</span>
                 <ul>
                   <li><code>cloud-provider</code>: The cloud provider from which we retrieve the cluster | <b>[REQUIRED]</b></li>
@@ -298,16 +304,16 @@
               </li>
               <li>
                 <p>Now, we can check if our cluster has been added for managing using the following command:</p>
-                <div class="token">
-  <pre class="token__wrap">
-    <code class="token__comand">cnoctl adm get managed-cluster myclustertest</code>
-  </pre>
+                            <div class="token">
+              <pre class="token__wrap">
+                <code class="token__comand">cnoctl adm get managed-cluster myclustertest</code>
+              </pre>
 
-  <button class="token__copy">
-    <img src="images/icons/copy.svg">
-    <span class="token__tooltip">Copy to clipboard</span>
-  </button>
-</div>
+              <button class="token__copy">
+                <img src="images/icons/copy.svg">
+                <span class="token__tooltip">Copy to clipboard</span>
+              </button>
+            </div>
                 <span>The supported arguments are:</span>
                 <ul>
                   <li><code>name</code>: The name of the cluster from which we want to retrieve information | <b>[REQUIRED]</b></li>
@@ -318,6 +324,7 @@
           </article>
         </div>
 
+        <!-- table of contents(anchors) -->
         <div class="toc-container">
           <nav class="toc">
             <ul class="toc__list">

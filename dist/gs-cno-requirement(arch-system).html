@@ -92,6 +92,7 @@
     Contents
   </button>
 
+  <!-- sidebar -->
   <nav class="sidebar">
     <div class="sidebar__wrap">
       <button class="sidebar__close">
@@ -142,7 +143,7 @@
             <li class="sidebar__list-item"><a href="gs-multi-cloud(tutorials).html">Multi Cloud Management with CNO Hub</a></li>
             <li class="sidebar__list-item"><a href="gs-iam-setup(tutorials).html">IAM Set Up</a></li>
             <li class="sidebar__list-item"><a href="gs-onboard-projects(tutorials).html">Onboard projects and teams</a></li>
-            <li class="sidebar__list-item"><a href="#">Continuous Deployment</a></li>
+            <li class="sidebar__list-item"><a href="gs-contin-deploy(tutorials).html">Continuous Deployment</a></li>
           </ul>
         </li>
       </ul>
@@ -158,41 +159,44 @@
                 <li>
                   <a href="gs-documentation.html">Documentation</a>
                   <svg width="10px" height="10px" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	viewBox="0 0 256 256" style="enable-background:new 0 0 256 256;" xml:space="preserve">
+						viewBox="0 0 256 256" style="enable-background:new 0 0 256 256;" xml:space="preserve">
 
-	<g>
-		<polygon points="79.093,0 48.907,30.187 146.72,128 48.907,225.813 79.093,256 207.093,128 		" />
-	</g>
-</svg>
+						<g>
+							<polygon points="79.093,0 48.907,30.187 146.72,128 48.907,225.813 79.093,256 207.093,128 		" />
+						</g>
+					</svg>
                 </li>
                 <li>
                   <a href="gs-arch-system.html">Architecture and System Requirements</a>
                   <svg width="10px" height="10px" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	viewBox="0 0 256 256" style="enable-background:new 0 0 256 256;" xml:space="preserve">
+						viewBox="0 0 256 256" style="enable-background:new 0 0 256 256;" xml:space="preserve">
 
-	<g>
-		<polygon points="79.093,0 48.907,30.187 146.72,128 48.907,225.813 79.093,256 207.093,128 		" />
-	</g>
-</svg>
+						<g>
+							<polygon points="79.093,0 48.907,30.187 146.72,128 48.907,225.813 79.093,256 207.093,128 		" />
+						</g>
+					</svg>
                 </li>
                 <li>
                   <a href="">System requirements</a>
                   <svg width="10px" height="10px" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	viewBox="0 0 256 256" style="enable-background:new 0 0 256 256;" xml:space="preserve">
+						viewBox="0 0 256 256" style="enable-background:new 0 0 256 256;" xml:space="preserve">
 
-	<g>
-		<polygon points="79.093,0 48.907,30.187 146.72,128 48.907,225.813 79.093,256 207.093,128 		" />
-	</g>
-</svg>
+						<g>
+							<polygon points="79.093,0 48.907,30.187 146.72,128 48.907,225.813 79.093,256 207.093,128 		" />
+						</g>
+					</svg>
                 </li>
               </ul>
             </nav>
             
+            <!-- System requirements -->
             <h1 class="anchor" id="gs-sys-requirements">System requirements</h1>
 
+            <!-- Supported Kubernetes Version -->
             <h2 class="anchor" id="gs-supported-vision">Supported Kubernetes Version</h2>
             <p><b>CNO is an open source project mainly made up of several components and divided into:</b></p>
 
+            <!-- Minimal Sizing -->
             <h2 class="anchor" id="gs-minimal-sizing">Minimal Sizing</h2>
             <ul>
               <li>CNO
@@ -209,9 +213,11 @@
               </li>
             </ul>
 
+            <!-- Network Considerations -->
             <h2 class="anchor" id="gs-network-considarations">Network Considerations</h2>
             <p>Depending on the installation type, CNO uses service types NodePort or LoadBalancer or Ingress to expose the User Interface.</p>
 
+            <!-- Disconnected Installation -->
             <h2 class="anchor" id="gs-disc-installation">Disconnected Installation</h2>
             <p>Depending on the installation type, CNO uses service types NodePort or LoadBalancer or Ingress to expose the User Interface.</p>
             <ul>
@@ -219,6 +225,7 @@
               <li>Getting CNO Manifests</li>
             </ul>
 
+            <!-- Pulling CNO images -->
             <h2 class="anchor" id="gs-pulling-cno-images">Pulling CNO images:</h2>
             <p>The images to pull for cno install:</p>
             <div class="pull-path">
@@ -290,22 +297,24 @@
             </div>
             <p>These images must be pushed in a private registry for cno to be able to used them.</p>
 
+            <!-- Getting CNO Manifests -->
             <h2 class="anchor" id="gs-getting-cno-manifests">Getting CNO Manifests:</h2>
             <p>Clone the cno repository:</p>
 
-            <div class="token">
-  <pre class="token__wrap">
-    <code class="token__comand">$ git clone https://github.com/beopencloud/cno.git</code>
-  </pre>
+                        <div class="token">
+              <pre class="token__wrap">
+                <code class="token__comand">$ git clone https://github.com/beopencloud/cno.git</code>
+              </pre>
 
-  <button class="token__copy">
-    <img src="images/icons/copy.svg">
-    <span class="token__tooltip">Copy to clipboard</span>
-  </button>
-</div>
+              <button class="token__copy">
+                <img src="images/icons/copy.svg">
+                <span class="token__tooltip">Copy to clipboard</span>
+              </button>
+            </div>
 
             <p>The repository must be put in a private git server.</p>
 
+            <!-- Editing scripts -->
             <h2 class="anchor" id="gs-editing-scripts">Editing scripts</h2>
             <p>To perform the installation, edit the following scripts, depending on the exposition type: <br>
               cno -> scripts -> control-plane -> install*.sh <br>
@@ -322,6 +331,7 @@
           </article>
         </div>
 
+        <!-- table of contents(anchors) -->
         <div class="toc-container">
           <nav class="toc">
             <ul class="toc__list">

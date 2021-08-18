@@ -92,6 +92,7 @@
     Contents
   </button>
 
+  <!-- sidebar -->
   <nav class="sidebar">
     <div class="sidebar__wrap">
       <button class="sidebar__close">
@@ -142,7 +143,7 @@
             <li class="sidebar__list-item"><a href="gs-multi-cloud(tutorials).html">Multi Cloud Management with CNO Hub</a></li>
             <li class="sidebar__list-item"><a href="gs-iam-setup(tutorials).html">IAM Set Up</a></li>
             <li class="sidebar__list-item"><a href="gs-onboard-projects(tutorials).html">Onboard projects and teams</a></li>
-            <li class="sidebar__list-item"><a href="#">Continuous Deployment</a></li>
+            <li class="sidebar__list-item"><a href="gs-contin-deploy(tutorials).html">Continuous Deployment</a></li>
           </ul>
         </li>
       </ul>
@@ -158,66 +159,70 @@
                 <li>
                   <a href="gs-documentation.html">Documentation</a>
                   <svg width="10px" height="10px" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	viewBox="0 0 256 256" style="enable-background:new 0 0 256 256;" xml:space="preserve">
+						viewBox="0 0 256 256" style="enable-background:new 0 0 256 256;" xml:space="preserve">
 
-	<g>
-		<polygon points="79.093,0 48.907,30.187 146.72,128 48.907,225.813 79.093,256 207.093,128 		" />
-	</g>
-</svg>
+						<g>
+							<polygon points="79.093,0 48.907,30.187 146.72,128 48.907,225.813 79.093,256 207.093,128 		" />
+						</g>
+					</svg>
                 </li>
                 <li>
                   <a href="gs-tutorials.html">Tutorials</a>
                   <svg width="10px" height="10px" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	viewBox="0 0 256 256" style="enable-background:new 0 0 256 256;" xml:space="preserve">
+						viewBox="0 0 256 256" style="enable-background:new 0 0 256 256;" xml:space="preserve">
 
-	<g>
-		<polygon points="79.093,0 48.907,30.187 146.72,128 48.907,225.813 79.093,256 207.093,128 		" />
-	</g>
-</svg>
+						<g>
+							<polygon points="79.093,0 48.907,30.187 146.72,128 48.907,225.813 79.093,256 207.093,128 		" />
+						</g>
+					</svg>
                 </li>
                 <li>
                   <a href="#">IAM Set Up</a>
                   <svg width="10px" height="10px" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	viewBox="0 0 256 256" style="enable-background:new 0 0 256 256;" xml:space="preserve">
+						viewBox="0 0 256 256" style="enable-background:new 0 0 256 256;" xml:space="preserve">
 
-	<g>
-		<polygon points="79.093,0 48.907,30.187 146.72,128 48.907,225.813 79.093,256 207.093,128 		" />
-	</g>
-</svg>
+						<g>
+							<polygon points="79.093,0 48.907,30.187 146.72,128 48.907,225.813 79.093,256 207.093,128 		" />
+						</g>
+					</svg>
                 </li>
               </ul>
             </nav>
             
+            <!-- IAM Set Up -->
             <h1 class="anchor" id="gs-iam-setup">IAM Set Up</h1>
             <p>In this tutorial, you will want to create and manage users in the default organization.</p>
 
+            <!-- Objectifs -->
             <h5 class="anchor" id="gs-objectifs"><b>Objectifs:</b></h5>
             <ul>
               <li>Create user on CNO Organization</li>
               <li>Assign role to a new or existing user</li>
             </ul>
 
+            <!-- Prerequisite -->
             <h5 class="anchor" id="gs-prerequisite"><b>Prerequisite:</b></h5>
             <ul>
               <li>Connect to cno command line to use command in this tutorial</li>
               <li>Make sure to connect before create user</li>
             </ul>
             
+            <!-- Use case -->
             <h5 class="anchor" id="gs-use-case">Use case:</h5>
             <p>We are going to create and manage user named <b>"james"</b> in the default <b>"organization"</b></p>
             <ul class="article-list">
               <li class="anchor" id="gs-create-user">
                 <p><b>Create user named james</b></p>
-                <div class="token">
-  <pre class="token__wrap">
-    <code class="token__comand">cnoctl adm create user [--flag]</code>
-  </pre>
+                            <div class="token">
+              <pre class="token__wrap">
+                <code class="token__comand">cnoctl adm create user [--flag]</code>
+              </pre>
 
-  <button class="token__copy">
-    <img src="images/icons/copy.svg">
-    <span class="token__tooltip">Copy to clipboard</span>
-  </button>
-</div>
+              <button class="token__copy">
+                <img src="images/icons/copy.svg">
+                <span class="token__tooltip">Copy to clipboard</span>
+              </button>
+            </div>
                 <span>The supported flags are:</span>
                 <ul class="inner-list">
                   <li><code>firstname</code>: specify the firstname of the user | <b>[OPTIONAL]</b></li>
@@ -226,125 +231,125 @@
                   <li><code>email</code>: define the email address of the user | <b>[REQUIRED]</b></li>
                   <li><code>department</code>: specify the department of the user | <b>[OPTIONAL]</b></li>
                 </ul>
-                <div class="token">
-  <pre class="token__wrap">
-    <code class="token__comand">cnoctl adm create user --firstname james --lastname james --email james@gmail.com --username james --department devops</code>
-  </pre>
+                            <div class="token">
+              <pre class="token__wrap">
+                <code class="token__comand">cnoctl adm create user --firstname james --lastname james --email james@gmail.com --username james --department devops</code>
+              </pre>
 
-  <button class="token__copy">
-    <img src="images/icons/copy.svg">
-    <span class="token__tooltip">Copy to clipboard</span>
-  </button>
-</div>
+              <button class="token__copy">
+                <img src="images/icons/copy.svg">
+                <span class="token__tooltip">Copy to clipboard</span>
+              </button>
+            </div>
               </li>
               
               <li class="anchor" id="gs-assing-user">
                 <p><b>Assing admin-role  to user  james</b></p>
-                <div class="token">
-  <pre class="token__wrap">
-    <code class="token__comand">cnoctl adm set-role --usermane [username] --role [role]</code>
-  </pre>
+                            <div class="token">
+              <pre class="token__wrap">
+                <code class="token__comand">cnoctl adm set-role --usermane [username] --role [role]</code>
+              </pre>
 
-  <button class="token__copy">
-    <img src="images/icons/copy.svg">
-    <span class="token__tooltip">Copy to clipboard</span>
-  </button>
-</div>
+              <button class="token__copy">
+                <img src="images/icons/copy.svg">
+                <span class="token__tooltip">Copy to clipboard</span>
+              </button>
+            </div>
                 <span>The supported flags are:</span>
                 <ul class="inner-list">
                   <li><code>username</code>: specify the username of the user | <b>[REQUIRED]</b></li>
                   <li><code>role</code>: specify the role to assign the user | <b>[REQUIRED]</b></li>
                 </ul>
-                <div class="token">
-  <pre class="token__wrap">
-    <code class="token__comand">cnoctl adm set-role --username james --role super-admin</code>
-  </pre>
+                            <div class="token">
+              <pre class="token__wrap">
+                <code class="token__comand">cnoctl adm set-role --username james --role super-admin</code>
+              </pre>
 
-  <button class="token__copy">
-    <img src="images/icons/copy.svg">
-    <span class="token__tooltip">Copy to clipboard</span>
-  </button>
-</div>
+              <button class="token__copy">
+                <img src="images/icons/copy.svg">
+                <span class="token__tooltip">Copy to clipboard</span>
+              </button>
+            </div>
               </li>
 
               <li class="anchor" id="gs-delete-user">
                 <p><b>Delete admin-role to user james</b></p>
-                <div class="token">
-  <pre class="token__wrap">
-    <code class="token__comand">cnoctl adm delete-role --username [username] --role [role]</code>
-  </pre>
+                            <div class="token">
+              <pre class="token__wrap">
+                <code class="token__comand">cnoctl adm delete-role --username [username] --role [role]</code>
+              </pre>
 
-  <button class="token__copy">
-    <img src="images/icons/copy.svg">
-    <span class="token__tooltip">Copy to clipboard</span>
-  </button>
-</div>
+              <button class="token__copy">
+                <img src="images/icons/copy.svg">
+                <span class="token__tooltip">Copy to clipboard</span>
+              </button>
+            </div>
                 <span>The supported flags are:</span>
                 <ul class="inner-list">
                   <li><code>username</code>: specify the username of the user | <b>[REQUIRED]</b></li>
                   <li><code>role</code>: specify the role to delete from user | <b>[REQUIRED]</b></li>
                 </ul>
-                <div class="token">
-  <pre class="token__wrap">
-    <code class="token__comand">conctl adm delete-role --username james --role super-admin</code>
-  </pre>
+                            <div class="token">
+              <pre class="token__wrap">
+                <code class="token__comand">conctl adm delete-role --username james --role super-admin</code>
+              </pre>
 
-  <button class="token__copy">
-    <img src="images/icons/copy.svg">
-    <span class="token__tooltip">Copy to clipboard</span>
-  </button>
-</div>
+              <button class="token__copy">
+                <img src="images/icons/copy.svg">
+                <span class="token__tooltip">Copy to clipboard</span>
+              </button>
+            </div>
               </li>
 
               <li class="anchor" id="gs-get-user">
                 <p><b>Get user james</b></p>
                 <p>To get all users make:</p>
-                <div class="token">
-  <pre class="token__wrap">
-    <code class="token__comand">cnoctl adm get users [username]</code>
-  </pre>
+                            <div class="token">
+              <pre class="token__wrap">
+                <code class="token__comand">cnoctl adm get users [username]</code>
+              </pre>
 
-  <button class="token__copy">
-    <img src="images/icons/copy.svg">
-    <span class="token__tooltip">Copy to clipboard</span>
-  </button>
-</div>
-                <div class="token">
-  <pre class="token__wrap">
-    <code class="token__comand">cnoctl adm get users james</code>
-  </pre>
+              <button class="token__copy">
+                <img src="images/icons/copy.svg">
+                <span class="token__tooltip">Copy to clipboard</span>
+              </button>
+            </div>
+                            <div class="token">
+              <pre class="token__wrap">
+                <code class="token__comand">cnoctl adm get users james</code>
+              </pre>
 
-  <button class="token__copy">
-    <img src="images/icons/copy.svg">
-    <span class="token__tooltip">Copy to clipboard</span>
-  </button>
-</div>
+              <button class="token__copy">
+                <img src="images/icons/copy.svg">
+                <span class="token__tooltip">Copy to clipboard</span>
+              </button>
+            </div>
                 <p>To get all users make:</p>
-                <div class="token">
-  <pre class="token__wrap">
-    <code class="token__comand">cnoctl adm get users</code>
-  </pre>
+                            <div class="token">
+              <pre class="token__wrap">
+                <code class="token__comand">cnoctl adm get users</code>
+              </pre>
 
-  <button class="token__copy">
-    <img src="images/icons/copy.svg">
-    <span class="token__tooltip">Copy to clipboard</span>
-  </button>
-</div>
+              <button class="token__copy">
+                <img src="images/icons/copy.svg">
+                <span class="token__tooltip">Copy to clipboard</span>
+              </button>
+            </div>
               </li>
 
               <li class="anchor" id="gs-update-user">
                 <p><b>Update user</b></p>
                 <p>Now update only the firstname of user <b>“james”</b> to <b>“mody”</b></p>
-                <div class="token">
-  <pre class="token__wrap">
-    <code class="token__comand">cnoctl adm update user [--flag]</code>
-  </pre>
+                            <div class="token">
+              <pre class="token__wrap">
+                <code class="token__comand">cnoctl adm update user [--flag]</code>
+              </pre>
 
-  <button class="token__copy">
-    <img src="images/icons/copy.svg">
-    <span class="token__tooltip">Copy to clipboard</span>
-  </button>
-</div>
+              <button class="token__copy">
+                <img src="images/icons/copy.svg">
+                <span class="token__tooltip">Copy to clipboard</span>
+              </button>
+            </div>
                 <span>The supported flags are:</span>
                 <ul class="inner-list">
                   <li><code>firstname</code>: specify the firstname of the user  | <b>[OPTIONAL]</b></li>
@@ -354,49 +359,50 @@
                   <li><code>department</code>: specify the department of the user | <b>[OPTIONAL]</b></li>
                 </ul>
                 <p>Update only the firstaneme of “james” to “mody”</p>
-                <div class="token">
-  <pre class="token__wrap">
-    <code class="token__comand">cnoctl adm update user --firstname mody --username james</code>
-  </pre>
+                            <div class="token">
+              <pre class="token__wrap">
+                <code class="token__comand">cnoctl adm update user --firstname mody --username james</code>
+              </pre>
 
-  <button class="token__copy">
-    <img src="images/icons/copy.svg">
-    <span class="token__tooltip">Copy to clipboard</span>
-  </button>
-</div>
+              <button class="token__copy">
+                <img src="images/icons/copy.svg">
+                <span class="token__tooltip">Copy to clipboard</span>
+              </button>
+            </div>
               </li>
 
               <li class="anchor" id="gs-delete-in-org">
                 <p><b>Delete user james in the organization</b></p>
-                <div class="token">
-  <pre class="token__wrap">
-    <code class="token__comand">cnoctl adm delete user [username]</code>
-  </pre>
+                            <div class="token">
+              <pre class="token__wrap">
+                <code class="token__comand">cnoctl adm delete user [username]</code>
+              </pre>
 
-  <button class="token__copy">
-    <img src="images/icons/copy.svg">
-    <span class="token__tooltip">Copy to clipboard</span>
-  </button>
-</div>
+              <button class="token__copy">
+                <img src="images/icons/copy.svg">
+                <span class="token__tooltip">Copy to clipboard</span>
+              </button>
+            </div>
                 <ul class="inner-list">
                   <li><code>username</code>: specify the username of user deleted  | <b>[REQUIRED]</b></li>
                 </ul>
-                <div class="token">
-  <pre class="token__wrap">
-    <code class="token__comand">cnoctl adm delete user james</code>
-  </pre>
+                            <div class="token">
+              <pre class="token__wrap">
+                <code class="token__comand">cnoctl adm delete user james</code>
+              </pre>
 
-  <button class="token__copy">
-    <img src="images/icons/copy.svg">
-    <span class="token__tooltip">Copy to clipboard</span>
-  </button>
-</div>
+              <button class="token__copy">
+                <img src="images/icons/copy.svg">
+                <span class="token__tooltip">Copy to clipboard</span>
+              </button>
+            </div>
               </li>
             </ul>
 
           </article>
         </div>
 
+        <!-- table of contents(anchors) -->
         <div class="toc-container">
           <nav class="toc">
             <ul class="toc__list">

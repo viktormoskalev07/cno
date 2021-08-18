@@ -92,6 +92,7 @@
     Contents
   </button>
 
+  <!-- sidebar -->
   <nav class="sidebar">
     <div class="sidebar__wrap">
       <button class="sidebar__close">
@@ -142,7 +143,7 @@
             <li class="sidebar__list-item"><a href="gs-multi-cloud(tutorials).html">Multi Cloud Management with CNO Hub</a></li>
             <li class="sidebar__list-item"><a href="gs-iam-setup(tutorials).html">IAM Set Up</a></li>
             <li class="sidebar__list-item"><a href="gs-onboard-projects(tutorials).html">Onboard projects and teams</a></li>
-            <li class="sidebar__list-item"><a href="#">Continuous Deployment</a></li>
+            <li class="sidebar__list-item"><a href="gs-contin-deploy(tutorials).html">Continuous Deployment</a></li>
           </ul>
         </li>
       </ul>
@@ -158,49 +159,50 @@
                 <li>
                   <a href="gs-documentation.html">Documentation</a>
                   <svg width="10px" height="10px" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	viewBox="0 0 256 256" style="enable-background:new 0 0 256 256;" xml:space="preserve">
+						viewBox="0 0 256 256" style="enable-background:new 0 0 256 256;" xml:space="preserve">
 
-	<g>
-		<polygon points="79.093,0 48.907,30.187 146.72,128 48.907,225.813 79.093,256 207.093,128 		" />
-	</g>
-</svg>
+						<g>
+							<polygon points="79.093,0 48.907,30.187 146.72,128 48.907,225.813 79.093,256 207.093,128 		" />
+						</g>
+					</svg>
                 </li>
                 <li>
                   <a href="gs-configuration.html">Configuration</a>
                   <svg width="10px" height="10px" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	viewBox="0 0 256 256" style="enable-background:new 0 0 256 256;" xml:space="preserve">
+						viewBox="0 0 256 256" style="enable-background:new 0 0 256 256;" xml:space="preserve">
 
-	<g>
-		<polygon points="79.093,0 48.907,30.187 146.72,128 48.907,225.813 79.093,256 207.093,128 		" />
-	</g>
-</svg>
+						<g>
+							<polygon points="79.093,0 48.907,30.187 146.72,128 48.907,225.813 79.093,256 207.093,128 		" />
+						</g>
+					</svg>
                 </li>
                 <li>
                   <a href="#">Configure Messaging</a>
                   <svg width="10px" height="10px" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	viewBox="0 0 256 256" style="enable-background:new 0 0 256 256;" xml:space="preserve">
+						viewBox="0 0 256 256" style="enable-background:new 0 0 256 256;" xml:space="preserve">
 
-	<g>
-		<polygon points="79.093,0 48.907,30.187 146.72,128 48.907,225.813 79.093,256 207.093,128 		" />
-	</g>
-</svg>
+						<g>
+							<polygon points="79.093,0 48.907,30.187 146.72,128 48.907,225.813 79.093,256 207.093,128 		" />
+						</g>
+					</svg>
                 </li>
               </ul>
             </nav>
             
+            <!-- Configure Messaging -->
             <h1 class="anchor" id="gs-config-mess">Configure Messaging</h1>
             <p>Messaging Account consists of creating an SMTP server to send emails or notifications to CNO users.</p>
             <p>Create a messaging account by giving elements of configuration</p>
-            <div class="token">
-  <pre class="token__wrap">
-    <code class="token__comand">cnoctl adm create smtp [--flags]</code>
-  </pre>
+                        <div class="token">
+              <pre class="token__wrap">
+                <code class="token__comand">cnoctl adm create smtp [--flags]</code>
+              </pre>
 
-  <button class="token__copy">
-    <img src="images/icons/copy.svg">
-    <span class="token__tooltip">Copy to clipboard</span>
-  </button>
-</div>
+              <button class="token__copy">
+                <img src="images/icons/copy.svg">
+                <span class="token__tooltip">Copy to clipboard</span>
+              </button>
+            </div>
             <span>The supported flags are:</span>
             <ul>
               <li><code>email</code>: The sender email of your organization | <b>[REQUIRED]</b></li>
@@ -209,42 +211,44 @@
               <li><code>smtp-port</code>: The port of the email provider's servers | <b>[REQUIRED]</b></li>
             </ul>
 
+            <!-- GET SYNTAX -->
             <h4 class="anchor" id="gs-get-syntax">GET SYNTAX</h4>
             <p>List informations about Your Messaging Account</p>
-            <div class="token">
-  <pre class="token__wrap">
-    <code class="token__comand">cnoctl adm get smtp</code>
-  </pre>
+                        <div class="token">
+              <pre class="token__wrap">
+                <code class="token__comand">cnoctl adm get smtp</code>
+              </pre>
 
-  <button class="token__copy">
-    <img src="images/icons/copy.svg">
-    <span class="token__tooltip">Copy to clipboard</span>
-  </button>
-</div>
+              <button class="token__copy">
+                <img src="images/icons/copy.svg">
+                <span class="token__tooltip">Copy to clipboard</span>
+              </button>
+            </div>
 
+            <!-- TEST SYNTAX -->
             <h4 class="anchor" id="gs-test-syntax">TEST SYNTAX</h4>
             <p>Do a test to make sure that the smtp server configuration is correct</p>
-            <div class="token">
-  <pre class="token__wrap">
-    <code class="token__comand">cnoctl adm test smtp receivermail@mail.com -m "Your message"</code>
-  </pre>
+                        <div class="token">
+              <pre class="token__wrap">
+                <code class="token__comand">cnoctl adm test smtp receivermail@mail.com -m "Your message"</code>
+              </pre>
 
-  <button class="token__copy">
-    <img src="images/icons/copy.svg">
-    <span class="token__tooltip">Copy to clipboard</span>
-  </button>
-</div>
+              <button class="token__copy">
+                <img src="images/icons/copy.svg">
+                <span class="token__tooltip">Copy to clipboard</span>
+              </button>
+            </div>
             <p>or</p>
-            <div class="token">
-  <pre class="token__wrap">
-    <code class="token__comand">cnoctl adm test smtp receivermail@mail.com --message "Your message"</code>
-  </pre>
+                        <div class="token">
+              <pre class="token__wrap">
+                <code class="token__comand">cnoctl adm test smtp receivermail@mail.com --message "Your message"</code>
+              </pre>
 
-  <button class="token__copy">
-    <img src="images/icons/copy.svg">
-    <span class="token__tooltip">Copy to clipboard</span>
-  </button>
-</div>
+              <button class="token__copy">
+                <img src="images/icons/copy.svg">
+                <span class="token__tooltip">Copy to clipboard</span>
+              </button>
+            </div>
             <span>The supported flags are:</span>
             <ul>
               <li><code>email</code> or <code>e</code>: the receiver mail test | <b>[REQUIRED]</b></li>
@@ -254,6 +258,7 @@
           </article>
         </div>
 
+        <!-- table of contents(anchors) -->
         <div class="toc-container">
           <nav class="toc">
             <ul class="toc__list">

@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>CNO-Landing page -- Documentation</title>
+  <meta name="description" content="">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Ubuntu:wght@400;700&display=swap"
+    rel="stylesheet">
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- <link rel="shortcut icon" type="image/png" href="images/favicon.png"/> -->
+</head>
+
+<body class="body">
+
+  @@include('./html-templates/header.html',{
+    customclass:'white-header',
+    })
+
+    <main class="main">
+      <section class="documentation container">
+        @@include('./html-templates/documentation/_sidebar-nav.html')
+
+        <div class="article-container">
+          <article class="article">
+
+            <nav class="breadscrumbs">
+              <ul>
+                <li>
+                  <a href="gs-documentation.html">Documentation</a>
+                  @@include('./images/icons/chevron-r.svg')
+                </li>
+                <li>
+                  <a href="gs-tutorials.html">Tutorials</a>
+                  @@include('./images/icons/chevron-r.svg')
+                </li>
+                <li>
+                  <a href="#">Continuous Deployment</a>
+                  @@include('./images/icons/chevron-r.svg')
+                </li>
+              </ul>
+            </nav>
+            
+            <!-- Continuous Deployment -->
+            <h1 class="anchor" id="gs-contin-deploy">Continuous Deployment</h1>
+            <p>In this tutorial, you will see how to use cno to manage the deployment of your applications. We will show you how to scale up/down applications, manually deploy new versions (continuous delivery), detect and auto deploy new versions pushed on your docker registry (continuous deployment), use advanced deployment strategies like Blue/Green, Canary and A/B Testing.</p>
+            
+            <!-- Prerequisites -->
+            <h2 class="anchor" id="gs-prerequisites">Prerequisites</h2>
+            <ul>
+              <li>CNO cluster (go to installation section to see how to deploy one)</li>
+              <li>Install cnoctl one your computer</li>
+            </ul>
+
+            <!-- Before to begin -->
+            <h2 class="anchor" id="gs-before-begin">Before to begin</h2>
+            <ol class="article-list">
+              <li>
+                <p>Create a project named: <b>lab</b></p>
+                @@include('./html-templates/documentation/_token.html',{
+                  comand:'cnoctl create project lab --cpu 2,1 --memory 4Gi,2Gi --storage 0Gi'
+                })
+                <p>This command allows you to create a project named lab with 2 cores cpu-limit, 1 core cpu-request, 4Gi memory-limit, 2Gi memory-request and 0Gi storage.</p>
+                <p>NB. You must wait for quota request validation if you are not super_admin or owner+</p>
+              </li>
+
+              <li>
+                <p>Create environment named: <b>cno-cd-lab</b></p>
+                @@include('./html-templates/documentation/_token.html',{
+                  comand:'cnoctl create env cno-cd-lab --cpu 2,1 --memory 4Gi,2Gi --storage 0Gi --project lab --cluster default'
+                })
+                <p>This command allows you to create an environment named <b>cno-cd-lab</b> on the <b>lab</b> project with 2 cores cpu-limit, 1 core cpu-request, 4Gi memory-limit, 2Gi memory-request and 0Gi storage, and deploy the environment on the default cluster</p>
+              </li>
+
+              <li>
+                <p>Create and push image to your docker-registry</p>
+                <ol class="inner-list" type='a'>
+                  <li>
+                    <p>Clone the version-printer repo</p>
+                    @@include('./html-templates/documentation/_token.html',{
+                      comand:'git clone https://github.com/beopencloud/version-printer.git'
+                    })
+                    @@include('./html-templates/documentation/_token.html',{
+                      comand:'cd version-printer'
+                    })
+                  </li>
+
+                  <li>
+                    <p>build and push version v1.0.0 to your docker registry</p>
+                    @@include('./html-templates/documentation/_token.html',{
+                      comand:'git checkout v1.0.0'
+                    })
+                    @@include('./html-templates/documentation/_token.html',{
+                      comand:'docker build . -t &#60;your username&#62;/version-printer:v1.0.0'
+                    })
+                    @@include('./html-templates/documentation/_token.html',{
+                      comand:'Docker push &#60;your username&#62;/version-printer:v1.0.0'
+                    })
+                  </li>
+
+                  <li>
+                    <p>build and push version v2.0.0 to your docker registry</p>
+                    @@include('./html-templates/documentation/_token.html',{
+                      comand:'git checkout v2.0.0'
+                    })
+                    @@include('./html-templates/documentation/_token.html',{
+                      comand:'docker build . -t &#60;your username&#62;/version-printer:v2.0.0'
+                    })
+                    @@include('./html-templates/documentation/_token.html',{
+                      comand:'Docker push &#60;your username&#62;/version-printer:v2.0.0'
+                    })
+                  </li>
+                </ol>
+              </li>
+
+              <li>
+                <p>Connect to the cno-cd-lab environment</p>
+                @@include('./html-templates/documentation/_token.html',{
+                  comand:'cnoctl use env -e cno-cd-lab --project lab'
+                })
+                <p>This command allows you to get a kubeconfig allowing you to access the <b>cno-cd-lab</b> environment. And then you can apply kubectl commands.</p>
+              </li>
+
+              <li>
+                <p>Deploy the <b>version-printer</b> application on your environment</p>
+                @@include('./html-templates/documentation/_token.html',{
+                  comand:'cnoctl create deploy version-printer --image &#60;your username&#62;/version-printer:v1.0.0'
+                })
+                @@include('./html-templates/documentation/_token.html',{
+                  comand:'cnoctl create service version-printer clusterip --tcp 8080:8080'
+                })
+              </li>
+
+              <li>
+                <p>Port-forward and check if the application responds correctly</p>
+                <ol class="inner-list" type='a'>
+                  <li>
+                    <p>Open a new terminal and run the following command</p>
+                    @@include('./html-templates/documentation/_token.html',{
+                      comand:'kubectl port-forward service/version-printer 8080:8080'
+                    })
+                  </li>
+
+                  <li>
+                    <p>On another terminal run the following command to test if application responds correctly</p>
+                    @@include('./html-templates/documentation/_token.html',{
+                      comand:'curl -w "\n" http://localhost:8080'
+                    })
+                    <code><i>version 1.0.0</i></code>
+                  </li>
+                </ol>
+              </li>
+            </ol>
+            
+            <!-- Overviews -->
+            <h2 class="anchor" id="gs-overviews">Overviews:</h2>
+            <p>There are a cd operator on the cno data plane that monitors kubernetes objects such as deployments, StatefulSets, DaemonSets, Services and Ingress present in environments. It's therefore possible to retrieve the list of all workloads (applications) present in an environment. the operator also monitors the docker registry to detect new versions of applications. <br>
+              cd functionality can be used from cno ui or from cnoctl. For example we can get the list of workloads deployed in the namespace cno-cd-lab with the following command.</p>
+            @@include('./html-templates/documentation/_token.html',{
+              comand:'cnoctl get workload --project lab --env cno-cd-lab'
+            })
+            <div class="table-responsive">
+              <table class="table article__table-nowrap  article__table-nowrap--sm">
+                <thead>
+                  <tr>
+                    <td>NAME</td>
+                    <td>STRATEGY</td>
+                    <td>REPLICAS</td>
+                    <td>IMAGE</td>
+                    <td>LIVE</td>
+                    <td>STAGING</td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>version-printer</td>
+                    <td>default</td>
+                    <td>1/1</td>
+                    <td>&#60;your username&#62;/version-printer</td>
+                    <td>v1.0.0</td>
+                    <td>-</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            
+            <!-- Scaling -->
+            <h2 class="anchor" id="gs-scaling">Scaling</h2>
+            <p>We can scale up/down an application directly from cno without accessing the cluster api-server where the application is deployed.
+              <br> This is how to do that with cnoctl.</p>
+            @@include('./html-templates/documentation/_token.html',{
+              comand:'cnoctl deploy workload version-printer --replicas 2  --project lab --env cno-cd-lab'
+            })
+            <p>with this command, we increase the number of replicas of the <b>version-printer</b> application to two</p>
+            @@include('./html-templates/documentation/_token.html',{
+              comand:'cnoctl get workload --project lab --env cno-cd-lab'
+            })
+            <div class="table-responsive">
+              <table class="table article__table-nowrap  article__table-nowrap--sm">
+                <thead>
+                  <tr>
+                    <td>NAME</td>
+                    <td>STRATEGY</td>
+                    <td>REPLICAS</td>
+                    <td>IMAGE</td>
+                    <td>LIVE</td>
+                    <td>STAGING</td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>version-printer</td>
+                    <td>default</td>
+                    <td>2/2</td>
+                    <td>&#60;your username&#62;/version-printer</td>
+                    <td>v1.0.0</td>
+                    <td>-</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p>And we can scale down to 1 by this command</p>
+            @@include('./html-templates/documentation/_token.html',{
+              comand:'cnoctl deploy workload version-printer --replicas 1  --project lab --env cno-cd-lab'
+            })
+            
+            <!-- Continuous Delivery -->
+            <h2 class="anchor" id="gs-contin-delivery">Continuous Delivery</h2>
+            <p>From the cno api, it is easy to manually update the version of an application. which avoids us having to detect the kubernetes cluster on which the application is deployed, to retrieve a kubeconfig allowing us to access it and type kubectl commands to update the app version.
+              <br> This can be done from the cno user interface or from the command line with cnoctl. Here is how to upgrade the version of the <b>version-printer</b> to v2.0.0 from cnoctl.</p>
+            @@include('./html-templates/documentation/_token.html',{
+              comand:'cnoctl deploy workload version-printer --version v2.0.0'
+            })
+            <p>We can verify if the deployment is effective by this command</p>
+            @@include('./html-templates/documentation/_token.html',{
+              comand:'cnoctl get workload --project lab --env cno-cd-lab'
+            })
+            <div class="table-responsive">
+              <table class="table article__table-nowrap  article__table-nowrap--sm">
+                <thead>
+                  <tr>
+                    <td>NAME</td>
+                    <td>STRATEGY</td>
+                    <td>REPLICAS</td>
+                    <td>IMAGE</td>
+                    <td>LIVE</td>
+                    <td>STAGING</td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>version-printer</td>
+                    <td>default</td>
+                    <td>1/1</td>
+                    <td>&#60;your username&#62;/version-printer</td>
+                    <td>v2.0.0</td>
+                    <td>-</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p>We can see that the live version of the <b>version-printer</b> app is v2.0.0</p>
+            @@include('./html-templates/documentation/_token.html',{
+              comand:'curl -w "\n" http://localhost:8080'
+            })
+            <code><i>version 2.0.0</i></code>
+            
+            <!-- Auto deploy -->
+            <h2 class="anchor" id="gs-auto-deploy">Auto deploy</h2>
+            <p>CNO's CD operator has the ability to monitor your docker registry and detect any new versions of your applications. It is possible to activate the auto-deployment functionality so that each time a new version of your application is pushed on your docker registry, it will be automatically deployed. We can also apply filters on the name of the versions to be deployed.
+              <br> Run the following command to activate the auto deploy functionality for the  <b>version-printer</b> app.</p>
+            @@include('./html-templates/documentation/_token.html',{
+              comand:'cnoctl deploy workload version-printer --auto-deploy=true --project lab --env cno-cd-lab'
+            })
+            <p>For that, <b>version-printer</b> will point to the last created version of the nginx image and each time a new version, it will automatically be deployed.</p>
+            @@include('./html-templates/documentation/_token.html',{
+              comand:'cnoctl get workload --project lab --env cno-cd-lab'
+            })
+            <div class="table-responsive">
+              <table class="table article__table-nowrap  article__table-nowrap--sm">
+                <thead>
+                  <tr>
+                    <td>NAME</td>
+                    <td>STRATEGY</td>
+                    <td>REPLICAS</td>
+                    <td>IMAGE</td>
+                    <td>AUTO-DEPLOY</td>
+                    <td>LIVE</td>
+                    <td>STAGING</td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>version-printer</td>
+                    <td>default</td>
+                    <td>1/1</td>
+                    <td>beopenit/version-printer</td>
+                    <td>true</td>
+                    <td>v2.0.0</td>
+                    <td>-</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p>Let’s build and push version v3.0.0 to your docker registry</p>
+            @@include('./html-templates/documentation/_token.html',{
+              comand:'git checkout v3.0.0'
+            })
+            @@include('./html-templates/documentation/_token.html',{
+              comand:'docker build . -t &#60;your username&#62;/version-printer:v3.0.0'
+            })
+            @@include('./html-templates/documentation/_token.html',{
+              comand:'Docker push &#60;your username&#62;/version-printer:v3.0.0'
+            })
+            <p>After this, v3.0.0 will be automatically deployed</p>
+            <div class="table-responsive">
+              <table class="table article__table-nowrap  article__table-nowrap--sm">
+                <thead>
+                  <tr>
+                    <td>NAME</td>
+                    <td>STRATEGY</td>
+                    <td>REPLICAS</td>
+                    <td>IMAGE</td>
+                    <td>AUTO-DEPLOY</td>
+                    <td>LIVE</td>
+                    <td>STAGING</td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>version-printer</td>
+                    <td>default</td>
+                    <td>1/1</td>
+                    <td>beopenit/version-printer</td>
+                    <td>true</td>
+                    <td>v3.0.0</td>
+                    <td>-</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p>The we can test with the following command</p>
+            @@include('./html-templates/documentation/_token.html',{
+              comand:'curl -w "\n" http://localhost:8080'
+            })
+            <code><i>version 3.0.0</i></code>
+            <p>Run the following command to disable the auto-deploy.</p>
+            @@include('./html-templates/documentation/_token.html',{
+              comand:'cnoctl deploy workload version-printer --auto-deploy=true --project lab --env cno-cd-lab'
+            })
+            <p>We can check if it’s ok.</p>
+            @@include('./html-templates/documentation/_token.html',{
+              comand:'cnoctl get workload --project lab --env cno-cd-lab'
+            })
+            <div class="table-responsive">
+              <table class="table article__table-nowrap  article__table-nowrap--sm">
+                <thead>
+                  <tr>
+                    <td>NAME</td>
+                    <td>STRATEGY</td>
+                    <td>REPLICAS</td>
+                    <td>IMAGE</td>
+                    <td>AUTO-DEPLOY</td>
+                    <td>LIVE</td>
+                    <td>STAGING</td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>version-printer</td>
+                    <td>default</td>
+                    <td>1/1</td>
+                    <td>beopenit/version-printer</td>
+                    <td>false</td>
+                    <td>v3.0.0</td>
+                    <td>-</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p>Now the deployment will be manual. Run the following command to deploy version v2.0.0</p>
+            @@include('./html-templates/documentation/_token.html',{
+              comand:'cnoctl deploy workload version-printer --version v2.0.0'
+            })
+
+            <!-- Blue/Green -->
+            <h2 class="anchor" id="gs-blue-green">Blue/Green</h2>
+            <p>It is also possible to do Blue/Green deployment with CNO CD. You can deploy a new version on your production environment without exposing it to the general public. So the staging version would be production ready and you can choose the ideal moment to easily switch the flow to the new version or cancel if you have not trust.
+              <br> Run this command to use the blue/green strategy.</p>
+            @@('./html-templates/documentation/_token.html',{
+              comand:'cnoctl deploy workload version-printer --strategy blue/green'
+            })
+            <p>There will be two versions of the application running. One containing the live version and the other, the staging version.</p>
+            @@include('./html-templates/documentation/_token.html',{
+              comand:'cnoctl deploy get deployment'
+            })
+            <div class="table-responsive">
+              <table class="table article__table-nowrap  article__table-nowrap--sm">
+                <thead>
+                  <tr>
+                    <td>NAME</td>
+                    <td>READY</td>
+                    <td>UP-TO-DATE</td>
+                    <td>AVAILABLE</td>
+                    <td>AGE</td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>version-printer</td>
+                    <td>1/1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>23h</td>
+                  </tr>
+                  <tr>
+                    <td>version-printer-green-workload</td>
+                    <td>1/1</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>83s</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p>Now we have the same version on the live and the staging version.</p>
+            @@include('./html-templates/documentation/_token.html',{
+              comand:'cnoctl get workload version-printer -e cno-cd-lab -p lab'
+            })
+            <div class="table-responsive">
+              <table class="table article__table-nowrap  article__table-nowrap--sm">
+                <thead>
+                  <tr>
+                    <td>NAME</td>
+                    <td>STRATEGY</td>
+                    <td>REPLICAS</td>
+                    <td>IMAGE</td>
+                    <td>AUTO-DEPLOY</td>
+                    <td>LIVE</td>
+                    <td>STAGING</td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>version-printer</td>
+                    <td>blue/green</td>
+                    <td>1/1</td>
+                    <td>beopenit/version-printer</td>
+                    <td>false</td>
+                    <td>v2.0.0</td>
+                    <td>v2.0.0</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p>We can deploy version v3.0.0 with this command</p>
+            @@include('./html-templates/documentation/_token.html',{
+              comand:'cnoctl deploy workload version-printer --version v3.0.0'
+            })
+            <p>Now the staging deployment will contain version v3.0.0 and the live version still with v2.0.0</p>
+            @@include('./html-templates/documentation/_token.html',{
+              comand:'cnoctl get workload -e cno-cd-lab -p lab'
+            })
+            <div class="table-responsive">
+              <table class="table article__table-nowrap  article__table-nowrap--sm">
+                <thead>
+                  <tr>
+                    <td>NAME</td>
+                    <td>STRATEGY</td>
+                    <td>REPLICAS</td>
+                    <td>IMAGE</td>
+                    <td>AUTO-DEPLOY</td>
+                    <td>LIVE</td>
+                    <td>STAGING</td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>version-printer</td>
+                    <td>blue/green</td>
+                    <td>1/1</td>
+                    <td>beopenit/version-printer</td>
+                    <td>false</td>
+                    <td>v2.0.0</td>
+                    <td>v3.0.0</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p>We can check if the flow is redirected to the live version with this command.</p>
+            @@include('./html-templates/documentation/_token.html',{
+              comand:'curl -w "\n" http://localhost:8080'
+            })
+            <code><i>version 2.0.0</i></code>
+            <p>Run the following command to make the staging version live.</p>
+            @@include('./html-templates/documentation/_token.html',{
+              comand:'cnoctl deploy workload version-printer --go-to-live -e cno-cd-lab -p lab'
+            })
+            <p>From now, live and intermediate deployment will be switched. Live deployment contains version v3.0.0 and staging 2.0.0.</p>
+            @@include('./html-templates/documentation/_token.html',{
+              comand:'cnoctl get workload -e cno-cd-lab -p lab'
+            })
+            <div class="table-responsive">
+              <table class="table article__table-nowrap  article__table-nowrap--sm">
+                <thead>
+                  <tr>
+                    <td>NAME</td>
+                    <td>STRATEGY</td>
+                    <td>REPLICAS</td>
+                    <td>IMAGE</td>
+                    <td>AUTO-DEPLOY</td>
+                    <td>LIVE</td>
+                    <td>STAGING</td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>version-printer</td>
+                    <td>blue/green</td>
+                    <td>1/1</td>
+                    <td>beopenit/version-printer</td>
+                    <td>false</td>
+                    <td>v3.0.0</td>
+                    <td>v2.0.0</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p>The flow is redirected to version v3.0.0.</p>
+            @@include('./html-templates/documentation/_token.html',{
+              comand:'curl -w "\n" http://localhost:8080'
+            })
+            <code><i>version 3.0.0</i></code>
+
+          </article>
+        </div>
+
+        <!-- table of contents(anchors) -->
+        <div class="toc-container">
+          <nav class="toc">
+            <ul class="toc__list">
+              <li class="toc__item"><a class="active" href="#gs-contin-deploy">Continuous Deployment</a></li>
+              <li class="toc__item"><a href="#gs-prerequisites">Prerequisites</a></li>
+              <li class="toc__item"><a href="#gs-before-begin">Before to begin</a></li>
+              <li class="toc__item"><a href="#gs-overviews">Overviews</a></li>
+              <li class="toc__item"><a href="#gs-scaling">Scaling</a></li>
+              <li class="toc__item"><a href="#gs-contin-delivery">Continuous Delivery</a></li>
+              <li class="toc__item"><a href="#gs-auto-deploy">Auto deploy</a></li>
+              <li class="toc__item"><a href="#gs-blue-green">Blue/Green</a></li>
+            </ul>
+          </nav>
+        </div>
+      </section>
+
+    </main>
+
+    @@include('./html-templates/footer.html',{})
+
+  <script src="js/main.js"> </script>
+
+</body>
+
+</html>

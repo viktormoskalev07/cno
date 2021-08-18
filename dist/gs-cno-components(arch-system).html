@@ -92,6 +92,7 @@
     Contents
   </button>
 
+  <!-- sidebar -->
   <nav class="sidebar">
     <div class="sidebar__wrap">
       <button class="sidebar__close">
@@ -142,7 +143,7 @@
             <li class="sidebar__list-item"><a href="gs-multi-cloud(tutorials).html">Multi Cloud Management with CNO Hub</a></li>
             <li class="sidebar__list-item"><a href="gs-iam-setup(tutorials).html">IAM Set Up</a></li>
             <li class="sidebar__list-item"><a href="gs-onboard-projects(tutorials).html">Onboard projects and teams</a></li>
-            <li class="sidebar__list-item"><a href="#">Continuous Deployment</a></li>
+            <li class="sidebar__list-item"><a href="gs-contin-deploy(tutorials).html">Continuous Deployment</a></li>
           </ul>
         </li>
       </ul>
@@ -158,36 +159,37 @@
                 <li>
                   <a href="gs-documentation.html">Documentation</a>
                   <svg width="10px" height="10px" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	viewBox="0 0 256 256" style="enable-background:new 0 0 256 256;" xml:space="preserve">
+						viewBox="0 0 256 256" style="enable-background:new 0 0 256 256;" xml:space="preserve">
 
-	<g>
-		<polygon points="79.093,0 48.907,30.187 146.72,128 48.907,225.813 79.093,256 207.093,128 		" />
-	</g>
-</svg>
+						<g>
+							<polygon points="79.093,0 48.907,30.187 146.72,128 48.907,225.813 79.093,256 207.093,128 		" />
+						</g>
+					</svg>
                 </li>
                 <li>
                   <a href="gs-arch-system.html">Architecture and System Requirements</a>
                   <svg width="10px" height="10px" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	viewBox="0 0 256 256" style="enable-background:new 0 0 256 256;" xml:space="preserve">
+						viewBox="0 0 256 256" style="enable-background:new 0 0 256 256;" xml:space="preserve">
 
-	<g>
-		<polygon points="79.093,0 48.907,30.187 146.72,128 48.907,225.813 79.093,256 207.093,128 		" />
-	</g>
-</svg>
+						<g>
+							<polygon points="79.093,0 48.907,30.187 146.72,128 48.907,225.813 79.093,256 207.093,128 		" />
+						</g>
+					</svg>
                 </li>
                 <li>
                   <a href="">CNO components</a>
                   <svg width="10px" height="10px" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	viewBox="0 0 256 256" style="enable-background:new 0 0 256 256;" xml:space="preserve">
+						viewBox="0 0 256 256" style="enable-background:new 0 0 256 256;" xml:space="preserve">
 
-	<g>
-		<polygon points="79.093,0 48.907,30.187 146.72,128 48.907,225.813 79.093,256 207.093,128 		" />
-	</g>
-</svg>
+						<g>
+							<polygon points="79.093,0 48.907,30.187 146.72,128 48.907,225.813 79.093,256 207.093,128 		" />
+						</g>
+					</svg>
                 </li>
               </ul>
             </nav>
             
+            <!-- CNO components -->
             <h1 class="anchor" id="gs-cno-components">CNO components</h1>
 
             <figure>
@@ -201,6 +203,7 @@
               <li>A Command line interface</li>
             </ul>
 
+            <!-- Control Plane -->
             <h2 class="anchor" id="gs-control-plane">Control Plane</h2>
             <p>The control plane includes:</p>
             <ul>
@@ -212,26 +215,33 @@
               <li>The CNO Notification</li>
             </ul>
 
+            <!-- CNO API -->
             <h3 class="anchor" id="gs-cno-api">CNO API</h3>
             <p>The API module is the central component of the platform. It powers the CNO console, as well as the CNO client. The APIs provided are RESTful, HTTP JSON-based, and secured using TLS.</p>
 
+            <!-- CNO UI -->
             <h3 class="anchor" id="gs-cno-ui">CNO UI</h3>
             <p>CNO provides a user interface to perform onboarding actions for users and manage clusters.</p>
 
+            <!-- CNO Database -->
             <h3 class="anchor" id="gs-cno-database">CNO Database</h3>
             <p>CNO uses an SQL database to store the different objects it manages.</p>
 
+            <!-- CNO IAM -->
             <h3 class="anchor" id="gs-cno-iam">CNO IAM</h3>
             <p>There is an IAM module to handle users authentication and management for the CNO platform.</p>
 
+            <!-- CNO Broker -->
             <h3 class="anchor" id="gs-cno-broker">CNO Broker</h3>
             <p>The API and the CNO cluster Agents communicate using a message broker, so that actions can be performed asynchronously.</p>
 
+            <!-- CNO Notification -->
             <h3 class="anchor" id="gs-cno-notification">CNO Notification</h3>
             <p>This module helps handle every notification actions needed on the CNO platform.
               It provides RESTful, HTTP JSON-based and TLS secured APIs.
               </p>
 
+              <!-- Dataplane -->
             <h2 class="anchor" id="gs-dataplane">Dataplane</h2>
             <p>The data plane has :</p>
             <ul>
@@ -240,25 +250,31 @@
               <li>The CNO CD Operator</li>
             </ul>
 
+            <!-- CNO Onboarding Operator -->
             <h3 class="anchor" id="gs-cno-onboarding-operator">CNO Onboarding Operator</h3>
             <p>The Onboarding Operator is the controller that handles the lifecycle of the CNO Custom Resources on the managed Cluster.</p>
 
+            <!-- CNO CD Operator -->
             <h3 class="anchor" id="gs-cno-cd-operator">CNO CD Operator</h3>
             <p>CNO offers Continuous Deployment operations for users through the CD Operator. This operator handles the Custom Resources related to the CD actions provided by CNO.</p>
 
+            <!-- CNO Agent -->
             <h3 class="anchor" id="gs-cno-agent">CNO Agent</h3>
             <p>The Agent is the component responsible for taking instructions from the API, through the broker, and performing the necessary actions, like CNO Custom Resources creation on the managed cluster.
               The agent must be present on the cluster managed by CNO.
               </p>
 
+              <!-- Command Line Interface -->
             <h2 class="anchor" id="gs-comand-line-interface">Command Line Interface</h2>
 
+            <!-- CNO CLI(cnoctl) -->
             <h3 class="anchor" id="gs-cli-cnoctl">CNO CLI(cnoctl)</h3>
             <p>The CNO command-line tool, cnoctl, allows users to perform actions on the CNO platform. </p>
 
           </article>
         </div>
 
+        <!-- table of contents(anchors) -->
         <div class="toc-container">
           <nav class="toc">
             <ul class="toc__list">

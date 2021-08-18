@@ -46,10 +46,12 @@
               </ul>
             </nav>
             
+            <!-- Onboard projects and teams -->
             <h1 class="anchor" id="gs-onboard-proj-team">Onboard projects and teams</h1>
             <p>In this tutorial, you will learn how to onboard a new or existing project on CNO UI or CLI. We will walk through how to manage quota and members in a project. <br>
               We will show you how to create a new environment on a project.</p>
             
+              <!-- Before to begin -->
             <h2 class="anchor" id="gs-before-begin">Before to begin</h2>
             <p>Sometimes you need the project owner to fill in a number of tags to identify the project. For this, the super admin must define the mandatory tags that the owners must fill in. The super admin can also provide quota templates that owners can choose when creating a project.</p>
             <ul class="article-list">
@@ -113,12 +115,14 @@
               </li>
             </ul>
             
+            <!-- Onboard a new project -->
             <h2 class="anchor" id="gs-new-proj">Onboard a new project</h2>
             <p>For this tutorial, we will work with a project named my-first-project. You create project with command:</p>
             @@include('./html-templates/documentation/_token.html',{
               comand:'cnoctl create project my-first-project --quota Large --tags Department=IT,PodNumber=5,Monitoring=false,Language=Go'
             })
             
+            <!-- Add a environment on project -->
             <h2 class="anchor" id="gs-add-envireonment">Add a environment on project</h2>
             <p>If you have resources in a project my-first-project, you can create an environment. You have two ways to onboard an environment on CNO. </p>
             <ul>
@@ -200,6 +204,7 @@
               </table>
             </div>
 
+            <!-- Extend project resources -->
             <h2 class="anchor" id="gs-extend-res">Extend project resources</h2>
             <p>We can extend project resources by creating a new quotaRequest. You can view pending quotaRequest on a project with this command:</p>
             @@include('./html-templates/documentation/_token.html',{
@@ -213,12 +218,14 @@
               comand:'cnoctl get quota-request --project my-first-project'
             })
 
+            <!-- Validation new quota request to extend resources on project -->
             <h2 class="anchor" id="gs-validation-quota">Validation new quota request to extend resources on project</h2>
             <p>RequestQuota must be validated by the organization's validators if you are not super_admin or owner+ on the organization. Super_admin or organization’s validator can accept or reject a quotaRequest with the following command.</p>
             @@include('./html-templates/documentation/_token.html',{
               comand:'cnoctl accept|reject request-quota &#60;quota-request-id&#62; --project projectName'
             })
 
+            <!-- Add project members -->
             <h2 class="anchor" id="gs-add-members">Add project members</h2>
             <p>You can onboard a team on a project. <br>
               Use the following command to add a <b>alice</b> as a developer and bob as admin on the my-first-project </p>
@@ -236,6 +243,7 @@
           </article>
         </div>
 
+        <!-- table of contents(anchors) -->
         <div class="toc-container">
           <nav class="toc">
             <ul class="toc__list">

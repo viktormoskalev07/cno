@@ -46,13 +46,16 @@
               </ul>
             </nav>
             
+            <!-- Adding Cloud Providers -->
             <h1 class="anchor" id="gs-adding-cloud">Adding Cloud Providers:</h1>
             <p>Several cloud providers are supported by CNO. We use cloud providers in CNO to get Kubernetes clusters that we want to manage through CNO. Available cloud providers in CNO are AWS, Azure and Google Cloud. <br>
               Since they are different, each of them will have its own configuration.</p>
 
+              <!-- CREATION SYNTAX -->
             <h4 class="anchor" id="gs-creation-syntax">CREATION SYNTAX</h4>
             <p>Create a tag by giving elements of configuration</p>
             
+            <!-- - AWS -->
             <h5 class="anchor" id="gs-aws"><i> - AWS</i></h5>
             @@include('./html-templates/documentation/_token.html',{
               comand:'cnoctl adm create provider-eks [name] [--flags]'
@@ -68,7 +71,8 @@
               <li><code>secret-key</code>: Secret key for Aws cloud provider | <b>[REQUIRED]</b></li>
               <li><code>session-token</code>: Session Token for Aws cloud provider | <b>[REQUIRED]</b></li>
             </ul>
-
+            
+            <!-- - AZURE -->
             <h5 class="anchor" id="gs-azure"><i> - AZURE</i></h5>
             @@include('./html-templates/documentation/_token.html',{
               comand:'cnoctl adm create provider-aks [name] [--flags]'
@@ -85,6 +89,7 @@
               <li><code>tenant-id</code>: The tenant id of the aks provider | <b>[REQUIRED]</b></li>
             </ul>
 
+            <!-- GCP -->
             <h5 class="anchor" id="gs-gcp"><i> - GCP</i></h5>
             @@include('./html-templates/documentation/_token.html',{
               comand:'cnoctl adm create provider-gke [name] [--flags]'
@@ -98,6 +103,7 @@
               <li><code>Json-file</code>: The json file that contains the configuration of the gke provider | <b>[REQUIRED]</b></li>
             </ul>
 
+            <!-- GET SYNTAX -->
             <h4 class="anchor" id="gs-get-syntax">GET SYNTAX</h4>
             <p>List informations about all cloud provider</p>
             @@include('./html-templates/documentation/_token.html',{
@@ -111,6 +117,7 @@
           </article>
         </div>
 
+        <!-- table of contents(anchors) -->
         <div class="toc-container">
           <nav class="toc">
             <ul class="toc__list">

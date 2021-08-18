@@ -92,6 +92,7 @@
     Contents
   </button>
 
+  <!-- sidebar -->
   <nav class="sidebar">
     <div class="sidebar__wrap">
       <button class="sidebar__close">
@@ -142,7 +143,7 @@
             <li class="sidebar__list-item"><a href="gs-multi-cloud(tutorials).html">Multi Cloud Management with CNO Hub</a></li>
             <li class="sidebar__list-item"><a href="gs-iam-setup(tutorials).html">IAM Set Up</a></li>
             <li class="sidebar__list-item"><a href="gs-onboard-projects(tutorials).html">Onboard projects and teams</a></li>
-            <li class="sidebar__list-item"><a href="#">Continuous Deployment</a></li>
+            <li class="sidebar__list-item"><a href="gs-contin-deploy(tutorials).html">Continuous Deployment</a></li>
           </ul>
         </li>
       </ul>
@@ -158,54 +159,57 @@
                 <li>
                   <a href="gs-documentation.html">Documentation</a>
                   <svg width="10px" height="10px" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	viewBox="0 0 256 256" style="enable-background:new 0 0 256 256;" xml:space="preserve">
+						viewBox="0 0 256 256" style="enable-background:new 0 0 256 256;" xml:space="preserve">
 
-	<g>
-		<polygon points="79.093,0 48.907,30.187 146.72,128 48.907,225.813 79.093,256 207.093,128 		" />
-	</g>
-</svg>
+						<g>
+							<polygon points="79.093,0 48.907,30.187 146.72,128 48.907,225.813 79.093,256 207.093,128 		" />
+						</g>
+					</svg>
                 </li>
                 <li>
                   <a href="gs-configuration.html">Configuration</a>
                   <svg width="10px" height="10px" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	viewBox="0 0 256 256" style="enable-background:new 0 0 256 256;" xml:space="preserve">
+						viewBox="0 0 256 256" style="enable-background:new 0 0 256 256;" xml:space="preserve">
 
-	<g>
-		<polygon points="79.093,0 48.907,30.187 146.72,128 48.907,225.813 79.093,256 207.093,128 		" />
-	</g>
-</svg>
+						<g>
+							<polygon points="79.093,0 48.907,30.187 146.72,128 48.907,225.813 79.093,256 207.093,128 		" />
+						</g>
+					</svg>
                 </li>
                 <li>
                   <a href="#">Adding Cloud Providers</a>
                   <svg width="10px" height="10px" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	viewBox="0 0 256 256" style="enable-background:new 0 0 256 256;" xml:space="preserve">
+						viewBox="0 0 256 256" style="enable-background:new 0 0 256 256;" xml:space="preserve">
 
-	<g>
-		<polygon points="79.093,0 48.907,30.187 146.72,128 48.907,225.813 79.093,256 207.093,128 		" />
-	</g>
-</svg>
+						<g>
+							<polygon points="79.093,0 48.907,30.187 146.72,128 48.907,225.813 79.093,256 207.093,128 		" />
+						</g>
+					</svg>
                 </li>
               </ul>
             </nav>
             
+            <!-- Adding Cloud Providers -->
             <h1 class="anchor" id="gs-adding-cloud">Adding Cloud Providers:</h1>
             <p>Several cloud providers are supported by CNO. We use cloud providers in CNO to get Kubernetes clusters that we want to manage through CNO. Available cloud providers in CNO are AWS, Azure and Google Cloud. <br>
               Since they are different, each of them will have its own configuration.</p>
 
+              <!-- CREATION SYNTAX -->
             <h4 class="anchor" id="gs-creation-syntax">CREATION SYNTAX</h4>
             <p>Create a tag by giving elements of configuration</p>
             
+            <!-- - AWS -->
             <h5 class="anchor" id="gs-aws"><i> - AWS</i></h5>
-            <div class="token">
-  <pre class="token__wrap">
-    <code class="token__comand">cnoctl adm create provider-eks [name] [--flags]</code>
-  </pre>
+                        <div class="token">
+              <pre class="token__wrap">
+                <code class="token__comand">cnoctl adm create provider-eks [name] [--flags]</code>
+              </pre>
 
-  <button class="token__copy">
-    <img src="images/icons/copy.svg">
-    <span class="token__tooltip">Copy to clipboard</span>
-  </button>
-</div>
+              <button class="token__copy">
+                <img src="images/icons/copy.svg">
+                <span class="token__tooltip">Copy to clipboard</span>
+              </button>
+            </div>
             <span>The supported arguments are:</span>
             <ul>
               <li><code>name</code>: The name of the cloud provider you want to create | <b>[REQUIRED]</b></li>
@@ -217,18 +221,19 @@
               <li><code>secret-key</code>: Secret key for Aws cloud provider | <b>[REQUIRED]</b></li>
               <li><code>session-token</code>: Session Token for Aws cloud provider | <b>[REQUIRED]</b></li>
             </ul>
-
+            
+            <!-- - AZURE -->
             <h5 class="anchor" id="gs-azure"><i> - AZURE</i></h5>
-            <div class="token">
-  <pre class="token__wrap">
-    <code class="token__comand">cnoctl adm create provider-aks [name] [--flags]</code>
-  </pre>
+                        <div class="token">
+              <pre class="token__wrap">
+                <code class="token__comand">cnoctl adm create provider-aks [name] [--flags]</code>
+              </pre>
 
-  <button class="token__copy">
-    <img src="images/icons/copy.svg">
-    <span class="token__tooltip">Copy to clipboard</span>
-  </button>
-</div>
+              <button class="token__copy">
+                <img src="images/icons/copy.svg">
+                <span class="token__tooltip">Copy to clipboard</span>
+              </button>
+            </div>
             <span>The supported arguments are:</span>
             <ul>
               <li><code>name</code>: The name of the cloud provider you want to create | <b>[REQUIRED]</b></li>
@@ -241,17 +246,18 @@
               <li><code>tenant-id</code>: The tenant id of the aks provider | <b>[REQUIRED]</b></li>
             </ul>
 
+            <!-- GCP -->
             <h5 class="anchor" id="gs-gcp"><i> - GCP</i></h5>
-            <div class="token">
-  <pre class="token__wrap">
-    <code class="token__comand">cnoctl adm create provider-gke [name] [--flags]</code>
-  </pre>
+                        <div class="token">
+              <pre class="token__wrap">
+                <code class="token__comand">cnoctl adm create provider-gke [name] [--flags]</code>
+              </pre>
 
-  <button class="token__copy">
-    <img src="images/icons/copy.svg">
-    <span class="token__tooltip">Copy to clipboard</span>
-  </button>
-</div>
+              <button class="token__copy">
+                <img src="images/icons/copy.svg">
+                <span class="token__tooltip">Copy to clipboard</span>
+              </button>
+            </div>
             <span>The supported arguments are:</span>
             <ul>
               <li><code>name</code>: The name of the cloud provider you want to create | <b>[REQUIRED]</b></li>
@@ -261,18 +267,19 @@
               <li><code>Json-file</code>: The json file that contains the configuration of the gke provider | <b>[REQUIRED]</b></li>
             </ul>
 
+            <!-- GET SYNTAX -->
             <h4 class="anchor" id="gs-get-syntax">GET SYNTAX</h4>
             <p>List informations about all cloud provider</p>
-            <div class="token">
-  <pre class="token__wrap">
-    <code class="token__comand">cnoctl adm get provider  [name]</code>
-  </pre>
+                        <div class="token">
+              <pre class="token__wrap">
+                <code class="token__comand">cnoctl adm get provider  [name]</code>
+              </pre>
 
-  <button class="token__copy">
-    <img src="images/icons/copy.svg">
-    <span class="token__tooltip">Copy to clipboard</span>
-  </button>
-</div>
+              <button class="token__copy">
+                <img src="images/icons/copy.svg">
+                <span class="token__tooltip">Copy to clipboard</span>
+              </button>
+            </div>
             <span>The supported arguments are:</span>
             <ul>
               <li><code>name</code>: The name of the cloud provider from which we want to retrieve information. To specify if you want to get information about a specific provider | <b>[OPTIONAL]</b></li>
@@ -281,6 +288,7 @@
           </article>
         </div>
 
+        <!-- table of contents(anchors) -->
         <div class="toc-container">
           <nav class="toc">
             <ul class="toc__list">

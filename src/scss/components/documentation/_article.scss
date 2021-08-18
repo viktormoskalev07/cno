@@ -34,6 +34,7 @@ h2, h3, h4, h5 {
   @include xl {
     padding-top: 150px;
     margin-top: -150px;
+    z-index: -1;
   }
 }
 
@@ -70,15 +71,6 @@ h2, h3, h4, h5 {
   &__table-nowrap {
     thead {
       white-space: nowrap;
-    }
-    tbody {
-      td {
-        text-align: right;
-
-        &:first-of-type {
-          text-align: left;
-        }
-      }
     }
 
     &--sm {

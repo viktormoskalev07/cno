@@ -92,6 +92,7 @@
     Contents
   </button>
 
+  <!-- sidebar -->
   <nav class="sidebar">
     <div class="sidebar__wrap">
       <button class="sidebar__close">
@@ -142,7 +143,7 @@
             <li class="sidebar__list-item"><a href="gs-multi-cloud(tutorials).html">Multi Cloud Management with CNO Hub</a></li>
             <li class="sidebar__list-item"><a href="gs-iam-setup(tutorials).html">IAM Set Up</a></li>
             <li class="sidebar__list-item"><a href="gs-onboard-projects(tutorials).html">Onboard projects and teams</a></li>
-            <li class="sidebar__list-item"><a href="#">Continuous Deployment</a></li>
+            <li class="sidebar__list-item"><a href="gs-contin-deploy(tutorials).html">Continuous Deployment</a></li>
           </ul>
         </li>
       </ul>
@@ -158,127 +159,134 @@
                 <li>
                   <a href="gs-documentation.html">Documentation</a>
                   <svg width="10px" height="10px" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	viewBox="0 0 256 256" style="enable-background:new 0 0 256 256;" xml:space="preserve">
+						viewBox="0 0 256 256" style="enable-background:new 0 0 256 256;" xml:space="preserve">
 
-	<g>
-		<polygon points="79.093,0 48.907,30.187 146.72,128 48.907,225.813 79.093,256 207.093,128 		" />
-	</g>
-</svg>
+						<g>
+							<polygon points="79.093,0 48.907,30.187 146.72,128 48.907,225.813 79.093,256 207.093,128 		" />
+						</g>
+					</svg>
                 </li>
                 <li>
                   <a href="">Installation</a>
                   <svg width="10px" height="10px" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	viewBox="0 0 256 256" style="enable-background:new 0 0 256 256;" xml:space="preserve">
+						viewBox="0 0 256 256" style="enable-background:new 0 0 256 256;" xml:space="preserve">
 
-	<g>
-		<polygon points="79.093,0 48.907,30.187 146.72,128 48.907,225.813 79.093,256 207.093,128 		" />
-	</g>
-</svg>
+						<g>
+							<polygon points="79.093,0 48.907,30.187 146.72,128 48.907,225.813 79.093,256 207.093,128 		" />
+						</g>
+					</svg>
                 </li>
               </ul>
             </nav>
             
+            <!-- Installation -->
             <h1 class="anchor" id="gs-installation">Installation</h1>
 
+            <!-- Install CNOCTL -->
             <h2 class="anchor" id="gs-install-cnoctl">Install CNOCTL</h2>
             <p>The CLI can be installed with a curl script, brew or by downloading the binary from the releases page. Once installed you'll get the cnoctl command.</p>
 
+            <!-- Install with curl -->
             <h3 class="anchor" id="gs-install-curl">Install with curl:</h3>
-            <div class="token">
-  <pre class="token__wrap">
-    <code class="token__comand">$ curl -sSL https://raw.githubusercontent.com/beopencloud/cno/main/scripts/cnoctl.sh | sh</code>
-  </pre>
+                        <div class="token">
+              <pre class="token__wrap">
+                <code class="token__comand">$ curl -sSL https://raw.githubusercontent.com/beopencloud/cno/main/scripts/cnoctl.sh | sh</code>
+              </pre>
 
-  <button class="token__copy">
-    <img src="images/icons/copy.svg">
-    <span class="token__tooltip">Copy to clipboard</span>
-  </button>
-</div>
+              <button class="token__copy">
+                <img src="images/icons/copy.svg">
+                <span class="token__tooltip">Copy to clipboard</span>
+              </button>
+            </div>
 
+            <!-- Install with brew on MacOs -->
             <h3 class="anchor" id="gs-install-brew-mac">Install with brew on MacOs:</h3>
-            <div class="token">
-  <pre class="token__wrap">
-    <code class="token__comand">$ brew tap beopencloud/cno</code>
-  </pre>
+                        <div class="token">
+              <pre class="token__wrap">
+                <code class="token__comand">$ brew tap beopencloud/cno</code>
+              </pre>
 
-  <button class="token__copy">
-    <img src="images/icons/copy.svg">
-    <span class="token__tooltip">Copy to clipboard</span>
-  </button>
-</div>
-            <div class="token">
-  <pre class="token__wrap">
-    <code class="token__comand">$ brew install cnoctl</code>
-  </pre>
+              <button class="token__copy">
+                <img src="images/icons/copy.svg">
+                <span class="token__tooltip">Copy to clipboard</span>
+              </button>
+            </div>
+                        <div class="token">
+              <pre class="token__wrap">
+                <code class="token__comand">$ brew install cnoctl</code>
+              </pre>
 
-  <button class="token__copy">
-    <img src="images/icons/copy.svg">
-    <span class="token__tooltip">Copy to clipboard</span>
-  </button>
-</div>
+              <button class="token__copy">
+                <img src="images/icons/copy.svg">
+                <span class="token__tooltip">Copy to clipboard</span>
+              </button>
+            </div>
 
+            <!-- Install from release -->
             <h3 class="anchor" id="gs-install-release">Install from release:</h3>
             <p>In the cnoctl release page (<a target="_blank" class="linked" href="https://github.com/beopencloud/cno/releases">https://github.com/beopencloud/cno/releases</a>) download, unarchive the version needed and move the binary to your system PATH.</p>
             <p>Example for version v0.0.1 on MacOs:</p>
-            <div class="token">
-  <pre class="token__wrap">
-    <code class="token__comand">$ wget https://github.com/beopencloud/cno/releases/download/v0.0.1/cnoctl_0.0.1_Darwin_x86_64.tar.gz</code>
-  </pre>
+                        <div class="token">
+              <pre class="token__wrap">
+                <code class="token__comand">$ wget https://github.com/beopencloud/cno/releases/download/v0.0.1/cnoctl_0.0.1_Darwin_x86_64.tar.gz</code>
+              </pre>
 
-  <button class="token__copy">
-    <img src="images/icons/copy.svg">
-    <span class="token__tooltip">Copy to clipboard</span>
-  </button>
-</div>
-            <div class="token">
-  <pre class="token__wrap">
-    <code class="token__comand">$ tar -xzf cnoctl_0.0.1_Darwin_x86_64.tar.gz</code>
-  </pre>
+              <button class="token__copy">
+                <img src="images/icons/copy.svg">
+                <span class="token__tooltip">Copy to clipboard</span>
+              </button>
+            </div>
+                        <div class="token">
+              <pre class="token__wrap">
+                <code class="token__comand">$ tar -xzf cnoctl_0.0.1_Darwin_x86_64.tar.gz</code>
+              </pre>
 
-  <button class="token__copy">
-    <img src="images/icons/copy.svg">
-    <span class="token__tooltip">Copy to clipboard</span>
-  </button>
-</div>
-            <div class="token">
-  <pre class="token__wrap">
-    <code class="token__comand">$ mv cnoctl /usr/local/bin/</code>
-  </pre>
+              <button class="token__copy">
+                <img src="images/icons/copy.svg">
+                <span class="token__tooltip">Copy to clipboard</span>
+              </button>
+            </div>
+                        <div class="token">
+              <pre class="token__wrap">
+                <code class="token__comand">$ mv cnoctl /usr/local/bin/</code>
+              </pre>
 
-  <button class="token__copy">
-    <img src="images/icons/copy.svg">
-    <span class="token__tooltip">Copy to clipboard</span>
-  </button>
-</div>
+              <button class="token__copy">
+                <img src="images/icons/copy.svg">
+                <span class="token__tooltip">Copy to clipboard</span>
+              </button>
+            </div>
 
+            <!-- Verify cnoctl installation -->
             <h3 class="anchor" id="gs-verify-cnoctl">Verify cnoctl installation</h3>
             <p>Check that cnoctl is properly installed by getting the command help:</p>
             <p>Example for version v0.0.1 on MacOs:</p>
-            <div class="token">
-  <pre class="token__wrap">
-    <code class="token__comand">$ cnoctl --help</code>
-  </pre>
+                        <div class="token">
+              <pre class="token__wrap">
+                <code class="token__comand">$ cnoctl --help</code>
+              </pre>
 
-  <button class="token__copy">
-    <img src="images/icons/copy.svg">
-    <span class="token__tooltip">Copy to clipboard</span>
-  </button>
-</div>
+              <button class="token__copy">
+                <img src="images/icons/copy.svg">
+                <span class="token__tooltip">Copy to clipboard</span>
+              </button>
+            </div>
 
+            <!-- Quick Installation CNO with CNOCTL -->
             <h2 class="anchor" id="gs-quick-install">Quick Installation CNO with CNOCTL</h2>
             <p>To install CNO  you need Kubernetes v1.16 or higher. <br>
               Once cnoctl is installed, to install CNO run the following command: 
             </p>
-            <div class="token">
-  <pre class="token__wrap">
-    <code class="token__comand">$ cnoctl init --type aks --domain cno-dev.beopenit.com --ingress-type nginx</code>
-  </pre>
+                        <div class="token">
+              <pre class="token__wrap">
+                <code class="token__comand">$ cnoctl init --type aks --domain cno-dev.beopenit.com --ingress-type nginx</code>
+              </pre>
 
-  <button class="token__copy">
-    <img src="images/icons/copy.svg">
-    <span class="token__tooltip">Copy to clipboard</span>
-  </button>
-</div>
+              <button class="token__copy">
+                <img src="images/icons/copy.svg">
+                <span class="token__tooltip">Copy to clipboard</span>
+              </button>
+            </div>
             <span>The supported flags are:</span>
             <ul>
               <li><code>--domain</code>: The wirldcard domain configured in the cluster</li>
@@ -292,6 +300,7 @@
           </article>
         </div>
 
+        <!-- table of contents(anchors) -->
         <div class="toc-container">
           <nav class="toc">
             <ul class="toc__list">

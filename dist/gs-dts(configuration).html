@@ -92,6 +92,7 @@
     Contents
   </button>
 
+  <!-- sidebar -->
   <nav class="sidebar">
     <div class="sidebar__wrap">
       <button class="sidebar__close">
@@ -142,7 +143,7 @@
             <li class="sidebar__list-item"><a href="gs-multi-cloud(tutorials).html">Multi Cloud Management with CNO Hub</a></li>
             <li class="sidebar__list-item"><a href="gs-iam-setup(tutorials).html">IAM Set Up</a></li>
             <li class="sidebar__list-item"><a href="gs-onboard-projects(tutorials).html">Onboard projects and teams</a></li>
-            <li class="sidebar__list-item"><a href="#">Continuous Deployment</a></li>
+            <li class="sidebar__list-item"><a href="gs-contin-deploy(tutorials).html">Continuous Deployment</a></li>
           </ul>
         </li>
       </ul>
@@ -158,51 +159,53 @@
                 <li>
                   <a href="gs-documentation.html">Documentation</a>
                   <svg width="10px" height="10px" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	viewBox="0 0 256 256" style="enable-background:new 0 0 256 256;" xml:space="preserve">
+						viewBox="0 0 256 256" style="enable-background:new 0 0 256 256;" xml:space="preserve">
 
-	<g>
-		<polygon points="79.093,0 48.907,30.187 146.72,128 48.907,225.813 79.093,256 207.093,128 		" />
-	</g>
-</svg>
+						<g>
+							<polygon points="79.093,0 48.907,30.187 146.72,128 48.907,225.813 79.093,256 207.093,128 		" />
+						</g>
+					</svg>
                 </li>
                 <li>
                   <a href="gs-configuration.html">Configuration</a>
                   <svg width="10px" height="10px" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	viewBox="0 0 256 256" style="enable-background:new 0 0 256 256;" xml:space="preserve">
+						viewBox="0 0 256 256" style="enable-background:new 0 0 256 256;" xml:space="preserve">
 
-	<g>
-		<polygon points="79.093,0 48.907,30.187 146.72,128 48.907,225.813 79.093,256 207.093,128 		" />
-	</g>
-</svg>
+						<g>
+							<polygon points="79.093,0 48.907,30.187 146.72,128 48.907,225.813 79.093,256 207.093,128 		" />
+						</g>
+					</svg>
                 </li>
                 <li>
                   <a href="">Defining Tagging Strategy</a>
                   <svg width="10px" height="10px" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	viewBox="0 0 256 256" style="enable-background:new 0 0 256 256;" xml:space="preserve">
+						viewBox="0 0 256 256" style="enable-background:new 0 0 256 256;" xml:space="preserve">
 
-	<g>
-		<polygon points="79.093,0 48.907,30.187 146.72,128 48.907,225.813 79.093,256 207.093,128 		" />
-	</g>
-</svg>
+						<g>
+							<polygon points="79.093,0 48.907,30.187 146.72,128 48.907,225.813 79.093,256 207.093,128 		" />
+						</g>
+					</svg>
                 </li>
               </ul>
             </nav>
             
+            <!-- Defining Tagging Strategy -->
             <h1 class="anchor" id="gs-defining-strategy">Defining Tagging Strategy</h1>
             <p>Tags are elements made up of pairs (key and values) whose main purpose is to allow the identification of resources or clusters. They are defined by the user and must be relevant and specific in order to facilitate the identification of the resources to which they will be assigned.</p>
 
+            <!-- CREATION SYNTAX -->
             <h4 class="anchor" id="gs-def-creation-syntax">CREATION SYNTAX</h4>
             <p>Create a tag by giving elements of configuration</p>
-            <div class="token">
-  <pre class="token__wrap">
-    <code class="token__comand">cnoctl adm create tag [name] [--flags]</code>
-  </pre>
+                        <div class="token">
+              <pre class="token__wrap">
+                <code class="token__comand">cnoctl adm create tag [name] [--flags]</code>
+              </pre>
 
-  <button class="token__copy">
-    <img src="images/icons/copy.svg">
-    <span class="token__tooltip">Copy to clipboard</span>
-  </button>
-</div>
+              <button class="token__copy">
+                <img src="images/icons/copy.svg">
+                <span class="token__tooltip">Copy to clipboard</span>
+              </button>
+            </div>
             <span>The supported arguments are:</span>
             <ul>
               <li><code>name</code>: The name of the tag you want to create | <b>[REQUIRED]</b></li>
@@ -219,18 +222,19 @@
               <li><code>required</code> : use it if our tag is required | <b>[OPTIONAL]</b></li>
             </ul>
 
+            <!-- GET SYNTAX -->
             <h4 class="anchor" id="gs-def-get-syntax">GET SYNTAX</h4>
             <p>List informations about all tag</p>
-            <div class="token">
-  <pre class="token__wrap">
-    <code class="token__comand">cnoctl adm get tag [tag_id]</code>
-  </pre>
+                        <div class="token">
+              <pre class="token__wrap">
+                <code class="token__comand">cnoctl adm get tag [tag_id]</code>
+              </pre>
 
-  <button class="token__copy">
-    <img src="images/icons/copy.svg">
-    <span class="token__tooltip">Copy to clipboard</span>
-  </button>
-</div>
+              <button class="token__copy">
+                <img src="images/icons/copy.svg">
+                <span class="token__tooltip">Copy to clipboard</span>
+              </button>
+            </div>
             <span>The supported arguments are:</span>
             <ul>
               <li><code>tag_id</code>: The id of the tag from which we want to retrieve information. To specify if you want to get information about a specific tag | <b>[OPTIONAL]</b></li>
@@ -239,6 +243,7 @@
           </article>
         </div>
 
+        <!-- table of contents(anchors) -->
         <div class="toc-container">
           <nav class="toc">
             <ul class="toc__list">
