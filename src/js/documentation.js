@@ -69,7 +69,8 @@
           window.getSelection().removeAllRanges();
           window.getSelection().addRange(range);
           document.execCommand("copy");
-          window.getSelection().removeAllRanges();
+          // modern clibboard command(not worked on mobile, need to check if device === ios...)
+          // window.navigator.clipboard.writeText(token.querySelector(".token__comand").innerText)
 
           // change tooltip text
           token.querySelector('.token__tooltip').innerText = 'Copied';
