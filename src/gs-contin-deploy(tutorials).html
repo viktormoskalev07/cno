@@ -392,7 +392,7 @@
             <h2 class="anchor" id="gs-blue-green">Blue/Green</h2>
             <p>It is also possible to do Blue/Green deployment with CNO CD. You can deploy a new version on your production environment without exposing it to the general public. So the staging version would be production ready and you can choose the ideal moment to easily switch the flow to the new version or cancel if you have not trust.
               <br> Run this command to use the blue/green strategy.</p>
-            @@('./html-templates/documentation/_token.html',{
+            @@include('./html-templates/documentation/_token.html',{
               comand:'cnoctl deploy workload version-printer --strategy blue/green'
             })
             <p>There will be two versions of the application running. One containing the live version and the other, the staging version.</p>
