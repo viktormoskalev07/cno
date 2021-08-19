@@ -110,40 +110,40 @@
       </button>
 
       <ul class="sidebar__list">
-        <li class="sidebar__list-item sidebar__list-item--group">
-          <a class="accented" href="gs-cno-concept.html">Concept</a>
+        <li class="sidebar__list-item sidebar__list-item--group" aria-label="Concept">
+          <a class="accented" href="gs-cno-concept.html" title="Read about concept CNO">Concept</a>
           <ul class="sidebar__list sidebar__list--inner">
-            <li class="sidebar__list-item"><a href="gs-cno-onboarding(concept).html">CNO - Onboarding</a></li>
-            <li class="sidebar__list-item"><a href="gs-cno-cd(concept).html">CNO - CD</a></li>
-            <li class="sidebar__list-item"><a href="gs-cno-hub(concept).html">CNO - HUB</a></li>
-            <li class="sidebar__list-item"><a href="gs-cno-secure(concept).html">CNO - Secure</a></li>
+            <li class="sidebar__list-item" aria-label="CNO - Onboarding"><a href="gs-cno-onboarding(concept).html">CNO - Onboarding</a></li>
+            <li class="sidebar__list-item" aria-label="CNO - CD"><a href="gs-cno-cd(concept).html">CNO - CD</a></li>
+            <li class="sidebar__list-item" aria-label="CNO - HUB"><a href="gs-cno-hub(concept).html">CNO - HUB</a></li>
+            <li class="sidebar__list-item" aria-label="CNO - Secure"><a href="gs-cno-secure(concept).html">CNO - Secure</a></li>
           </ul>
         </li>
-        <li class="sidebar__list-item sidebar__list-item--group">
-          <a class="accented" href="gs-arch-system.html">Architecture and System Requirements</a>
+        <li class="sidebar__list-item sidebar__list-item--group" aria-label="Architecture and System Requirements">
+          <a class="accented" href="gs-arch-system.html" title="Architecture and System Requirements guide">Architecture and System Requirements</a>
           <ul class="sidebar__list sidebar__list--inner">
-            <li class="sidebar__list-item"><a href="gs-cno-components(arch-system).html">CNO components</a></li>
-            <li class="sidebar__list-item"><a href="gs-cno-requirement(arch-system).html">System requirements</a></li>
+            <li class="sidebar__list-item" aria-label="CNO components"><a href="gs-cno-components(arch-system).html">CNO components</a></li>
+            <li class="sidebar__list-item" aria-label="System requirements"><a href="gs-cno-requirement(arch-system).html">System requirements</a></li>
           </ul>
         </li>
-        <li class="sidebar__list-item sidebar__list-item--group"><a class="accented" href="gs-installation.html">Installation</a></li>
-        <li class="sidebar__list-item sidebar__list-item--group">
-          <a class="accented" href="gs-configuration.html">Configuration</a>
+        <li class="sidebar__list-item sidebar__list-item--group" aria-label="Installation"><a class="accented" href="gs-installation.html" title="Read Installation guide">Installation</a></li>
+        <li class="sidebar__list-item sidebar__list-item--group" aria-label="Configuration">
+          <a class="accented" href="gs-configuration.html" title="Read configuration guide">Configuration</a>
           <ul class="sidebar__list sidebar__list--inner">
-            <li class="sidebar__list-item"><a href="gs-dts(configuration).html">Defining Tagging Strategy</a></li>
-            <li class="sidebar__list-item"><a href="gs-quota(configuration).html">QUOTA Management for your Organization</a></li>
-            <li class="sidebar__list-item"><a href="gs-adding-cloud(configuration).html">Adding Cloud Providers</a></li>
-            <li class="sidebar__list-item"><a href="gs-ldap(configuration).html">LDAP Configuration</a></li>
-            <li class="sidebar__list-item"><a href="gs-messaging(configuration).html">Configure Messaging </a></li>
+            <li class="sidebar__list-item" aria-label="Defining Tagging Strategy"><a href="gs-dts(configuration).html">Defining Tagging Strategy</a></li>
+            <li class="sidebar__list-item" aria-label="QUOTA Management for your Organization"><a href="gs-quota(configuration).html">QUOTA Management for your Organization</a></li>
+            <li class="sidebar__list-item" aria-label="Adding Cloud Providers"><a href="gs-adding-cloud(configuration).html">Adding Cloud Providers</a></li>
+            <li class="sidebar__list-item" aria-label="LDAP Configuration"><a href="gs-ldap(configuration).html">LDAP Configuration</a></li>
+            <li class="sidebar__list-item" aria-label="Configure Messaging"><a href="gs-messaging(configuration).html">Configure Messaging </a></li>
           </ul>
         </li>
-        <li class="sidebar__list-item sidebar__list-item--group">
-          <a class="accented" href="gs-tutorials.html">Tutorials</a>
+        <li class="sidebar__list-item sidebar__list-item--group" aria-label="Tutorials">
+          <a class="accented" href="gs-tutorials.html" title="Read tutorials guide">Tutorials</a>
           <ul class="sidebar__list sidebar__list--inner">
-            <li class="sidebar__list-item"><a href="gs-multi-cloud(tutorials).html">Multi Cloud Management with CNO Hub</a></li>
-            <li class="sidebar__list-item"><a href="gs-iam-setup(tutorials).html">IAM Set Up</a></li>
-            <li class="sidebar__list-item"><a href="gs-onboard-projects(tutorials).html">Onboard projects and teams</a></li>
-            <li class="sidebar__list-item"><a href="gs-contin-deploy(tutorials).html">Continuous Deployment</a></li>
+            <li class="sidebar__list-item" aria-label="Multi Cloud Management with CNO Hub"><a href="gs-multi-cloud(tutorials).html">Multi Cloud Management with CNO Hub</a></li>
+            <li class="sidebar__list-item" aria-label="IAM Set Up"><a href="gs-iam-setup(tutorials).html">IAM Set Up</a></li>
+            <li class="sidebar__list-item" aria-label="Onboard projects and teams"><a href="gs-onboard-projects(tutorials).html">Onboard projects and teams</a></li>
+            <li class="sidebar__list-item" aria-label="Continuous Deployment"><a href="gs-contin-deploy(tutorials).html">Continuous Deployment</a></li>
           </ul>
         </li>
       </ul>
@@ -218,7 +218,7 @@
                 <code class="token__comand">cnoctl adm create user [--flag]</code>
               </pre>
 
-              <button class="token__copy">
+              <button class="token__copy" aria-label="Copy to clipboard">
                 <img src="images/icons/copy.svg">
                 <span class="token__tooltip">Copy to clipboard</span>
               </button>
@@ -236,7 +236,7 @@
                 <code class="token__comand">cnoctl adm create user --firstname james --lastname james --email james@gmail.com --username james --department devops</code>
               </pre>
 
-              <button class="token__copy">
+              <button class="token__copy" aria-label="Copy to clipboard">
                 <img src="images/icons/copy.svg">
                 <span class="token__tooltip">Copy to clipboard</span>
               </button>
@@ -250,7 +250,7 @@
                 <code class="token__comand">cnoctl adm set-role --usermane [username] --role [role]</code>
               </pre>
 
-              <button class="token__copy">
+              <button class="token__copy" aria-label="Copy to clipboard">
                 <img src="images/icons/copy.svg">
                 <span class="token__tooltip">Copy to clipboard</span>
               </button>
@@ -265,7 +265,7 @@
                 <code class="token__comand">cnoctl adm set-role --username james --role super-admin</code>
               </pre>
 
-              <button class="token__copy">
+              <button class="token__copy" aria-label="Copy to clipboard">
                 <img src="images/icons/copy.svg">
                 <span class="token__tooltip">Copy to clipboard</span>
               </button>
@@ -279,7 +279,7 @@
                 <code class="token__comand">cnoctl adm delete-role --username [username] --role [role]</code>
               </pre>
 
-              <button class="token__copy">
+              <button class="token__copy" aria-label="Copy to clipboard">
                 <img src="images/icons/copy.svg">
                 <span class="token__tooltip">Copy to clipboard</span>
               </button>
@@ -294,7 +294,7 @@
                 <code class="token__comand">conctl adm delete-role --username james --role super-admin</code>
               </pre>
 
-              <button class="token__copy">
+              <button class="token__copy" aria-label="Copy to clipboard">
                 <img src="images/icons/copy.svg">
                 <span class="token__tooltip">Copy to clipboard</span>
               </button>
@@ -309,7 +309,7 @@
                 <code class="token__comand">cnoctl adm get users [username]</code>
               </pre>
 
-              <button class="token__copy">
+              <button class="token__copy" aria-label="Copy to clipboard">
                 <img src="images/icons/copy.svg">
                 <span class="token__tooltip">Copy to clipboard</span>
               </button>
@@ -319,7 +319,7 @@
                 <code class="token__comand">cnoctl adm get users james</code>
               </pre>
 
-              <button class="token__copy">
+              <button class="token__copy" aria-label="Copy to clipboard">
                 <img src="images/icons/copy.svg">
                 <span class="token__tooltip">Copy to clipboard</span>
               </button>
@@ -330,7 +330,7 @@
                 <code class="token__comand">cnoctl adm get users</code>
               </pre>
 
-              <button class="token__copy">
+              <button class="token__copy" aria-label="Copy to clipboard">
                 <img src="images/icons/copy.svg">
                 <span class="token__tooltip">Copy to clipboard</span>
               </button>
@@ -345,7 +345,7 @@
                 <code class="token__comand">cnoctl adm update user [--flag]</code>
               </pre>
 
-              <button class="token__copy">
+              <button class="token__copy" aria-label="Copy to clipboard">
                 <img src="images/icons/copy.svg">
                 <span class="token__tooltip">Copy to clipboard</span>
               </button>
@@ -364,7 +364,7 @@
                 <code class="token__comand">cnoctl adm update user --firstname mody --username james</code>
               </pre>
 
-              <button class="token__copy">
+              <button class="token__copy" aria-label="Copy to clipboard">
                 <img src="images/icons/copy.svg">
                 <span class="token__tooltip">Copy to clipboard</span>
               </button>
@@ -378,7 +378,7 @@
                 <code class="token__comand">cnoctl adm delete user [username]</code>
               </pre>
 
-              <button class="token__copy">
+              <button class="token__copy" aria-label="Copy to clipboard">
                 <img src="images/icons/copy.svg">
                 <span class="token__tooltip">Copy to clipboard</span>
               </button>
@@ -391,7 +391,7 @@
                 <code class="token__comand">cnoctl adm delete user james</code>
               </pre>
 
-              <button class="token__copy">
+              <button class="token__copy" aria-label="Copy to clipboard">
                 <img src="images/icons/copy.svg">
                 <span class="token__tooltip">Copy to clipboard</span>
               </button>
@@ -406,18 +406,18 @@
         <div class="toc-container">
           <nav class="toc">
             <ul class="toc__list">
-              <li class="toc__item"><a class="active" href="#gs-iam-setup">IAM Set Up</a></li>
-              <li class="toc__item"><a class="active" href="#gs-objectifs">Objectifs</a></li>
-              <li class="toc__item"><a class="active" href="#gs-prerequisite">Prerequisite</a></li>
-              <li class="toc__item">
+              <li class="toc__item" aria-label="IAM Set Up"><a class="active" href="#gs-iam-setup">IAM Set Up</a></li>
+              <li class="toc__item" aria-label="Objectifs"><a class="active" href="#gs-objectifs">Objectifs</a></li>
+              <li class="toc__item" aria-label="Prerequisite"><a class="active" href="#gs-prerequisite">Prerequisite</a></li>
+              <li class="toc__item" aria-label="Use case">
                 <a href="#gs-use-case">Use case</a>
                 <ul class="toc__list toc__list--inner">
-                  <li class="toc__item"><a href="#gs-create-user">Create user</a></li>
-                  <li class="toc__item"><a href="#gs-assing-user">Assing admin-role  to user</a></li>
-                  <li class="toc__item"><a href="#gs-delete-user">Delete admin-role to user</a></li>
-                  <li class="toc__item"><a href="#gs-get-user">Get user</a></li>
-                  <li class="toc__item"><a href="#gs-update-user">Update user</a></li>
-                  <li class="toc__item"><a href="#gs-delete-in-org">Delete user in the organization</a></li>
+                  <li class="toc__item" aria-label="Create user"><a href="#gs-create-user">Create user</a></li>
+                  <li class="toc__item" aria-label="Assing admin-role  to user"><a href="#gs-assing-user">Assing admin-role  to user</a></li>
+                  <li class="toc__item" aria-label="Delete admin-role to user"><a href="#gs-delete-user">Delete admin-role to user</a></li>
+                  <li class="toc__item" aria-label="Get user"><a href="#gs-get-user">Get user</a></li>
+                  <li class="toc__item" aria-label="Update user"><a href="#gs-update-user">Update user</a></li>
+                  <li class="toc__item" aria-label="Delete user in the organization"><a href="#gs-delete-in-org">Delete user in the organization</a></li>
                 </ul>
               </li>
             </ul>

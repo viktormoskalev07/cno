@@ -2,7 +2,7 @@
   margin-bottom: 1rem;
   position: relative;
   border-left: 4px solid $blue;
-  background-color: #f8f9fa;
+  background-color: $light2;
 
   &__wrap {
     margin-bottom: 0;
@@ -18,7 +18,7 @@
 
   &__comand {
     text-align: left;
-    color: #d14;
+    color: $accentRed;
   }
 
   &__tooltip {

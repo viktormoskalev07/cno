@@ -110,40 +110,40 @@
       </button>
 
       <ul class="sidebar__list">
-        <li class="sidebar__list-item sidebar__list-item--group">
-          <a class="accented" href="gs-cno-concept.html">Concept</a>
+        <li class="sidebar__list-item sidebar__list-item--group" aria-label="Concept">
+          <a class="accented" href="gs-cno-concept.html" title="Read about concept CNO">Concept</a>
           <ul class="sidebar__list sidebar__list--inner">
-            <li class="sidebar__list-item"><a href="gs-cno-onboarding(concept).html">CNO - Onboarding</a></li>
-            <li class="sidebar__list-item"><a href="gs-cno-cd(concept).html">CNO - CD</a></li>
-            <li class="sidebar__list-item"><a href="gs-cno-hub(concept).html">CNO - HUB</a></li>
-            <li class="sidebar__list-item"><a href="gs-cno-secure(concept).html">CNO - Secure</a></li>
+            <li class="sidebar__list-item" aria-label="CNO - Onboarding"><a href="gs-cno-onboarding(concept).html">CNO - Onboarding</a></li>
+            <li class="sidebar__list-item" aria-label="CNO - CD"><a href="gs-cno-cd(concept).html">CNO - CD</a></li>
+            <li class="sidebar__list-item" aria-label="CNO - HUB"><a href="gs-cno-hub(concept).html">CNO - HUB</a></li>
+            <li class="sidebar__list-item" aria-label="CNO - Secure"><a href="gs-cno-secure(concept).html">CNO - Secure</a></li>
           </ul>
         </li>
-        <li class="sidebar__list-item sidebar__list-item--group">
-          <a class="accented" href="gs-arch-system.html">Architecture and System Requirements</a>
+        <li class="sidebar__list-item sidebar__list-item--group" aria-label="Architecture and System Requirements">
+          <a class="accented" href="gs-arch-system.html" title="Architecture and System Requirements guide">Architecture and System Requirements</a>
           <ul class="sidebar__list sidebar__list--inner">
-            <li class="sidebar__list-item"><a href="gs-cno-components(arch-system).html">CNO components</a></li>
-            <li class="sidebar__list-item"><a href="gs-cno-requirement(arch-system).html">System requirements</a></li>
+            <li class="sidebar__list-item" aria-label="CNO components"><a href="gs-cno-components(arch-system).html">CNO components</a></li>
+            <li class="sidebar__list-item" aria-label="System requirements"><a href="gs-cno-requirement(arch-system).html">System requirements</a></li>
           </ul>
         </li>
-        <li class="sidebar__list-item sidebar__list-item--group"><a class="accented" href="gs-installation.html">Installation</a></li>
-        <li class="sidebar__list-item sidebar__list-item--group">
-          <a class="accented" href="gs-configuration.html">Configuration</a>
+        <li class="sidebar__list-item sidebar__list-item--group" aria-label="Installation"><a class="accented" href="gs-installation.html" title="Read Installation guide">Installation</a></li>
+        <li class="sidebar__list-item sidebar__list-item--group" aria-label="Configuration">
+          <a class="accented" href="gs-configuration.html" title="Read configuration guide">Configuration</a>
           <ul class="sidebar__list sidebar__list--inner">
-            <li class="sidebar__list-item"><a href="gs-dts(configuration).html">Defining Tagging Strategy</a></li>
-            <li class="sidebar__list-item"><a href="gs-quota(configuration).html">QUOTA Management for your Organization</a></li>
-            <li class="sidebar__list-item"><a href="gs-adding-cloud(configuration).html">Adding Cloud Providers</a></li>
-            <li class="sidebar__list-item"><a href="gs-ldap(configuration).html">LDAP Configuration</a></li>
-            <li class="sidebar__list-item"><a href="gs-messaging(configuration).html">Configure Messaging </a></li>
+            <li class="sidebar__list-item" aria-label="Defining Tagging Strategy"><a href="gs-dts(configuration).html">Defining Tagging Strategy</a></li>
+            <li class="sidebar__list-item" aria-label="QUOTA Management for your Organization"><a href="gs-quota(configuration).html">QUOTA Management for your Organization</a></li>
+            <li class="sidebar__list-item" aria-label="Adding Cloud Providers"><a href="gs-adding-cloud(configuration).html">Adding Cloud Providers</a></li>
+            <li class="sidebar__list-item" aria-label="LDAP Configuration"><a href="gs-ldap(configuration).html">LDAP Configuration</a></li>
+            <li class="sidebar__list-item" aria-label="Configure Messaging"><a href="gs-messaging(configuration).html">Configure Messaging </a></li>
           </ul>
         </li>
-        <li class="sidebar__list-item sidebar__list-item--group">
-          <a class="accented" href="gs-tutorials.html">Tutorials</a>
+        <li class="sidebar__list-item sidebar__list-item--group" aria-label="Tutorials">
+          <a class="accented" href="gs-tutorials.html" title="Read tutorials guide">Tutorials</a>
           <ul class="sidebar__list sidebar__list--inner">
-            <li class="sidebar__list-item"><a href="gs-multi-cloud(tutorials).html">Multi Cloud Management with CNO Hub</a></li>
-            <li class="sidebar__list-item"><a href="gs-iam-setup(tutorials).html">IAM Set Up</a></li>
-            <li class="sidebar__list-item"><a href="gs-onboard-projects(tutorials).html">Onboard projects and teams</a></li>
-            <li class="sidebar__list-item"><a href="gs-contin-deploy(tutorials).html">Continuous Deployment</a></li>
+            <li class="sidebar__list-item" aria-label="Multi Cloud Management with CNO Hub"><a href="gs-multi-cloud(tutorials).html">Multi Cloud Management with CNO Hub</a></li>
+            <li class="sidebar__list-item" aria-label="IAM Set Up"><a href="gs-iam-setup(tutorials).html">IAM Set Up</a></li>
+            <li class="sidebar__list-item" aria-label="Onboard projects and teams"><a href="gs-onboard-projects(tutorials).html">Onboard projects and teams</a></li>
+            <li class="sidebar__list-item" aria-label="Continuous Deployment"><a href="gs-contin-deploy(tutorials).html">Continuous Deployment</a></li>
           </ul>
         </li>
       </ul>
@@ -210,7 +210,7 @@
                 <code class="token__comand">cnoctl create project lab --cpu 2,1 --memory 4Gi,2Gi --storage 0Gi</code>
               </pre>
 
-              <button class="token__copy">
+              <button class="token__copy" aria-label="Copy to clipboard">
                 <img src="images/icons/copy.svg">
                 <span class="token__tooltip">Copy to clipboard</span>
               </button>
@@ -226,7 +226,7 @@
                 <code class="token__comand">cnoctl create env cno-cd-lab --cpu 2,1 --memory 4Gi,2Gi --storage 0Gi --project lab --cluster default</code>
               </pre>
 
-              <button class="token__copy">
+              <button class="token__copy" aria-label="Copy to clipboard">
                 <img src="images/icons/copy.svg">
                 <span class="token__tooltip">Copy to clipboard</span>
               </button>
@@ -244,7 +244,7 @@
                 <code class="token__comand">git clone https://github.com/beopencloud/version-printer.git</code>
               </pre>
 
-              <button class="token__copy">
+              <button class="token__copy" aria-label="Copy to clipboard">
                 <img src="images/icons/copy.svg">
                 <span class="token__tooltip">Copy to clipboard</span>
               </button>
@@ -254,7 +254,7 @@
                 <code class="token__comand">cd version-printer</code>
               </pre>
 
-              <button class="token__copy">
+              <button class="token__copy" aria-label="Copy to clipboard">
                 <img src="images/icons/copy.svg">
                 <span class="token__tooltip">Copy to clipboard</span>
               </button>
@@ -268,7 +268,7 @@
                 <code class="token__comand">git checkout v1.0.0</code>
               </pre>
 
-              <button class="token__copy">
+              <button class="token__copy" aria-label="Copy to clipboard">
                 <img src="images/icons/copy.svg">
                 <span class="token__tooltip">Copy to clipboard</span>
               </button>
@@ -278,7 +278,7 @@
                 <code class="token__comand">docker build . -t &#60;your username&#62;/version-printer:v1.0.0</code>
               </pre>
 
-              <button class="token__copy">
+              <button class="token__copy" aria-label="Copy to clipboard">
                 <img src="images/icons/copy.svg">
                 <span class="token__tooltip">Copy to clipboard</span>
               </button>
@@ -288,7 +288,7 @@
                 <code class="token__comand">Docker push &#60;your username&#62;/version-printer:v1.0.0</code>
               </pre>
 
-              <button class="token__copy">
+              <button class="token__copy" aria-label="Copy to clipboard">
                 <img src="images/icons/copy.svg">
                 <span class="token__tooltip">Copy to clipboard</span>
               </button>
@@ -302,7 +302,7 @@
                 <code class="token__comand">git checkout v2.0.0</code>
               </pre>
 
-              <button class="token__copy">
+              <button class="token__copy" aria-label="Copy to clipboard">
                 <img src="images/icons/copy.svg">
                 <span class="token__tooltip">Copy to clipboard</span>
               </button>
@@ -312,7 +312,7 @@
                 <code class="token__comand">docker build . -t &#60;your username&#62;/version-printer:v2.0.0</code>
               </pre>
 
-              <button class="token__copy">
+              <button class="token__copy" aria-label="Copy to clipboard">
                 <img src="images/icons/copy.svg">
                 <span class="token__tooltip">Copy to clipboard</span>
               </button>
@@ -322,7 +322,7 @@
                 <code class="token__comand">Docker push &#60;your username&#62;/version-printer:v2.0.0</code>
               </pre>
 
-              <button class="token__copy">
+              <button class="token__copy" aria-label="Copy to clipboard">
                 <img src="images/icons/copy.svg">
                 <span class="token__tooltip">Copy to clipboard</span>
               </button>
@@ -338,7 +338,7 @@
                 <code class="token__comand">cnoctl use env -e cno-cd-lab --project lab</code>
               </pre>
 
-              <button class="token__copy">
+              <button class="token__copy" aria-label="Copy to clipboard">
                 <img src="images/icons/copy.svg">
                 <span class="token__tooltip">Copy to clipboard</span>
               </button>
@@ -353,7 +353,7 @@
                 <code class="token__comand">cnoctl create deploy version-printer --image &#60;your username&#62;/version-printer:v1.0.0</code>
               </pre>
 
-              <button class="token__copy">
+              <button class="token__copy" aria-label="Copy to clipboard">
                 <img src="images/icons/copy.svg">
                 <span class="token__tooltip">Copy to clipboard</span>
               </button>
@@ -363,7 +363,7 @@
                 <code class="token__comand">cnoctl create service version-printer clusterip --tcp 8080:8080</code>
               </pre>
 
-              <button class="token__copy">
+              <button class="token__copy" aria-label="Copy to clipboard">
                 <img src="images/icons/copy.svg">
                 <span class="token__tooltip">Copy to clipboard</span>
               </button>
@@ -380,7 +380,7 @@
                 <code class="token__comand">kubectl port-forward service/version-printer 8080:8080</code>
               </pre>
 
-              <button class="token__copy">
+              <button class="token__copy" aria-label="Copy to clipboard">
                 <img src="images/icons/copy.svg">
                 <span class="token__tooltip">Copy to clipboard</span>
               </button>
@@ -395,7 +395,7 @@
 " http://localhost:8080</code>
               </pre>
 
-              <button class="token__copy">
+              <button class="token__copy" aria-label="Copy to clipboard">
                 <img src="images/icons/copy.svg">
                 <span class="token__tooltip">Copy to clipboard</span>
               </button>
@@ -415,7 +415,7 @@
                 <code class="token__comand">cnoctl get workload --project lab --env cno-cd-lab</code>
               </pre>
 
-              <button class="token__copy">
+              <button class="token__copy" aria-label="Copy to clipboard">
                 <img src="images/icons/copy.svg">
                 <span class="token__tooltip">Copy to clipboard</span>
               </button>
@@ -454,7 +454,7 @@
                 <code class="token__comand">cnoctl deploy workload version-printer --replicas 2  --project lab --env cno-cd-lab</code>
               </pre>
 
-              <button class="token__copy">
+              <button class="token__copy" aria-label="Copy to clipboard">
                 <img src="images/icons/copy.svg">
                 <span class="token__tooltip">Copy to clipboard</span>
               </button>
@@ -465,7 +465,7 @@
                 <code class="token__comand">cnoctl get workload --project lab --env cno-cd-lab</code>
               </pre>
 
-              <button class="token__copy">
+              <button class="token__copy" aria-label="Copy to clipboard">
                 <img src="images/icons/copy.svg">
                 <span class="token__tooltip">Copy to clipboard</span>
               </button>
@@ -500,7 +500,7 @@
                 <code class="token__comand">cnoctl deploy workload version-printer --replicas 1  --project lab --env cno-cd-lab</code>
               </pre>
 
-              <button class="token__copy">
+              <button class="token__copy" aria-label="Copy to clipboard">
                 <img src="images/icons/copy.svg">
                 <span class="token__tooltip">Copy to clipboard</span>
               </button>
@@ -515,7 +515,7 @@
                 <code class="token__comand">cnoctl deploy workload version-printer --version v2.0.0</code>
               </pre>
 
-              <button class="token__copy">
+              <button class="token__copy" aria-label="Copy to clipboard">
                 <img src="images/icons/copy.svg">
                 <span class="token__tooltip">Copy to clipboard</span>
               </button>
@@ -526,7 +526,7 @@
                 <code class="token__comand">cnoctl get workload --project lab --env cno-cd-lab</code>
               </pre>
 
-              <button class="token__copy">
+              <button class="token__copy" aria-label="Copy to clipboard">
                 <img src="images/icons/copy.svg">
                 <span class="token__tooltip">Copy to clipboard</span>
               </button>
@@ -562,7 +562,7 @@
 " http://localhost:8080</code>
               </pre>
 
-              <button class="token__copy">
+              <button class="token__copy" aria-label="Copy to clipboard">
                 <img src="images/icons/copy.svg">
                 <span class="token__tooltip">Copy to clipboard</span>
               </button>
@@ -578,7 +578,7 @@
                 <code class="token__comand">cnoctl deploy workload version-printer --auto-deploy=true --project lab --env cno-cd-lab</code>
               </pre>
 
-              <button class="token__copy">
+              <button class="token__copy" aria-label="Copy to clipboard">
                 <img src="images/icons/copy.svg">
                 <span class="token__tooltip">Copy to clipboard</span>
               </button>
@@ -589,7 +589,7 @@
                 <code class="token__comand">cnoctl get workload --project lab --env cno-cd-lab</code>
               </pre>
 
-              <button class="token__copy">
+              <button class="token__copy" aria-label="Copy to clipboard">
                 <img src="images/icons/copy.svg">
                 <span class="token__tooltip">Copy to clipboard</span>
               </button>
@@ -626,7 +626,7 @@
                 <code class="token__comand">git checkout v3.0.0</code>
               </pre>
 
-              <button class="token__copy">
+              <button class="token__copy" aria-label="Copy to clipboard">
                 <img src="images/icons/copy.svg">
                 <span class="token__tooltip">Copy to clipboard</span>
               </button>
@@ -636,7 +636,7 @@
                 <code class="token__comand">docker build . -t &#60;your username&#62;/version-printer:v3.0.0</code>
               </pre>
 
-              <button class="token__copy">
+              <button class="token__copy" aria-label="Copy to clipboard">
                 <img src="images/icons/copy.svg">
                 <span class="token__tooltip">Copy to clipboard</span>
               </button>
@@ -646,7 +646,7 @@
                 <code class="token__comand">Docker push &#60;your username&#62;/version-printer:v3.0.0</code>
               </pre>
 
-              <button class="token__copy">
+              <button class="token__copy" aria-label="Copy to clipboard">
                 <img src="images/icons/copy.svg">
                 <span class="token__tooltip">Copy to clipboard</span>
               </button>
@@ -685,7 +685,7 @@
 " http://localhost:8080</code>
               </pre>
 
-              <button class="token__copy">
+              <button class="token__copy" aria-label="Copy to clipboard">
                 <img src="images/icons/copy.svg">
                 <span class="token__tooltip">Copy to clipboard</span>
               </button>
@@ -697,7 +697,7 @@
                 <code class="token__comand">cnoctl deploy workload version-printer --auto-deploy=true --project lab --env cno-cd-lab</code>
               </pre>
 
-              <button class="token__copy">
+              <button class="token__copy" aria-label="Copy to clipboard">
                 <img src="images/icons/copy.svg">
                 <span class="token__tooltip">Copy to clipboard</span>
               </button>
@@ -708,7 +708,7 @@
                 <code class="token__comand">cnoctl get workload --project lab --env cno-cd-lab</code>
               </pre>
 
-              <button class="token__copy">
+              <button class="token__copy" aria-label="Copy to clipboard">
                 <img src="images/icons/copy.svg">
                 <span class="token__tooltip">Copy to clipboard</span>
               </button>
@@ -745,7 +745,7 @@
                 <code class="token__comand">cnoctl deploy workload version-printer --version v2.0.0</code>
               </pre>
 
-              <button class="token__copy">
+              <button class="token__copy" aria-label="Copy to clipboard">
                 <img src="images/icons/copy.svg">
                 <span class="token__tooltip">Copy to clipboard</span>
               </button>
@@ -760,7 +760,7 @@
                 <code class="token__comand">cnoctl deploy workload version-printer --strategy blue/green</code>
               </pre>
 
-              <button class="token__copy">
+              <button class="token__copy" aria-label="Copy to clipboard">
                 <img src="images/icons/copy.svg">
                 <span class="token__tooltip">Copy to clipboard</span>
               </button>
@@ -771,7 +771,7 @@
                 <code class="token__comand">cnoctl deploy get deployment</code>
               </pre>
 
-              <button class="token__copy">
+              <button class="token__copy" aria-label="Copy to clipboard">
                 <img src="images/icons/copy.svg">
                 <span class="token__tooltip">Copy to clipboard</span>
               </button>
@@ -811,7 +811,7 @@
                 <code class="token__comand">cnoctl get workload version-printer -e cno-cd-lab -p lab</code>
               </pre>
 
-              <button class="token__copy">
+              <button class="token__copy" aria-label="Copy to clipboard">
                 <img src="images/icons/copy.svg">
                 <span class="token__tooltip">Copy to clipboard</span>
               </button>
@@ -848,7 +848,7 @@
                 <code class="token__comand">cnoctl deploy workload version-printer --version v3.0.0</code>
               </pre>
 
-              <button class="token__copy">
+              <button class="token__copy" aria-label="Copy to clipboard">
                 <img src="images/icons/copy.svg">
                 <span class="token__tooltip">Copy to clipboard</span>
               </button>
@@ -859,7 +859,7 @@
                 <code class="token__comand">cnoctl get workload -e cno-cd-lab -p lab</code>
               </pre>
 
-              <button class="token__copy">
+              <button class="token__copy" aria-label="Copy to clipboard">
                 <img src="images/icons/copy.svg">
                 <span class="token__tooltip">Copy to clipboard</span>
               </button>
@@ -897,7 +897,7 @@
 " http://localhost:8080</code>
               </pre>
 
-              <button class="token__copy">
+              <button class="token__copy" aria-label="Copy to clipboard">
                 <img src="images/icons/copy.svg">
                 <span class="token__tooltip">Copy to clipboard</span>
               </button>
@@ -909,7 +909,7 @@
                 <code class="token__comand">cnoctl deploy workload version-printer --go-to-live -e cno-cd-lab -p lab</code>
               </pre>
 
-              <button class="token__copy">
+              <button class="token__copy" aria-label="Copy to clipboard">
                 <img src="images/icons/copy.svg">
                 <span class="token__tooltip">Copy to clipboard</span>
               </button>
@@ -920,7 +920,7 @@
                 <code class="token__comand">cnoctl get workload -e cno-cd-lab -p lab</code>
               </pre>
 
-              <button class="token__copy">
+              <button class="token__copy" aria-label="Copy to clipboard">
                 <img src="images/icons/copy.svg">
                 <span class="token__tooltip">Copy to clipboard</span>
               </button>
@@ -958,7 +958,7 @@
 " http://localhost:8080</code>
               </pre>
 
-              <button class="token__copy">
+              <button class="token__copy" aria-label="Copy to clipboard">
                 <img src="images/icons/copy.svg">
                 <span class="token__tooltip">Copy to clipboard</span>
               </button>
@@ -972,14 +972,14 @@
         <div class="toc-container">
           <nav class="toc">
             <ul class="toc__list">
-              <li class="toc__item"><a class="active" href="#gs-contin-deploy">Continuous Deployment</a></li>
-              <li class="toc__item"><a href="#gs-prerequisites">Prerequisites</a></li>
-              <li class="toc__item"><a href="#gs-before-begin">Before to begin</a></li>
-              <li class="toc__item"><a href="#gs-overviews">Overviews</a></li>
-              <li class="toc__item"><a href="#gs-scaling">Scaling</a></li>
-              <li class="toc__item"><a href="#gs-contin-delivery">Continuous Delivery</a></li>
-              <li class="toc__item"><a href="#gs-auto-deploy">Auto deploy</a></li>
-              <li class="toc__item"><a href="#gs-blue-green">Blue/Green</a></li>
+              <li class="toc__item" aria-label="Continuous Deployment"><a class="active" href="#gs-contin-deploy">Continuous Deployment</a></li>
+              <li class="toc__item" aria-label="Prerequisites"><a href="#gs-prerequisites">Prerequisites</a></li>
+              <li class="toc__item" aria-label="Before to begin"><a href="#gs-before-begin">Before to begin</a></li>
+              <li class="toc__item" aria-label="Overviews"><a href="#gs-overviews">Overviews</a></li>
+              <li class="toc__item" aria-label="Scaling"><a href="#gs-scaling">Scaling</a></li>
+              <li class="toc__item" aria-label="Continuous Delivery"><a href="#gs-contin-delivery">Continuous Delivery</a></li>
+              <li class="toc__item" aria-label="Auto deploy"><a href="#gs-auto-deploy">Auto deploy</a></li>
+              <li class="toc__item" aria-label="Blue/Green"><a href="#gs-blue-green">Blue/Green</a></li>
             </ul>
           </nav>
         </div>
