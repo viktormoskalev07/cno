@@ -48,35 +48,69 @@
             
             <!-- CNO - Onboarding -->
             <h1 class="anchor" id="gs-cno-onboarding">CNO - Onboarding</h1>
-            <p>The introduction of new technology is not easy in large companies. Usually it is met with a lot of resistance from employees. Or technology is adopted but the whole organization is not onboarded well enough to really take advantage of it.  CNO helps you to build the best adoption program that minimizes resistance and aligns cloud-native technology with Business. </p>
+            <p>The introduction of new technology is not easy in large companies. Sometimes, companies struggle a lot to align the business side especially with adoption of  complex technology like Kubernetes. </p>
+            <p><strong>CNO</strong> helps you to build the best adoption program that minimizes resistance and <strong>aligns cloud-native technology with Business.</strong>  </p>
+            <p>CNO is designed to be the <strong>best Kubernetes adoption framework</strong> for your entire organization. It effectively combines three key elements; the best onboarding experience for your teams, a reliable and consistent continuous deployment of your applications to market and finally, the involvement of security during onboarding and the continuous deployment of the applications.</p>
+            <figure>
+              <img src="images/documents/concept-onboarding.png" alt="cno onboarding">
+            </figure>
 
             <!-- Project and Teams Onboarding -->
             <h2 class="anchor" id="gs-project-and-teams-onboarding">Project and Teams Onboarding</h2>
-            <p>With this onboarding feature, it will be much easier for the IT Teams to onboard organizational teams and projects. From CNO UI, each product owner in the company can now create a logical project by specifying exactly what the project needs in term of: </p>
+            <p>The Onboarding feature is a key element of your Kubernetes adoption process. It will be much easier for the IT Teams to onboard organizational teams and projects within the CNO platform. </p>
+            <p>From CNO UI, your entire organization can be onboarded into different teams working on specific projects.</p>
+            <figure>
+              <img src="images/documents/concept-project-and-teams.png" alt="cno project and teams">
+            </figure>
             <ul>
-              <li>Resources Requests, like CPU, Memory or Storage</li>
-              <li>Environments across multi-cloud Kubernetes Clusters.</li>
-              <li>The developers working on the project</li>
-              <li>The administrators who are maintaining those applications day-to-day</li>
+              <li>Deploy environments or Kubernetes multicluster namespaces for your applications</li>
+              <li>Enforce Multitenancy across your clusters</li>
+              <li>Define Resources Requests of a project like CPU, Memory or Storage</li>
+              <li>Onboard your organization tenants</li>
+              <li>Assign roles to each team member of the project</li>
             </ul>
 
             <!-- CNO environments or Kubernetes Multi-cluster namespaces -->
             <h3 class="anchor" id="gs-cno-environments-or-kubernetes">CNO environments or Kubernetes Multi-cluster namespaces</h3>
-            <p>In one project, it will be possible to specify many environnements, e.g. Dev, Staging, Production or any environment you want. For example, in each project, it is possible to create a Dev environment on AWS EKS, Staging environment on OpenShift and a Production environment on Kubernetes Vanilla located in your own datacenter.</p>
+            <p>CNO supports all Kubernetes platforms from a single console like Kubernetes Vanilla, Distributions like Openshift, Tanzu, Rancher, etc.. and all cloud providers Kubernetes services (AKS, EKS and GKE). <br>
+              In one project, you can define your own  environnements, e.g. Dev, Staging, Production or any you want. </p>
+            <p>CNO brings here an interesting feature called <b>Multi-cluster namespaces</b> that allows you to create your environments or namespaces without taking consideration of the underlying cluster ( Edges, On premises or Public Cloud). best
+              For example, you can create a Dev environment on AWS, a Staging environment on OpenShift and a Production environment on Kubernetes Vanilla located in your own datacenter.</p>
 
             <!-- Teams -->
-            <h3 class="anchor" id="gs-teams">Teams</h3>
-            <p>After the onboarding phase, all team members in the project will have everything needed to start working. Administrators can centralize the management of Kubernetes clusters and developers can set up their environment and deploy their applications without knowing any cloud providers or any Kubernetes platform.</p>
+            <h3 class="anchor" id="gs-teams">Teams or Organization tenants Onboarding</h3>
+            <p>During the onboarding phase, you can define several tenants into CNO accordingly to your organization hierarchy. These tenants can represent a group of users that has access to a Project and a subset of cluster resources. Each tenant is composed of a Project Owner and his team's members.</p>
+            <ul>
+              <li>The project Owner is responsible for a project and the role assignment to specific users.</li>
+              <li>Team members of a project can be Administrator, Developer or Viewer. 
+                <ul>
+                  <li>Administrators can centralize the management of Kubernetes clusters.</li>
+                  <li>Developers can set up their environment and deploy their applications without knowing any cloud providers or any Kubernetes platform.</li>
+                  <li>Viewer' role can be assigned to Auditors that have only read-only permissions.</li>
+                </ul>
+              </li>
+            </ul>
+            
+            <!-- Multi Tenancy Enforcement -->
+            <h2 class="anchor" id="gs-multy-tenancy">Multi Tenancy Enforcement</h2>
+            <p>Kubernetes does not bring by default multitenancy feature. With CNO, you can configure Multitenancy across your different projects and teams.</p>
+            <figure>
+              <img src="images/documents/concept-multy-tenancy.png" alt="cno multy tenancy">
+            </figure>
+            <span>Several tenants each Project Owner in the company can now create a logical project by specifying exactly the project resources needed in term of: </span>
+            <ul>
+              <li>Environments across multi-cloud Kubernetes Clusters.</li>
+              <li>The administrators who are maintaining those applications day-to-day</li>
+              <li>The developers working on the project</li>
+            </ul>
 
-            <!-- Organizations -->
-            <h3 class="anchor" id="gs-organizations">Organizations</h3>
+            <!-- Quota Management -->
+            <h2 class="anchor" id="gs-quota-management">Quota Management</h2>
+            <p>Administrators should clearly define quotas for the team in order to control the resources their application can consume.</p>
 
             <!-- Tagging Strategy -->
             <h2 class="anchor" id="gs-tagging-strategy">Tagging Strategy</h2>
-            
-            <!-- Quota Management -->
-            <h2 class="anchor" id="gs-quota-management">Quota Management</h2>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laboriosam unde omnis cupiditate laborum et error assumenda sunt officiis vero a?</p>
+            <p>e introduction </p> 
 
           </article>
         </div>
@@ -90,12 +124,12 @@
                 <a href="#gs-project-and-teams-onboarding">Project and Teams Onboarding</a>
                 <ul class="toc__list toc__list--inner">
                   <li class="toc__item" aria-label="CNO environments or Kubernetes Multi-cluster namespaces"><a href="#gs-cno-environments-or-kubernetes">CNO environments or Kubernetes Multi-cluster namespaces</a></li>
-                  <li class="toc__item" aria-label="Team"><a href="#gs-teams">Team</a></li>
-                  <li class="toc__item" aria-label="Organizations"><a href="#gs-organizations">Organizations</a></li>
+                  <li class="toc__item" aria-label="Team"><a href="#gs-teams">Teams or Organization tenants Onboarding</a></li>
                 </ul>
               </li>
-              <li class="toc__item" aria-label="Tagging Strategy"><a href="#gs-tagging-strategy">Tagging Strategy</a></li>
+              <li class="toc__item" aria-label="Tagging Strategy"><a href="#gs-multy-tenancy">Multi Tenancy Enforcement</a></li>
               <li class="toc__item" aria-label="Quota Management"><a href="#gs-quota-management">Quota Management</a></li>
+              <li class="toc__item" aria-label="Tagging Strategy"><a href="#gs-tagging-strategy">Tagging Strategy</a></li>
             </ul>
           </nav>
         </div>
